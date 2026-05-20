@@ -100,6 +100,16 @@ function stopMatrix() {
 }
 
 /* =============================================
+   SCROLL PROGRESS BAR
+   ============================================= */
+
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (window.scrollY / total * 100) + '%';
+}, { passive: true });
+
+/* =============================================
    CYBERPUNK GLITCH — data-text attr
    ============================================= */
 
