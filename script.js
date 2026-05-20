@@ -39,22 +39,6 @@ new Typed('#typed', {
   cursorChar: '█',
 });
 
-/* =============================================
-   SCROLL REVEAL
-   ============================================= */
-
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-  { threshold: 0, rootMargin: '0px 0px -60px 0px' }
-);
-
-const timelineItems = document.querySelectorAll('.timeline-item');
-timelineItems.forEach(el => observer.observe(el));
-
-// fallback: reveal all items if observer doesn't fire (e.g. iframe/preview)
-setTimeout(() => {
-  timelineItems.forEach(el => el.classList.add('visible'));
-}, 800);
 
 /* =============================================
    MATRIX RAIN
