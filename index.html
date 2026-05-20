@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="terminal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Matrix Rain Canvas (terminal theme only) -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Cyber Grid (cyberpunk theme only) -->
+  <div class="cyber-grid"></div>
+
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <button class="theme-btn" data-theme="terminal">TERM</button>
+    <button class="theme-btn" data-theme="modern">DARK</button>
+    <button class="theme-btn" data-theme="cyberpunk">CYBER</button>
+  </div>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-greeting">// Hello, World</p>
+        <h1 class="hero-name">JuneYoung Kim</h1>
+        <div class="hero-typed-wrap">
+          <span class="typed-prefix">$ </span>
+          <span id="typed"></span>
+        </div>
+        <p class="hero-desc">
+          백엔드 중심 시스템 엔지니어 &nbsp;·&nbsp; 100만 가입자 플랫폼 단독 운영
+          &nbsp;·&nbsp; 350대 서버 실시간 파이프라인 구축
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Years</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">1M+</span>
+            <span class="stat-label">Users</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">350+</span>
+            <span class="stat-label">Servers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CAREER ======== -->
+  <section class="section" id="career">
+    <div class="container">
+      <h2 class="section-title"><span class="accent-mark">&gt;</span> Career</h2>
+      <div class="timeline">
+
+        <!-- 병원 -->
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">다기관 병원 환자중심 앱 유지보수</h3>
+                <p class="card-sub">성모병원 8개 · 경희대병원 2개 운영 및 유지보수</p>
+              </div>
+              <span class="card-period">2025.08 — 2026.02<br/><em>약 7개월</em></span>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">MariaDB</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Shell Script</span>
+              <span class="tag">Cron</span>
+              <span class="tag">Nginx</span>
+            </div>
+            <ul class="card-list">
+              <li>인계 시 운영 리스크 전수 발견 및 전면 안정화
+                <ul class="card-sublist">
+                  <li>도커 바이너리 로그 포화로 인한 서버 중단 → 자동 삭제 스크립트 적용</li>
+                  <li>DBMS 복제 단절 → 복제 재구성</li>
+                  <li>백업 미운영 → 자동 백업 체계 구축</li>
+                  <li>디스크 풀 반복 발생 → 로그/백업본 자동 삭제 적용</li>
+                </ul>
+              </li>
+              <li>헬스체크 및 리소스 모니터링 Pull / Push 방식 구축</li>
+              <li>결제 모듈 재구축 (PG사 모듈 만료로 인한 재구현 및 리팩토링)</li>
+              <li>폐쇄망 내부 앱 배포 UI 구현</li>
+              <li>API 유지보수 및 기능 개선</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IPTV 유지보수 -->
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">3BB GIGA IPTV — 유지보수 및 고도화</h3>
+                <p class="card-sub">가입자 100만 규모 IPTV 플랫폼 운영</p>
+              </div>
+              <span class="card-period">2021.01 — 2025.12<br/><em>약 5년</em></span>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Redis</span>
+              <span class="tag">RabbitMQ</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Jenkins</span>
+              <span class="tag">PCS</span>
+            </div>
+            <ul class="card-list">
+              <li>전담 개발자로 시스템 전체 유지보수 및 고도화 담당</li>
+              <li>외부 시스템(STB, CMS, DBS 등) API 연동 관리 및 스펙 변경 대응</li>
+              <li>채널 변경 이벤트 부하 분산 적용 (DBMS 분리)</li>
+              <li>분기별 전체 서버 점검 운영</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MAI-WACS -->
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">MAI-WACS 시스템 고도화</h3>
+                <p class="card-sub">약 350대 서버 로그 30초 단위 실시간 수집 파이프라인</p>
+              </div>
+              <span class="card-period">2022.06 — 2023.10<br/><em>약 16개월</em></span>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">Flink</span>
+              <span class="tag">Docker</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">DRBD</span>
+              <span class="tag">React</span>
+              <span class="tag">PCS</span>
+            </div>
+            <ul class="card-list">
+              <li>Telegraf + Kafka + Flink 기반 실시간 로그 수집 파이프라인 구축</li>
+              <li>수집 서버 및 DB 서버 인프라 구성</li>
+              <li>MQ 서버 클러스터 구성</li>
+              <li>React 기반 모니터링 대시보드 및 호스트 관리 개발</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IPTV 어드민 -->
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">3BB GIGA IPTV — 어드민 개발</h3>
+                <p class="card-sub">IPTV 플랫폼 관리자 시스템 개발</p>
+              </div>
+              <span class="card-period">2020.07 — 2021.01<br/><em>약 6개월</em></span>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">JSP</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <ul class="card-list">
+              <li>패키지 별 콘텐츠 뷰어 기능 개발</li>
+              <li>사용자 관리 기능 개발</li>
+              <li>IPTV 환경 설정 관리 기능 개발 (광고 활성화 및 결제 수단 활성화 등)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SKILLS ======== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title"><span class="accent-mark">&gt;</span> Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Backend</h4>
+          <div class="skill-tags">
+            <span class="tag tag-main">Spring Boot</span>
+            <span class="tag tag-main">Java</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Database</h4>
+          <div class="skill-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">MariaDB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Message / Stream</h4>
+          <div class="skill-tags">
+            <span class="tag">Kafka</span>
+            <span class="tag">RabbitMQ</span>
+            <span class="tag">Flink</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Infra / DevOps</h4>
+          <div class="skill-tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">Shell Script</span>
+            <span class="tag">Cron</span>
+            <span class="tag">DRBD</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Frontend</h4>
+          <div class="skill-tags">
+            <span class="tag">React</span>
+            <span class="tag">JSP</span>
+            <span class="tag">jQuery</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Monitoring</h4>
+          <div class="skill-tags">
+            <span class="tag">Telegraf</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">
+        <span class="accent-mark">// </span>Built with HTML · CSS · JS &nbsp;·&nbsp; Deployed on Cloudflare Pages
+      </p>
+      <!-- TODO: GitHub 링크 변경 -->
+      <a class="footer-link" href="https://github.com/sky14786/resume-ai" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/dist/typed.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
