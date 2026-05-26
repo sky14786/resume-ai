@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Mouse Spotlight -->
+  <div id="spotlight"></div>
+
+  <!-- Scroll Progress -->
+  <div id="progress"></div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <span class="nav-name">JY<span class="nav-dot">.</span>K</span>
+    <div class="nav-links">
+      <a href="#career">Career</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO BENTO ── -->
+  <section class="hero-section">
+    <div class="bento hero-bento">
+
+      <!-- Main hero card -->
+      <div class="card hero-card">
+        <p class="hero-label">Backend Engineer · System Operator</p>
+        <h1 class="hero-name">JuneYoung<br/>Kim</h1>
+        <p class="hero-desc">
+          혼자서 시스템 전체를 책임지는 엔지니어.<br/>
+          안정화, 운영, 파이프라인 — 끝까지 다 합니다.
+        </p>
+        <div class="hero-badge-row">
+          <span class="badge">Spring Boot</span>
+          <span class="badge">Kafka</span>
+          <span class="badge">Docker</span>
+          <span class="badge">Nginx</span>
+        </div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="card stat-card" data-count="5" data-suffix="+">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Years</span>
+        <p class="stat-desc">2020 ~ 현재</p>
+      </div>
+
+      <div class="card stat-card" data-count="100" data-suffix="만+">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Users</span>
+        <p class="stat-desc">IPTV 가입자 규모</p>
+      </div>
+
+      <div class="card stat-card" data-count="350" data-suffix="+">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Servers</span>
+        <p class="stat-desc">실시간 로그 수집</p>
+      </div>
+
+      <!-- Keyword card -->
+      <div class="card keyword-card">
+        <p class="keyword-top">// 한 줄 요약</p>
+        <p class="keyword-text">"물려받은 엉망진창을<br/><em>전면 정리</em>하는 사람"</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="section" id="skills">
+    <div class="section-label">Skills</div>
+    <div class="skills-cloud">
+      <span class="skill-tag main">Spring Boot</span>
+      <span class="skill-tag main">Java</span>
+      <span class="skill-tag">MySQL</span>
+      <span class="skill-tag">MariaDB</span>
+      <span class="skill-tag">PostgreSQL</span>
+      <span class="skill-tag">Redis</span>
+      <span class="skill-tag accent">Kafka</span>
+      <span class="skill-tag accent">Flink</span>
+      <span class="skill-tag">RabbitMQ</span>
+      <span class="skill-tag accent">Docker</span>
+      <span class="skill-tag accent">Nginx</span>
+      <span class="skill-tag">Jenkins</span>
+      <span class="skill-tag">Shell Script</span>
+      <span class="skill-tag">Cron</span>
+      <span class="skill-tag">DRBD</span>
+      <span class="skill-tag dim">React</span>
+      <span class="skill-tag dim">JSP</span>
+      <span class="skill-tag dim">jQuery</span>
+      <span class="skill-tag">Telegraf</span>
+    </div>
+  </section>
+
+  <!-- ── CAREER ── -->
+  <section class="section" id="career">
+    <div class="section-label">Career</div>
+    <div class="bento career-bento">
+
+      <!-- 병원 (featured) -->
+      <div class="card career-card featured">
+        <div class="career-year">2025</div>
+        <div class="career-body">
+          <div class="career-header">
+            <div>
+              <h3 class="career-title">다기관 병원 환자중심 앱 유지보수</h3>
+              <p class="career-sub">성모병원 8개 · 경희대병원 2개</p>
+            </div>
+            <span class="career-period">2025.08 — 2026.02</span>
+          </div>
+          <div class="career-tags">
+            <span class="badge sm">Spring Boot</span>
+            <span class="badge sm">MariaDB</span>
+            <span class="badge sm">Docker</span>
+            <span class="badge sm">Shell Script</span>
+            <span class="badge sm">Nginx</span>
+          </div>
+          <ul class="career-list">
+            <li>인계 시 운영 리스크 전수 발견 및 전면 안정화</li>
+            <li>DBMS 복제 단절, 백업 미운영, 디스크 풀 → 전부 자동화로 해결</li>
+            <li>헬스체크 / 리소스 모니터링 Pull·Push 방식 구축</li>
+            <li>PG사 만료로 인한 결제 모듈 재구축</li>
+            <li>폐쇄망 내부 앱 배포 UI 구현</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IPTV 5년 -->
+      <div class="card career-card">
+        <div class="career-year">2021</div>
+        <div class="career-body">
+          <div class="career-header">
+            <div>
+              <h3 class="career-title">3BB GIGA IPTV</h3>
+              <p class="career-sub">유지보수 및 고도화 · 가입자 100만</p>
+            </div>
+            <span class="career-period">2021.01 — 2025.12</span>
+          </div>
+          <div class="career-tags">
+            <span class="badge sm">Spring Boot</span>
+            <span class="badge sm">Redis</span>
+            <span class="badge sm">RabbitMQ</span>
+            <span class="badge sm">MySQL</span>
+            <span class="badge sm">Jenkins</span>
+          </div>
+          <ul class="career-list">
+            <li>전담 개발자 1인으로 플랫폼 전체 5년 단독 운영</li>
+            <li>외부 시스템(STB, CMS, DBS) API 연동 관리</li>
+            <li>채널 변경 이벤트 부하 분산 (DBMS 분리)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WACS -->
+      <div class="card career-card">
+        <div class="career-year">2022</div>
+        <div class="career-body">
+          <div class="career-header">
+            <div>
+              <h3 class="career-title">MAI-WACS 고도화</h3>
+              <p class="career-sub">350대 서버 30초 단위 실시간 로그 수집</p>
+            </div>
+            <span class="career-period">2022.06 — 2023.10</span>
+          </div>
+          <div class="career-tags">
+            <span class="badge sm">Kafka</span>
+            <span class="badge sm">Flink</span>
+            <span class="badge sm">Docker</span>
+            <span class="badge sm">PostgreSQL</span>
+            <span class="badge sm">React</span>
+          </div>
+          <ul class="career-list">
+            <li>Telegraf + Kafka + Flink 실시간 파이프라인 구축</li>
+            <li>수집 서버 · DB · MQ 클러스터 인프라 구성</li>
+            <li>React 기반 모니터링 대시보드 개발</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IPTV 어드민 -->
+      <div class="card career-card sm-card">
+        <div class="career-year">2020</div>
+        <div class="career-body">
+          <div class="career-header">
+            <div>
+              <h3 class="career-title">3BB GIGA IPTV 어드민</h3>
+              <p class="career-sub">관리자 시스템 개발</p>
+            </div>
+            <span class="career-period">2020.07 — 2021.01</span>
+          </div>
+          <div class="career-tags">
+            <span class="badge sm">Spring Boot</span>
+            <span class="badge sm">JSP</span>
+            <span class="badge sm">jQuery</span>
+            <span class="badge sm">MySQL</span>
+          </div>
+          <ul class="career-list">
+            <li>콘텐츠 뷰어, 사용자 관리, 환경설정 기능 개발</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <span class="footer-copy">JuneYoung Kim · Backend Engineer</span>
+    <a class="footer-link" href="https://github.com/sky14786" target="_blank">GitHub ↗</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
