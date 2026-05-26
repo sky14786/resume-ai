@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JuneYoung Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Scroll Progress -->
+  <div id="progress"></div>
+
+  <!-- Command Palette -->
+  <div id="cmd-overlay" class="hidden">
+    <div id="cmd-box">
+      <div id="cmd-header">
+        <span id="cmd-icon">⌘</span>
+        <input id="cmd-input" type="text" placeholder="검색하거나 이동..." autocomplete="off"/>
+        <span id="cmd-esc">ESC</span>
+      </div>
+      <ul id="cmd-list"></ul>
+      <div id="cmd-footer">
+        <span><kbd>↑↓</kbd> 이동</span>
+        <span><kbd>↵</kbd> 선택</span>
+        <span><kbd>ESC</kbd> 닫기</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">JY<span>.</span></a>
+    <div class="nav-center">
+      <a href="#career">Career</a>
+      <a href="#skills">Skills</a>
+    </div>
+    <button class="cmd-trigger" id="cmd-trigger">
+      <span>검색</span>
+      <kbd>⌘K</kbd>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-label">// Backend Engineer · System Operator</p>
+
+      <h1 class="hero-name" id="hero-name">
+        <span class="name-word" id="word1"></span>
+        <br/>
+        <span class="name-word" id="word2"></span>
+      </h1>
+
+      <p class="hero-desc">
+        혼자서 시스템 전체를 책임지는 엔지니어.<br/>
+        안정화, 운영, 파이프라인 — 끝까지 다 합니다.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat" data-val="5" data-sfx="+ Years">
+          <span class="stat-n">0</span>
+          <span class="stat-l">Years</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-val="100" data-sfx="만+ Users">
+          <span class="stat-n">0</span>
+          <span class="stat-l">만+ Users</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-val="350" data-sfx="+ Servers">
+          <span class="stat-n">0</span>
+          <span class="stat-l">Servers</span>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">scroll ↓</div>
+    </div>
+
+    <!-- kinetic bg text -->
+    <div class="hero-bg-text" aria-hidden="true">ENGINEER</div>
+  </section>
+
+  <!-- ── CAREER ── -->
+  <section class="section" id="career">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <span class="label-text">Career</span>
+      </div>
+
+      <div class="career-grid">
+
+        <div class="brut-card reveal-left" id="c-hospital">
+          <div class="brut-year">2025</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">다기관 병원 환자중심 앱</h3>
+                <p class="brut-sub">성모병원 8개 · 경희대병원 2개 유지보수</p>
+              </div>
+              <span class="brut-period">2025.08 — 2026.02</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">MariaDB</span>
+              <span class="btag">Docker</span>
+              <span class="btag">Shell Script</span>
+              <span class="btag">Nginx</span>
+            </div>
+            <ul class="brut-list">
+              <li>인계 시 운영 리스크 전수 발견 및 전면 안정화</li>
+              <li>DBMS 복제 단절 · 백업 미운영 · 디스크 풀 → 전부 자동화</li>
+              <li>헬스체크 / 모니터링 Pull·Push 방식 구축</li>
+              <li>PG사 만료로 인한 결제 모듈 재구축</li>
+              <li>폐쇄망 내부 앱 배포 UI 구현</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-right" id="c-iptv">
+          <div class="brut-year">2021</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">3BB GIGA IPTV</h3>
+                <p class="brut-sub">가입자 100만 규모 플랫폼 · 5년 단독 운영</p>
+              </div>
+              <span class="brut-period">2021.01 — 2025.12</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">Redis</span>
+              <span class="btag">RabbitMQ</span>
+              <span class="btag">MySQL</span>
+              <span class="btag">Jenkins</span>
+            </div>
+            <ul class="brut-list">
+              <li>전담 개발자 1인으로 플랫폼 전체 단독 운영</li>
+              <li>외부 시스템(STB, CMS, DBS) API 연동 관리</li>
+              <li>채널 변경 이벤트 부하 분산 (DBMS 분리)</li>
+              <li>분기별 전체 서버 점검 운영</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-left" id="c-wacs">
+          <div class="brut-year">2022</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">MAI-WACS 시스템 고도화</h3>
+                <p class="brut-sub">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
+              </div>
+              <span class="brut-period">2022.06 — 2023.10</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Kafka</span>
+              <span class="btag">Flink</span>
+              <span class="btag">Docker</span>
+              <span class="btag">PostgreSQL</span>
+              <span class="btag">React</span>
+              <span class="btag">DRBD</span>
+            </div>
+            <ul class="brut-list">
+              <li>Telegraf + Kafka + Flink 실시간 파이프라인 구축</li>
+              <li>수집 서버 · DB · MQ 클러스터 인프라 구성</li>
+              <li>React 기반 모니터링 대시보드 개발</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-right" id="c-admin">
+          <div class="brut-year">2020</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">3BB GIGA IPTV 어드민</h3>
+                <p class="brut-sub">관리자 시스템 개발</p>
+              </div>
+              <span class="brut-period">2020.07 — 2021.01</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">JSP</span>
+              <span class="btag">jQuery</span>
+              <span class="btag">MySQL</span>
+            </div>
+            <ul class="brut-list">
+              <li>콘텐츠 뷰어 · 사용자 관리 · 환경설정 기능 개발</li>
+              <li>광고 활성화 · 결제 수단 관리 UI 구현</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <span class="label-text">Skills</span>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-group">
+          <span class="sg-label">Core</span>
+          <span class="stag main">Spring Boot</span>
+          <span class="stag main">Java</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">DB</span>
+          <span class="stag">MySQL</span>
+          <span class="stag">MariaDB</span>
+          <span class="stag">PostgreSQL</span>
+          <span class="stag">Redis</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Stream</span>
+          <span class="stag hi">Kafka</span>
+          <span class="stag hi">Flink</span>
+          <span class="stag">RabbitMQ</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Infra</span>
+          <span class="stag hi">Docker</span>
+          <span class="stag hi">Nginx</span>
+          <span class="stag">Jenkins</span>
+          <span class="stag">Shell Script</span>
+          <span class="stag">Cron</span>
+          <span class="stag">DRBD</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Front</span>
+          <span class="stag dim">React</span>
+          <span class="stag dim">JSP</span>
+          <span class="stag dim">jQuery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">JuneYoung Kim</span>
+      <a class="footer-gh" href="https://github.com/sky14786" target="_blank">GitHub ↗</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
