@@ -25,7 +25,23 @@
 - **특이사항**: 숫자 카운터 애니메이션, 상단 고정 nav, 연도 큰 숫자 장식
 - **로컬 서버**: `npx serve resume-ai/v2` (port autoassign)
 
-> **현재 미결**: v1 / v2 중 하나로 방향 결정 필요 (또는 혼합)
+### v3 (`/v3/`) ⭐ 마음에 든다고 확인됨
+- **테마**: 단일 Lime (#a3e635) 네오브루탈리즘
+- **레이아웃**: 2열 그리드 (career), 섹션 구분 번호 레이블
+- **포인트 색상**: Lime Green #a3e635
+- **주요 기능**:
+  - Kinetic Typography — 이름 글자별 decode 애니메이션
+  - Custom Cursor — lime 도트 + 링, hover 시 변형
+  - Command Palette — `⌘K` / `Ctrl+K`, 키보드 네비게이션
+  - Scroll Storytelling — 카드 좌우 슬라이드 인
+  - Neobrutalism 카드 — 두꺼운 border + lime offset shadow
+  - Scroll progress bar
+  - 숫자 카운터 (easeOutCubic)
+- **로컬 서버**: `npx serve resume-ai/v3` (port autoassign)
+- **열기**: `file:///E:/AI/resume-ai/v3/index.html` 또는 로컬 서버
+- **주의**: 프리뷰 iframe에서 스크린샷 불가 (무한 애니메이션 + cursor:none 조합) — 브라우저 직접 열어야 함
+
+> **현재 방향**: v3 기반으로 진행 확정. 다듬기 작업 필요.
 
 ---
 
@@ -59,12 +75,23 @@
 - [x] Skills 태그 클라우드 (크기/색상 분류)
 - [x] 앰버 단일 테마
 
+### v3 신규 제작 ⭐
+- [x] Neobrutalism 카드 (2px border + 5px lime offset shadow)
+- [x] Kinetic Typography (글자별 decode 애니메이션)
+- [x] Custom Cursor (dot + ring, hover 변형)
+- [x] Command Palette (⌘K, 키보드 nav, 검색 필터)
+- [x] Scroll Storytelling (카드 좌우 슬라이드 인)
+- [x] 숫자 카운터 (easeOutCubic, IntersectionObserver)
+- [x] Scroll progress bar (lime glow)
+- [x] 상단 고정 nav (스크롤 시 blur backdrop)
+- [x] Lime 단일 테마
+
 ---
 
 ## 다음 작업 (TODO)
 
 ### 방향 결정
-- [ ] v1 / v2 중 메인 버전 선택 (또는 혼합)
+- [x] v3 (Neobrutalism + Lime) 방향으로 확정
 
 ### 배포
 - [ ] Cloudflare Pages 연결 (GitHub 저장소 → 자동 배포)
@@ -90,9 +117,13 @@ resume-ai/
 ├── style.css        # v1 스타일 (3 테마)
 ├── script.js        # v1 JS (테마 스위칭, 매트릭스, Typed.js)
 ├── v2/
-│   ├── index.html   # v2 메인 (Bento Grid)
-│   ├── style.css    # v2 스타일 (앰버 단일 테마)
-│   └── script.js    # v2 JS (spotlight, counter, nav)
+│   ├── index.html   # v2 메인 (Bento Grid + Amber)
+│   ├── style.css    # v2 스타일
+│   └── script.js    # v2 JS
+├── v3/              # ⭐ 현재 메인 방향
+│   ├── index.html   # v3 메인 (Neobrutalism + Lime)
+│   ├── style.css    # v3 스타일
+│   └── script.js    # v3 JS (cursor, kinetic, cmd palette, scroll)
 ├── PROGRESS.md      # 이 파일
 └── LICENSE
 ```
@@ -108,8 +139,13 @@ npx serve resume-ai
 # v2
 npx serve resume-ai/v2
 
+# v3 (추천)
+npx serve resume-ai/v3
+# 또는 파일 직접: file:///E:/AI/resume-ai/v3/index.html
+
 # launch.json 위치: E:\AI\.claude\launch.json
-# 서버명: resume-ai / resume-ai-v2
+# 서버명: resume-ai / resume-ai-v2 / resume-ai-v3
+# ⚠️ v3는 프리뷰 iframe 스크린샷 불가 — 브라우저 직접 열어야 함
 ```
 
 ---
@@ -138,3 +174,25 @@ npx serve resume-ai/v2
 **숫자 카운터**
 - `IntersectionObserver` threshold 0.5로 뷰포트 진입 시 시작
 - `easeOutCubic` 이징 적용, duration 1200ms
+
+### v3
+**Kinetic Typography (decode)**
+- 글자별 `<span class="char">` 분리
+- 무작위 문자로 scramble 후 실제 글자로 resolve
+- 단어별 delay 차이 (word1: 200ms, word2: 700ms)
+
+**Custom Cursor**
+- `mousemove` 이벤트로 dot/ring 위치 업데이트
+- hover 대상에서 `cursor-hover` class 토글 → CSS로 변형
+- ⚠️ RAF 루프 사용 시 프리뷰 스크린샷 불가 → mousemove 방식 사용
+
+**Command Palette**
+- `⌘K` / `Ctrl+K` 트리거
+- ITEMS 배열로 항목 관리, 검색 필터링
+- `ArrowUp/Down` + `Enter` 키보드 네비게이션
+- 클릭/ESC로 닫기
+
+**Scroll Storytelling**
+- `.reveal-left` → `translateX(-60px)`, `.reveal-right` → `translateX(60px)` 시작
+- `IntersectionObserver` threshold 0.1로 `.visible` class 추가 시 원위치
+- Skills 태그도 stagger delay로 순차 등장
