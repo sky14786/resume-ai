@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <meta name="description" content="혼자서 시스템 전체를 책임지는 백엔드 엔지니어. 안정화, 운영, 파이프라인."/>
+  <meta property="og:title" content="JuneYoung Kim — Backend Engineer"/>
+  <meta property="og:description" content="혼자서 시스템 전체를 책임지는 엔지니어. 안정화, 운영, 파이프라인 — 끝까지 다 합니다."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Scroll Progress -->
+  <div id="progress"></div>
+
+  <!-- Command Palette -->
+  <div id="cmd-overlay" class="hidden">
+    <div id="cmd-box">
+      <div id="cmd-header">
+        <span id="cmd-icon">⌘</span>
+        <input id="cmd-input" type="text" placeholder="검색하거나 이동..." autocomplete="off"/>
+        <span id="cmd-esc">ESC</span>
+      </div>
+      <ul id="cmd-list"></ul>
+      <div id="cmd-footer">
+        <span><kbd>↑↓</kbd> 이동</span>
+        <span><kbd>↵</kbd> 선택</span>
+        <span><kbd>ESC</kbd> 닫기</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">JY<span>.</span></a>
+    <div class="nav-center">
+      <a href="#career">Career</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="pdf-trigger" onclick="window.print()">PDF <span>↓</span></button>
+      <button class="cmd-trigger" id="cmd-trigger">
+        <span>검색</span>
+        <kbd>⌘K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-label">// Backend Engineer · System Operator</p>
+
+      <h1 class="hero-name" id="hero-name">
+        <span class="name-word" id="word1"></span>
+        <br/>
+        <span class="name-word" id="word2"></span>
+      </h1>
+
+      <p class="hero-desc">
+        혼자서 시스템 전체를 책임지는 엔지니어.<br/>
+        안정화, 운영, 파이프라인 — 끝까지 다 합니다.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat" data-val="5" data-sfx="+ Years">
+          <span class="stat-n">0</span>
+          <span class="stat-l">Years</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-val="100" data-sfx="만+ Users">
+          <span class="stat-n">0</span>
+          <span class="stat-l">만+ Users</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-val="350" data-sfx="+ Servers">
+          <span class="stat-n">0</span>
+          <span class="stat-l">Servers</span>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">scroll ↓</div>
+    </div>
+
+    <!-- kinetic bg text -->
+    <div class="hero-bg-text" aria-hidden="true">ENGINEER</div>
+  </section>
+
+  <!-- ── CAREER ── -->
+  <section class="section section-rel" id="career">
+    <div class="section-bg-num" aria-hidden="true">01</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <span class="label-text">Career</span>
+      </div>
+
+      <div class="career-grid">
+
+        <div class="brut-card featured reveal-left" id="c-hospital">
+          <div class="brut-year">2025</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">다기관 병원 환자중심 앱</h3>
+                <p class="brut-sub">성모병원 8개 · 경희대병원 2개 유지보수</p>
+              </div>
+              <span class="brut-period">2025.08 — 2026.02</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">MariaDB</span>
+              <span class="btag">Docker</span>
+              <span class="btag">Shell Script</span>
+              <span class="btag">Nginx</span>
+              <span class="btag">Pacemaker</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">10개 병원</span>
+              <span class="bstat">6개월</span>
+              <span class="bstat">무중단 이관</span>
+            </div>
+            <ul class="brut-list">
+              <li>인계 시 운영 리스크 전수 발견 및 전면 안정화</li>
+              <li>DBMS 복제 단절 · 백업 미운영 · 디스크 풀 → 전부 자동화</li>
+              <li>헬스체크 / 모니터링 Pull·Push 방식 구축</li>
+              <li>PG사 만료로 인한 결제 모듈 재구축</li>
+              <li>폐쇄망 내부 앱 배포 UI 구현</li>
+            </ul>
+
+            <div class="arch-wrap">
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover</span></div>
+              <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
+              <div class="arch-diagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                  <rect width="800" height="360" fill="#0d0d0d"/>
+                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">HOSPITAL PATIENT APP — SYSTEM ARCHITECTURE</text>
+                  <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
+                  <!-- layer labels -->
+                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">CLIENT</text>
+                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
+                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">INFRA</text>
+                  <!-- layer backgrounds -->
+                  <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
+                  <rect x="65" y="240" width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <!-- connections -->
+                  <line x1="400" y1="128" x2="400" y2="146" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="396,146 404,146 400,153" fill="#a3e635"/>
+                  <line x1="650" y1="128" x2="650" y2="146" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="646,146 654,146 650,153" fill="#a3e635"/>
+                  <line x1="225" y1="188" x2="318" y2="188" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="318,184 318,192 325,188" fill="#a3e635"/>
+                  <line x1="475" y1="188" x2="568" y2="188" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="568,184 568,192 575,188" fill="#a3e635"/>
+                  <line x1="127" y1="248" x2="150" y2="230" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="146,230 154,230 150,223" fill="#a3e635"/>
+                  <line x1="400" y1="223" x2="497" y2="241" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="493,241 501,241 497,248" fill="#a3e635"/>
+                  <line x1="650" y1="223" x2="684" y2="241" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="680,241 688,241 684,248" fill="#a3e635"/>
+                  <line x1="377" y1="283" x2="435" y2="283" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="435,279 435,287 439,283" fill="#a3e635"/>
+                  <!-- row 1: client -->
+                  <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PATIENT APP</text>
+                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">iOS / Android</text>
+                  <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">ADMIN WEB</text>
+                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">internal dashboard</text>
+                  <!-- row 2: app -->
+                  <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">NGINX</text>
+                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">reverse proxy</text>
+                  <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
+                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">Spring Boot</text>
+                  <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PAYMENT</text>
+                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">PG module</text>
+                  <!-- row 3: infra (4 nodes) -->
+                  <rect x="69"  y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="65"  y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="127" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">DOCKER</text>
+                  <text x="127" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">container runtime</text>
+                  <!-- HA cluster boundary -->
+                  <rect x="248" y="244" width="327" height="82" fill="#a3e635" opacity="0.05" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
+                  <text x="571" y="256" text-anchor="end" fill="#a3e635" font-family="monospace" font-size="8" opacity="0.5" letter-spacing="1">HA</text>
+                  <rect x="256" y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="252" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="314" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PACEMAKER</text>
+                  <text x="314" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">cluster HA</text>
+                  <rect x="443" y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="439" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="501" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MARIADB</text>
+                  <text x="501" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">M/R replication</text>
+                  <rect x="630" y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="626" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="688" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
+                  <text x="688" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">healthcheck / alert</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-right" id="c-iptv">
+          <div class="brut-year">2021</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">3BB GIGA IPTV</h3>
+                <p class="brut-sub">가입자 100만 규모 플랫폼 · 5년 단독 운영</p>
+              </div>
+              <span class="brut-period">2021.01 — 2025.12</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">Redis</span>
+              <span class="btag">RabbitMQ</span>
+              <span class="btag">MySQL</span>
+              <span class="btag">Jenkins</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">100만 가입자</span>
+              <span class="bstat">5년 단독</span>
+            </div>
+            <ul class="brut-list">
+              <li>전담 개발자 1인으로 플랫폼 전체 단독 운영</li>
+              <li>외부 시스템(STB, CMS, DBS) API 연동 관리</li>
+              <li>채널 변경 이벤트 부하 분산 (DBMS 분리)</li>
+              <li>분기별 전체 서버 점검 운영</li>
+            </ul>
+
+            <div class="arch-wrap">
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover</span></div>
+              <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
+              <div class="arch-diagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                  <rect width="800" height="360" fill="#0d0d0d"/>
+                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">3BB GIGA IPTV — SYSTEM ARCHITECTURE</text>
+                  <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
+                  <!-- layer labels -->
+                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">EXT</text>
+                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
+                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">DATA</text>
+                  <!-- layer backgrounds -->
+                  <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
+                  <rect x="65" y="240" width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <!-- connections -->
+                  <line x1="400" y1="128" x2="400" y2="146" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="396,146 404,146 400,153" fill="#a3e635"/>
+                  <line x1="650" y1="128" x2="650" y2="146" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="646,146 654,146 650,153" fill="#a3e635"/>
+                  <line x1="225" y1="188" x2="318" y2="188" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="318,184 318,192 325,188" fill="#a3e635"/>
+                  <line x1="475" y1="188" x2="568" y2="188" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="568,184 568,192 575,188" fill="#a3e635"/>
+                  <line x1="150" y1="248" x2="150" y2="230" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="146,230 154,230 150,223" fill="#a3e635"/>
+                  <line x1="400" y1="223" x2="400" y2="241" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="396,241 404,241 400,248" fill="#a3e635"/>
+                  <line x1="650" y1="223" x2="650" y2="241" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="646,241 654,241 650,248" fill="#a3e635"/>
+                  <!-- row 1: external -->
+                  <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">CMS SYSTEM</text>
+                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">content management</text>
+                  <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">STB CLUSTER</text>
+                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">set-top boxes</text>
+                  <!-- row 2: app -->
+                  <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">RABBITMQ</text>
+                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">channel events</text>
+                  <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
+                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">Spring Boot</text>
+                  <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">REDIS</text>
+                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">session / cache</text>
+                  <!-- row 3: data -->
+                  <rect x="79"  y="252" width="150" height="70" fill="#a3e635"/>
+                  <rect x="75"  y="248" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="150" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MYSQL</text>
+                  <text x="150" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">separated DBMS</text>
+                  <rect x="329" y="252" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="248" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">JENKINS</text>
+                  <text x="400" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">CI/CD pipeline</text>
+                  <rect x="579" y="252" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="248" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">DBS GATEWAY</text>
+                  <text x="650" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">broadcast system</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-left" id="c-wacs">
+          <div class="brut-year">2022</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">MAI-WACS 시스템 고도화</h3>
+                <p class="brut-sub">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
+              </div>
+              <span class="brut-period">2022.06 — 2023.10</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Kafka</span>
+              <span class="btag">Flink</span>
+              <span class="btag">Docker</span>
+              <span class="btag">PostgreSQL</span>
+              <span class="btag">React</span>
+              <span class="btag">DRBD</span>
+              <span class="btag">Pacemaker</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">350대 서버</span>
+              <span class="bstat">30초 수집</span>
+            </div>
+            <ul class="brut-list">
+              <li>Telegraf + Kafka + Flink 실시간 파이프라인 구축</li>
+              <li>수집 서버 · DB · MQ 클러스터 인프라 구성</li>
+              <li>React 기반 모니터링 대시보드 개발</li>
+            </ul>
+
+            <div class="arch-wrap">
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover</span></div>
+              <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
+              <div class="arch-diagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                  <rect width="800" height="360" fill="#0d0d0d"/>
+                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">MAI-WACS — SYSTEM ARCHITECTURE</text>
+                  <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
+                  <!-- layer labels -->
+                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">USER</text>
+                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
+                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">INFRA</text>
+                  <!-- layer backgrounds -->
+                  <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
+                  <rect x="65" y="240" width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <!-- connections -->
+                  <line x1="400" y1="128" x2="400" y2="146" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="396,146 404,146 400,153" fill="#a3e635"/>
+                  <line x1="650" y1="153" x2="650" y2="135" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="646,135 654,135 650,128" fill="#a3e635"/>
+                  <line x1="225" y1="188" x2="318" y2="188" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="318,184 318,192 325,188" fill="#a3e635"/>
+                  <line x1="475" y1="188" x2="568" y2="188" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="568,184 568,192 575,188" fill="#a3e635"/>
+                  <line x1="127" y1="248" x2="150" y2="230" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="146,230 154,230 150,223" fill="#a3e635"/>
+                  <line x1="400" y1="223" x2="497" y2="241" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="493,241 501,241 497,248" fill="#a3e635"/>
+                  <line x1="650" y1="223" x2="684" y2="241" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="680,241 688,241 684,248" fill="#a3e635"/>
+                  <line x1="377" y1="283" x2="435" y2="283" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="435,279 435,287 439,283" fill="#a3e635"/>
+                  <!-- row 1: user -->
+                  <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
+                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">web dashboard</text>
+                  <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">ALERT ENGINE</text>
+                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">email / SMS</text>
+                  <!-- row 2: app -->
+                  <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
+                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">message broker</text>
+                  <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
+                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">REST / query</text>
+                  <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
+                  <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
+                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">stream processing</text>
+                  <!-- row 3: infra (4 nodes) -->
+                  <rect x="69"  y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="65"  y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="127" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
+                  <text x="127" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">syslog / metrics</text>
+                  <!-- HA cluster boundary -->
+                  <rect x="248" y="244" width="327" height="82" fill="#a3e635" opacity="0.05" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
+                  <text x="571" y="256" text-anchor="end" fill="#a3e635" font-family="monospace" font-size="8" opacity="0.5" letter-spacing="1">HA</text>
+                  <rect x="256" y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="252" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="314" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PACEMAKER</text>
+                  <text x="314" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">cluster HA</text>
+                  <rect x="443" y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="439" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="501" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">TIMESCALEDB</text>
+                  <text x="501" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">time-series store</text>
+                  <rect x="630" y="252" width="125" height="70" fill="#a3e635"/>
+                  <rect x="626" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+                  <text x="688" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">S3 / ARCHIVE</text>
+                  <text x="688" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">cold storage</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-right" id="c-admin">
+          <div class="brut-year">2020</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">3BB GIGA IPTV 어드민</h3>
+                <p class="brut-sub">관리자 시스템 개발</p>
+              </div>
+              <span class="brut-period">2020.07 — 2021.01</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">JSP</span>
+              <span class="btag">jQuery</span>
+              <span class="btag">MySQL</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">첫 투입 프로젝트</span>
+              <span class="bstat">6개월</span>
+            </div>
+            <ul class="brut-list">
+              <li>콘텐츠 뷰어 · 사용자 관리 · 환경설정 기능 개발</li>
+              <li>광고 활성화 · 결제 수단 관리 UI 구현</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="section section-rel" id="skills">
+    <div class="section-bg-num" aria-hidden="true">02</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <span class="label-text">Skills</span>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-group">
+          <span class="sg-label">Core</span>
+          <span class="stag main">Spring Boot</span>
+          <span class="stag main">Java</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">DB</span>
+          <span class="stag">MySQL</span>
+          <span class="stag">MariaDB</span>
+          <span class="stag">PostgreSQL</span>
+          <span class="stag">Redis</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Stream</span>
+          <span class="stag hi">Kafka</span>
+          <span class="stag hi">Flink</span>
+          <span class="stag">RabbitMQ</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Infra</span>
+          <span class="stag hi">Docker</span>
+          <span class="stag hi">Nginx</span>
+          <span class="stag">Jenkins</span>
+          <span class="stag">Shell Script</span>
+          <span class="stag">Cron</span>
+          <span class="stag">DRBD</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Front</span>
+          <span class="stag dim">React</span>
+          <span class="stag dim">JSP</span>
+          <span class="stag dim">jQuery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="section section-rel" id="about">
+    <div class="section-bg-num" aria-hidden="true">03</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <span class="label-text">About</span>
+      </div>
+      <blockquote class="about-quote-big">
+        문서화되지 않은 시스템을<br/>
+        인계받아 처음부터 혼자 파악하고,<br/>
+        끝까지 책임지는 방식으로<br/>
+        일해왔습니다.
+      </blockquote>
+      <div class="about-terminal">
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">인계 직후 운영 리스크 전수 파악 → 전면 안정화</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">설계 · 배포 · 장애 대응 — 전체 스택 단독 운영</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">신기술보다 운영 안정성 · 문제 해결 속도 우선</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">SI/솔루션 출신 — 빠른 파악, 빠른 실행</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-cursor">_</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="section section-rel" id="contact">
+    <div class="section-bg-num" aria-hidden="true">04</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">04</span>
+        <span class="label-text">Contact</span>
+      </div>
+      <div class="contact-statement">
+        <span class="cs-line cs-outline">ALWAYS</span>
+        <span class="cs-line">OPEN.</span>
+      </div>
+      <p class="contact-desc">좋은 기회라면 언제든 환영합니다.</p>
+      <div class="contact-links">
+        <a class="clink" href="https://github.com/sky14786" target="_blank">
+          <span class="clink-label">GitHub</span>
+          <span class="clink-sub">github.com/sky14786</span>
+          <span class="clink-arr">↗</span>
+        </a>
+        <a class="clink" id="email-link" href="#">
+          <span class="clink-label">Email</span>
+          <span class="clink-sub" id="email-text">———</span>
+          <span class="clink-arr">→</span>
+        </a>
+        <a class="clink" href="KAKAO_LINK_HERE" target="_blank">
+          <span class="clink-label">KakaoTalk</span>
+          <span class="clink-sub">오픈채팅</span>
+          <span class="clink-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">JuneYoung Kim</span>
+      <a class="footer-gh" href="https://github.com/sky14786" target="_blank">GitHub ↗</a>
+    </div>
+  </footer>
+
+  <!-- ── THEME SWITCHER (임시) ── -->
+  <div id="theme-sw">
+    <span class="tsw-label">COLOR THEME</span>
+    <div class="tsw-panel">
+      <button class="tsw-dot active" data-t="lime"    data-name="Lime"    style="--c:#a3e635"></button>
+      <button class="tsw-dot"        data-t="indigo"  data-name="Indigo"  style="--c:#4338ca"></button>
+      <button class="tsw-dot"        data-t="orange"  data-name="Orange"  style="--c:#ea580c"></button>
+      <button class="tsw-dot"        data-t="forest"  data-name="Forest"  style="--c:#166534"></button>
+      <button class="tsw-dot"        data-t="crimson" data-name="Crimson" style="--c:#dc2626"></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

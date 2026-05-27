@@ -43,7 +43,28 @@
 - **로컬 서버**: `npx serve resume-ai/v3` (port 3200)
 - **⚠️ 주의**: 프리뷰 iframe 스크린샷 불가 (무한 애니메이션 + cursor:none) — 브라우저 직접 열어야 함
 
-### v5 (`/v5/`) ⭐ 현재 진행 방향
+### v7 (`/v7/`) ⭐ 현재 진행 방향
+- **기반**: v6 복사 후 라이트 테마 전환
+- **추가된 기능** (2026-05-28):
+  - 라이트 테마 (`#faf9f6` 크림 배경, 흰 카드, 다크 테두리/그림자)
+  - 보조 컬러 틸 (`--cyan: #0891b2`) — 날짜·섹션번호·레이블
+  - 카드 기본 그림자 `#0c0c0c` → hover 시 라임으로 전환 (네오브루탈리즘)
+  - 플로팅 pill 네브바 — 스크롤 80px 시 중앙 pill 형태로 전환 (`max-width` 트랜지션 + backdrop-filter)
+  - 컬러 테마 스위처 (우측 하단 고정) — Lime / Indigo / Orange / Forest / Crimson 실시간 전환
+  - Print CSS 대폭 단순화 — 라이트 테마라 색상 오버라이드 불필요, 그림자만 제거
+  - SVG 다이어그램: 다크 패널 유지 (라이트 카드 안 dark screen 대비 효과)
+- **로컬 서버**: `npx serve resume-ai/v7 --listen 3600` (port 3600)
+- **서버 재시작 방법**: 포트 점유 프로세스 종료 후 재기동
+
+### v6 (`/v6/`) — 다크 테마 + 2컬러 버전
+- **기반**: v5 복사 후 컬러 계층화
+- **추가된 기능** (2026-05-28):
+  - 보조 컬러 시안 (`--cyan: #22d3ee`) 추가 — 날짜·섹션번호 분리
+  - 대표 프로젝트 카드 풀 와이드 (`grid-column: 1/-1`) + 내부 2열 레이아웃
+  - `★ 대표 프로젝트` 배지
+- **로컬 서버**: `npx serve resume-ai/v6 --listen 3500` (port 3500)
+
+### v5 (`/v5/`)
 - **기반**: v4 복사 후 기능 강화
 - **추가된 기능** (2026-05-28):
   - favicon.svg (JY 로고, lime #a3e635)
@@ -52,7 +73,7 @@
   - Print CSS (`@media print`) — 흰 배경, 아치 다이어그램 자동 펼침
   - 카드별 임팩트 칩 (`.bstat`): 10개병원/100만가입자/350대서버 등
   - Nav 스크롤 스파이 (IntersectionObserver, active underline)
-- **로컬 서버**: `npx serve resume-ai/v5` (port 3400)
+- **로컬 서버**: `npx serve resume-ai/v5 --listen 3400` (port 3400)
 
 ### v4 (`/v4/`) — 백업
 - **기반**: v3 복사 후 비주얼 강화
@@ -95,28 +116,22 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **v5 브라우저 시각 검증** ← 반드시 먼저
-   - `npx serve resume-ai/v5` 또는 launch.json `resume-ai-v5` (port 3400)
-   - 브라우저에서 `http://localhost:3400` 직접 열어야 함
-   - 확인 항목: PDF 버튼 동작, 임팩트 칩 위치, 스크롤 스파이 active 표시, 파비콘
+1. **v7 컬러 테마 확정**
+   - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택
+   - 확정 후 선택 컬러를 기본값으로 CSS 변수 고정, 스위처 제거
 
 2. **KakaoTalk 링크 교체**
-   - v5: `v5/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
+   - v7: `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
-3. ~~**나머지 아키텍처 다이어그램 2개**~~ ✅ 완료 (2026-05-27)
-   - 병원 앱: CLIENT → APP(NGINX / API SERVER / PAYMENT) → INFRA(DOCKER / PACEMAKER[HA] / MARIADB / MONITORING)
-   - 3BB IPTV: EXT(CMS / STB) → APP(RABBITMQ / API / REDIS) → DATA(MYSQL / JENKINS / DBS)
-   - PACEMAKER+DB 점선 HA 클러스터 박스 추가
-
-4. **Cloudflare Pages 배포**
+3. **Cloudflare Pages 배포**
    - GitHub 저장소 연결 → 자동 배포
-   - 배포 대상 디렉토리: `/v5`
+   - 배포 대상 디렉토리: `/v7` (현재 방향)
    - 커스텀 도메인 연결
 
 ### 이후 작업
-- [ ] 모바일 반응형 세부 점검 (v5 기준)
+- [ ] 모바일 반응형 세부 점검 (v7 기준)
 - [ ] OG image 추가 (og:image 1200×630 PNG)
-- [ ] v2 footer GitHub 링크 업데이트 (`sky14786`로 이미 맞음, 확인만)
+- [ ] 확정 전까지 v7 컬러 스위처 유지
 
 ---
 
@@ -125,22 +140,19 @@
 ```
 resume-ai/
 ├── index.html         # v1 메인
-├── style.css          # v1 스타일 (3 테마)
-├── script.js          # v1 JS
-├── v2/
-│   ├── index.html     # v2 (Bento Grid + Amber)
-│   ├── style.css
-│   └── script.js
-├── v3/                # 백업 (안정 버전)
-│   ├── index.html     # About/Contact/아키텍처 다이어그램 포함
+├── style.css
+├── script.js
+├── v2/                # Bento Grid + Amber
+├── v3/                # 백업
+├── v4/                # 백업
+├── v5/                # 기능 완성본 (다크)
+├── v6/                # 다크 + 2컬러 + 피처드 카드
+├── v7/                # ⭐ 현재 방향 — 라이트 테마 + pill nav + 컬러 스위처
+│   ├── index.html
 │   ├── style.css
 │   ├── script.js
-│   └── arch-sample.svg  # SVG 단독 테스트 파일
-├── v4/                # ⭐ 현재 메인 방향
-│   ├── index.html     # v3 + 섹션 bg숫자 + 강화된 About/Contact
-│   ├── style.css
-│   └── script.js
-├── PROGRESS.md        # 이 파일
+│   └── favicon.svg
+├── PROGRESS.md
 └── LICENSE
 ```
 
@@ -149,15 +161,15 @@ resume-ai/
 ## 로컬 개발 서버
 
 ```bash
-# v3 (안정 백업)
-npx serve resume-ai/v3    # port 3200
+# v7 (현재 작업 버전) ⭐ — 포트 점유 시 먼저 kill 후 기동
+npx serve resume-ai/v7 --listen 3600   # http://localhost:3600
 
-# v4 (현재 작업 버전) ⭐
-npx serve resume-ai/v4    # port 3300
+# 포트 강제 해제 (PowerShell)
+# Get-NetTCPConnection -LocalPort 3600 | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
 
-# launch.json 위치: E:\AI\.claude\launch.json
-# 서버명: resume-ai-v3 / resume-ai-v4
-# ⚠️ v3/v4 모두 프리뷰 iframe 스크린샷 불가 — 브라우저 직접 열어야 함
+# 이전 버전 참고용
+# npx serve resume-ai/v6 --listen 3500
+# npx serve resume-ai/v5 --listen 3400
 ```
 
 ---
