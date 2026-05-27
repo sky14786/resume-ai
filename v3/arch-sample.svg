@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320">
+
+  <!-- Background -->
+  <rect width="800" height="320" fill="#0d0d0d"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle"
+    fill="#a3e635" font-family="monospace" font-size="11"
+    font-weight="bold" letter-spacing="3">MAI-WACS — SYSTEM ARCHITECTURE</text>
+  <line x1="30" y1="44" x2="770" y2="44" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
+
+  <!-- Layer labels -->
+  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="7" opacity="0.45" letter-spacing="2">USER</text>
+  <text x="22" y="177" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="7" opacity="0.45" letter-spacing="2">APP</text>
+  <text x="22" y="262" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="7" opacity="0.45" letter-spacing="2">INFRA</text>
+
+  <!-- Layer backgrounds -->
+  <rect x="65" y="55"  width="720" height="74" fill="#a3e635" opacity="0.03" rx="2"/>
+  <rect x="65" y="140" width="720" height="74" fill="#a3e635" opacity="0.04" rx="2"/>
+  <rect x="65" y="225" width="720" height="74" fill="#a3e635" opacity="0.03" rx="2"/>
+
+  <!-- ══════ CONNECTIONS (drawn first, under nodes) ══════ -->
+
+  <!-- Dashboard → API Server (down) -->
+  <line x1="395" y1="122" x2="395" y2="140" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="391,140 399,140 395,147" fill="#a3e635"/>
+
+  <!-- Flink → Alert Engine (up) -->
+  <line x1="645" y1="147" x2="645" y2="129" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="641,129 649,129 645,122" fill="#a3e635"/>
+
+  <!-- Kafka → API Server (right) -->
+  <line x1="210" y1="177" x2="323" y2="177" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="323,173 323,181 330,177" fill="#a3e635"/>
+
+  <!-- API Server → Flink (right) -->
+  <line x1="460" y1="177" x2="573" y2="177" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="573,173 573,181 580,177" fill="#a3e635"/>
+
+  <!-- 350 Servers → Kafka (up) -->
+  <line x1="145" y1="232" x2="145" y2="214" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="141,214 149,214 145,207" fill="#a3e635"/>
+
+  <!-- API Server → TimescaleDB (down) -->
+  <line x1="395" y1="207" x2="395" y2="225" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="391,225 399,225 395,232" fill="#a3e635"/>
+
+  <!-- Flink → S3/Archive (down) -->
+  <line x1="645" y1="207" x2="645" y2="225" stroke="#a3e635" stroke-width="1.5"/>
+  <polygon points="641,225 649,225 645,232" fill="#a3e635"/>
+
+  <!-- ══════ ROW 1 — USER LAYER ══════ -->
+
+  <!-- MONITORING DASHBOARD (col2) -->
+  <rect x="334" y="66" width="130" height="60" fill="#a3e635"/>
+  <rect x="330" y="62" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="395" y="88"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">MONITORING</text>
+  <text x="395" y="105" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">web dashboard</text>
+
+  <!-- ALERT ENGINE (col3) -->
+  <rect x="584" y="66" width="130" height="60" fill="#a3e635"/>
+  <rect x="580" y="62" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="645" y="88"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">ALERT ENGINE</text>
+  <text x="645" y="105" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">email / SMS</text>
+
+  <!-- ══════ ROW 2 — APP LAYER ══════ -->
+
+  <!-- KAFKA (col1) -->
+  <rect x="84"  y="151" width="130" height="60" fill="#a3e635"/>
+  <rect x="80"  y="147" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="145" y="173" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">KAFKA</text>
+  <text x="145" y="190" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">message broker</text>
+
+  <!-- API SERVER (col2) -->
+  <rect x="334" y="151" width="130" height="60" fill="#a3e635"/>
+  <rect x="330" y="147" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="395" y="173" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">API SERVER</text>
+  <text x="395" y="190" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">REST / query</text>
+
+  <!-- APACHE FLINK (col3) -->
+  <rect x="584" y="151" width="130" height="60" fill="#a3e635"/>
+  <rect x="580" y="147" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="645" y="173" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
+  <text x="645" y="190" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">stream processing</text>
+
+  <!-- ══════ ROW 3 — INFRA LAYER ══════ -->
+
+  <!-- 350 SERVERS (col1) -->
+  <rect x="84"  y="236" width="130" height="60" fill="#a3e635"/>
+  <rect x="80"  y="232" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="145" y="258" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">350 SERVERS</text>
+  <text x="145" y="275" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">syslog / metrics</text>
+
+  <!-- TIMESCALEDB (col2) -->
+  <rect x="334" y="236" width="130" height="60" fill="#a3e635"/>
+  <rect x="330" y="232" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="395" y="258" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">TIMESCALEDB</text>
+  <text x="395" y="275" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">time-series store</text>
+
+  <!-- S3 / ARCHIVE (col3) -->
+  <rect x="584" y="236" width="130" height="60" fill="#a3e635"/>
+  <rect x="580" y="232" width="130" height="60" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
+  <text x="645" y="258" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1">S3 / ARCHIVE</text>
+  <text x="645" y="275" text-anchor="middle" fill="#555"    font-family="monospace" font-size="8">cold storage</text>
+
+</svg>
