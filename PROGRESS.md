@@ -84,27 +84,30 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **v4 확인 및 피드백 반영**
-   - 브라우저에서 v4 (`http://localhost:3300`) 전체 검토
-   - About / Contact 문구 실제 내용으로 수정
+1. **v4 브라우저 시각 검증** ← 반드시 먼저
+   - `npx serve resume-ai/v4` 또는 launch.json `resume-ai-v4` (port 3300)
+   - 브라우저에서 `http://localhost:3300` 직접 열어야 함 (프리뷰 iframe 불가)
+   - 확인 항목: About quote 크기/비율, Contact ALWAYS/OPEN. 타이포, 섹션 bg 숫자, 아키텍처 다이어그램 hover
 
-2. **나머지 아키텍처 다이어그램 2개 추가**
-   - 병원 앱 시스템 구성도 (실제 구조 확인 후 제작)
-   - 3BB IPTV 시스템 구성도 (실제 구조 확인 후 제작)
-   - v4 기준으로 작업
+2. **KakaoTalk 링크 교체**
+   - v3: `v3/index.html` **364번째 줄** `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
+   - v4: `v4/index.html` **372번째 줄** `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
-3. **KakaoTalk 링크 교체**
-   - `KAKAO_LINK_HERE` → 실제 오픈카카오톡 링크
+3. **나머지 아키텍처 다이어그램 2개** (사용자에게 구조 물어봐야 함)
+   - 병원 앱 시스템 구성도 — 다기관 구조, 어떤 컴포넌트?
+   - 3BB IPTV 시스템 구성도 — STB/CMS/DBS 연동 구조?
+   - 완성 후 v4 해당 카드에 동일 방식으로 삽입
 
-4. **배포**
-   - Cloudflare Pages 연결 (GitHub 저장소 → 자동 배포)
+4. **Cloudflare Pages 배포**
+   - GitHub 저장소 연결 → 자동 배포
+   - 배포 대상 디렉토리: `/v4` 또는 루트 결정 필요
    - 커스텀 도메인 연결
 
 ### 이후 작업
 - [ ] 모바일 반응형 세부 점검 (v4 기준)
 - [ ] OG 태그 (SNS 공유 썸네일) 추가
 - [ ] favicon 추가
-- [ ] GitHub 링크 v2 footer 업데이트
+- [ ] v2 footer GitHub 링크 업데이트 (`sky14786`로 이미 맞음, 확인만)
 
 ---
 
