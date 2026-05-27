@@ -43,7 +43,18 @@
 - **로컬 서버**: `npx serve resume-ai/v3` (port 3200)
 - **⚠️ 주의**: 프리뷰 iframe 스크린샷 불가 (무한 애니메이션 + cursor:none) — 브라우저 직접 열어야 함
 
-### v4 (`/v4/`) ⭐ 현재 진행 방향
+### v5 (`/v5/`) ⭐ 현재 진행 방향
+- **기반**: v4 복사 후 기능 강화
+- **추가된 기능** (2026-05-28):
+  - favicon.svg (JY 로고, lime #a3e635)
+  - OG 태그 (title/description/type/twitter:card)
+  - PDF 버튼 (nav 우측, `window.print()`)
+  - Print CSS (`@media print`) — 흰 배경, 아치 다이어그램 자동 펼침
+  - 카드별 임팩트 칩 (`.bstat`): 10개병원/100만가입자/350대서버 등
+  - Nav 스크롤 스파이 (IntersectionObserver, active underline)
+- **로컬 서버**: `npx serve resume-ai/v5` (port 3400)
+
+### v4 (`/v4/`) — 백업
 - **기반**: v3 복사 후 비주얼 강화
 - **추가된 기능** (이번 세션):
   - 모든 섹션 배경에 거대 섹션 번호 장식 (`01` ~ `04`, rgba 투명)
@@ -84,29 +95,27 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **v4 브라우저 시각 검증** ← 반드시 먼저
-   - `npx serve resume-ai/v4` 또는 launch.json `resume-ai-v4` (port 3300)
-   - 브라우저에서 `http://localhost:3300` 직접 열어야 함 (프리뷰 iframe 불가)
-   - 확인 항목: About quote 크기/비율, Contact ALWAYS/OPEN. 타이포, 섹션 bg 숫자, 아키텍처 다이어그램 hover
+1. **v5 브라우저 시각 검증** ← 반드시 먼저
+   - `npx serve resume-ai/v5` 또는 launch.json `resume-ai-v5` (port 3400)
+   - 브라우저에서 `http://localhost:3400` 직접 열어야 함
+   - 확인 항목: PDF 버튼 동작, 임팩트 칩 위치, 스크롤 스파이 active 표시, 파비콘
 
 2. **KakaoTalk 링크 교체**
-   - v3: `v3/index.html` **364번째 줄** `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
-   - v4: `v4/index.html` **372번째 줄** `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
+   - v5: `v5/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
-3. **나머지 아키텍처 다이어그램 2개** (사용자에게 구조 물어봐야 함)
-   - 병원 앱 시스템 구성도 — 다기관 구조, 어떤 컴포넌트?
-   - 3BB IPTV 시스템 구성도 — STB/CMS/DBS 연동 구조?
-   - 완성 후 v4 해당 카드에 동일 방식으로 삽입
+3. ~~**나머지 아키텍처 다이어그램 2개**~~ ✅ 완료 (2026-05-27)
+   - 병원 앱: CLIENT → APP(NGINX / API SERVER / PAYMENT) → INFRA(DOCKER / PACEMAKER[HA] / MARIADB / MONITORING)
+   - 3BB IPTV: EXT(CMS / STB) → APP(RABBITMQ / API / REDIS) → DATA(MYSQL / JENKINS / DBS)
+   - PACEMAKER+DB 점선 HA 클러스터 박스 추가
 
 4. **Cloudflare Pages 배포**
    - GitHub 저장소 연결 → 자동 배포
-   - 배포 대상 디렉토리: `/v4` 또는 루트 결정 필요
+   - 배포 대상 디렉토리: `/v5`
    - 커스텀 도메인 연결
 
 ### 이후 작업
-- [ ] 모바일 반응형 세부 점검 (v4 기준)
-- [ ] OG 태그 (SNS 공유 썸네일) 추가
-- [ ] favicon 추가
+- [ ] 모바일 반응형 세부 점검 (v5 기준)
+- [ ] OG image 추가 (og:image 1200×630 PNG)
 - [ ] v2 footer GitHub 링크 업데이트 (`sky14786`로 이미 맞음, 확인만)
 
 ---

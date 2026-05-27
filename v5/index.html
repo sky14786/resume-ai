@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JuneYoung Kim</title>
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <meta name="description" content="혼자서 시스템 전체를 책임지는 백엔드 엔지니어. 안정화, 운영, 파이프라인."/>
+  <meta property="og:title" content="JuneYoung Kim — Backend Engineer"/>
+  <meta property="og:description" content="혼자서 시스템 전체를 책임지는 엔지니어. 안정화, 운영, 파이프라인 — 끝까지 다 합니다."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
@@ -42,10 +48,13 @@
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
-    <button class="cmd-trigger" id="cmd-trigger">
-      <span>검색</span>
-      <kbd>⌘K</kbd>
-    </button>
+    <div class="nav-right">
+      <button class="pdf-trigger" onclick="window.print()">PDF <span>↓</span></button>
+      <button class="cmd-trigger" id="cmd-trigger">
+        <span>검색</span>
+        <kbd>⌘K</kbd>
+      </button>
+    </div>
   </nav>
 
   <!-- ── HERO ── -->
@@ -116,6 +125,11 @@
               <span class="btag">Shell Script</span>
               <span class="btag">Nginx</span>
               <span class="btag">Pacemaker</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">10개 병원</span>
+              <span class="bstat">6개월</span>
+              <span class="bstat">무중단 이관</span>
             </div>
             <ul class="brut-list">
               <li>인계 시 운영 리스크 전수 발견 및 전면 안정화</li>
@@ -223,6 +237,10 @@
               <span class="btag">MySQL</span>
               <span class="btag">Jenkins</span>
             </div>
+            <div class="brut-stats">
+              <span class="bstat">100만 가입자</span>
+              <span class="bstat">5년 단독</span>
+            </div>
             <ul class="brut-list">
               <li>전담 개발자 1인으로 플랫폼 전체 단독 운영</li>
               <li>외부 시스템(STB, CMS, DBS) API 연동 관리</li>
@@ -320,6 +338,10 @@
               <span class="btag">React</span>
               <span class="btag">DRBD</span>
               <span class="btag">Pacemaker</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">350대 서버</span>
+              <span class="bstat">30초 수집</span>
             </div>
             <ul class="brut-list">
               <li>Telegraf + Kafka + Flink 실시간 파이프라인 구축</li>
@@ -423,6 +445,10 @@
               <span class="btag">JSP</span>
               <span class="btag">jQuery</span>
               <span class="btag">MySQL</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">첫 투입 프로젝트</span>
+              <span class="bstat">6개월</span>
             </div>
             <ul class="brut-list">
               <li>콘텐츠 뷰어 · 사용자 관리 · 환경설정 기능 개발</li>
