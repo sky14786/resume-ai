@@ -1,69 +1,123 @@
-# resume-ai
+# JuneYoung Kim — Developer Portfolio
 
-> **이 프로젝트는 AI(Claude)와의 대화를 통해 설계 및 구현되었습니다.**
+![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-deployed-F38020?style=flat&logo=cloudflare&logoColor=white)
+![Vanilla JS](https://img.shields.io/badge/Vanilla%20JS-zero%20dependencies-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 
-JuneYoung Kim의 개발자 경력기술서 사이트입니다.  
-순수 HTML / CSS / JavaScript로 제작되었으며, 빌드 툴이나 프레임워크 없이 동작합니다.
-
----
-
-## 버전
-
-| 버전 | 테마 | 특징 |
-|------|------|------|
-| v1 | TERM / DARK / CYBER | 3가지 테마 스위칭, 세로 타임라인 |
-| v2 | 앰버(Amber) | Bento Grid 레이아웃 |
-| v3 | Lime 네오브루탈리즘 | Kinetic Typography, Command Palette |
-| v4 | Lime 네오브루탈리즘 | 대형 타이포, 터미널 블록, 비주얼 강화 |
-| v5 | Lime 네오브루탈리즘 | favicon, OG태그, PDF 출력, 임팩트 칩 |
-| v6 | Lime + Cyan 다크 | 2컬러 계층, 대표 프로젝트 카드 |
-| **v7** | **라이트 테마** | **플로팅 pill 네브바, 컬러 스위처, PDF 최적화** |
-
-현재 배포 버전: **v7**
+> 백엔드 엔지니어 5년 경력의 개발자 포트폴리오 사이트.  
+> 순수 HTML / CSS / JavaScript — 빌드 툴, 프레임워크, 패키지 의존성 없이 동작합니다.
 
 ---
 
-## 주요 기능
+## ✦ Live
 
-- **Kinetic Typography** — 글자 스크램블 후 등장하는 히어로 타이틀
-- **Custom Cursor** — 라임 커스텀 커서
-- **Command Palette** — `⌘K` / `Ctrl+K` 로 섹션 이동
-- **Scroll Reveal** — 카드 스크롤 진입 시 좌우 슬라이드 인
-- **아키텍처 다이어그램** — SVG 인라인 삽입, hover 시 펼침
-- **플로팅 Pill 네브바** — 스크롤 시 중앙 pill 형태로 전환
-- **컬러 테마 스위처** — Lime / Indigo / Orange / Forest / Crimson 실시간 전환
-- **PDF 출력** — `@media print` 최적화, 화면과 거의 동일하게 출력
-- **Email Obfuscation** — JS 실행 후 이메일 삽입으로 크롤러 차단
+**[→ resume-ai.pages.dev](https://resume-ai.pages.dev)**
 
 ---
 
-## 기술 스택
+## ✦ 이 프로젝트에 대하여
 
-- HTML5 / CSS3 / Vanilla JavaScript
-- 빌드 툴 없음 (Zero dependencies)
-- 폰트: Inter, JetBrains Mono (Google Fonts)
-- 배포: Cloudflare Pages
+코드를 직접 작성하는 대신, **AI(Claude Sonnet, Anthropic)와의 자연어 대화**만으로 설계부터 배포까지 진행한 실험적 프로젝트입니다.
+
+디자인 방향 수립, 컬러 시스템 결정, 레이아웃 설계, 인터랙션 구현, GitHub 커밋, Cloudflare 배포 — 모든 과정이 대화로 이루어졌습니다.
+
+> *"앞으로의 개발이 어떤 방식으로 바뀔 수 있는지를 직접 실험해보고 싶었습니다."*
 
 ---
 
-## 로컬 실행
+## ✦ 디자인 시스템
+
+Neobrutalism 기반의 라이트 테마. 두꺼운 선, 오프셋 그림자, 날카로운 모서리가 특징입니다.
+
+| 역할 | 값 | 용도 |
+|------|-----|------|
+| Background | `#faf9f6` | 웜 크림 베이스 |
+| Primary Accent | `#a3e635` | Lime — 주요 강조, hover 그림자 |
+| Secondary Accent | `#0891b2` | Teal — 날짜, 섹션 번호, 레이블 |
+| Border / Shadow | `#0c0c0c` | 네오브루탈리즘 다크 선 |
+
+---
+
+## ✦ 구현된 기능
+
+### 인터랙션
+| 기능 | 구현 방식 |
+|------|-----------|
+| Kinetic Typography | 글자 단위 스크램블 → resolve 애니메이션 |
+| Scroll Reveal | `IntersectionObserver` — 카드 좌우 슬라이드 인 |
+| Stat Counter | `requestAnimationFrame` 기반 easing 카운트업 |
+| Custom Cursor | `mousemove` 이벤트 + CSS transition |
+| Floating Pill Nav | `max-width` CSS 트랜지션 + `backdrop-filter: blur` |
+| Scroll Progress Bar | 실시간 스크롤 퍼센트 → width |
+| Scroll Spy | `IntersectionObserver` — 현재 섹션 nav 하이라이트 |
+
+### UI / 콘텐츠
+| 기능 | 구현 방식 |
+|------|-----------|
+| Command Palette | `Ctrl+K` 단축키, 키보드 탐색, 퍼지 검색 |
+| Architecture Diagram | 인라인 SVG — 런타임 JS 제로, hover 펼침 |
+| Color Theme Switcher | CSS Custom Properties + `setProperty()` 실시간 교체 |
+| PDF 출력 | `@media print` — 라이트 테마 그대로 출력, 그림자만 제거 |
+| Email Obfuscation | JS 실행 후 DOM 삽입 — 크롤러 차단 |
+| Featured Card | `grid-column: 1/-1` 풀와이드 + 2열 내부 레이아웃 |
+
+---
+
+## ✦ 버전 히스토리
+
+```
+v1  TERM / DARK / CYBER 3테마, 세로 타임라인
+v2  Bento Grid + 앰버 테마
+v3  Neobrutalism, Kinetic Typography, Command Palette
+v4  대형 타이포그래피, 터미널 블록, 비주얼 강화
+v5  favicon, OG 태그, PDF 출력, 임팩트 칩, Nav 스크롤 스파이
+v6  2컬러 계층 (Lime + Cyan), 대표 프로젝트 피처드 카드
+v7  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처 ← 현재 배포
+```
+
+---
+
+## ✦ 로컬 실행
+
+별도 설치 없이 `npx serve`만으로 즉시 실행됩니다.
 
 ```bash
-# v7 (현재 버전)
+git clone https://github.com/sky14786/resume-ai.git
+cd resume-ai
+
 npx serve v7 --listen 3600
 # → http://localhost:3600
 ```
 
 ---
 
-## 배포
+## ✦ 배포 구조
 
-GitHub `main` 브랜치에 push 시 Cloudflare Pages가 자동 배포합니다.  
-배포 디렉토리: `/v7`
+```
+GitHub (main push)
+    └─→ Cloudflare Pages (자동 빌드/배포)
+            └─→ resume-ai.pages.dev
+```
+
+- 빌드 명령: 없음 (정적 파일 직접 서빙)
+- 배포 디렉토리: `/v7`
+- `main` 브랜치 push → 1~2분 내 자동 반영
 
 ---
 
-## 만든 방법
+## ✦ 기술 스택
 
-코드 한 줄 직접 작성하지 않고, **Claude(Anthropic)**와의 대화만으로 설계·구현·배포까지 진행했습니다.  
-디자인 방향 결정, 컬러 선택, 기능 추가 모두 자연어 대화로 이루어졌습니다.
+```
+Language  HTML5 · CSS3 · Vanilla JavaScript (ES2022+)
+Font      Inter · JetBrains Mono (Google Fonts)
+Hosting   Cloudflare Pages
+CI/CD     GitHub → Cloudflare Pages (자동 배포)
+Tools     npx serve (로컬 개발)
+```
+
+---
+
+<p align="center">
+  Designed & built with <a href="https://claude.ai">Claude (Anthropic)</a>
+</p>
