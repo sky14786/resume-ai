@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8"/>
@@ -10,6 +10,7 @@
   <meta property="og:description" content="혼자서 시스템 전체를 책임지는 엔지니어. 안정화, 운영, 파이프라인 — 끝까지 다 합니다."/>
   <meta property="og:type" content="website"/>
   <meta name="twitter:card" content="summary"/>
+  <meta property="og:url" content="https://juneyoung.pages.dev"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
@@ -77,16 +78,19 @@
         <div class="stat" data-val="5" data-sfx="+ Years">
           <span class="stat-n">0</span>
           <span class="stat-l">Years</span>
+          <span class="stat-sub">Experience</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat" data-val="100" data-sfx="만+ Users">
           <span class="stat-n">0</span>
           <span class="stat-l">만+ Users</span>
+          <span class="stat-sub">3BB IPTV</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat" data-val="350" data-sfx="+ Servers">
           <span class="stat-n">0</span>
           <span class="stat-l">Servers</span>
+          <span class="stat-sub">MAI-WACS</span>
         </div>
       </div>
 
@@ -133,87 +137,85 @@
             </div>
             <ul class="brut-list">
               <li>인계 시 운영 리스크 전수 발견 및 전면 안정화</li>
-              <li>DBMS 복제 단절 · 백업 미운영 · 디스크 풀 → 전부 자동화</li>
+              <li>DBMS 복제 단절 · 백업 미운영 · 디스크 풀 → Shell Script로 전부 자동화</li>
+              <li>Nginx 리버스 프록시 재설계 및 SSL 인증서 갱신 자동화</li>
+              <li>Pacemaker HA 클러스터 재구성 — 무중단 이관 완료</li>
               <li>헬스체크 / 모니터링 Pull·Push 방식 구축</li>
               <li>PG사 만료로 인한 결제 모듈 재구축</li>
               <li>폐쇄망 내부 앱 배포 UI 구현</li>
             </ul>
 
             <div class="arch-wrap">
-              <div class="arch-hint">ARCHITECTURE <span>↓ hover</span></div>
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover · click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
-                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">HOSPITAL PATIENT APP — SYSTEM ARCHITECTURE</text>
-                  <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
+                  <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">HOSPITAL PATIENT APP — ARCHITECTURE</text>
+                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">성모병원 × 8  ·  경희대병원 × 2  ·  폐쇄망 온프레미스</text>
+                  <line x1="30" y1="52" x2="770" y2="52" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
+                  <!-- internal network boundary -->
+                  <rect x="158" y="88" width="630" height="200" fill="none" stroke="#a3e635" stroke-width="1" stroke-dasharray="6,4" opacity="0.18" rx="3"/>
+                  <text x="168" y="101" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7" opacity="0.38" letter-spacing="2">ON-PREMISES · INTERNAL NETWORK</text>
+                  <!-- arrows -->
+                  <line x1="130" y1="178" x2="161" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="158,174 158,182 165,178" fill="#a3e635"/>
+                  <line x1="281" y1="178" x2="309" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="306,174 306,182 313,178" fill="#a3e635"/>
+                  <line x1="429" y1="178" x2="457" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="454,174 454,182 461,178" fill="#a3e635"/>
+                  <line x1="577" y1="178" x2="610" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="610" y1="140" x2="610" y2="216" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="610" y1="140" x2="621" y2="140" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="618,136 618,144 625,140" fill="#a3e635"/>
+                  <line x1="610" y1="216" x2="621" y2="216" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="618,212 618,220 625,216" fill="#a3e635"/>
+                  <!-- db replication -->
+                  <line x1="692" y1="168" x2="692" y2="190" stroke="#a3e635" stroke-width="1" stroke-dasharray="3,2" opacity="0.35"/>
+                  <polygon points="688,188 696,188 692,195" fill="#a3e635" opacity="0.35"/>
+                  <text x="697" y="181" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">replication</text>
+                  <!-- NODE: Patient App -->
+                  <rect x="19" y="154" width="114" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="16" y="151" width="114" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="73" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">PATIENT APP</text>
+                  <text x="73" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">iOS / Android</text>
+                  <text x="73" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">domain URI</text>
+                  <!-- NODE: Router -->
+                  <rect x="164" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="161" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="221" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">ROUTER</text>
+                  <text x="221" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">network edge</text>
+                  <text x="221" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">per hospital</text>
+                  <!-- NODE: Nginx LB -->
+                  <rect x="312" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="309" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="369" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">NGINX LB</text>
+                  <text x="369" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Docker · on-prem</text>
+                  <text x="369" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">load balancing</text>
+                  <!-- NODE: API Server -->
+                  <rect x="460" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="457" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="517" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">API SERVER</text>
+                  <text x="517" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Spring Boot · Docker</text>
+                  <text x="517" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- NODE: DB Primary -->
+                  <rect x="624" y="114" width="148" height="50" fill="#a3e635" opacity="0.08"/>
+                  <rect x="621" y="111" width="148" height="50" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="695" y="129" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">DB PRIMARY</text>
+                  <text x="695" y="142" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB · Docker</text>
+                  <text x="695" y="154" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- NODE: DB Replica -->
+                  <rect x="624" y="192" width="148" height="50" fill="#a3e635" opacity="0.08"/>
+                  <rect x="621" y="189" width="148" height="50" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="695" y="207" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">DB REPLICA</text>
+                  <text x="695" y="220" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB · Docker</text>
+                  <text x="695" y="232" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
                   <!-- layer labels -->
-                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">CLIENT</text>
-                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
-                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">INFRA</text>
-                  <!-- layer backgrounds -->
-                  <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
-                  <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
-                  <rect x="65" y="240" width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
-                  <!-- connections -->
-                  <line x1="400" y1="128" x2="400" y2="146" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="396,146 404,146 400,153" fill="#a3e635"/>
-                  <line x1="650" y1="128" x2="650" y2="146" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="646,146 654,146 650,153" fill="#a3e635"/>
-                  <line x1="225" y1="188" x2="318" y2="188" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="318,184 318,192 325,188" fill="#a3e635"/>
-                  <line x1="475" y1="188" x2="568" y2="188" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="568,184 568,192 575,188" fill="#a3e635"/>
-                  <line x1="127" y1="248" x2="150" y2="230" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="146,230 154,230 150,223" fill="#a3e635"/>
-                  <line x1="400" y1="223" x2="497" y2="241" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="493,241 501,241 497,248" fill="#a3e635"/>
-                  <line x1="650" y1="223" x2="684" y2="241" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="680,241 688,241 684,248" fill="#a3e635"/>
-                  <line x1="377" y1="283" x2="435" y2="283" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="435,279 435,287 439,283" fill="#a3e635"/>
-                  <!-- row 1: client -->
-                  <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PATIENT APP</text>
-                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">iOS / Android</text>
-                  <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">ADMIN WEB</text>
-                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">internal dashboard</text>
-                  <!-- row 2: app -->
-                  <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">NGINX</text>
-                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">reverse proxy</text>
-                  <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
-                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">Spring Boot</text>
-                  <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PAYMENT</text>
-                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">PG module</text>
-                  <!-- row 3: infra (4 nodes) -->
-                  <rect x="69"  y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="65"  y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="127" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">DOCKER</text>
-                  <text x="127" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">container runtime</text>
-                  <!-- HA cluster boundary -->
-                  <rect x="248" y="244" width="327" height="82" fill="#a3e635" opacity="0.05" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
-                  <text x="571" y="256" text-anchor="end" fill="#a3e635" font-family="monospace" font-size="8" opacity="0.5" letter-spacing="1">HA</text>
-                  <rect x="256" y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="252" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="314" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PACEMAKER</text>
-                  <text x="314" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">cluster HA</text>
-                  <rect x="443" y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="439" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="501" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MARIADB</text>
-                  <text x="501" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">M/R replication</text>
-                  <rect x="630" y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="626" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="688" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
-                  <text x="688" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">healthcheck / alert</text>
+                  <text x="73"  y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">CLIENT</text>
+                  <text x="221" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">EDGE</text>
+                  <text x="369" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">PROXY</text>
+                  <text x="517" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">APP</text>
+                  <text x="695" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">DATA</text>
                 </svg>
               </div>
             </div>
@@ -242,78 +244,99 @@
               <span class="bstat">5년 단독</span>
             </div>
             <ul class="brut-list">
-              <li>전담 개발자 1인으로 플랫폼 전체 단독 운영</li>
-              <li>외부 시스템(STB, CMS, DBS) API 연동 관리</li>
-              <li>채널 변경 이벤트 부하 분산 (DBMS 분리)</li>
-              <li>분기별 전체 서버 점검 운영</li>
+              <li>전담 개발자 1인으로 플랫폼 전체 단독 운영 (설계 · 배포 · 장애 대응)</li>
+              <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+              <li>RabbitMQ 도입 — 채널 변경 이벤트 비동기 처리로 DBMS 부하 분산</li>
+              <li>Redis 세션 관리 · 캐시 레이어 설계로 API 응답 속도 개선</li>
+              <li>Jenkins CI/CD 파이프라인 구축 및 배포 자동화</li>
+              <li>분기별 전체 서버 점검 및 장애 예방 운영</li>
             </ul>
 
             <div class="arch-wrap">
-              <div class="arch-hint">ARCHITECTURE <span>↓ hover</span></div>
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover · click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
-                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">3BB GIGA IPTV — SYSTEM ARCHITECTURE</text>
-                  <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
+                  <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">3BB GIGA IPTV — ARCHITECTURE</text>
+                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">가입자 100만  ·  API 서버 20대  ·  온프레미스</text>
+                  <line x1="30" y1="52" x2="770" y2="52" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
+                  <!-- on-prem boundary -->
+                  <rect x="395" y="88" width="390" height="200" fill="none" stroke="#a3e635" stroke-width="1" stroke-dasharray="6,4" opacity="0.18" rx="3"/>
+                  <text x="405" y="101" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7" opacity="0.38" letter-spacing="2">ON-PREMISES</text>
+                  <!-- main flow arrows -->
+                  <line x1="112" y1="175" x2="140" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="137,171 137,179 144,175" fill="#a3e635"/>
+                  <line x1="240" y1="175" x2="268" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="265,171 265,179 272,175" fill="#a3e635"/>
+                  <line x1="368" y1="175" x2="396" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="393,171 393,179 400,175" fill="#a3e635"/>
+                  <line x1="496" y1="175" x2="524" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="521,171 521,179 528,175" fill="#a3e635"/>
+                  <!-- API → data bus -->
+                  <line x1="624" y1="175" x2="643" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="643" y1="122" x2="643" y2="248" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="643" y1="122" x2="652" y2="122" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="649,118 649,126 656,122" fill="#a3e635"/>
+                  <line x1="643" y1="185" x2="652" y2="185" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="649,181 649,189 656,185" fill="#a3e635"/>
+                  <line x1="643" y1="248" x2="652" y2="248" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="649,244 649,252 656,248" fill="#a3e635"/>
+                  <!-- NODE: User -->
+                  <rect x="15" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="12" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="62" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">USER</text>
+                  <text x="62" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">IPTV subscriber</text>
+                  <text x="62" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">domain URI</text>
+                  <!-- NODE: L4 Switch -->
+                  <rect x="143" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="140" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="190" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">L4 SWITCH</text>
+                  <text x="190" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">load balancing</text>
+                  <text x="190" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">physical</text>
+                  <!-- NODE: Gateway -->
+                  <rect x="271" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="268" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="318" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">GATEWAY</text>
+                  <text x="318" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">routing</text>
+                  <text x="318" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7"> </text>
+                  <!-- NODE: Nginx LB -->
+                  <rect x="399" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="396" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="446" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">NGINX LB</text>
+                  <text x="446" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">software LB</text>
+                  <text x="446" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- NODE: API Servers -->
+                  <rect x="527" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="524" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="574" y="167" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">API SERVER</text>
+                  <text x="574" y="180" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Spring Boot</text>
+                  <text x="574" y="192" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-prem · ×20</text>
+                  <!-- DATA: RabbitMQ -->
+                  <rect x="655" y="101" width="130" height="44" fill="#a3e635" opacity="0.08"/>
+                  <rect x="652" y="98" width="130" height="44" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="717" y="116" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">RABBITMQ</text>
+                  <text x="717" y="129" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">channel events</text>
+                  <text x="717" y="140" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- DATA: Redis -->
+                  <rect x="655" y="163" width="130" height="44" fill="#a3e635" opacity="0.08"/>
+                  <rect x="652" y="160" width="130" height="44" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="717" y="178" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">REDIS</text>
+                  <text x="717" y="191" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">session / cache</text>
+                  <text x="717" y="202" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- DATA: MySQL -->
+                  <rect x="655" y="226" width="130" height="44" fill="#a3e635" opacity="0.08"/>
+                  <rect x="652" y="223" width="130" height="44" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="717" y="241" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">MYSQL</text>
+                  <text x="717" y="254" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">IPTV platform DB</text>
+                  <text x="717" y="265" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
                   <!-- layer labels -->
-                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">EXT</text>
-                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
-                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">DATA</text>
-                  <!-- layer backgrounds -->
-                  <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
-                  <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
-                  <rect x="65" y="240" width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
-                  <!-- connections -->
-                  <line x1="400" y1="128" x2="400" y2="146" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="396,146 404,146 400,153" fill="#a3e635"/>
-                  <line x1="650" y1="128" x2="650" y2="146" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="646,146 654,146 650,153" fill="#a3e635"/>
-                  <line x1="225" y1="188" x2="318" y2="188" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="318,184 318,192 325,188" fill="#a3e635"/>
-                  <line x1="475" y1="188" x2="568" y2="188" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="568,184 568,192 575,188" fill="#a3e635"/>
-                  <line x1="150" y1="248" x2="150" y2="230" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="146,230 154,230 150,223" fill="#a3e635"/>
-                  <line x1="400" y1="223" x2="400" y2="241" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="396,241 404,241 400,248" fill="#a3e635"/>
-                  <line x1="650" y1="223" x2="650" y2="241" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="646,241 654,241 650,248" fill="#a3e635"/>
-                  <!-- row 1: external -->
-                  <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">CMS SYSTEM</text>
-                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">content management</text>
-                  <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">STB CLUSTER</text>
-                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">set-top boxes</text>
-                  <!-- row 2: app -->
-                  <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">RABBITMQ</text>
-                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">channel events</text>
-                  <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
-                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">Spring Boot</text>
-                  <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">REDIS</text>
-                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">session / cache</text>
-                  <!-- row 3: data -->
-                  <rect x="79"  y="252" width="150" height="70" fill="#a3e635"/>
-                  <rect x="75"  y="248" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="150" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MYSQL</text>
-                  <text x="150" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">separated DBMS</text>
-                  <rect x="329" y="252" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="248" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">JENKINS</text>
-                  <text x="400" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">CI/CD pipeline</text>
-                  <rect x="579" y="252" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="248" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">DBS GATEWAY</text>
-                  <text x="650" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">broadcast system</text>
+                  <text x="62"  y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">CLIENT</text>
+                  <text x="190" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">NETWORK</text>
+                  <text x="318" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">GATEWAY</text>
+                  <text x="446" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">PROXY</text>
+                  <text x="574" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">APP</text>
+                  <text x="717" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">DATA</text>
                 </svg>
               </div>
             </div>
@@ -344,23 +367,25 @@
               <span class="bstat">30초 수집</span>
             </div>
             <ul class="brut-list">
-              <li>Telegraf + Kafka + Flink 실시간 파이프라인 구축</li>
-              <li>수집 서버 · DB · MQ 클러스터 인프라 구성</li>
-              <li>React 기반 모니터링 대시보드 개발</li>
+              <li>Telegraf → Kafka → Flink 실시간 수집 파이프라인 설계 및 구축</li>
+              <li>TimescaleDB 시계열 데이터 저장 · 집계 쿼리 최적화</li>
+              <li>DRBD + Pacemaker HA 클러스터 구성 — 수집 서버 무중단 운영</li>
+              <li>임계치 기반 알림 엔진 — 이메일 · SMS 자동 발송</li>
+              <li>React 기반 실시간 모니터링 대시보드 개발</li>
             </ul>
 
             <div class="arch-wrap">
-              <div class="arch-hint">ARCHITECTURE <span>↓ hover</span></div>
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover · click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
-                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">MAI-WACS — SYSTEM ARCHITECTURE</text>
+                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" letter-spacing="3">MAI-WACS — SYSTEM ARCHITECTURE</text>
                   <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
                   <!-- layer labels -->
-                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">USER</text>
-                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
-                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="monospace" font-size="9" opacity="0.45" letter-spacing="2">INFRA</text>
+                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">USER</text>
+                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
+                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">INFRA</text>
                   <!-- layer backgrounds -->
                   <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
                   <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
@@ -385,45 +410,45 @@
                   <!-- row 1: user -->
                   <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
                   <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
-                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">web dashboard</text>
+                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
+                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">web dashboard</text>
                   <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
                   <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">ALERT ENGINE</text>
-                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">email / SMS</text>
+                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">ALERT ENGINE</text>
+                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">email / SMS</text>
                   <!-- row 2: app -->
                   <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
                   <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
-                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">message broker</text>
+                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
+                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">message broker</text>
                   <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
                   <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
-                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">REST / query</text>
+                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
+                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">REST / query</text>
                   <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
                   <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
-                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">stream processing</text>
+                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
+                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">stream processing</text>
                   <!-- row 3: infra (4 nodes) -->
                   <rect x="69"  y="252" width="125" height="70" fill="#a3e635"/>
                   <rect x="65"  y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="127" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
-                  <text x="127" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">syslog / metrics</text>
+                  <text x="127" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
+                  <text x="127" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">syslog / metrics</text>
                   <!-- HA cluster boundary -->
                   <rect x="248" y="244" width="327" height="82" fill="#a3e635" opacity="0.05" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
-                  <text x="571" y="256" text-anchor="end" fill="#a3e635" font-family="monospace" font-size="8" opacity="0.5" letter-spacing="1">HA</text>
+                  <text x="571" y="256" text-anchor="end" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.5" letter-spacing="1">HA</text>
                   <rect x="256" y="252" width="125" height="70" fill="#a3e635"/>
                   <rect x="252" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="314" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">PACEMAKER</text>
-                  <text x="314" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">cluster HA</text>
+                  <text x="314" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">PACEMAKER</text>
+                  <text x="314" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">cluster HA</text>
                   <rect x="443" y="252" width="125" height="70" fill="#a3e635"/>
                   <rect x="439" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="501" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">TIMESCALEDB</text>
-                  <text x="501" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">time-series store</text>
+                  <text x="501" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">TIMESCALEDB</text>
+                  <text x="501" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">time-series store</text>
                   <rect x="630" y="252" width="125" height="70" fill="#a3e635"/>
                   <rect x="626" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="688" y="275" text-anchor="middle" fill="#a3e635" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">S3 / ARCHIVE</text>
-                  <text x="688" y="291" text-anchor="middle" fill="#555" font-family="monospace" font-size="9">cold storage</text>
+                  <text x="688" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">S3 / ARCHIVE</text>
+                  <text x="688" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">cold storage</text>
                 </svg>
               </div>
             </div>
@@ -451,8 +476,10 @@
               <span class="bstat">6개월</span>
             </div>
             <ul class="brut-list">
-              <li>콘텐츠 뷰어 · 사용자 관리 · 환경설정 기능 개발</li>
+              <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
+              <li>콘텐츠 뷰어 · 사용자 관리 · 환경설정 · STB 단말 현황 기능 개발</li>
               <li>광고 활성화 · 결제 수단 관리 UI 구현</li>
+              <li>jQuery AJAX 비동기 처리 — 페이지 전환 없는 실시간 데이터 갱신</li>
             </ul>
           </div>
         </div>
@@ -515,6 +542,10 @@
         <span class="label-num">03</span>
         <span class="label-text">About</span>
       </div>
+      <div class="about-meta">
+        <span class="about-badge available">구직중</span>
+        <span class="about-location">서울 · 경기 · 대전 · 재택 가능</span>
+      </div>
       <blockquote class="about-quote-big">
         문서화되지 않은 시스템을<br/>
         인계받아 처음부터 혼자 파악하고,<br/>
@@ -526,6 +557,7 @@
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">설계 · 배포 · 장애 대응 — 전체 스택 단독 운영</span></div>
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">신기술보다 운영 안정성 · 문제 해결 속도 우선</span></div>
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">SI/솔루션 출신 — 빠른 파악, 빠른 실행</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">좋은 팀과 실질적인 문제를 함께 풀고 싶습니다.</span></div>
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-cursor">_</span></div>
       </div>
     </div>
@@ -576,11 +608,21 @@
   <div id="theme-sw">
     <span class="tsw-label">COLOR THEME</span>
     <div class="tsw-panel">
-      <button class="tsw-dot active" data-t="lime"    data-name="Lime"    style="--c:#a3e635"></button>
+      <button class="tsw-dot"        data-t="lime"    data-name="Lime"    style="--c:#a3e635"></button>
       <button class="tsw-dot"        data-t="indigo"  data-name="Indigo"  style="--c:#4338ca"></button>
       <button class="tsw-dot"        data-t="orange"  data-name="Orange"  style="--c:#ea580c"></button>
       <button class="tsw-dot"        data-t="forest"  data-name="Forest"  style="--c:#166534"></button>
       <button class="tsw-dot"        data-t="crimson" data-name="Crimson" style="--c:#dc2626"></button>
+      <button class="tsw-dot"        data-t="olive"   data-name="Olive"   style="--c:#65a30d"></button>
+      <button class="tsw-dot active" data-t="violet"  data-name="Violet"  style="--c:#7c3aed"></button>
+    </div>
+  </div>
+
+  <!-- ARCH LIGHTBOX -->
+  <div id="arch-lightbox">
+    <div id="arch-lightbox-inner">
+      <button id="arch-lightbox-close">✕</button>
+      <span id="arch-lightbox-esc">ESC 또는 바깥 클릭으로 닫기</span>
     </div>
   </div>
 

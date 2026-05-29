@@ -12,7 +12,7 @@
 - **목적**: JuneYoung Kim 개발자 경력기술서 사이트 (이력서 링크 첨부용)
 - **GitHub**: https://github.com/sky14786/resume-ai
 - **스택**: 순수 HTML / CSS / JS (빌드 툴 없음)
-- **배포 예정**: Cloudflare Pages + 커스텀 도메인
+- **배포**: Cloudflare Pages 완료 → https://juneyoung.pages.dev
 
 ---
 
@@ -53,7 +53,16 @@
   - 컬러 테마 스위처 (우측 하단 고정) — Lime / Indigo / Orange / Forest / Crimson 실시간 전환
   - Print CSS 대폭 단순화 — 라이트 테마라 색상 오버라이드 불필요, 그림자만 제거
   - SVG 다이어그램: 다크 패널 유지 (라이트 카드 안 dark screen 대비 효과)
-- **로컬 서버**: `npx serve resume-ai/v7 --listen 3600` (port 3600)
+- **추가된 기능** (2026-05-29):
+  - `og:url` 메타 태그 추가 (`https://juneyoung.pages.dev`)
+  - Hero stat 카드 서브텍스트 추가 (`Experience` / `3BB IPTV` / `MAI-WACS`)
+  - 병원 앱 경력 항목 보강 — Shell Script 자동화, Nginx 리버스 프록시 재설계, Pacemaker HA 클러스터
+  - SVG 아키텍처 다이어그램 개선 — 서브타이틀, ON-PREMISES 내부망 경계 표시, 화살표 개선
+  - Architecture Lightbox — SVG 클릭 시 모달 확대 보기 (ESC/배경클릭 닫기)
+  - About 메타 배지 추가 — `.about-badge.available` + `.about-location`
+  - 테마 스위처 확장 — Olive / Violet 2개 추가 (총 7개)
+  - 기본 accent 컬러 Lime → Violet (`#7c3aed`) 으로 임시 변경 (확정 전)
+- **로컬 서버**: `npx serve v7 --listen 3600` (port 3600)
 - **서버 재시작 방법**: 포트 점유 프로세스 종료 후 재기동
 
 ### v6 (`/v6/`) — 다크 테마 + 2컬러 버전
@@ -100,7 +109,7 @@
 - [x] v2: Bento Grid, spotlight, 앰버 테마
 - [x] v3: Neobrutalism, Kinetic Typography, Custom Cursor, Command Palette, Scroll Storytelling
 
-### 이번 세션 완료
+### 이전 세션 완료
 - [x] MAI-WACS 카드 — 아키텍처 다이어그램 SVG 인라인 삽입
 - [x] PC hover / 모바일 click 반응형 다이어그램 토글
 - [x] 모바일 가로 스크롤 대응 (min-width: 600px)
@@ -108,7 +117,18 @@
 - [x] About 섹션 (03) — v3/v4 모두
 - [x] Contact 섹션 (04) — GitHub / Email obfuscated / KakaoTalk 플레이스홀더
 - [x] v4 신규 생성 — 비주얼 강화 (섹션 bg 숫자, 대형 quote, 터미널 블록, ALWAYS OPEN. 타이포)
-- [x] launch.json에 v4 서버 추가 (port 3300)
+- [x] v5/v6/v7 신규 생성 — 기능·테마 단계적 강화
+- [x] Cloudflare Pages 배포 완료 → https://juneyoung.pages.dev
+
+### 이번 세션 완료 (2026-05-29)
+- [x] v7 og:url 추가 (`https://juneyoung.pages.dev`)
+- [x] Hero stat 서브텍스트 추가 (Experience / 3BB IPTV / MAI-WACS)
+- [x] 병원 앱 경력 항목 보강 (Shell Script, Nginx, Pacemaker HA)
+- [x] SVG 다이어그램 개선 (서브타이틀, 내부망 경계, 화살표)
+- [x] Architecture Lightbox (SVG 클릭 확대 모달)
+- [x] About 메타 배지 (available 상태 + 위치)
+- [x] 테마 스위처 Olive / Violet 추가 (총 7개)
+- [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
 ---
 
@@ -117,21 +137,15 @@
 ### 🔜 다음 세션 우선순위
 
 1. **v7 컬러 테마 확정**
-   - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택
-   - 확정 후 선택 컬러를 기본값으로 CSS 변수 고정, 스위처 제거
+   - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
+   - 확정 후 선택 컬러를 CSS 변수 고정, 스위처 제거
 
 2. **KakaoTalk 링크 교체**
-   - v7: `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
-
-3. **Cloudflare Pages 배포**
-   - GitHub 저장소 연결 → 자동 배포
-   - 배포 대상 디렉토리: `/v7` (현재 방향)
-   - 커스텀 도메인 연결
+   - `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
 ### 이후 작업
 - [ ] 모바일 반응형 세부 점검 (v7 기준)
 - [ ] OG image 추가 (og:image 1200×630 PNG)
-- [ ] 확정 전까지 v7 컬러 스위처 유지
 
 ---
 

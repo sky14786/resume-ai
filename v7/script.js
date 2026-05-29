@@ -256,6 +256,40 @@ if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
 }
 
 /* =============================================
+   ARCHITECTURE LIGHTBOX
+   ============================================= */
+(function() {
+  const lightbox = document.getElementById('arch-lightbox');
+  const inner    = document.getElementById('arch-lightbox-inner');
+  const closeBtn = document.getElementById('arch-lightbox-close');
+  const escHint  = document.getElementById('arch-lightbox-esc');
+
+  function openLightbox(svg) {
+    const clone = svg.cloneNode(true);
+    // 기존 SVG 클론 제거 후 삽입
+    inner.querySelectorAll('svg').forEach(s => s.remove());
+    inner.insertBefore(clone, closeBtn);
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+  }
+
+  document.querySelectorAll('.arch-diagram svg').forEach(svg => {
+    svg.addEventListener('click', () => openLightbox(svg));
+    svg.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    svg.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  closeBtn.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  closeBtn.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+})();
+
+/* =============================================
    THEME SWITCHER
    ============================================= */
 const THEMES = {
@@ -264,6 +298,8 @@ const THEMES = {
   orange:  { accent:'#ea580c', ar:'234,88,12'   },
   forest:  { accent:'#166534', ar:'22,101,52'   },
   crimson: { accent:'#dc2626', ar:'220,38,38'   },
+  olive:   { accent:'#65a30d', ar:'101,163,13'  },
+  violet:  { accent:'#7c3aed', ar:'124,58,237'  },
 };
 
 const root = document.documentElement;

@@ -12,7 +12,7 @@
 
 ## ✦ Live
 
-**[→ resume-ai.pages.dev](https://resume-ai.pages.dev)**
+**[→ juneyoung.pages.dev](https://juneyoung.pages.dev)**
 
 ---
 
@@ -97,7 +97,7 @@ npx serve v7 --listen 3600
 ```
 GitHub (main push)
     └─→ Cloudflare Pages (자동 빌드/배포)
-            └─→ resume-ai.pages.dev
+            └─→ juneyoung.pages.dev
 ```
 
 - 빌드 명령: 없음 (정적 파일 직접 서빙)
