@@ -151,7 +151,7 @@ const list     = document.getElementById('cmd-list');
 
 const ITEMS = [
   { icon: '→', label: '다기관 병원 유지보수', hint: '2025', action: () => scrollTo('#c-hospital') },
-  { icon: '→', label: '3BB GIGA IPTV 운영', hint: '2021', action: () => scrollTo('#c-iptv') },
+  { icon: '→', label: '해외 IPTV 플랫폼 운영', hint: '2021', action: () => scrollTo('#c-iptv') },
   { icon: '→', label: 'MAI-WACS 파이프라인', hint: '2022', action: () => scrollTo('#c-wacs') },
   { icon: '→', label: 'IPTV 어드민 개발', hint: '2020', action: () => scrollTo('#c-admin') },
   { icon: '#', label: 'Skills', hint: 'section', action: () => scrollTo('#skills') },
