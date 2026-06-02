@@ -1,10 +1,12 @@
 # resume-ai — 작업 진행 현황
 
 ## ⚠️ 세션 규칙 (필수)
-> **매 작업 세션 종료 전 반드시:**
+> **기능 하나 완성될 때마다 즉시:**
 > 1. `PROGRESS.md` 작업 내역 및 다음 할 일 업데이트
 > 2. 변경 파일 전체 GitHub 커밋 & 푸시
-> 3. 다음 세션 시작 시 이 파일을 먼저 읽고 이어서 작업
+> 3. `README.md` 변경 내용 반영 (기능 추가·수정 시)
+>
+> **다음 세션 시작 시:** 이 파일을 먼저 읽고 이어서 작업
 
 ---
 
@@ -129,6 +131,12 @@
 - [x] About 메타 배지 (available 상태 + 위치)
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
+
+### 이번 세션 완료 (2026-06-02)
+- [x] 아키텍처 SVG 노드 라벨 실제 구성에 맞게 수정
+  - 병원: `PATIENT APP` → `USER`, `DB PRIMARY` → `DB 1`, `DB REPLICA` → `DB 2`, 서브텍스트 `도메인 URI`
+  - IPTV: `L4 SWITCH` → `LB SWITCH (물리 · Physical)`, API SERVER 숫자(×20) 제거
+- [x] PROGRESS.md 세션 규칙에 README 업데이트 조건 추가
 
 ---
 
