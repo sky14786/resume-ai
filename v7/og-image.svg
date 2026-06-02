@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf9f6"/>
+
+  <!-- BG decorative text -->
+  <text x="1180" y="570" text-anchor="end"
+    font-family="Arial Black, Impact, sans-serif"
+    font-size="330" font-weight="900"
+    fill="rgba(0,0,0,0.025)" letter-spacing="-10">JY.</text>
+
+  <!-- Label -->
+  <text x="88" y="158"
+    font-family="'Courier New', monospace"
+    font-size="13" fill="#0891b2" letter-spacing="4">// BACKEND ENGINEER · SYSTEM OPERATOR</text>
+
+  <!-- Name: JuneYoung -->
+  <text x="86" y="278"
+    font-family="Arial Black, 'Arial Bold', sans-serif"
+    font-size="90" font-weight="900" fill="#0c0c0c">JuneYoung</text>
+
+  <!-- Name: Kim. (violet) -->
+  <text x="86" y="368"
+    font-family="Arial Black, 'Arial Bold', sans-serif"
+    font-size="90" font-weight="900" fill="#7c3aed">Kim.</text>
+
+  <!-- Description -->
+  <text x="88" y="428" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#999">혼자서 시스템 전체를 책임지는 엔지니어.</text>
+  <text x="88" y="454" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#999">안정화, 운영, 파이프라인 — 끝까지 다 합니다.</text>
+
+  <!-- URL accent bar + text -->
+  <rect x="88" y="492" width="4" height="26" fill="#7c3aed"/>
+  <text x="104" y="510"
+    font-family="'Courier New', monospace"
+    font-size="13" fill="#bbb" letter-spacing="2">juneyoung.pages.dev</text>
+
+  <!-- Stat Card 1: 5+ Years -->
+  <rect x="728" y="151" width="212" height="92" fill="#0c0c0c"/>
+  <rect x="724" y="147" width="212" height="92" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
+  <text x="748" y="186" font-family="'Courier New', monospace" font-size="36" font-weight="700" fill="#7c3aed">5+</text>
+  <text x="748" y="204" font-family="Arial, sans-serif" font-size="10" fill="#bbb" letter-spacing="4">YEARS</text>
+  <text x="748" y="220" font-family="'Courier New', monospace" font-size="9" fill="#0891b2" letter-spacing="3">EXPERIENCE</text>
+
+  <!-- Stat Card 2: 100만+ Users -->
+  <rect x="728" y="263" width="212" height="92" fill="#0c0c0c"/>
+  <rect x="724" y="259" width="212" height="92" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
+  <text x="748" y="298" font-family="'Courier New', monospace" font-size="32" font-weight="700" fill="#7c3aed">100만+</text>
+  <text x="748" y="316" font-family="Arial, sans-serif" font-size="10" fill="#bbb" letter-spacing="4">USERS</text>
+  <text x="748" y="332" font-family="'Courier New', monospace" font-size="9" fill="#0891b2" letter-spacing="3">3BB IPTV</text>
+
+  <!-- Stat Card 3: 350+ Servers -->
+  <rect x="728" y="375" width="212" height="92" fill="#0c0c0c"/>
+  <rect x="724" y="371" width="212" height="92" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
+  <text x="748" y="410" font-family="'Courier New', monospace" font-size="36" font-weight="700" fill="#7c3aed">350+</text>
+  <text x="748" y="428" font-family="Arial, sans-serif" font-size="10" fill="#bbb" letter-spacing="4">SERVERS</text>
+  <text x="748" y="444" font-family="'Courier New', monospace" font-size="9" fill="#0891b2" letter-spacing="3">MAI-WACS</text>
+
+  <!-- Bottom gradient bar -->
+  <rect x="0" y="624" width="1200" height="6" fill="url(#grad)"/>
+</svg>

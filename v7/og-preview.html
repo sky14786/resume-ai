@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+    /* 1200×630 고정 — 이 상태로 스크린샷 */
+    body{
+      width:1200px;height:630px;overflow:hidden;
+      background:#faf9f6;
+      font-family:'Inter',sans-serif;
+      display:flex;align-items:center;
+      padding:68px 88px;
+      position:relative;
+    }
+
+    /* 배경 텍스트 */
+    .bg-text{
+      position:absolute;
+      right:-30px;top:50%;transform:translateY(-50%);
+      font-size:300px;font-weight:900;
+      color:rgba(0,0,0,.028);
+      letter-spacing:-.06em;
+      pointer-events:none;white-space:nowrap;
+      font-family:'Inter',sans-serif;
+      line-height:1;
+    }
+
+    /* 왼쪽 — 이름/설명 */
+    .left{
+      flex:1;
+      display:flex;flex-direction:column;
+      gap:22px;z-index:1;
+    }
+    .label{
+      font-family:'JetBrains Mono',monospace;
+      font-size:13px;color:#0891b2;
+      letter-spacing:.16em;text-transform:uppercase;
+    }
+    .name{
+      font-size:86px;font-weight:900;
+      letter-spacing:-.04em;line-height:.92;
+      color:#0c0c0c;
+    }
+    .name .accent{color:#7c3aed;}
+    .desc{
+      font-size:19px;color:#777;
+      line-height:1.65;max-width:540px;
+    }
+    .url-row{
+      display:flex;align-items:center;gap:14px;
+      margin-top:4px;
+    }
+    .url-bar{width:4px;height:28px;background:#7c3aed;}
+    .url{
+      font-family:'JetBrains Mono',monospace;
+      font-size:13px;color:#aaa;letter-spacing:.06em;
+    }
+
+    /* 오른쪽 — stat 카드 3개 */
+    .right{
+      display:flex;flex-direction:column;
+      gap:14px;z-index:1;
+      margin-left:64px;flex-shrink:0;
+    }
+    .stat-card{
+      background:#fff;
+      border:2px solid #0c0c0c;
+      box-shadow:4px 4px 0 #0c0c0c;
+      padding:18px 28px;
+      min-width:210px;
+    }
+    .stat-num{
+      font-family:'JetBrains Mono',monospace;
+      font-size:34px;font-weight:800;
+      color:#7c3aed;line-height:1;
+    }
+    .stat-lbl{
+      font-size:10px;color:#999;
+      letter-spacing:.14em;text-transform:uppercase;
+      margin-top:5px;
+    }
+    .stat-sub{
+      font-family:'JetBrains Mono',monospace;
+      font-size:9px;color:#0891b2;
+      letter-spacing:.14em;text-transform:uppercase;
+      margin-top:2px;
+    }
+
+    /* 하단 구분선 + 스택 */
+    .bottom-bar{
+      position:absolute;
+      bottom:0;left:0;right:0;
+      height:6px;
+      background:linear-gradient(90deg,#7c3aed 0%,#0891b2 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-text">JY.</div>
+
+  <div class="left">
+    <p class="label">// Backend Engineer · System Operator</p>
+    <h1 class="name">
+      JuneYoung<br/>
+      <span class="accent">Kim.</span>
+    </h1>
+    <p class="desc">
+      혼자서 시스템 전체를 책임지는 엔지니어.<br/>
+      안정화, 운영, 파이프라인 — 끝까지 다 합니다.
+    </p>
+    <div class="url-row">
+      <div class="url-bar"></div>
+      <span class="url">juneyoung.pages.dev</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="stat-card">
+      <div class="stat-num">5+</div>
+      <div class="stat-lbl">Years</div>
+      <div class="stat-sub">Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100만+</div>
+      <div class="stat-lbl">Users</div>
+      <div class="stat-sub">3BB IPTV</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">350+</div>
+      <div class="stat-lbl">Servers</div>
+      <div class="stat-sub">MAI-WACS</div>
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+
+</body>
+</html>
