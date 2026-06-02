@@ -137,9 +137,13 @@
   - 병원: `PATIENT APP` → `USER`, `DB PRIMARY` → `DB 1`, `DB REPLICA` → `DB 2`, 서브텍스트 `도메인 URI`
   - IPTV: `L4 SWITCH` → `LB SWITCH (물리 · Physical)`, API SERVER 숫자(×20) 제거
 - [x] PROGRESS.md 세션 규칙에 README 업데이트 조건 추가
-- [x] OG image 추가 — `v7/og-image.svg` 생성 + `og:image` 메타 태그 적용
+- [x] OG image 추가 — `v7/og-image.svg` 생성 + `og:image` 메타 태그 적용 (og-preview.html 참고용 포함)
 - [x] 어드민 카드 bstat (`첫 투입 프로젝트` / `6개월`) 제거
-- [x] IPTV 카드 — 해외 협력사(태국) 단독 담당 경험 항목 추가
+- [x] IPTV 카드 — 해외 협력사 단독 담당 경험 항목 추가 (출장 횟수·국가명 제거, 역할 중심)
+- [x] NDA 대응 — 고객사명 전체 익명화
+  - 성모병원·경희대병원 → `대형 병원 10개소` (카드 서브텍스트, SVG 자막)
+  - 3BB GIGA IPTV → `해외 IPTV 플랫폼` (카드 제목, SVG, 커맨드 팔레트, Hero stat)
+  - 해외 협력사(태국) → `해외 협력사` (국가명 제거)
 
 ---
 
@@ -147,16 +151,16 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **v7 컬러 테마 확정**
-   - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
-   - 확정 후 선택 컬러를 CSS 변수 고정, 스위처 제거
-
-2. **KakaoTalk 링크 교체**
+1. **KakaoTalk 링크 교체**
    - `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
+2. **v7 컬러 테마 확정**
+   - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
+   - 확정 후 CSS 변수 고정, 스위처 제거
+
 ### 이후 작업
-- [ ] 모바일 반응형 세부 점검 (v7 기준)
-- [ ] OG image 추가 (og:image 1200×630 PNG)
+- [ ] 모바일 Nav 과밀 점검 (로고 + 3링크 + PDF + CMD 버튼 — 375px 이하 겹침 가능)
+- [ ] OG image PNG 변환 — 카카오톡 SVG 미지원 시 `og-preview.html` 스크린샷으로 교체
 
 ---
 
