@@ -137,6 +137,9 @@
   - 병원: `PATIENT APP` → `USER`, `DB PRIMARY` → `DB 1`, `DB REPLICA` → `DB 2`, 서브텍스트 `도메인 URI`
   - IPTV: `L4 SWITCH` → `LB SWITCH (물리 · Physical)`, API SERVER 숫자(×20) 제거
 - [x] PROGRESS.md 세션 규칙에 README 업데이트 조건 추가
+- [x] OG image 추가 — `v7/og-image.svg` 생성 + `og:image` 메타 태그 적용
+- [x] 어드민 카드 bstat (`첫 투입 프로젝트` / `6개월`) 제거
+- [x] IPTV 카드 — 해외 협력사(태국) 단독 담당 경험 항목 추가
 
 ---
 
