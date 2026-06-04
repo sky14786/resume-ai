@@ -154,6 +154,7 @@ const ITEMS = [
   { icon: '→', label: '해외 IPTV 플랫폼 운영', hint: '2021', action: () => scrollTo('#c-iptv') },
   { icon: '→', label: 'MAI-WACS 파이프라인', hint: '2022', action: () => scrollTo('#c-wacs') },
   { icon: '→', label: 'IPTV 어드민 개발', hint: '2020', action: () => scrollTo('#c-admin') },
+  { icon: '◈', label: 'metric-stream', hint: 'project', action: () => scrollTo('#p-metric') },
   { icon: '#', label: 'Skills', hint: 'section', action: () => scrollTo('#skills') },
   { icon: '↗', label: 'GitHub', hint: 'external', action: () => window.open('https://github.com/sky14786', '_blank') },
 ];
@@ -315,6 +316,26 @@ document.querySelectorAll('.tsw-dot').forEach(btn => {
   btn.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
   btn.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
+
+/* =============================================
+   GRAFANA MODAL
+   ============================================= */
+(function() {
+  const modal   = document.getElementById('grafana-modal');
+  const openBtn = document.getElementById('grafana-open');
+  const closeBackdrop = document.getElementById('grafana-modal-close');
+  const closeX  = document.getElementById('grafana-modal-x');
+  if (!modal || !openBtn) return;
+
+  function openModal()  { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { modal.classList.add('hidden');    document.body.style.overflow = ''; }
+
+  openBtn.addEventListener('click', openModal);
+  openBtn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(); });
+  closeBackdrop.addEventListener('click', closeModal);
+  closeX.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
 
 /* =============================================
    NAV SCROLL SPY

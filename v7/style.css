@@ -432,6 +432,173 @@ kbd{
   color:var(--accent);font-size:11px;top:2px;
 }
 
+/* ── PROJECTS ── */
+#projects{
+  border-top:2px solid var(--dim);
+}
+.proj-card{
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.grafana-wrap{margin-top:28px;}
+
+.grafana-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:12px;
+}
+.grafana-label-note{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:.04em;
+  text-transform:none;
+  opacity:.7;
+}
+
+.grafana-dot{
+  width:7px;height:7px;
+  background:#22c55e;
+  border-radius:50%;
+  display:inline-block;
+  animation:live-pulse 2s infinite;
+}
+
+@keyframes live-pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.45;transform:scale(.75);}
+}
+
+/* ── 카드 내 프리뷰 ── */
+.grafana-preview-wrap{
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+  border:2px solid var(--border);
+  box-shadow:5px 5px 0 var(--shadow);
+  transition:box-shadow .2s, transform .2s;
+}
+.grafana-preview-wrap:hover{
+  box-shadow:8px 8px 0 var(--accent);
+  transform:translate(-2px,-2px);
+}
+.gpanel-preview{
+  width:100%;height:220px;
+  display:block;border:none;
+  pointer-events:none;
+}
+.grafana-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 55%);
+  display:flex;align-items:flex-end;justify-content:flex-end;
+  padding:16px 20px;
+  transition:background .25s;
+}
+.grafana-preview-wrap:hover .grafana-overlay{
+  background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.15) 65%);
+}
+.grafana-overlay-text{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;color:#fff;opacity:.65;
+  transition:opacity .2s;
+}
+.grafana-preview-wrap:hover .grafana-overlay-text{opacity:1;}
+
+/* ── 모달 ── */
+.grafana-modal{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.grafana-modal.hidden{display:none;}
+
+.grafana-modal-backdrop{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(2px);
+  cursor:pointer;
+}
+.grafana-modal-box{
+  position:relative;z-index:1;
+  width:92vw;max-width:1360px;
+  background:#0d0d0d;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 32px 80px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,0.04);
+  overflow:hidden;
+}
+
+/* 헤더 */
+.gm-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:20px 24px 16px;
+  border-bottom:1px solid #1f1f1f;
+  background:#111;
+}
+.gm-header-left{display:flex;flex-direction:column;gap:6px;}
+.gm-live-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.gm-live-text{color:#22c55e;}
+.gm-live-note{
+  color:#888;
+  font-size:10px;
+  letter-spacing:.06em;
+  text-transform:none;
+}
+.gm-title{
+  font-family:var(--mono);font-size:20px;font-weight:700;
+  color:#fff;letter-spacing:-.01em;
+}
+.gm-desc{
+  font-family:var(--mono);font-size:11px;
+  color:#555;letter-spacing:.03em;
+}
+.gm-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.gm-tag{
+  font-family:var(--mono);font-size:10px;
+  padding:3px 9px;
+  border:1px solid #2a2a2a;
+  color:#666;
+  letter-spacing:.05em;
+}
+.gm-header-right{
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.gm-github{
+  font-family:var(--mono);font-size:11px;
+  color:#555;letter-spacing:.08em;
+  border:1px solid #2a2a2a;
+  padding:5px 12px;
+  transition:color .15s,border-color .15s;
+}
+.gm-github:hover{color:#fff;border-color:#555;}
+.grafana-modal-x{
+  background:none;border:1px solid #2a2a2a;
+  color:#555;font-size:13px;
+  padding:5px 10px;cursor:pointer;
+  transition:border-color .15s,color .15s;
+}
+.grafana-modal-x:hover{border-color:#fff;color:#fff;}
+
+/* 패널 그리드 */
+.grafana-modal-grid{
+  display:flex;flex-direction:column;
+  gap:1px;background:#2a2a2a;
+}
+.grafana-modal-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+}
+
+.gpanel{display:block;border:none;background:#111;}
+.gm-hero{height:360px;width:100%;}
+.gm-stat{height:150px;}
+
 /* ── SKILLS ── */
 .skills-wrap{display:flex;flex-direction:column;gap:20px;}
 .skill-group{display:flex;align-items:center;flex-wrap:wrap;gap:8px;}

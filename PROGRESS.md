@@ -132,6 +132,16 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-05)
+- [x] **Projects 섹션 신규 추가** (02번 — Skills→03, About→04, Contact→05 재정렬)
+  - metric-stream 카드 구성 (제목·설명·태그·불릿 4개)
+  - Grafana d-solo iframe 카드 프리뷰 (timeseries 풀와이드, 클릭 오버레이)
+  - 모달 lightbox 구현 — 헤더(LIVE·프로젝트명·스택·GitHub) + timeseries + stat 4개 한 줄
+  - LIVE 레이블에 "임의 생성 로그 기반 실시간 통계" 표기
+  - Career ↔ Projects 섹션 구분선 추가
+- [x] Nav에 Projects 링크 추가, 커맨드 팔레트에 metric-stream 항목 추가
+- [x] 불릿 문장 간결하게 재작성 (기술 스펙 나열 → 기능 중심 설명)
+
 ### 이번 세션 완료 (2026-06-02)
 - [x] 아키텍처 SVG 노드 라벨 실제 구성에 맞게 수정
   - 병원: `PATIENT APP` → `USER`, `DB PRIMARY` → `DB 1`, `DB REPLICA` → `DB 2`, 서브텍스트 `도메인 URI`
@@ -157,6 +167,9 @@
 2. **v7 컬러 테마 확정**
    - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
    - 확정 후 CSS 변수 고정, 스위처 제거
+
+3. **metric-stream Oracle Cloud 배포 후 Grafana 모달 URL 교체**
+   - 현재 localhost:3000 → 배포 후 공개 URL로 교체
 
 ### 이후 작업
 - [ ] 모바일 Nav 과밀 점검 (로고 + 3링크 + PDF + CMD 버튼 — 375px 이하 겹침 가능)
