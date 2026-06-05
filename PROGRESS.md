@@ -132,6 +132,13 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-05 세션 2)
+- [x] `·` → `,` 전체 교체 — index.html(27곳), og-image.svg, og-preview.html
+- [x] 익명화 완료 — og-image.svg, og-preview.html, index.html `MAI-WACS` → `모니터링 시스템` (3곳), `3BB IPTV` → `해외 IPTV`
+- [x] 크롤링 차단 — `v7/robots.txt` 생성 + `<meta name="robots" content="noindex, nofollow"/>` 추가
+- [x] Contact 섹션 정리 — `ALWAYS OPEN.` 타이포 및 설명 문구 제거, 링크 카드만 유지. 관련 CSS(.contact-statement/.cs-line/.cs-outline/.contact-desc) 전부 제거
+- [x] Grafana 익명 접근 수정 — `metric-stream/docker-compose.yml`에 `GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer` 추가 (d-solo 패널 302 리다이렉트 해결)
+
 ### 이번 세션 완료 (2026-06-05)
 - [x] **Projects 섹션 신규 추가** (02번 — Skills→03, About→04, Contact→05 재정렬)
   - metric-stream 카드 구성 (제목·설명·태그·불릿 4개)
@@ -174,6 +181,9 @@
 ### 이후 작업
 - [ ] 모바일 Nav 과밀 점검 (로고 + 3링크 + PDF + CMD 버튼 — 375px 이하 겹침 가능)
 - [ ] OG image PNG 변환 — 카카오톡 SVG 미지원 시 `og-preview.html` 스크린샷으로 교체
+- [ ] **경력 불릿 before/after 구조로 개선** — "뭘 했다" 나열 → "문제 → 기술 선택 이유 → 결과" 구조로 카드당 핵심 2개 이상 재작성
+  - 우선순위: IPTV(Redis, RabbitMQ), 병원(Nginx SSL, 운영 리스크 3개), WACS(TimescaleDB, 알림 엔진)
+  - 수치 없어도 before/after 구조 자체로 설득력 확보 가능
 
 ---
 

@@ -9,6 +9,7 @@
   <meta property="og:title" content="JuneYoung Kim — Backend Engineer"/>
   <meta property="og:description" content="혼자서 시스템 전체를 책임지는 엔지니어. 안정화, 운영, 파이프라인 — 끝까지 다 합니다."/>
   <meta property="og:type" content="website"/>
+  <meta name="robots" content="noindex, nofollow"/>
   <meta name="twitter:card" content="summary"/>
   <meta property="og:url" content="https://juneyoung.pages.dev"/>
   <meta property="og:image" content="https://juneyoung.pages.dev/og-image.svg"/>
@@ -65,7 +66,7 @@
   <!-- ── HERO ── -->
   <section class="hero" id="hero">
     <div class="hero-inner">
-      <p class="hero-label">// Backend Engineer · System Operator</p>
+      <p class="hero-label">// Backend Engineer , System Operator</p>
 
       <h1 class="hero-name" id="hero-name">
         <span class="name-word" id="word1"></span>
@@ -94,7 +95,7 @@
         <div class="stat" data-val="350" data-sfx="+ Servers">
           <span class="stat-n">0</span>
           <span class="stat-l">Servers</span>
-          <span class="stat-sub">MAI-WACS</span>
+          <span class="stat-sub">모니터링 시스템</span>
         </div>
       </div>
 
@@ -141,26 +142,26 @@
             </div>
             <ul class="brut-list">
               <li>인계 시 운영 리스크 전수 발견 및 전면 안정화</li>
-              <li>DBMS 복제 단절 · 백업 미운영 · 디스크 풀 → Shell Script로 전부 자동화</li>
+              <li>DBMS 복제 단절 , 백업 미운영 , 디스크 풀 → Shell Script로 전부 자동화</li>
               <li>Nginx 리버스 프록시 재설계 및 SSL 인증서 갱신 자동화</li>
               <li>Pacemaker HA 클러스터 재구성 — 무중단 이관 완료</li>
-              <li>헬스체크 / 모니터링 Pull·Push 방식 구축</li>
+              <li>헬스체크 / 모니터링 Pull,Push 방식 구축</li>
               <li>PG사 만료로 인한 결제 모듈 재구축</li>
               <li>폐쇄망 내부 앱 배포 UI 구현</li>
             </ul>
 
             <div class="arch-wrap">
-              <div class="arch-hint">ARCHITECTURE <span>↓ hover · click to zoom</span></div>
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
                   <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">HOSPITAL PATIENT APP — ARCHITECTURE</text>
-                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">대형 병원 10개소  ·  폐쇄망 온프레미스</text>
+                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">대형 병원 10개소  ,  폐쇄망 온프레미스</text>
                   <line x1="30" y1="52" x2="770" y2="52" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
                   <!-- internal network boundary -->
                   <rect x="158" y="88" width="630" height="200" fill="none" stroke="#a3e635" stroke-width="1" stroke-dasharray="6,4" opacity="0.18" rx="3"/>
-                  <text x="168" y="101" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7" opacity="0.38" letter-spacing="2">ON-PREMISES · INTERNAL NETWORK</text>
+                  <text x="168" y="101" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7" opacity="0.38" letter-spacing="2">ON-PREMISES , INTERNAL NETWORK</text>
                   <!-- arrows -->
                   <line x1="130" y1="178" x2="161" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
                   <polygon points="158,174 158,182 165,178" fill="#a3e635"/>
@@ -194,25 +195,25 @@
                   <rect x="312" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
                   <rect x="309" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
                   <text x="369" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">NGINX LB</text>
-                  <text x="369" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Docker · on-prem</text>
+                  <text x="369" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Docker , on-prem</text>
                   <text x="369" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">load balancing</text>
                   <!-- NODE: API Server -->
                   <rect x="460" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
                   <rect x="457" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
                   <text x="517" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">API SERVER</text>
-                  <text x="517" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Spring Boot · Docker</text>
+                  <text x="517" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Spring Boot , Docker</text>
                   <text x="517" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
                   <!-- NODE: DB 1 -->
                   <rect x="624" y="114" width="148" height="50" fill="#a3e635" opacity="0.08"/>
                   <rect x="621" y="111" width="148" height="50" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
                   <text x="695" y="129" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">DB 1</text>
-                  <text x="695" y="142" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB · Docker</text>
+                  <text x="695" y="142" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB , Docker</text>
                   <text x="695" y="154" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
                   <!-- NODE: DB 2 -->
                   <rect x="624" y="192" width="148" height="50" fill="#a3e635" opacity="0.08"/>
                   <rect x="621" y="189" width="148" height="50" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
                   <text x="695" y="207" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">DB 2</text>
-                  <text x="695" y="220" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB · Docker</text>
+                  <text x="695" y="220" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB , Docker</text>
                   <text x="695" y="232" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
                   <!-- layer labels -->
                   <text x="73"  y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">CLIENT</text>
@@ -232,7 +233,7 @@
             <div class="brut-head">
               <div>
                 <h3 class="brut-title">해외 IPTV 플랫폼</h3>
-                <p class="brut-sub">가입자 100만 규모 플랫폼 · 5년 단독 운영</p>
+                <p class="brut-sub">가입자 100만 규모 플랫폼 , 5년 단독 운영</p>
               </div>
               <span class="brut-period">2021.01 — 2025.12</span>
             </div>
@@ -248,23 +249,23 @@
               <span class="bstat">5년 단독</span>
             </div>
             <ul class="brut-list">
-              <li>전담 개발자 1인으로 플랫폼 전체 단독 운영 (설계 · 배포 · 장애 대응)</li>
+              <li>전담 개발자 1인으로 플랫폼 전체 단독 운영 (설계 , 배포 , 장애 대응)</li>
               <li>해외 협력사 단독 담당 — 현지 출장 및 AI 번역 활용 원격 커뮤니케이션 직접 수행</li>
               <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
               <li>RabbitMQ 도입 — 채널 변경 이벤트 비동기 처리로 DBMS 부하 분산</li>
-              <li>Redis 세션 관리 · 캐시 레이어 설계로 API 응답 속도 개선</li>
+              <li>Redis 세션 관리 , 캐시 레이어 설계로 API 응답 속도 개선</li>
               <li>Jenkins CI/CD 파이프라인 구축 및 배포 자동화</li>
               <li>분기별 전체 서버 점검 및 장애 예방 운영</li>
             </ul>
 
             <div class="arch-wrap">
-              <div class="arch-hint">ARCHITECTURE <span>↓ hover · click to zoom</span></div>
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
                   <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">IPTV 플랫폼 — ARCHITECTURE</text>
-                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">가입자 100만  ·  온프레미스</text>
+                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">가입자 100만  ,  온프레미스</text>
                   <line x1="30" y1="52" x2="770" y2="52" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
                   <!-- on-prem boundary -->
                   <rect x="395" y="88" width="390" height="200" fill="none" stroke="#a3e635" stroke-width="1" stroke-dasharray="6,4" opacity="0.18" rx="3"/>
@@ -297,7 +298,7 @@
                   <rect x="143" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
                   <rect x="140" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
                   <text x="190" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">LB SWITCH</text>
-                  <text x="190" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">물리 · Physical</text>
+                  <text x="190" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">물리 , Physical</text>
                   <text x="190" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">load balancing</text>
                   <!-- NODE: Gateway -->
                   <rect x="271" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
@@ -353,7 +354,7 @@
           <div class="brut-body">
             <div class="brut-head">
               <div>
-                <h3 class="brut-title">MAI-WACS 시스템 고도화</h3>
+                <h3 class="brut-title">모니터링 시스템 시스템 고도화</h3>
                 <p class="brut-sub">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
               </div>
               <span class="brut-period">2022.06 — 2023.10</span>
@@ -373,19 +374,19 @@
             </div>
             <ul class="brut-list">
               <li>Telegraf → Kafka → Flink 실시간 수집 파이프라인 설계 및 구축</li>
-              <li>TimescaleDB 시계열 데이터 저장 · 집계 쿼리 최적화</li>
+              <li>TimescaleDB 시계열 데이터 저장 , 집계 쿼리 최적화</li>
               <li>DRBD + Pacemaker HA 클러스터 구성 — 수집 서버 무중단 운영</li>
-              <li>임계치 기반 알림 엔진 — 이메일 · SMS 자동 발송</li>
+              <li>임계치 기반 알림 엔진 — 이메일 , SMS 자동 발송</li>
               <li>React 기반 실시간 모니터링 대시보드 개발</li>
             </ul>
 
             <div class="arch-wrap">
-              <div class="arch-hint">ARCHITECTURE <span>↓ hover · click to zoom</span></div>
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
-                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" letter-spacing="3">MAI-WACS — SYSTEM ARCHITECTURE</text>
+                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" letter-spacing="3">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
                   <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
                   <!-- layer labels -->
                   <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">USER</text>
@@ -478,8 +479,8 @@
             </div>
             <ul class="brut-list">
               <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
-              <li>콘텐츠 뷰어 · 사용자 관리 · 환경설정 · STB 단말 현황 기능 개발</li>
-              <li>광고 활성화 · 결제 수단 관리 UI 구현</li>
+              <li>콘텐츠 뷰어 , 사용자 관리 , 환경설정 , STB 단말 현황 기능 개발</li>
+              <li>광고 활성화 , 결제 수단 관리 UI 구현</li>
               <li>jQuery AJAX 비동기 처리 — 페이지 전환 없는 실시간 데이터 갱신</li>
             </ul>
           </div>
@@ -517,10 +518,10 @@
             <span class="btag">Java 17</span>
           </div>
           <ul class="brut-list">
-            <li>API 로그를 실시간 수집해 저장·조회까지 이어지는 파이프라인 직접 구성</li>
+            <li>API 로그를 실시간 수집해 저장,조회까지 이어지는 파이프라인 직접 구성</li>
             <li>분당 900건 규모 로그를 자동 생성해 파이프라인 전 구간 동작 검증</li>
-            <li>Grafana 대시보드로 요청량·에러율·응답시간 실시간 모니터링</li>
-            <li>Docker Compose 한 명령으로 Kafka·DB·Grafana 전체 인프라 구동</li>
+            <li>Grafana 대시보드로 요청량,에러율,응답시간 실시간 모니터링</li>
+            <li>Docker Compose 한 명령으로 Kafka,DB,Grafana 전체 인프라 구동</li>
           </ul>
           <div class="grafana-wrap">
             <div class="grafana-label"><span class="grafana-dot"></span> LIVE <span class="grafana-label-note">— 임의 생성 로그 기반 실시간 통계</span></div>
@@ -592,7 +593,7 @@
       </div>
       <div class="about-meta">
         <span class="about-badge available">구직중</span>
-        <span class="about-location">서울 · 경기 · 대전 · 재택 가능</span>
+        <span class="about-location">서울 , 경기 , 대전 , 재택 가능</span>
       </div>
       <blockquote class="about-quote-big">
         문서화되지 않은 시스템을<br/>
@@ -602,8 +603,8 @@
       </blockquote>
       <div class="about-terminal">
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">인계 직후 운영 리스크 전수 파악 → 전면 안정화</span></div>
-        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">설계 · 배포 · 장애 대응 — 전체 스택 단독 운영</span></div>
-        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">신기술보다 운영 안정성 · 문제 해결 속도 우선</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">설계 , 배포 , 장애 대응 — 전체 스택 단독 운영</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">신기술보다 운영 안정성 , 문제 해결 속도 우선</span></div>
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">SI/솔루션 출신 — 빠른 파악, 빠른 실행</span></div>
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">좋은 팀과 실질적인 문제를 함께 풀고 싶습니다.</span></div>
         <div class="terminal-line"><span class="t-prompt">$</span><span class="t-cursor">_</span></div>
@@ -619,11 +620,6 @@
         <span class="label-num">05</span>
         <span class="label-text">Contact</span>
       </div>
-      <div class="contact-statement">
-        <span class="cs-line cs-outline">ALWAYS</span>
-        <span class="cs-line">OPEN.</span>
-      </div>
-      <p class="contact-desc">좋은 기회라면 언제든 환영합니다.</p>
       <div class="contact-links">
         <a class="clink" href="https://github.com/sky14786" target="_blank">
           <span class="clink-label">GitHub</span>
@@ -684,7 +680,7 @@
             <span class="grafana-dot"></span><span class="gm-live-text">LIVE</span>
           </div>
           <h3 class="gm-title">metric-stream</h3>
-          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span class="gm-live-note">· 임의 생성 로그 기반 실시간 통계</span></p>
+          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span class="gm-live-note">, 임의 생성 로그 기반 실시간 통계</span></p>
           <div class="gm-tags">
             <span class="gm-tag">Kafka 3.9</span>
             <span class="gm-tag">Spring Boot</span>

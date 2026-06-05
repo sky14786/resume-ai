@@ -56,7 +56,8 @@ Neobrutalism 기반의 라이트 테마. 두꺼운 선, 오프셋 그림자, 날
 | 기능 | 구현 방식 |
 |------|-----------|
 | Command Palette | `Ctrl+K` 단축키, 키보드 탐색, 퍼지 검색 |
-| Architecture Diagram | 인라인 SVG — 런타임 JS 제로, hover 펼침 |
+| Architecture Diagram | 인라인 SVG — 런타임 JS 제로, hover 펼침 / 클릭 Lightbox 확대 |
+| Grafana Embedding | d-solo iframe 카드 프리뷰 + 클릭 시 fullscreen 모달 대시보드 |
 | Color Theme Switcher | CSS Custom Properties + `setProperty()` 실시간 교체 |
 | PDF 출력 | `@media print` — 라이트 테마 그대로 출력, 그림자만 제거 |
 | Email Obfuscation | JS 실행 후 DOM 삽입 — 크롤러 차단 |
@@ -73,7 +74,7 @@ v3  Neobrutalism, Kinetic Typography, Command Palette
 v4  대형 타이포그래피, 터미널 블록, 비주얼 강화
 v5  favicon, OG 태그, PDF 출력, 임팩트 칩, Nav 스크롤 스파이
 v6  2컬러 계층 (Lime + Cyan), 대표 프로젝트 피처드 카드
-v7  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처 ← 현재 배포
+v7  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처, Projects 섹션(Grafana 임베딩) ← 현재 배포
 ```
 
 ---
@@ -109,8 +110,8 @@ GitHub (main push)
 ## ✦ 기술 스택
 
 ```
-Language  HTML5 · CSS3 · Vanilla JavaScript (ES2022+)
-Font      Inter · JetBrains Mono (Google Fonts)
+Language  HTML5 , CSS3 , Vanilla JavaScript (ES2022+)
+Font      Inter , JetBrains Mono (Google Fonts)
 Hosting   Cloudflare Pages
 CI/CD     GitHub → Cloudflare Pages (자동 배포)
 Tools     npx serve (로컬 개발)
