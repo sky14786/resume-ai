@@ -441,7 +441,8 @@ kbd{
   width: 100%;
 }
 
-.log-sample{margin-top:16px;border:1.5px solid var(--border);}
+/* ── LOG FLIP ── */
+.log-flip{margin:16px 0;}
 .ls-label{
   display:block;background:var(--border);color:var(--bg2);
   font-family:var(--mono);font-size:9px;font-weight:700;
@@ -450,8 +451,58 @@ kbd{
 .ls-code{
   margin:0;padding:10px 12px;
   font-family:var(--mono);font-size:10px;color:#666;
-  background:var(--bg);white-space:pre-wrap;word-break:break-all;
+  background:var(--bg2);white-space:pre-wrap;word-break:break-all;
   line-height:1.7;
+}
+
+/* Desktop: 3D flip on hover */
+@media (hover:hover) and (pointer:fine){
+  .log-flip{perspective:900px;}
+  .lf-inner{
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform .55s cubic-bezier(.4,0,.2,1);
+  }
+  .lf-front,.lf-back{
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+  }
+  .lf-back{
+    position:absolute;inset:0;
+    transform:rotateY(180deg);
+    background:var(--bg2);border:1.5px solid var(--border);
+    overflow:hidden;
+  }
+  .log-flip:hover .lf-inner{transform:rotateY(180deg);}
+  .lf-hint{
+    display:block;margin-top:8px;
+    font-family:var(--mono);font-size:9px;
+    color:var(--muted);letter-spacing:.08em;
+    opacity:.45;transition:opacity .2s;
+  }
+  .log-flip:hover .lf-hint{opacity:0;}
+  .lf-toggle{display:none;}
+}
+
+/* Mobile: tap toggle */
+@media (hover:none) and (pointer:coarse){
+  .lf-hint{display:none;}
+  .lf-back{
+    display:none;margin-top:10px;
+    border:1.5px solid var(--border);
+  }
+  .lf-back.active{display:block;}
+  .lf-front.hidden{display:none;}
+  .lf-toggle{
+    display:flex;align-items:center;gap:6px;
+    margin-top:10px;padding:5px 14px;
+    font-family:var(--mono);font-size:10px;font-weight:700;
+    background:transparent;border:1.5px solid var(--border);
+    box-shadow:3px 3px 0 var(--shadow);cursor:pointer;
+    letter-spacing:.06em;color:var(--text);
+    transition:transform .15s,box-shadow .15s;
+  }
+  .lf-toggle:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow);}
 }
 
 .grafana-wrap{margin-top:28px;}

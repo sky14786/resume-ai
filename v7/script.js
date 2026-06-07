@@ -356,3 +356,20 @@ const spyObs = new IntersectionObserver(entries => {
 });
 
 spySections.forEach(s => spyObs.observe(s));
+
+/* =============================================
+   LOG FLIP — mobile toggle
+   ============================================= */
+(function(){
+  const toggle = document.querySelector('.lf-toggle');
+  if(!toggle) return;
+  const front = document.querySelector('.lf-front');
+  const back  = document.querySelector('.lf-back');
+  let showingLog = false;
+  toggle.addEventListener('click', () => {
+    showingLog = !showingLog;
+    front.classList.toggle('hidden', showingLog);
+    back.classList.toggle('active', showingLog);
+    toggle.textContent = showingLog ? '← 설명으로 돌아가기' : '수집 로그 예시 ↓';
+  });
+})();
