@@ -441,68 +441,33 @@ kbd{
   width: 100%;
 }
 
-/* ── LOG FLIP ── */
-.log-flip{margin:16px 0;}
+/* ── LOG SAMPLE ── */
+.log-sample{
+  margin-top:16px;border:1.5px solid var(--border);cursor:default;
+}
 .ls-label{
   display:block;background:var(--border);color:var(--bg2);
   font-family:var(--mono);font-size:9px;font-weight:700;
   letter-spacing:.08em;padding:3px 10px;
+  user-select:none;
 }
 .ls-code{
-  margin:0;padding:10px 12px;
+  margin:0;padding:0 12px;
   font-family:var(--mono);font-size:10px;color:#666;
   background:var(--bg2);white-space:pre-wrap;word-break:break-all;
-  line-height:1.7;
+  line-height:1.7;max-height:0;overflow:hidden;
+  transition:max-height .35s ease, padding .35s ease;
 }
 
-/* Desktop: 3D flip on hover */
+/* Desktop: hover to reveal */
 @media (hover:hover) and (pointer:fine){
-  .log-flip{perspective:900px;}
-  .lf-inner{
-    position:relative;
-    transform-style:preserve-3d;
-    transition:transform .55s cubic-bezier(.4,0,.2,1);
-  }
-  .lf-front,.lf-back{
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
-  }
-  .lf-back{
-    position:absolute;inset:0;
-    transform:rotateY(180deg);
-    background:var(--bg2);border:1.5px solid var(--border);
-    overflow:hidden;
-  }
-  .log-flip:hover .lf-inner{transform:rotateY(180deg);}
-  .lf-hint{
-    display:block;margin-top:8px;
-    font-family:var(--mono);font-size:9px;
-    color:var(--muted);letter-spacing:.08em;
-    opacity:.45;transition:opacity .2s;
-  }
-  .log-flip:hover .lf-hint{opacity:0;}
-  .lf-toggle{display:none;}
+  .log-sample:hover .ls-code{max-height:200px;padding:10px 12px;}
+  .log-sample:hover .ls-label{background:var(--accent);color:#0c0c0c;}
 }
 
-/* Mobile: tap toggle */
+/* Mobile: always visible */
 @media (hover:none) and (pointer:coarse){
-  .lf-hint{display:none;}
-  .lf-back{
-    display:none;margin-top:10px;
-    border:1.5px solid var(--border);
-  }
-  .lf-back.active{display:block;}
-  .lf-front.hidden{display:none;}
-  .lf-toggle{
-    display:flex;align-items:center;gap:6px;
-    margin-top:10px;padding:5px 14px;
-    font-family:var(--mono);font-size:10px;font-weight:700;
-    background:transparent;border:1.5px solid var(--border);
-    box-shadow:3px 3px 0 var(--shadow);cursor:pointer;
-    letter-spacing:.06em;color:var(--text);
-    transition:transform .15s,box-shadow .15s;
-  }
-  .lf-toggle:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow);}
+  .ls-code{max-height:200px;padding:10px 12px;}
 }
 
 .grafana-wrap{margin-top:28px;}
