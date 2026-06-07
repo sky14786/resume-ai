@@ -461,13 +461,13 @@ kbd{
 
 /* Desktop: hover to reveal */
 @media (hover:hover) and (pointer:fine){
-  .log-sample:hover .ls-code{max-height:200px;padding:10px 12px;}
+  .log-sample:hover .ls-code{max-height:420px;padding:10px 12px;}
   .log-sample:hover .ls-label{background:var(--accent);color:#0c0c0c;}
 }
 
 /* Mobile: always visible */
 @media (hover:none) and (pointer:coarse){
-  .ls-code{max-height:200px;padding:10px 12px;}
+  .ls-code{max-height:420px;padding:10px 12px;}
 }
 
 .grafana-wrap{margin-top:28px;}

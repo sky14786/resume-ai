@@ -525,9 +525,27 @@
           </ul>
           <div class="log-sample">
             <span class="ls-label">수집 로그 예시 ↓</span>
-            <pre class="ls-code">{ "serverId":"server-007", "region":"seoul", "method":"GET", "endpoint":"/api/orders", "statusCode":200, "responseTimeMs":142, "deviceType":"MOBILE", "errorMessage":null }
+            <pre class="ls-code">{
+  "serverId":       "server-007",
+  "region":         "seoul",
+  "method":         "GET",
+  "endpoint":       "/api/orders",
+  "statusCode":     200,
+  "responseTimeMs": 142,
+  "deviceType":     "MOBILE",
+  "errorMessage":   null
+}
 
-{ "serverId":"server-014", "region":"daejeon", "method":"POST", "endpoint":"/api/auth/login", "statusCode":500, "responseTimeMs":1823, "deviceType":"DESKTOP", "errorMessage":"Database connection failed" }</pre>
+{
+  "serverId":       "server-014",
+  "region":         "daejeon",
+  "method":         "POST",
+  "endpoint":       "/api/auth/login",
+  "statusCode":     500,
+  "responseTimeMs": 1823,
+  "deviceType":     "DESKTOP",
+  "errorMessage":   "Database connection failed"
+}</pre>
           </div>
           <div class="grafana-wrap">
             <div class="grafana-label"><span class="grafana-dot"></span> LIVE <span class="grafana-label-note">— 임의 생성 로그 기반 실시간 통계</span></div>
