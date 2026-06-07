@@ -132,6 +132,17 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-08)
+- [x] Grafana 모달 네오브루탈리즘 리디자인
+  - 모달 박스: accent color 2px 테두리 + 6px offset 그림자
+  - 헤더: LIVE 배지 pillbox 스타일, 타이틀 20→26px, title-row flex 레이아웃
+  - 메타바 추가: arch flow 텍스트 + 서버/리전/로그량 뱃지
+  - timeseries 높이 360→420px (stat grid 4열 유지 — 2×2 시도 후 원복)
+- [x] 병원 카드 경력 불릿 before/after 구조 전면 재작성
+  - 문제 상황(`.li-ctx` muted) + `→ 해결` 2줄 구조로 전환
+  - 잘못 추가된 항목 3개 제거: Nginx/SSL(실제 없던 작업), Pacemaker HA(WACS 오삽입), 무중단이관 태그(근거 없음)
+  - 최종 5개: MySQL 복제 재동기화 / mysqldump 백업 자동화 / Docker binlog 디스크풀 해소 / PG사 모듈 단계별 로그 / 헬스체크 API 이중인증
+
 ### 이번 세션 완료 (2026-06-05 세션 2)
 - [x] `·` → `,` 전체 교체 — index.html(27곳), og-image.svg, og-preview.html
 - [x] 익명화 완료 — og-image.svg, og-preview.html, index.html `MAI-WACS` → `모니터링 시스템` (3곳), `3BB IPTV` → `해외 IPTV`
@@ -168,22 +179,25 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **KakaoTalk 링크 교체**
+1. **경력 불릿 before/after — IPTV 카드**
+   - Redis, RabbitMQ, Jenkins 항목 사실 확인 후 재작성
+
+2. **경력 불릿 before/after — WACS 카드**
+   - TimescaleDB, 알림 엔진, DRBD+Pacemaker 항목 사실 확인 후 재작성
+
+3. **KakaoTalk 링크 교체**
    - `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
-2. **v7 컬러 테마 확정**
+4. **v7 컬러 테마 확정**
    - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
    - 확정 후 CSS 변수 고정, 스위처 제거
 
-3. **metric-stream Oracle Cloud 배포 후 Grafana 모달 URL 교체**
+5. **metric-stream Oracle Cloud 배포 후 Grafana 모달 URL 교체**
    - 현재 localhost:3000 → 배포 후 공개 URL로 교체
 
 ### 이후 작업
 - [ ] 모바일 Nav 과밀 점검 (로고 + 3링크 + PDF + CMD 버튼 — 375px 이하 겹침 가능)
 - [ ] OG image PNG 변환 — 카카오톡 SVG 미지원 시 `og-preview.html` 스크린샷으로 교체
-- [ ] **경력 불릿 before/after 구조로 개선** — "뭘 했다" 나열 → "문제 → 기술 선택 이유 → 결과" 구조로 카드당 핵심 2개 이상 재작성
-  - 우선순위: IPTV(Redis, RabbitMQ), 병원(Nginx SSL, 운영 리스크 3개), WACS(TimescaleDB, 알림 엔진)
-  - 수치 없어도 before/after 구조 자체로 설득력 확보 가능
 
 ---
 
