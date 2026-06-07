@@ -523,6 +523,11 @@
             <li>Grafana 대시보드로 요청량,에러율,응답시간 실시간 모니터링</li>
             <li>Docker Compose 한 명령으로 Kafka,DB,Grafana 전체 인프라 구동</li>
           </ul>
+          <div class="log-sample">
+            <span class="ls-label">수집 로그 예시</span>
+            <pre class="ls-code">{ "serverId":"server-007", "region":"seoul", "method":"GET", "endpoint":"/api/orders", "statusCode":200, "responseTimeMs":142, "deviceType":"MOBILE", "errorMessage":null }
+{ "serverId":"server-014", "region":"daejeon", "method":"POST", "endpoint":"/api/auth/login", "statusCode":500, "responseTimeMs":1823, "deviceType":"DESKTOP", "errorMessage":"Database connection failed" }</pre>
+          </div>
           <div class="grafana-wrap">
             <div class="grafana-label"><span class="grafana-dot"></span> LIVE <span class="grafana-label-note">— 임의 생성 로그 기반 실시간 통계</span></div>
             <div class="grafana-preview-wrap" id="grafana-open" role="button" tabindex="0">
