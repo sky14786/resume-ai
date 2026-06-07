@@ -687,13 +687,16 @@
   <div id="grafana-modal" class="grafana-modal hidden">
     <div class="grafana-modal-backdrop" id="grafana-modal-close"></div>
     <div class="grafana-modal-box">
+
       <div class="gm-header">
         <div class="gm-header-left">
-          <div class="gm-live-badge">
-            <span class="grafana-dot"></span><span class="gm-live-text">LIVE</span>
+          <div class="gm-title-row">
+            <div class="gm-live-badge">
+              <span class="grafana-dot"></span><span class="gm-live-text">LIVE</span>
+            </div>
+            <h3 class="gm-title">metric-stream</h3>
           </div>
-          <h3 class="gm-title">metric-stream</h3>
-          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span class="gm-live-note">, 임의 생성 로그 기반 실시간 통계</span></p>
+          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span class="gm-live-note">— 임의 생성 로그 기반 실시간 통계</span></p>
           <div class="gm-tags">
             <span class="gm-tag">Kafka 3.9</span>
             <span class="gm-tag">Spring Boot</span>
@@ -707,6 +710,26 @@
           <button class="grafana-modal-x" id="grafana-modal-x">✕</button>
         </div>
       </div>
+
+      <div class="gm-meta">
+        <div class="gm-arch-flow">
+          <span class="gm-af-node">generator</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">Kafka</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">consumer</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">PostgreSQL</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node hi">Grafana</span>
+        </div>
+        <div class="gm-badges">
+          <span class="gm-badge">20 servers</span>
+          <span class="gm-badge">4 regions</span>
+          <span class="gm-badge">~900 logs/min</span>
+        </div>
+      </div>
+
       <div class="grafana-modal-grid">
         <iframe class="gpanel gm-hero" src="http://localhost:3000/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
         <div class="grafana-modal-stats">
@@ -716,6 +739,7 @@
           <iframe class="gpanel gm-stat" src="http://localhost:3000/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
         </div>
       </div>
+
     </div>
   </div>
 
