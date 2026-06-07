@@ -145,7 +145,6 @@
               <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump + cron으로 정기 백업 자동화</li>
               <li><span class="li-ctx">Docker binlog 누적으로 디스크 풀 발생</span>→ 파일 truncate로 즉시 해소</li>
               <li><span class="li-ctx">SSL 인증서 수동 갱신으로 만료 위험이 반복되던 구조</span>→ Nginx + certbot 자동화, 이후 만료 사고 Zero</li>
-              <li><span class="li-ctx">단일 장애점 구조의 서버 환경</span>→ Pacemaker HA 클러스터 재구성으로 무중단 이관 완료</li>
               <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 구조</span>→ PG사 모듈 교체 시 단계별 로그 적재 추가, 이후 원인 추적 가능</li>
               <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 부재</span>→ 헬스체크·리소스 조회 API 직접 개발, IP 화이트리스트 + 서버별 고유 해시 키 이중 인증</li>
             </ul>
