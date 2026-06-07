@@ -204,8 +204,11 @@
    - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
    - 확정 후 CSS 변수 고정, 스위처 제거
 
-5. **metric-stream Oracle Cloud 배포 후 Grafana 모달 URL 교체**
-   - 현재 localhost:3000 → 배포 후 공개 URL로 교체
+5. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
+   - 플랫폼: GCP e2-micro (1GB RAM, 상시 무료)
+   - JVM 튜닝으로 전체 스택 ~1.2GB → 스왑 500MB 추가하면 안정 운영 가능
+   - Kafka HEAP: `-Xmx256m`, generator/consumer: `-Xmx128m`
+   - 배포 완료 후 localhost:3000 → 공개 URL로 교체 + nginx + SSL
 
 ### 이후 작업
 - [ ] 모바일 Nav 과밀 점검 (로고 + 3링크 + PDF + CMD 버튼 — 375px 이하 겹침 가능)
