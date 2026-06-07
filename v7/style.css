@@ -651,13 +651,13 @@ kbd{
 }
 .grafana-modal-stats{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:1px;
 }
 
 .gpanel{display:block;border:none;background:#111;}
 .gm-hero{height:420px;width:100%;}
-.gm-stat{height:165px;}
+.gm-stat{height:150px;}
 
 /* ── SKILLS ── */
 .skills-wrap{display:flex;flex-direction:column;gap:20px;}
