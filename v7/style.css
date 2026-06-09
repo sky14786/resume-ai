@@ -566,7 +566,6 @@ kbd{
 }
 .rs-preview-img{
   width:100%;display:block;
-  object-fit:cover;max-height:260px;
 }
 
 .rs-demo-link{
