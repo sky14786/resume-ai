@@ -550,6 +550,25 @@ kbd{
 /* ── REDSTONE DEMO ── */
 .rs-demo-wrap{margin-top:28px;}
 
+.rs-preview-wrap{
+  display:block;
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+  border:2px solid var(--border);
+  box-shadow:5px 5px 0 var(--shadow);
+  transition:box-shadow .2s, transform .2s;
+  text-decoration:none;
+}
+.rs-preview-wrap:hover{
+  box-shadow:8px 8px 0 var(--accent);
+  transform:translate(-2px,-2px);
+}
+.rs-preview-img{
+  width:100%;display:block;
+  object-fit:cover;max-height:260px;
+}
+
 .rs-demo-link{
   display:block;
   border:2px solid var(--border);
@@ -579,7 +598,7 @@ kbd{
 
 .rs-creds{
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-  padding-top:12px;border-top:1px solid var(--border);
+  padding-top:12px;margin-top:12px;border-top:1px solid var(--border);
 }
 .rs-creds-item{display:flex;align-items:center;gap:6px;}
 .rs-creds-key{
