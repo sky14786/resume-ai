@@ -421,6 +421,12 @@ kbd{
   transition:background .2s;
 }
 .btag:hover{background:rgba(var(--ar),.22);}
+.btag-ai{
+  background:rgba(var(--ar),.18);
+  border-color:var(--accent);
+  color:var(--accent);
+  font-weight:600;
+}
 
 .brut-list{display:flex;flex-direction:column;gap:8px;}
 .brut-list li{
