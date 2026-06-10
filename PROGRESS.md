@@ -132,6 +132,14 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-10)
+- [x] WACS SVG 아키텍처 다이어그램 전면 재설계
+  - 수집서버(Telegraf) + KAFKA + FLINK를 하나의 서버 그룹 박스로 묶음 (PACEMAKER HA 컨테이너 박스)
+  - 350 SERVERS → 수집서버 → KAFKA → FLINK → POSTGRESQL 흐름 시각화
+  - MONITORING ↔ API SERVER ↔ POSTGRESQL ↔ SPRING BATCH 오른쪽 배치
+  - PACEMAKER 별도 노드 제거 → 컨테이너 박스 레이블로 통합
+  - 불필요한 레이어 라벨(USER/APP/INFRA) 및 레이어 배경 rect 제거
+
 ### 이번 세션 완료 (2026-06-08)
 - [x] Grafana 모달 네오브루탈리즘 리디자인
   - 모달 박스: accent color 2px 테두리 + 6px offset 그림자
@@ -179,28 +187,10 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **경력 불릿 before/after — IPTV 카드**
-   - 아래 초안 사실 확인 후 적용 (항목별로 하나씩 확인할 것)
-   - 초안:
-     ```
-     ▸ 채널 변경 이벤트를 동기 처리하던 구조에서 DB 부하 집중
-       → RabbitMQ 도입, 비동기 처리로 부하 분산
-
-     ▸ 매 요청마다 DB에서 세션·공통 데이터 조회해 응답 지연 발생
-       → Redis 캐시 레이어 설계로 API 응답 속도 개선
-
-     ▸ 수동 배포로 인한 실수·시간 비용
-       → Jenkins CI/CD 파이프라인 구축, 배포 프로세스 표준화
-     ```
-   - 유지 항목 (before/after 불필요): 전담 개발자 1인 단독 운영, 해외 협력사 단독 담당, 외부 시스템 API 연동, 분기별 서버 점검
-
-2. **경력 불릿 before/after — WACS 카드**
-   - TimescaleDB, 알림 엔진, DRBD+Pacemaker 항목 사실 확인 후 재작성
-
-3. **KakaoTalk 링크 교체**
+1. **KakaoTalk 링크 교체**
    - `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
-4. **v7 컬러 테마 확정**
+2. **v7 컬러 테마 확정**
    - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
    - 확정 후 CSS 변수 고정, 스위처 제거
 

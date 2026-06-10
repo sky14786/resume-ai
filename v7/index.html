@@ -381,73 +381,66 @@
               <div class="arch-diagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
                   <rect width="800" height="360" fill="#0d0d0d"/>
-                  <text x="400" y="35" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" letter-spacing="3">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
-                  <line x1="30" y1="48" x2="770" y2="48" stroke="#a3e635" stroke-width="1" opacity="0.2"/>
-                  <!-- layer labels -->
-                  <text x="22" y="97"  text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">USER</text>
-                  <text x="22" y="192" text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">APP</text>
-                  <text x="22" y="287" text-anchor="start" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9" opacity="0.45" letter-spacing="2">INFRA</text>
-                  <!-- layer backgrounds -->
-                  <rect x="65" y="50"  width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
-                  <rect x="65" y="145" width="720" height="86" fill="#a3e635" opacity="0.04" rx="2"/>
-                  <rect x="65" y="240" width="720" height="86" fill="#a3e635" opacity="0.03" rx="2"/>
+                  <text x="400" y="22" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
+                  <line x1="30" y1="30" x2="770" y2="30" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
+                  <!-- HA server group container -->
+                  <rect x="8" y="38" width="394" height="208" fill="#a3e635" opacity="0.04" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
+                  <text x="16" y="50" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.55" letter-spacing="1">수집·처리 서버  ·  PACEMAKER HA</text>
                   <!-- connections -->
-                  <line x1="479" y1="93" x2="571" y2="93" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="568,89 568,97 575,93" fill="#a3e635"/>
-                  <line x1="650" y1="128" x2="564" y2="270" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-                  <polygon points="560,265 566,269 558,272" fill="#a3e635" opacity="0.7"/>
-                  <line x1="225" y1="188" x2="318" y2="188" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="318,184 318,192 325,188" fill="#a3e635"/>
-                  <line x1="475" y1="188" x2="568" y2="188" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="568,184 568,192 575,188" fill="#a3e635"/>
-                  <line x1="127" y1="248" x2="150" y2="230" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="146,230 154,230 150,223" fill="#a3e635"/>
-                  <line x1="650" y1="223" x2="506" y2="248" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="506,243 511,251 501,248" fill="#a3e635"/>
-                  <line x1="564" y1="283" x2="622" y2="283" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
-                  <polygon points="619,279 619,287 626,283" fill="#a3e635" opacity="0.7"/>
-                  <!-- row 1: user -->
-                  <rect x="329" y="62" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="85"  text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
-                  <text x="400" y="101" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">web dashboard</text>
-                  <rect x="579" y="62" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="58" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="85"  text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
-                  <text x="650" y="101" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">REST / query</text>
-                  <!-- row 2: app -->
-                  <rect x="79"  y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="75"  y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="150" y="180" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">수집서버</text>
-                  <text x="150" y="196" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">Telegraf</text>
-                  <rect x="329" y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="325" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="400" y="180" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
-                  <text x="400" y="196" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">message broker</text>
-                  <rect x="579" y="157" width="150" height="70" fill="#a3e635"/>
-                  <rect x="575" y="153" width="150" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="650" y="180" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
-                  <text x="650" y="196" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">stream processing</text>
-                  <!-- row 3: infra (4 nodes) -->
-                  <rect x="69"  y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="65"  y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="127" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
-                  <text x="127" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">syslog / metrics</text>
-                  <!-- HA cluster boundary (Pacemaker manages Kafka + Flink) -->
-                  <rect x="244" y="144" width="489" height="182" fill="#a3e635" opacity="0.04" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
-                  <text x="729" y="156" text-anchor="end" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.5" letter-spacing="1">HA CLUSTER</text>
-                  <rect x="256" y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="252" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="314" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">PACEMAKER</text>
-                  <text x="314" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">Kafka/Flink HA</text>
-                  <rect x="443" y="252" width="125" height="70" fill="#a3e635"/>
-                  <rect x="439" y="248" width="125" height="70" fill="#1a1a1a" stroke="#a3e635" stroke-width="2"/>
-                  <text x="501" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">POSTGRESQL</text>
-                  <text x="501" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">metric store</text>
-                  <rect x="630" y="252" width="138" height="70" fill="#a3e635" opacity="0.08"/>
-                  <rect x="626" y="248" width="138" height="70" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
-                  <text x="695" y="275" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" letter-spacing="1">SPRING BATCH</text>
-                  <text x="695" y="291" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">alert / email·SMS</text>
+                  <line x1="192" y1="257" x2="193" y2="106" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="189,109 197,109 193,102" fill="#a3e635"/>
+                  <line x1="175" y1="102" x2="90" y2="130" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="96,124 98,132 88,130" fill="#a3e635"/>
+                  <line x1="162" y1="156" x2="236" y2="156" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="233,152 233,160 240,156" fill="#a3e635"/>
+                  <line x1="388" y1="156" x2="502" y2="178" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="494,173 496,181 502,178" fill="#a3e635"/>
+                  <line x1="574" y1="70" x2="602" y2="70" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="599,66 599,74 606,70" fill="#a3e635"/>
+                  <line x1="684" y1="96" x2="652" y2="154" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+                  <polygon points="652,146 659,150 652,154" fill="#a3e635" opacity="0.7"/>
+                  <line x1="583" y1="210" x2="583" y2="256" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+                  <polygon points="579,253 587,253 583,260" fill="#a3e635" opacity="0.7"/>
+                  <!-- node: 수집서버 (top of group) -->
+                  <rect x="120" y="54" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="116" y="50" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="193" y="72" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">수집서버</text>
+                  <text x="193" y="85" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">Telegraf</text>
+                  <!-- node: KAFKA (bottom-left of group) -->
+                  <rect x="22" y="134" width="144" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="18" y="130" width="144" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="90" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
+                  <text x="90" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">message broker</text>
+                  <!-- node: FLINK (bottom-right of group) -->
+                  <rect x="244" y="134" width="148" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="240" y="130" width="148" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="314" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
+                  <text x="314" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">stream processing</text>
+                  <!-- node: 350 SERVERS (external, below group) -->
+                  <rect x="118" y="262" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="114" y="258" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="191" y="280" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
+                  <text x="191" y="293" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">syslog / metrics</text>
+                  <!-- node: MONITORING -->
+                  <rect x="434" y="48" width="144" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="430" y="44" width="144" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="502" y="66" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
+                  <text x="502" y="79" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">React dashboard</text>
+                  <!-- node: API SERVER -->
+                  <rect x="610" y="48" width="156" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="606" y="44" width="156" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="684" y="66" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
+                  <text x="684" y="79" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">REST / query</text>
+                  <!-- node: POSTGRESQL -->
+                  <rect x="510" y="158" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="506" y="154" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="583" y="176" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">POSTGRESQL</text>
+                  <text x="583" y="189" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">metric store</text>
+                  <!-- node: SPRING BATCH -->
+                  <rect x="510" y="264" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="506" y="260" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="583" y="282" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">SPRING BATCH</text>
+                  <text x="583" y="295" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">alert / email·SMS</text>
                 </svg>
               </div>
             </div>
