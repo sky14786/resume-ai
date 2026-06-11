@@ -443,6 +443,21 @@ kbd{
   margin-bottom:1px;
   letter-spacing:.01em;
 }
+.wacs-proj-link{
+  display:inline-block;
+  margin-top:12px;
+  font-size:11px;font-family:'JetBrains Mono',monospace;
+  color:var(--accent);
+  border:1.5px solid var(--accent);
+  padding:3px 10px;
+  text-decoration:none;
+  letter-spacing:.03em;
+  transition:background .15s,color .15s;
+}
+.wacs-proj-link:hover{
+  background:var(--accent);
+  color:#fff;
+}
 
 /* ── PROJECTS ── */
 #projects{

@@ -371,9 +371,10 @@
               <li>레거시 수집 시스템 전면 재설계 — Telegraf → Kafka → Flink 실시간 파이프라인 신규 구축</li>
               <li>PostgreSQL에 집계 데이터 저장 , 시계열 조회 쿼리 최적화</li>
               <li><span class="li-ctx">pgpool HA 구성했으나 의도적 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환 , DB 무중단 HA 운영</li>
-              <li>임계치 기반 알림 엔진 신규 개발 — 이메일 , SMS 자동 발송</li>
+              <li>지표 임계치 초과 시 이메일·SMS 자동 발송 구현</li>
               <li>React 기반 실시간 모니터링 대시보드 개발</li>
             </ul>
+            <a href="#p-metric" class="wacs-proj-link">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
 
             <div class="arch-wrap">
               <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
