@@ -143,8 +143,8 @@
               <li><span class="li-ctx">인계받은 MySQL 복제가 단절된 채 운영 중</span>→ SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화</li>
               <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump + cron으로 정기 백업 자동화</li>
               <li><span class="li-ctx">Docker binlog 누적으로 디스크 풀 발생</span>→ 파일 truncate로 즉시 해소</li>
-              <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 구조</span>→ PG사 모듈 교체 시 단계별 로그 적재 추가, 이후 원인 추적 가능</li>
-              <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 부재</span>→ 헬스체크,리소스 조회 API 직접 개발, IP 화이트리스트 + 서버별 고유 해시 키 이중 인증</li>
+              <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 구조</span>→ PG사 모듈 교체 시 단계별 로그 추가 — 이후 원인 추적 가능</li>
+              <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span>→ 헬스체크 , 리소스 조회 API 직접 개발 — IP 화이트리스트 + 서버별 해시 키 이중 인증</li>
             </ul>
 
             <div class="arch-wrap">
@@ -248,7 +248,7 @@
               <li>플랫폼 개발/운영 담당 (설계 , 배포 , 장애 대응 , 요구사항 대응)</li>
               <li>해외 고객사 담당자와 커뮤니케이션 — 현지 출장 및 AI 번역 활용</li>
               <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
-              <li><span class="li-ctx">파티션 생성 시점 불규칙 , 삭제 누락으로 디스크 포화 반복</span>→ DB 물리 이전 + 복제 구성 , 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
+              <li><span class="li-ctx">파티션 생성 시점 불규칙 , 삭제 누락으로 디스크 포화 반복</span>→ DB 물리 이전 + 복제 구성 , 파티션 자동 생성/삭제로 디스크 운영 정상화</li>
               <li><span class="li-ctx">Redis 캐시 구성은 있었으나 write-through 미적용 — 캐시 미스 빈발</span>→ write-through 전략 적용으로 미스율 감소 , 응답 속도 안정화</li>
               <li>분기별 전체 서버 점검 및 장애 예방 운영</li>
             </ul>
@@ -368,8 +368,8 @@
               <span class="bstat">30초 단위 수집</span>
             </div>
             <ul class="brut-list">
-              <li>레거시 수집 시스템 전면 재설계 — Telegraf → Kafka → Flink 실시간 파이프라인 신규 구축</li>
-              <li>PostgreSQL에 집계 데이터 저장 , 시계열 조회 쿼리 최적화</li>
+              <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 전면 재구축</li>
+              <li>집계 데이터 저장 , 시계열 쿼리 최적화 (PostgreSQL)</li>
               <li><span class="li-ctx">pgpool HA 구성했으나 의도적 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환 , DB 무중단 HA 운영</li>
               <li>지표 임계치 초과 시 이메일/SMS 자동 발송 구현</li>
               <li>React 기반 실시간 모니터링 대시보드 개발</li>
