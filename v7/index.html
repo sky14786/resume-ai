@@ -144,7 +144,7 @@
               <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump + cron으로 정기 백업 자동화</li>
               <li><span class="li-ctx">Docker binlog 누적으로 디스크 풀 발생</span>→ 파일 truncate로 즉시 해소</li>
               <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 구조</span>→ PG사 모듈 교체 시 단계별 로그 적재 추가, 이후 원인 추적 가능</li>
-              <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 부재</span>→ 헬스체크·리소스 조회 API 직접 개발, IP 화이트리스트 + 서버별 고유 해시 키 이중 인증</li>
+              <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 부재</span>→ 헬스체크,리소스 조회 API 직접 개발, IP 화이트리스트 + 서버별 고유 해시 키 이중 인증</li>
             </ul>
 
             <div class="arch-wrap">
@@ -230,7 +230,7 @@
             <div class="brut-head">
               <div>
                 <h3 class="brut-title">해외 IPTV 플랫폼</h3>
-                <p class="brut-sub">가입자 100만 규모 플랫폼 , 5년 개발·운영</p>
+                <p class="brut-sub">가입자 100만 규모 플랫폼 , 5년 개발/운영</p>
               </div>
               <span class="brut-period">2021.01 — 2025.12</span>
             </div>
@@ -245,10 +245,10 @@
               <span class="bstat">5년 운영</span>
             </div>
             <ul class="brut-list">
-              <li>플랫폼 개발·운영 담당 (설계 , 배포 , 장애 대응 , 요구사항 대응)</li>
+              <li>플랫폼 개발/운영 담당 (설계 , 배포 , 장애 대응 , 요구사항 대응)</li>
               <li>해외 고객사 담당자와 커뮤니케이션 — 현지 출장 및 AI 번역 활용</li>
               <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
-              <li><span class="li-ctx">파티션 생성 시점 불규칙 · 삭제 누락으로 디스크 포화 반복</span>→ DB 물리 이전 + 복제 구성 , 파티션 자동 생성·삭제 설정으로 디스크 운영 정상화</li>
+              <li><span class="li-ctx">파티션 생성 시점 불규칙 , 삭제 누락으로 디스크 포화 반복</span>→ DB 물리 이전 + 복제 구성 , 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
               <li><span class="li-ctx">Redis 캐시 구성은 있었으나 write-through 미적용 — 캐시 미스 빈발</span>→ write-through 전략 적용으로 미스율 감소 , 응답 속도 안정화</li>
               <li>분기별 전체 서버 점검 및 장애 예방 운영</li>
             </ul>
@@ -371,7 +371,7 @@
               <li>레거시 수집 시스템 전면 재설계 — Telegraf → Kafka → Flink 실시간 파이프라인 신규 구축</li>
               <li>PostgreSQL에 집계 데이터 저장 , 시계열 조회 쿼리 최적화</li>
               <li><span class="li-ctx">pgpool HA 구성했으나 의도적 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환 , DB 무중단 HA 운영</li>
-              <li>지표 임계치 초과 시 이메일·SMS 자동 발송 구현</li>
+              <li>지표 임계치 초과 시 이메일/SMS 자동 발송 구현</li>
               <li>React 기반 실시간 모니터링 대시보드 개발</li>
             </ul>
             <a href="#p-metric" class="wacs-proj-link">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
@@ -386,7 +386,7 @@
                   <line x1="30" y1="30" x2="770" y2="30" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
                   <!-- HA server group container -->
                   <rect x="8" y="38" width="394" height="208" fill="#a3e635" opacity="0.04" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
-                  <text x="16" y="50" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.55" letter-spacing="1">수집·처리 서버  ·  PACEMAKER HA</text>
+                  <text x="16" y="50" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.55" letter-spacing="1">수집/처리 서버  —  PACEMAKER HA</text>
                   <!-- connections -->
                   <line x1="192" y1="257" x2="193" y2="106" stroke="#a3e635" stroke-width="1.5"/>
                   <polygon points="189,109 197,109 193,102" fill="#a3e635"/>
@@ -441,7 +441,7 @@
                   <rect x="510" y="264" width="155" height="52" fill="#a3e635" opacity="0.08"/>
                   <rect x="506" y="260" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
                   <text x="583" y="282" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">SPRING BATCH</text>
-                  <text x="583" y="295" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">alert / email·SMS</text>
+                  <text x="583" y="295" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">alert / email/SMS</text>
                 </svg>
               </div>
             </div>
@@ -557,7 +557,7 @@
             <span class="btag">Nginx</span>
           </div>
           <ul class="brut-list">
-            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능 단독 설계·구현</li>
+            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능 단독 설계/구현</li>
             <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
             <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
             <li>홈서버(VirtualBox VM) 직접 운영 — SSL 자동 갱신, 재부팅 자동 복구</li>
@@ -578,12 +578,12 @@
                 <span class="rs-creds-key">ID</span>
                 <code class="rs-creds-val">guest</code>
               </span>
-              <span class="rs-creds-sep">·</span>
+              <span class="rs-creds-sep">,</span>
               <span class="rs-creds-item">
                 <span class="rs-creds-key">PW</span>
                 <code class="rs-creds-val">guest1234</code>
               </span>
-              <span class="rs-creds-sep">·</span>
+              <span class="rs-creds-sep">,</span>
               <span class="rs-creds-item">
                 <span class="rs-creds-key">URL</span>
                 <code class="rs-creds-val">skydev.ddns.net/redstone</code>
