@@ -248,7 +248,7 @@
               <li>플랫폼 개발/운영 담당 (설계 , 배포 , 장애 대응 , 요구사항 대응)</li>
               <li>해외 고객사 담당자와 커뮤니케이션 — 현지 출장 및 AI 번역 활용</li>
               <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
-              <li><span class="li-ctx">쓰기 비중 95% 이상으로 DB 서버 리소스 한계</span>→ DB 물리 이전 + 복제 구성으로 쓰기 부하 분산</li>
+              <li><span class="li-ctx">Slave DB에서 파티션 DDL 실행 → binlog 불일치로 복제 중단</span>→ 해당 테이블 별도 DB로 물리 이전 , Master에서만 DDL 실행하도록 재구성</li>
               <li><span class="li-ctx">DB 파티션 생성/삭제 미자동화로 디스크 포화 반복</span>→ 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
               <li><span class="li-ctx">Redis 캐시 구성은 있었으나 write-through 미적용 — 캐시 미스 빈발</span>→ write-through 전략 적용으로 미스율 감소 , 응답 속도 안정화</li>
               <li>분기별 전체 서버 점검 및 장애 예방 운영</li>
