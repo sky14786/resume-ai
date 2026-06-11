@@ -132,6 +132,16 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-12, 세션 3)
+- [x] 전 프로젝트 `/humanizer` 2차 적용 (resume-ai v7, redstone README):
+  - IPTV li-ctx em dash 제거
+  - WACS 카드 제목 `전면 재구축` → `재구축`
+  - 어드민 불릿 em dash → 콤마
+  - Projects 안내 `직접 수행` → `본인`, metric-stream 불릿 `직접` 제거 + `(AI 구현)` 명시
+  - redstone 불릿 `직접 운영` + em dash 정리
+  - About 터미널 `전면 안정화` → `안정화`, em dash 2개 제거
+  - redstone README `관리자 —` → `관리자:`
+
 ### 이번 세션 완료 (2026-06-12, 세션 2)
 - [x] 경력 불릿 AI 투 표현 제거 + 문체 개선 (`/humanizer` 적용):
   - 병원: em dash 2개 제거, `직접` 제거
