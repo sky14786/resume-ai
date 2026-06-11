@@ -140,7 +140,7 @@
               <span class="bstat">6개월</span>
             </div>
             <ul class="brut-list">
-              <li><span class="li-ctx">인계받은 MySQL 복제가 단절된 채 운영 중</span>→ SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화</li>
+              <li><span class="li-ctx">MySQL 복제 단절 상태로 운영 중</span>→ SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화</li>
               <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump + cron으로 정기 백업 자동화</li>
               <li><span class="li-ctx">Docker binlog 누적으로 디스크 풀 발생</span>→ 파일 truncate로 즉시 해소</li>
               <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 구조</span>→ PG사 모듈 교체 시 단계별 로그 추가 — 이후 원인 추적 가능</li>
