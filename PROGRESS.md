@@ -132,6 +132,20 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-12)
+- [x] `CLAUDE.md` 신규 생성 — 글쓰기 스타일 가이드 (AI 투 표현 지양, 구분자 규칙, 팩트 확인 주의사항)
+- [x] `/humanizer` 스킬 설치 — `C:\Users\June\.claude\commands\humanizer.md` (다음 세션부터 사용 가능)
+- [x] `.bstat` 태그 폰트 10px → 12px, 패딩 확대 (가독성 개선)
+- [x] 경력 불릿 전체 AI 표현 제거 + 자연스러운 문체로 개선:
+  - 병원: `인계받은` 제거, `디스크 풀` → `disk full`, `파악하던 구조` → `상황`, `로그 적재` → `로그`
+  - IPTV: 파티션 불릿 2개로 분리 (쓰기 부하 이전 / 파티션 자동화), `해외` → `태국`
+  - WACS: `의도적 장애 테스트` → `장애 테스트`, `(PostgreSQL)` 괄호 제거
+- [x] IPTV DB 이전 불릿 실제 원인으로 재작성: `쓰기 부하` → `Slave binlog 불일치로 복제 중단`
+- [x] 면접 준비 파일(`C:\major\interview_progress.md`) 참조하여 이력서 내용 검증
+  - Redis 불릿: 원인 불명확 → 현행 유지
+  - 결제 API 중복 호출: 이력서에 넣기 부적절 → 제외
+  - 무중단 전환 스토리: 사실 아님(Slave 중지) → 추가 안 함
+
 ### 이번 세션 완료 (2026-06-11)
 - [x] `.btag` 태그 폰트 사이즈 10px → 12px, 패딩 확대 (가독성 개선)
 - [x] `·` → `,` 전체 교체 (list 구분자). 복합어(`개발/운영`, `생성/삭제`, `이메일/SMS` 등)는 `/`로 처리
@@ -191,14 +205,19 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **KakaoTalk 링크 교체**
+1. **경력 불릿 마무리 다듬기** (`/humanizer` 스킬로 적용 가능 — 새 세션에서 바로 사용)
+   - IPTV: `DB 파티션 생성/삭제 미자동화로` → `수동 관리로`
+   - IPTV: `분기별 전체 서버 점검 및 장애 예방 운영` → `장애 예방 점검`
+   - WACS: `지표 임계치 초과 시` → `수집 지표 기준치 초과 시`
+
+2. **KakaoTalk 링크 교체**
    - `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
 
-2. **v7 컬러 테마 확정**
+3. **v7 컬러 테마 확정**
    - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
    - 확정 후 CSS 변수 고정, 스위처 제거
 
-5. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
+4. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
    - 플랫폼: GCP e2-micro (1GB RAM, 상시 무료)
    - JVM 튜닝으로 전체 스택 ~1.2GB → 스왑 500MB 추가하면 안정 운영 가능
    - Kafka HEAP: `-Xmx256m`, generator/consumer: `-Xmx128m`
