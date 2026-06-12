@@ -70,7 +70,7 @@ function decodeText(el, finalText, delay = 0) {
   });
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     decodeText(document.getElementById('word1'), 'JuneYoung', 200);
     decodeText(document.getElementById('word2'), 'Kim.', 700);
