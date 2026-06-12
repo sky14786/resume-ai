@@ -327,8 +327,18 @@ document.querySelectorAll('.tsw-dot').forEach(btn => {
   const closeX  = document.getElementById('grafana-modal-x');
   if (!modal || !openBtn) return;
 
-  function openModal()  { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
-  function closeModal() { modal.classList.add('hidden');    document.body.style.overflow = ''; }
+  function openModal() {
+    modal.querySelectorAll('iframe[data-src]').forEach(f => {
+      if (!f.src || f.src === window.location.href) f.src = f.dataset.src;
+    });
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    modal.querySelectorAll('iframe[data-src]').forEach(f => { f.src = ''; });
+  }
 
   openBtn.addEventListener('click', openModal);
   openBtn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(); });
