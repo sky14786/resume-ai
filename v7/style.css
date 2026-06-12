@@ -356,10 +356,6 @@ kbd{
   }
 }
 
-@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
-  .brut-card.featured .arch-diagram{ max-height: 500px !important; }
-  .brut-card.featured .arch-hint  { display: none; }
-}
 
 .brut-card{
   background:var(--bg2);
@@ -960,20 +956,11 @@ kbd{
   padding-top: 14px;
   border-top: 1px solid var(--dim);
 }
-.arch-hint {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--muted);
-  letter-spacing: .14em;
-  margin-bottom: 10px;
-  transition: color .2s;
-  opacity: .6;
-}
+.arch-hint { display: none; }
 .arch-btn { display: none; }
 .arch-diagram {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .45s ease;
+  max-height: none;
+  overflow: visible;
 }
 /* SVG는 다크 패널 — 의도적 대비 */
 .arch-diagram svg {
@@ -1062,36 +1049,6 @@ kbd{
   white-space: nowrap;
 }
 
-/* PC: 카드 hover 시 다이어그램 펼치기 */
-@media (hover: hover) and (pointer: fine) {
-  .brut-card:hover .arch-hint { color: var(--text); opacity: 1; }
-  .brut-card:hover .arch-diagram { max-height: 600px; }
-}
-
-/* 모바일/터치: 버튼 클릭으로 토글 */
-@media (hover: none) and (pointer: coarse) {
-  .arch-hint { display: none; }
-  .arch-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: transparent;
-    border: 1px solid var(--dim);
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: .14em;
-    padding: 8px 14px;
-    margin-bottom: 10px;
-    transition: background .2s, border-color .2s;
-  }
-  .arch-btn:hover { background: rgba(var(--ar),.08); border-color: var(--border); }
-  .arch-arrow { display: inline-block; transition: transform .3s; }
-  .arch-btn[aria-expanded="true"] .arch-arrow { transform: rotate(180deg); }
-  .arch-diagram.open { max-height: 600px; overflow-x: auto; }
-  .arch-diagram.open svg { min-width: 600px; }
-}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
