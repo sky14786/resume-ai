@@ -1,4 +1,4 @@
-/* =============================================
+﻿/* =============================================
    CUSTOM CURSOR
    ============================================= */
 const dot  = document.getElementById('cursor-dot');
@@ -150,16 +150,16 @@ const input    = document.getElementById('cmd-input');
 const list     = document.getElementById('cmd-list');
 
 const ITEMS = [
-  { icon: '→', label: '다기관 병원 유지보수', hint: '2025', action: () => scrollTo('#c-hospital') },
-  { icon: '→', label: '해외 IPTV 플랫폼 운영', hint: '2021', action: () => scrollTo('#c-iptv') },
-  { icon: '→', label: 'MAI-WACS 파이프라인', hint: '2022', action: () => scrollTo('#c-wacs') },
-  { icon: '→', label: 'IPTV 어드민 개발', hint: '2020', action: () => scrollTo('#c-admin') },
-  { icon: '◈', label: 'metric-stream', hint: 'project', action: () => scrollTo('#p-metric') },
-  { icon: '#', label: 'Skills', hint: 'section', action: () => scrollTo('#skills') },
+  { icon: '→', label: '다기관 병원 유지보수', hint: '2025', action: () => scrollToSection('#c-hospital') },
+  { icon: '→', label: '해외 IPTV 플랫폼 운영', hint: '2021', action: () => scrollToSection('#c-iptv') },
+  { icon: '→', label: 'MAI-WACS 파이프라인', hint: '2022', action: () => scrollToSection('#c-wacs') },
+  { icon: '→', label: 'IPTV 어드민 개발', hint: '2020', action: () => scrollToSection('#c-admin') },
+  { icon: '◈', label: 'metric-stream', hint: 'project', action: () => scrollToSection('#p-metric') },
+  { icon: '#', label: 'Skills', hint: 'section', action: () => scrollToSection('#skills') },
   { icon: '↗', label: 'GitHub', hint: 'external', action: () => window.open('https://github.com/sky14786', '_blank') },
 ];
 
-function scrollTo(sel) {
+function scrollToSection(sel) {
   const el = document.querySelector(sel);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   close();
