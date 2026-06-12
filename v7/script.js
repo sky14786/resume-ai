@@ -318,6 +318,20 @@ document.querySelectorAll('.tsw-dot').forEach(btn => {
 });
 
 /* =============================================
+   GRAFANA PREVIEW — 뷰포트 진입 시 로드
+   ============================================= */
+const previewObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const f = e.target;
+      if (f.dataset.src) f.src = f.dataset.src;
+      previewObs.unobserve(f);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('iframe[data-src].gpanel-preview').forEach(f => previewObs.observe(f));
+
+/* =============================================
    GRAFANA MODAL
    ============================================= */
 (function() {
