@@ -1,4 +1,17 @@
 ﻿/* =============================================
+   ENVIRONMENT — Grafana base URL (로컬/프로덕션 자동 전환)
+   ============================================= */
+(function () {
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!isLocal) return;
+  const PROD  = 'https://skydev.ddns.net/metric';
+  const LOCAL = 'http://localhost:3000';
+  document.querySelectorAll('iframe.gpanel[data-src]').forEach(f => {
+    f.dataset.src = f.dataset.src.replace(PROD, LOCAL);
+  });
+})();
+
+/* =============================================
    CUSTOM CURSOR
    ============================================= */
 const dot  = document.getElementById('cursor-dot');
