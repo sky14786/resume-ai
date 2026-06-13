@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section">
+
+    <!-- 히어로 메인 카드 -->
+    <div class="card card-hero-main" id="card-hero">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>구직중 · 서울/경기/대전/재택</span>
+      </div>
+      <h1 class="hero-name">JuneYoung<br />Kim</h1>
+      <p class="hero-role">Backend Engineer &amp; System Operator</p>
+      <p class="hero-desc">문서화되지 않은 시스템을 인계받아<br />처음부터 혼자 분석하고 끝까지 책임집니다.</p>
+      <div class="hero-tags">
+        <span class="htag">Spring Boot</span>
+        <span class="htag">Kafka</span>
+        <span class="htag">Docker</span>
+        <span class="htag">Infra</span>
+      </div>
+    </div>
+
+    <!-- 통계 카드들 -->
+    <div class="card card-stat" id="stat-years">
+      <div class="stat-icon">&#x1F4C5;</div>
+      <div class="stat-number" data-target="5">0</div>
+      <div class="stat-plus">+</div>
+      <div class="stat-label">Years Exp.</div>
+    </div>
+
+    <div class="card card-stat" id="stat-users">
+      <div class="stat-icon">&#x1F4F1;</div>
+      <div class="stat-number" data-target="100">0</div>
+      <div class="stat-plus">만+</div>
+      <div class="stat-label">IPTV Users</div>
+    </div>
+
+    <div class="card card-stat" id="stat-servers">
+      <div class="stat-icon">&#x1F5A5;</div>
+      <div class="stat-number" data-target="350">0</div>
+      <div class="stat-plus">+</div>
+      <div class="stat-label">Servers</div>
+    </div>
+
+    <!-- 구직중 뱃지 카드 -->
+    <div class="card card-available">
+      <div class="available-dot"></div>
+      <div class="available-text">
+        <strong>Available</strong>
+        <span>for new opportunities</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== BENTO GRID ===== -->
+  <section class="bento-grid" id="bento">
+
+    <!-- Career 01: 다기관 병원 -->
+    <div class="card card-career card-wide" data-index="0">
+      <div class="career-year">2025</div>
+      <div class="career-header">
+        <span class="career-num">01</span>
+        <h3>다기관 병원 환자중심 앱</h3>
+      </div>
+      <p class="career-desc">10개 병원 통합 환자 케어 앱 유지보수 및 운영. Spring Boot 기반 멀티테넌시 아키텍처.</p>
+      <div class="career-tags">
+        <span class="ctag">Spring Boot</span>
+        <span class="ctag">MariaDB</span>
+        <span class="ctag">Docker</span>
+      </div>
+      <div class="career-meta">10개 병원 · 유지보수</div>
+    </div>
+
+    <!-- Skill Tags 카드 -->
+    <div class="card card-skills card-tall" data-index="1">
+      <div class="skills-header">
+        <span class="skills-icon">&#x26A1;</span>
+        <h3>Tech Stack</h3>
+      </div>
+      <div class="skills-cloud">
+        <span class="skill-tag s-primary">Spring Boot</span>
+        <span class="skill-tag s-primary">Java</span>
+        <span class="skill-tag s-orange">Kafka</span>
+        <span class="skill-tag s-orange">Flink</span>
+        <span class="skill-tag s-green">Docker</span>
+        <span class="skill-tag s-green">Nginx</span>
+        <span class="skill-tag s-purple">PostgreSQL</span>
+        <span class="skill-tag s-purple">MySQL</span>
+        <span class="skill-tag s-red">Redis</span>
+        <span class="skill-tag s-red">RabbitMQ</span>
+        <span class="skill-tag s-blue">DRBD</span>
+        <span class="skill-tag s-yellow">React</span>
+      </div>
+    </div>
+
+    <!-- Project 1: metric-stream -->
+    <div class="card card-project" data-index="2">
+      <div class="project-type">PROJECT</div>
+      <h3 class="project-name">metric-stream</h3>
+      <p class="project-desc">Kafka → PostgreSQL → Grafana 실시간 메트릭 파이프라인. 분당 900건 처리.</p>
+      <div class="project-tags">
+        <span class="ptag">Kafka</span>
+        <span class="ptag">Flink</span>
+        <span class="ptag">Grafana</span>
+      </div>
+      <div class="project-arrow">&#x2192;</div>
+    </div>
+
+    <!-- Career 02: 태국 IPTV -->
+    <div class="card card-career card-featured" data-index="3">
+      <div class="career-year">2021 – 2025</div>
+      <div class="career-header">
+        <span class="career-num">02</span>
+        <h3>태국 IPTV 플랫폼</h3>
+      </div>
+      <p class="career-desc">100만 가입자 규모 IPTV 서비스를 5년간 단독 백엔드 운영. 트래픽 피크 대응 및 고가용성 유지.</p>
+      <div class="career-tags">
+        <span class="ctag ctag-light">Spring Boot</span>
+        <span class="ctag ctag-light">Redis</span>
+        <span class="ctag ctag-light">MySQL</span>
+      </div>
+      <div class="career-meta">100만 가입자 · 5년 운영</div>
+    </div>
+
+    <!-- Career 03: 모니터링 재구축 -->
+    <div class="card card-career" data-index="4">
+      <div class="career-year">2022 – 2023</div>
+      <div class="career-header">
+        <span class="career-num">03</span>
+        <h3>모니터링 재구축</h3>
+      </div>
+      <p class="career-desc">350대 서버 메트릭을 30초 주기로 수집하는 스트리밍 시스템 전면 재구축.</p>
+      <div class="career-tags">
+        <span class="ctag">Kafka</span>
+        <span class="ctag">Flink</span>
+        <span class="ctag">PostgreSQL</span>
+      </div>
+      <div class="career-meta">350+ 서버 · 30초 수집</div>
+    </div>
+
+    <!-- About Me 카드 -->
+    <div class="card card-about card-tall" data-index="5">
+      <div class="about-quote">"</div>
+      <blockquote class="about-text">
+        문서화되지 않은 시스템을<br />인계받아 처음부터 혼자<br />분석하고 끝까지 책임집니다.
+      </blockquote>
+      <div class="about-footer">
+        <div class="about-name">JuneYoung Kim</div>
+        <div class="about-sub">Backend · Infra · System Ops</div>
+      </div>
+    </div>
+
+    <!-- Project 2: redstone -->
+    <div class="card card-project card-tall" data-index="6">
+      <div class="project-type">PROJECT</div>
+      <h3 class="project-name">redstone</h3>
+      <p class="project-desc">게임 아이템 거래 포털. 실시간 시세 조회 및 P2P 거래 기능 구현.</p>
+      <div class="project-tags">
+        <span class="ptag">Node.js</span>
+        <span class="ptag">MongoDB</span>
+        <span class="ptag">React</span>
+      </div>
+      <div class="project-arrow">&#x2192;</div>
+    </div>
+
+    <!-- Career 04: IPTV 어드민 -->
+    <div class="card card-career card-wide" data-index="7">
+      <div class="career-year">2020 – 2021</div>
+      <div class="career-header">
+        <span class="career-num">04</span>
+        <h3>IPTV 어드민 시스템</h3>
+      </div>
+      <p class="career-desc">가입자 관리, 콘텐츠 편성, 통계 대시보드 등 관리자 시스템 전체 설계 및 구현.</p>
+      <div class="career-tags">
+        <span class="ctag">Spring Boot</span>
+        <span class="ctag">JSP</span>
+        <span class="ctag">jQuery</span>
+      </div>
+      <div class="career-meta">전체 어드민 · 단독 구현</div>
+    </div>
+
+    <!-- Contact 카드 -->
+    <div class="card card-contact" data-index="8">
+      <h3 class="contact-title">Contact</h3>
+      <a href="https://github.com/sky14786" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+        </span>
+        <span>sky14786</span>
+      </a>
+      <a href="mailto:sky14786@gmail.com" class="contact-link">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+        </span>
+        <span>sky14786@gmail.com</span>
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="site-footer">
+    <p>JuneYoung Kim &copy; 2025 &nbsp;·&nbsp; Built with HTML &amp; CSS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

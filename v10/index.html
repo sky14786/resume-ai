@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="bg-blob bg-blob-1" data-parallax="0.04"></div>
+    <div class="bg-blob bg-blob-2" data-parallax="0.06"></div>
+    <div class="bg-blob bg-blob-3" data-parallax="0.03"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">JY<span class="logo-dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Backend Engineer &amp; System Operator</p>
+      <h1 class="hero-name reveal">
+        <span class="gradient-text">JuneYoung</span><br />
+        <span class="gradient-text">Kim</span>
+      </h1>
+      <p class="hero-sub reveal">
+        안정적인 시스템을 설계하고, 문서화되지 않은 환경을 분석해<br class="br-desktop" />
+        처음부터 끝까지 혼자 책임지는 백엔드 엔지니어
+      </p>
+
+      <div class="hero-stats reveal">
+        <div class="glass-card stat-card">
+          <span class="stat-number gradient-text">5+</span>
+          <span class="stat-label">Years</span>
+        </div>
+        <div class="glass-card stat-card">
+          <span class="stat-number gradient-text">100만+</span>
+          <span class="stat-label">IPTV Users</span>
+        </div>
+        <div class="glass-card stat-card">
+          <span class="stat-number gradient-text">350+</span>
+          <span class="stat-label">Servers</span>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-down">
+        <span class="scroll-text">scroll</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="gradient-text">About</span></h2>
+      <div class="glass-card about-card reveal">
+        <div class="about-text">
+          <p>
+            문서화되지 않은 시스템을 인계받아 처음부터 혼자 분석하고 끝까지 책임집니다.
+            대규모 IPTV 플랫폼의 DB 복제 이슈 해결, 350대 서버 모니터링 시스템 재구축,
+            병원 환자중심 앱 백엔드 개발까지—팀이 없어도 끝냅니다.
+          </p>
+          <p>
+            현재 구직 중이며 서울, 경기, 대전 및 원격 근무 가능합니다.
+          </p>
+        </div>
+        <div class="about-meta">
+          <div class="meta-item">
+            <span class="meta-icon">&#9679;</span>
+            <span class="status-badge">구직중</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">위치</span>
+            <span class="meta-value">서울 · 경기 · 대전 · 재택</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">GitHub</span>
+            <a href="https://github.com/sky14786" target="_blank" rel="noopener" class="meta-link">github.com/sky14786</a>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Email</span>
+            <a href="mailto:sky14786@gmail.com" class="meta-link">sky14786@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section class="section" id="career">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="gradient-text">Career</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+          <div class="glass-card timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">다기관 병원 환자중심 앱</h3>
+                <p class="card-sub">Backend Engineer</p>
+              </div>
+              <span class="card-period">2025.08 — 2026.02</span>
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">MariaDB</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Nginx</span>
+            </div>
+            <ul class="card-list">
+              <li>MySQL 복제 재동기화 및 자동 복구 절차 수립</li>
+              <li>백업 자동화 스크립트 설계 및 운영</li>
+              <li>헬스체크 API 설계 및 모니터링 연동</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+          <div class="glass-card timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">태국 IPTV 플랫폼</h3>
+                <p class="card-sub">Backend Engineer · System Operator</p>
+              </div>
+              <span class="card-period">2021.01 — 2025.12</span>
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">RabbitMQ</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+            <ul class="card-list">
+              <li>100만 사용자 규모 DB 복제 이슈 원인 분석 및 해결</li>
+              <li>파티션 자동화로 쿼리 성능 개선</li>
+              <li>캐시 전략 수립 및 Redis 운영 최적화</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+          <div class="glass-card timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">모니터링 시스템 재구축</h3>
+                <p class="card-sub">System Engineer</p>
+              </div>
+              <span class="card-period">2022.06 — 2023.10</span>
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">Kafka</span>
+              <span class="tech-tag">Flink</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">DRBD</span>
+            </div>
+            <ul class="card-list">
+              <li>350대 서버 대상 실시간 모니터링 파이프라인 재구축</li>
+              <li>DRBD 기반 HA 전환으로 가용성 향상</li>
+              <li>알람 시스템 설계 및 대시보드 구현</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">IPTV 어드민</h3>
+                <p class="card-sub">Backend Developer</p>
+              </div>
+              <span class="card-period">2020.07 — 2021.01</span>
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">JSP</span>
+              <span class="tech-tag">jQuery</span>
+            </div>
+            <ul class="card-list">
+              <li>IPTV 관리자 시스템 백엔드 개발 및 유지보수</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="gradient-text">Projects</span></h2>
+      <div class="projects-grid">
+
+        <div class="glass-card project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">&#9889;</div>
+            <div class="project-links">
+              <a href="https://github.com/sky14786/metric-stream" target="_blank" rel="noopener" class="icon-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">metric-stream</h3>
+          <p class="project-desc">
+            Kafka 기반 실시간 메트릭 수집 및 시각화 파이프라인.
+            서버 지표를 스트리밍 처리하여 Grafana 대시보드로 제공.
+          </p>
+          <div class="tag-row">
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Grafana</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+
+        <div class="glass-card project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">&#128296;</div>
+            <div class="project-links">
+              <a href="https://github.com/sky14786/redstone" target="_blank" rel="noopener" class="icon-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">redstone</h3>
+          <p class="project-desc">
+            Node.js 기반 REST API 서버 프레임워크.
+            MongoDB 연동, Docker 컨테이너화, Express 미들웨어 구조 설계.
+          </p>
+          <div class="tag-row">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title reveal"><span class="gradient-text">Skills</span></h2>
+      <div class="skills-grid">
+
+        <div class="glass-card skill-card reveal">
+          <h3 class="skill-category">Backend</h3>
+          <div class="tag-row">
+            <span class="tech-tag tag-glow">Spring Boot</span>
+            <span class="tech-tag tag-glow">Java</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal">
+          <h3 class="skill-category">Database</h3>
+          <div class="tag-row">
+            <span class="tech-tag tag-glow">MySQL</span>
+            <span class="tech-tag tag-glow">MariaDB</span>
+            <span class="tech-tag tag-glow">PostgreSQL</span>
+            <span class="tech-tag tag-glow">Redis</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal">
+          <h3 class="skill-category">Messaging &amp; Stream</h3>
+          <div class="tag-row">
+            <span class="tech-tag tag-glow">Kafka</span>
+            <span class="tech-tag tag-glow">Flink</span>
+            <span class="tech-tag tag-glow">RabbitMQ</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal">
+          <h3 class="skill-category">Infra &amp; DevOps</h3>
+          <div class="tag-row">
+            <span class="tech-tag tag-glow">Docker</span>
+            <span class="tech-tag tag-glow">Nginx</span>
+            <span class="tech-tag tag-glow">Jenkins</span>
+            <span class="tech-tag tag-glow">DRBD</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal">
+          <h3 class="skill-category">Frontend</h3>
+          <div class="tag-row">
+            <span class="tech-tag tag-glow">React</span>
+            <span class="tech-tag tag-glow">JSP</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container container-narrow">
+      <h2 class="section-title reveal"><span class="gradient-text">Contact</span></h2>
+      <div class="glass-card contact-card reveal">
+        <p class="contact-intro">
+          새로운 기회나 협업에 열려 있습니다.<br />
+          언제든지 연락해 주세요.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:sky14786@gmail.com" class="contact-btn glass-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            sky14786@gmail.com
+          </a>
+          <a href="https://github.com/sky14786" target="_blank" rel="noopener" class="contact-btn glass-card">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            github.com/sky14786
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="gradient-text">JuneYoung Kim</span> &nbsp;·&nbsp; Backend Engineer &amp; System Operator
+    </p>
+    <p class="footer-copy">2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
