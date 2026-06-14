@@ -45,7 +45,19 @@
 - **로컬 서버**: `npx serve resume-ai/v3` (port 3200)
 - **⚠️ 주의**: 프리뷰 iframe 스크린샷 불가 (무한 애니메이션 + cursor:none) — 브라우저 직접 열어야 함
 
-### v7 (`/v7/`) ⭐ 현재 진행 방향
+### v13 (`/v13/`) ⭐ 현재 진행 방향 — White Glass 테마
+- **테마**: 순백 `#ffffff` 배경, 인디고 `#6366f1` 액센트, 글래스모피즘 카드 (`backdrop-filter: blur(16px)`)
+- **로컬 서버**: `docker run -d --name resume-v13 -p 5013:80 -v "D:/ai/resume-ai/v13:/usr/share/nginx/html:ro" nginx:alpine`
+- **추가된 기능** (2026-06-13/14):
+  - arch-zoom-hint 위치 하단→상단 우측으로 이동 (레이어 라벨 겹침 해소)
+  - `.career-year` 중복 연도 pill 제거 (`.career-period`만 유지)
+  - metric-stream·redstone 카드의 docker-compose 예시 코드 블록 제거
+  - Grafana 모달 lightbox 복원 (window.open 방식 → 인라인 모달로 되돌림)
+  - redstone-preview.png 이미지 프리뷰 복원
+  - IPTV SVG: DB 클러스터 3개 추가 (메인 M/S/S, API HISTORY M/S, 채널이력 M/S)
+  - IPTV SVG: 겹침 해소 (클러스터 가로 배치), viewBox 490→378, 프리뷰 max-height 200px
+
+### v7 (`/v7/`) — 이전 방향 (라이트 테마)
 - **기반**: v6 복사 후 라이트 테마 전환
 - **추가된 기능** (2026-05-28):
   - 라이트 테마 (`#faf9f6` 크림 배경, 흰 카드, 다크 테두리/그림자)
@@ -131,6 +143,22 @@
 - [x] About 메타 배지 (available 상태 + 위치)
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
+
+### 이번 세션 완료 (2026-06-14)
+- [x] `D:\ai\CLAUDE.md` — 미커밋 목록 제거, 설치된 Claude Code 도구 섹션 추가
+- [x] Impeccable 스킬 설치 (`~/.claude/skills/impeccable/`, `~/.claude/agents/impeccable-manual-edit-applier.md`)
+- [x] `D:\ai\.claude\skills\impeccable-guide.md` — Impeccable 전체 커맨드·워크플로우 가이드 파일 생성
+- [x] humanize-korean 플러그인 (`im-not-ai` 마켓플레이스) 설치 완료
+
+### 이번 세션 완료 (2026-06-13)
+- [x] v13 신규 생성 — White Glass 테마 (순백 배경, 인디고 액센트, 글래스모피즘)
+- [x] v13 arch-zoom-hint 위치 하단→상단 우측 이동 (레이어 라벨 겹침 해소)
+- [x] v13 `.career-year` 중복 연도 pill 제거 (`.career-period`만 유지)
+- [x] v13 docker-compose 예시 코드 블록 제거 (metric-stream·redstone 카드)
+- [x] v13 Grafana 모달 lightbox 복원 + 로컬/프로덕션 URL 자동 전환
+- [x] v13 redstone-preview.png 이미지 프리뷰 복원
+- [x] v13 IPTV SVG DB 클러스터 추가 (메인 M/S/S, API HISTORY M/S, 채널이력 M/S)
+- [x] v13 IPTV SVG 겹침 해소, viewBox 490→378, 프리뷰 max-height 200px
 
 ### 이번 세션 완료 (2026-06-12, 세션 3)
 - [x] 전 프로젝트 `/humanizer` 2차 적용 (resume-ai v7, redstone README):
@@ -221,21 +249,12 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **경력 불릿 마무리 다듬기** (`/humanizer` 스킬로 적용 가능 — 새 세션에서 바로 사용)
-   - IPTV: `DB 파티션 생성/삭제 미자동화로` → `수동 관리로`
-   - IPTV: `분기별 전체 서버 점검 및 장애 예방 운영` → `장애 예방 점검`
-   - WACS: `지표 임계치 초과 시` → `수집 지표 기준치 초과 시`
+1. **v13 추가 개선** (현재 활성 버전)
+   - KakaoTalk 링크 교체 (`href="KAKAO_LINK_HERE"` → 실제 링크)
+   - `/audit` 실행 후 Impeccable으로 UI 품질 점검 (`~/.claude/skills/impeccable/` 설치됨)
 
-2. **KakaoTalk 링크 교체**
-   - `v7/index.html` `href="KAKAO_LINK_HERE"` → 실제 링크로 교체
-
-3. **v7 컬러 테마 확정**
-   - `http://localhost:3600` 열고 우측 하단 스위처로 색상 선택 (현재 기본: Violet)
-   - 확정 후 CSS 변수 고정, 스위처 제거
-
-4. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
+2. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
    - 플랫폼: GCP e2-micro (1GB RAM, 상시 무료)
-   - JVM 튜닝으로 전체 스택 ~1.2GB → 스왑 500MB 추가하면 안정 운영 가능
    - Kafka HEAP: `-Xmx256m`, generator/consumer: `-Xmx128m`
    - 배포 완료 후 localhost:3000 → 공개 URL로 교체 + nginx + SSL
 
@@ -257,10 +276,10 @@ resume-ai/
 ├── v4/                # 백업
 ├── v5/                # 기능 완성본 (다크)
 ├── v6/                # 다크 + 2컬러 + 피처드 카드
-├── v7/                # ⭐ 현재 방향 — 라이트 테마 + pill nav + 컬러 스위처
+├── v7/                # 라이트 테마 + pill nav + 컬러 스위처
+├── v13/               # ⭐ 현재 방향 — White Glass (순백+인디고+글래스모피즘)
 │   ├── index.html
-│   ├── style.css
-│   ├── script.js
+│   ├── redstone-preview.png
 │   └── favicon.svg
 ├── PROGRESS.md
 └── LICENSE
