@@ -249,19 +249,6 @@
       gap: 12px;
       margin-bottom: 16px;
     }
-    .career-year {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: var(--accent-tint);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-      display: inline-block;
-    }
     .career-title {
       font-size: 1.25rem;
       font-weight: 700;
@@ -955,7 +942,6 @@
 
         <!-- 1. 병원 -->
         <div class="glass-card career-card reveal" id="c-hospital">
-          <span class="career-year">2025 ~ 2026</span>
           <div class="career-head">
             <div>
               <h3 class="career-title">다기관 병원 환자중심 앱</h3>
@@ -1076,7 +1062,6 @@
 
         <!-- 2. IPTV -->
         <div class="glass-card career-card reveal" id="c-iptv">
-          <span class="career-year">2021 ~ 2025</span>
           <div class="career-head">
             <div>
               <h3 class="career-title">해외 IPTV 플랫폼</h3>
@@ -1199,7 +1184,6 @@
 
         <!-- 3. 모니터링 -->
         <div class="glass-card career-card reveal" id="c-wacs">
-          <span class="career-year">2022 ~ 2023</span>
           <div class="career-head">
             <div>
               <h3 class="career-title">모니터링 시스템 재구축</h3>
@@ -1310,7 +1294,6 @@
 
         <!-- 4. Admin -->
         <div class="glass-card career-card reveal" id="c-admin">
-          <span class="career-year">2020 ~ 2021</span>
           <div class="career-head">
             <div>
               <h3 class="career-title">해외 IPTV 플랫폼 어드민</h3>
@@ -1479,17 +1462,6 @@
             </div>
           </div>
 
-          <!-- docker-compose -->
-          <div class="code-block-wrap">
-            <div class="code-block-label">docker-compose 실행</div>
-            <pre class="code-pre"><span class="cb-cmt"># 전체 인프라 한 번에 구동</span>
-<span class="cb-key">docker compose</span> <span class="cb-val">-f docker-compose.yml -f docker-compose.local.yml</span> \
-  <span class="cb-key">--profile production up</span> <span class="cb-val">-d</span> \
-  kafka postgres grafana generator consumer
-
-<span class="cb-cmt"># Grafana 접속</span>
-<span class="cb-key">http://localhost:3000</span></pre>
-          </div>
         </div>
 
         <!-- redstone -->
@@ -1526,17 +1498,6 @@
             <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
             <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
           </ul>
-
-          <!-- docker-compose -->
-          <div class="code-block-wrap">
-            <div class="code-block-label">docker-compose 실행</div>
-            <pre class="code-pre"><span class="cb-cmt"># redstone 로컬 구동</span>
-<span class="cb-key">docker compose</span> <span class="cb-val">-f docker-compose.yml -f docker-compose.local.yml</span> \
-  <span class="cb-key">up</span> <span class="cb-val">-d</span>
-
-<span class="cb-cmt"># 접속 (자체서명 인증서 경고 무시)</span>
-<span class="cb-key">https://localhost:3001/redstone</span></pre>
-          </div>
 
           <!-- live demo -->
           <div class="grafana-label-row" style="margin-top: 22px;">
