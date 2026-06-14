@@ -1278,15 +1278,15 @@
           <div class="arch-wrap">
             <div class="arch-hint">Architecture <span>↓ click to zoom</span></div>
             <div class="arch-diagram" data-arch="iptv">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340">
-                <rect width="800" height="340" fill="rgba(248,248,255,0.8)"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 490">
+                <rect width="800" height="490" fill="rgba(248,248,255,0.8)"/>
                 <text x="400" y="26" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">IPTV 플랫폼 ARCHITECTURE</text>
                 <text x="400" y="40" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">가입자 100만 · 온프레미스</text>
                 <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(99,102,241,0.15)" stroke-width="0.5"/>
-                <!-- on-prem boundary -->
-                <rect x="382" y="52" width="414" height="232" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.22)" stroke-width="1" stroke-dasharray="6,4" rx="6"/>
+                <!-- on-prem boundary (upper right) -->
+                <rect x="382" y="52" width="414" height="180" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.22)" stroke-width="1" stroke-dasharray="6,4" rx="6"/>
                 <text x="393" y="66" fill="rgba(99,102,241,0.45)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES</text>
-                <!-- arrows -->
+                <!-- main flow arrows -->
                 <line x1="112" y1="170" x2="140" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
                 <polygon points="137,166 137,174 145,170" fill="#6366f1" opacity="0.7"/>
                 <line x1="240" y1="170" x2="268" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
@@ -1295,15 +1295,24 @@
                 <polygon points="393,166 393,174 401,170" fill="#6366f1" opacity="0.7"/>
                 <line x1="496" y1="170" x2="524" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
                 <polygon points="521,166 521,174 529,170" fill="#6366f1" opacity="0.7"/>
-                <!-- API → data bus -->
+                <!-- API → RabbitMQ/Redis bus -->
                 <line x1="624" y1="170" x2="644" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
-                <line x1="644" y1="118" x2="644" y2="245" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-                <line x1="644" y1="118" x2="654" y2="118" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
-                <polygon points="651,114 651,122 659,118" fill="#6366f1" opacity="0.7"/>
-                <line x1="644" y1="181" x2="654" y2="181" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
-                <polygon points="651,177 651,185 659,181" fill="#6366f1" opacity="0.7"/>
-                <line x1="644" y1="245" x2="654" y2="245" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
-                <polygon points="651,241 651,249 659,245" fill="#6366f1" opacity="0.7"/>
+                <line x1="644" y1="119" x2="644" y2="204" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+                <line x1="644" y1="119" x2="655" y2="119" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="652,115 652,123 660,119" fill="#6366f1" opacity="0.7"/>
+                <line x1="644" y1="181" x2="655" y2="181" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="652,177 652,185 660,181" fill="#6366f1" opacity="0.7"/>
+                <!-- API → DB tier (downward) -->
+                <line x1="576" y1="196" x2="576" y2="244" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <!-- DB distribution bus -->
+                <line x1="130" y1="244" x2="594" y2="244" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+                <!-- bus → cluster MASTER arrows -->
+                <line x1="130" y1="244" x2="130" y2="263" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="126,260 134,260 130,265" fill="#6366f1" opacity="0.7"/>
+                <line x1="334" y1="244" x2="334" y2="263" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="330,260 338,260 334,265" fill="#6366f1" opacity="0.7"/>
+                <line x1="594" y1="244" x2="594" y2="263" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="590,260 598,260 594,265" fill="#6366f1" opacity="0.7"/>
                 <!-- NODE: USER -->
                 <rect x="12" y="146" width="102" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
                 <text x="63" y="165" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">USER</text>
@@ -1338,18 +1347,67 @@
                 <text x="722" y="177" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">REDIS</text>
                 <text x="722" y="190" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">session · cache</text>
                 <text x="722" y="201" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
-                <!-- DATA: MySQL -->
-                <rect x="657" y="220" width="130" height="46" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.3)" stroke-width="1.2" filter="url(#v13-shadow)"/>
-                <text x="722" y="239" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">MYSQL</text>
-                <text x="722" y="252" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">IPTV platform DB</text>
-                <text x="722" y="263" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
-                <!-- layer labels -->
-                <text x="63"  y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
-                <text x="192" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">NETWORK</text>
-                <text x="320" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">GATEWAY</text>
-                <text x="448" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">PROXY</text>
-                <text x="576" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">APP</text>
-                <text x="722" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
+                <!-- layer labels (main flow) -->
+                <text x="63"  y="210" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
+                <text x="192" y="210" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">NETWORK</text>
+                <text x="320" y="210" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">GATEWAY</text>
+                <text x="448" y="210" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">PROXY</text>
+                <text x="576" y="210" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">APP</text>
+                <text x="722" y="210" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
+                <!-- DB TIER separator -->
+                <line x1="10" y1="234" x2="790" y2="234" stroke="rgba(99,102,241,0.1)" stroke-width="0.5" stroke-dasharray="4,3"/>
+                <text x="20" y="243" fill="rgba(99,102,241,0.38)" font-family="'Inter',sans-serif" font-size="6.5" letter-spacing="2">DATABASE TIER · MySQL Replication</text>
+                <!-- ── Cluster 1: 메인 DB (M / S / S) ── -->
+                <rect x="12" y="249" width="248" height="202" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                <text x="24" y="263" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">메인 DB · M / S / S</text>
+                <!-- Cluster 1 MASTER -->
+                <rect x="75" y="268" width="110" height="42" rx="6" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.55)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="130" y="285" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9" font-weight="700">MASTER</text>
+                <text x="130" y="298" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">MySQL · write</text>
+                <!-- Cluster 1 M→S replication -->
+                <line x1="100" y1="310" x2="60" y2="348" stroke="#6366f1" stroke-width="1" opacity="0.45" stroke-dasharray="3,2"/>
+                <polygon points="57,345 65,351 62,343" fill="#6366f1" opacity="0.45"/>
+                <line x1="162" y1="310" x2="200" y2="348" stroke="#6366f1" stroke-width="1" opacity="0.45" stroke-dasharray="3,2"/>
+                <polygon points="203,345 195,351 198,343" fill="#6366f1" opacity="0.45"/>
+                <text x="130" y="336" text-anchor="middle" fill="#b0b0cc" font-family="'Inter',sans-serif" font-size="6.5">replication</text>
+                <!-- Cluster 1 SLAVE 1 -->
+                <rect x="18" y="350" width="96" height="40" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.28)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="66" y="366" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="66" y="380" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+                <!-- Cluster 1 SLAVE 2 -->
+                <rect x="146" y="350" width="96" height="40" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.28)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="194" y="366" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="194" y="380" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+                <!-- ── Cluster 2: API HISTORY DB (M / S) ── -->
+                <rect x="272" y="249" width="248" height="110" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                <text x="284" y="263" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">API HISTORY DB · M / S</text>
+                <!-- Cluster 2 MASTER -->
+                <rect x="283" y="268" width="104" height="42" rx="6" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.55)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="335" y="285" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9" font-weight="700">MASTER</text>
+                <text x="335" y="298" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">MySQL · write</text>
+                <!-- Cluster 2 M→S -->
+                <line x1="387" y1="289" x2="405" y2="289" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                <polygon points="402,285 402,293 407,289" fill="#6366f1" opacity="0.5"/>
+                <!-- Cluster 2 SLAVE -->
+                <rect x="407" y="268" width="104" height="42" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.28)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="459" y="285" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="459" y="298" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+                <text x="459" y="308" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="6.5">API 요청 이력</text>
+                <!-- ── Cluster 3: 채널이력 DB (M / S) ── -->
+                <rect x="532" y="249" width="258" height="110" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                <text x="544" y="263" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">채널이력 DB · M / S</text>
+                <!-- Cluster 3 MASTER -->
+                <rect x="543" y="268" width="104" height="42" rx="6" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.55)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="595" y="285" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9" font-weight="700">MASTER</text>
+                <text x="595" y="298" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">MySQL · write</text>
+                <!-- Cluster 3 M→S -->
+                <line x1="647" y1="289" x2="665" y2="289" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                <polygon points="662,285 662,293 667,289" fill="#6366f1" opacity="0.5"/>
+                <!-- Cluster 3 SLAVE -->
+                <rect x="667" y="268" width="110" height="42" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.28)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="722" y="285" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="722" y="298" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+                <text x="722" y="308" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="6.5">채널 변경 이력</text>
               </svg>
               <span class="arch-zoom-hint">click to zoom ↗</span>
             </div>
