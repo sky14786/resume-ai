@@ -1240,23 +1240,28 @@
                 <text x="400" y="24" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
                 <text x="400" y="38" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">350대 서버 실시간 지표 수집 · Pacemaker HA</text>
                 <line x1="30" y1="46" x2="770" y2="46" stroke="rgba(99,102,241,0.15)" stroke-width="0.5"/>
-                <!-- HA cluster boundary (Kafka + Flink + PostgreSQL) -->
+                <!-- HA cluster boundary -->
                 <rect x="180" y="50" width="455" height="216" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.2)" stroke-width="1" stroke-dasharray="5,3" rx="6"/>
                 <text x="190" y="64" fill="rgba(99,102,241,0.45)" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1" font-weight="600">수집/처리 클러스터 — PACEMAKER HA</text>
-                <!-- arrows: 350 SERVERS → KAFKA → FLINK → POSTGRESQL -->
+                <!-- pipeline arrows: 350 SERVERS → KAFKA → FLINK → POSTGRESQL -->
                 <line x1="162" y1="152" x2="192" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
                 <polygon points="189,148 189,156 197,152" fill="#6366f1" opacity="0.7"/>
                 <line x1="305" y1="152" x2="335" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
                 <polygon points="332,148 332,156 340,152" fill="#6366f1" opacity="0.7"/>
                 <line x1="466" y1="152" x2="496" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
                 <polygon points="493,148 493,156 501,152" fill="#6366f1" opacity="0.7"/>
-                <!-- POSTGRESQL → fork → MONITORING / SPRING BATCH -->
+                <!-- POSTGRESQL → 3-way fork (MONITORING / API SERVER / SPRING BATCH) -->
                 <line x1="629" y1="152" x2="643" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
-                <line x1="643" y1="152" x2="643" y2="108" stroke="#6366f1" stroke-width="1.5" opacity="0.6"/>
-                <polygon points="644,104 644,112 652,108" fill="#6366f1" opacity="0.7"/>
-                <line x1="643" y1="152" x2="643" y2="226" stroke="#6366f1" stroke-width="1.5" opacity="0.6"/>
-                <polygon points="644,222 644,230 652,226" fill="#6366f1" opacity="0.7"/>
-                <!-- 350 SERVERS (Telegraf Agent installed) -->
+                <line x1="643" y1="82" x2="643" y2="222" stroke="#6366f1" stroke-width="1.5" opacity="0.6"/>
+                <polygon points="644,78 644,86 652,82" fill="#6366f1" opacity="0.7"/>
+                <polygon points="644,148 644,156 652,152" fill="#6366f1" opacity="0.7"/>
+                <polygon points="644,218 644,226 652,222" fill="#6366f1" opacity="0.7"/>
+                <!-- MONITORING ↔ API SERVER (양방향: React→API 요청 / API→React 응답) -->
+                <line x1="708" y1="109" x2="708" y2="125" stroke="#6366f1" stroke-width="1.2" opacity="0.55"/>
+                <polygon points="704,121 712,121 708,127" fill="#6366f1" opacity="0.55"/>
+                <line x1="734" y1="125" x2="734" y2="109" stroke="#6366f1" stroke-width="1.2" opacity="0.55"/>
+                <polygon points="730,111 738,111 734,107" fill="#6366f1" opacity="0.55"/>
+                <!-- 350 SERVERS (Telegraf Agent) -->
                 <rect x="10" y="122" width="152" height="60" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
                 <text x="86" y="141" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">350 SERVERS</text>
                 <text x="86" y="155" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Telegraf Agent 설치</text>
@@ -1276,16 +1281,21 @@
                 <text x="564" y="141" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">POSTGRESQL</text>
                 <text x="564" y="155" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">metric store</text>
                 <text x="564" y="168" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">TimescaleDB</text>
-                <!-- MONITORING (React dashboard) -->
-                <rect x="650" y="82" width="142" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
-                <text x="721" y="101" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">MONITORING</text>
-                <text x="721" y="115" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">React dashboard</text>
-                <text x="721" y="127" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">실시간 시각화</text>
-                <!-- SPRING BATCH (alert) -->
-                <rect x="650" y="200" width="142" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.35)" stroke-width="1.2" filter="url(#v13-shadow)"/>
-                <text x="721" y="219" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SPRING BATCH</text>
-                <text x="721" y="233" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">alert · email/SMS</text>
-                <text x="721" y="245" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">기준치 초과 알림</text>
+                <!-- MONITORING (React) — top -->
+                <rect x="650" y="57" width="142" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="721" y="75" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">MONITORING</text>
+                <text x="721" y="89" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">React dashboard</text>
+                <text x="721" y="101" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">실시간 시각화</text>
+                <!-- API SERVER — middle (pipeline 중심선 y=152와 정렬) -->
+                <rect x="650" y="127" width="142" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="721" y="145" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
+                <text x="721" y="159" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">REST · query</text>
+                <text x="721" y="171" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- SPRING BATCH — bottom -->
+                <rect x="650" y="197" width="142" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.35)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="721" y="215" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SPRING BATCH</text>
+                <text x="721" y="229" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">alert · email/SMS</text>
+                <text x="721" y="241" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">기준치 초과 알림</text>
                 <!-- layer labels -->
                 <text x="86"  y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">SOURCE</text>
                 <text x="250" y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">BROKER</text>
