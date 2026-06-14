@@ -740,6 +740,180 @@
     .cred-sep { color: var(--text-muted); font-size: 0.85rem; }
     .demo-link-row { margin-top: 16px; }
 
+    /* ── Redstone image preview ── */
+    .rs-preview-wrap {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      text-decoration: none;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .rs-preview-wrap:hover {
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+    .rs-preview-img {
+      width: 100%;
+      display: block;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .rs-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 14px 18px;
+      transition: background 0.25s;
+    }
+    .rs-preview-wrap:hover .rs-preview-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 65%);
+    }
+    .rs-preview-overlay-text {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #fff;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .rs-preview-wrap:hover .rs-preview-overlay-text { opacity: 1; }
+
+    /* ── Grafana Modal ── */
+    .grafana-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .grafana-modal.hidden { display: none; }
+    .grafana-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+    }
+    .grafana-modal-box {
+      position: relative;
+      z-index: 1;
+      width: 92vw;
+      max-width: 1360px;
+      background: #0d0d0d;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.95);
+      overflow: hidden;
+    }
+    .gm-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #222;
+      background: #111;
+    }
+    .gm-header-left { display: flex; flex-direction: column; gap: 8px; }
+    .gm-title-row { display: flex; align-items: center; gap: 14px; }
+    .gm-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border: 1px solid #1f3a1f;
+      background: #0d1f0d;
+      border-radius: 4px;
+    }
+    .gm-live-text { color: #22c55e; }
+    .gm-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .gm-desc { font-size: 11px; color: #555; letter-spacing: 0.03em; }
+    .gm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .gm-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      padding: 3px 9px;
+      border: 1px solid #2a2a2a;
+      color: #666;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+    }
+    .gm-header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .gm-github {
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      color: #555;
+      border: 1px solid #2a2a2a;
+      padding: 5px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .gm-github:hover { color: #fff; border-color: #555; }
+    .grafana-modal-x {
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: #555;
+      font-size: 13px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .grafana-modal-x:hover { border-color: #fff; color: #fff; }
+    .gm-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 24px;
+      background: #0a0a0a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .gm-arch-flow {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+    .gm-af-node { color: #444; }
+    .gm-af-node.hi { color: rgba(99, 102, 241, 0.85); }
+    .gm-af-sep { color: #252525; }
+    .gm-badges { display: flex; gap: 6px; }
+    .gm-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 9px;
+      padding: 2px 9px;
+      border: 1px solid #222;
+      color: #444;
+      letter-spacing: 0.07em;
+      background: #0d0d0d;
+      border-radius: 3px;
+    }
+    .grafana-modal-grid { display: flex; flex-direction: column; gap: 1px; background: #2a2a2a; }
+    .grafana-modal-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+    .gpanel { display: block; border: none; background: #111; }
+    .gm-hero { height: 420px; width: 100%; }
+    .gm-stat { height: 150px; }
+
     /* ── Skills ── */
     .skills-grid {
       display: grid;
@@ -1505,6 +1679,12 @@
             <span class="live-text" style="color: #6366f1;">LIVE DEMO</span>
             <span class="live-note">— 게스트 계정으로 체험 가능</span>
           </div>
+          <a class="rs-preview-wrap" href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener">
+            <img class="rs-preview-img" src="redstone-preview.png" alt="붉은보석 거래 포탈 화면" loading="lazy" />
+            <div class="rs-preview-overlay">
+              <span class="rs-preview-overlay-text">체험하기 ↗</span>
+            </div>
+          </a>
           <div class="rs-creds">
             <div class="cred-item">
               <span class="cred-key">ID</span>
@@ -1672,6 +1852,63 @@
     <span id="arch-lightbox-esc">ESC 또는 바깥 클릭으로 닫기</span>
   </div>
 
+  <!-- ── Grafana Modal ── -->
+  <div id="grafana-modal" class="grafana-modal hidden">
+    <div class="grafana-modal-backdrop" id="grafana-modal-close"></div>
+    <div class="grafana-modal-box">
+      <div class="gm-header">
+        <div class="gm-header-left">
+          <div class="gm-title-row">
+            <div class="gm-live-badge">
+              <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+              <span class="gm-live-text">LIVE</span>
+            </div>
+            <h3 class="gm-title">metric-stream</h3>
+          </div>
+          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span style="color:#444;">— 임의 생성 로그 기반 실시간 통계</span></p>
+          <div class="gm-tags">
+            <span class="gm-tag">Kafka 3.9</span>
+            <span class="gm-tag">Spring Boot</span>
+            <span class="gm-tag">PostgreSQL 16</span>
+            <span class="gm-tag">Grafana</span>
+            <span class="gm-tag">Docker</span>
+          </div>
+        </div>
+        <div class="gm-header-right">
+          <a class="gm-github" href="https://github.com/sky14786/metric-stream" target="_blank" rel="noopener">GitHub ↗</a>
+          <button class="grafana-modal-x" id="grafana-modal-x">✕</button>
+        </div>
+      </div>
+      <div class="gm-meta">
+        <div class="gm-arch-flow">
+          <span class="gm-af-node">generator</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">Kafka</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">consumer</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">PostgreSQL</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node hi">Grafana</span>
+        </div>
+        <div class="gm-badges">
+          <span class="gm-badge">20 servers</span>
+          <span class="gm-badge">4 regions</span>
+          <span class="gm-badge">~900 logs/min</span>
+        </div>
+      </div>
+      <div class="grafana-modal-grid">
+        <iframe class="gpanel gm-hero" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        <div class="grafana-modal-stats">
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=1&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=2&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=3&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     /* ══════════════════════════════════════════════
        V13 — Inline JavaScript
@@ -1706,20 +1943,43 @@
       iframes.forEach(function(f) { observer.observe(f); });
     })();
 
-    /* ── Grafana preview click → open dashboard ── */
+    /* ── Grafana preview click → modal ── */
     (function initGrafanaOpen() {
-      var wrap = document.getElementById('grafana-open');
-      if (!wrap) return;
-      function openDash() {
-        var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-        var url = isLocal
-          ? 'http://localhost:3000/d/metric-stream-v1/metric-stream?orgId=1'
-          : 'https://skydev.ddns.net/metric/d/metric-stream-v1/metric-stream?orgId=1';
-        window.open(url, '_blank', 'noopener');
+      var modal     = document.getElementById('grafana-modal');
+      var openBtn   = document.getElementById('grafana-open');
+      var closeBack = document.getElementById('grafana-modal-close');
+      var closeX    = document.getElementById('grafana-modal-x');
+      if (!modal || !openBtn) return;
+
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      var PROD    = 'https://skydev.ddns.net/metric';
+      var LOCAL   = 'http://localhost:3000';
+
+      function openModal() {
+        modal.querySelectorAll('iframe[data-src]').forEach(function(f) {
+          if (!f.src || f.src === window.location.href) {
+            var src = f.dataset.src;
+            if (isLocal) src = src.replace(PROD, LOCAL);
+            f.src = src;
+          }
+        });
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
       }
-      wrap.addEventListener('click', openDash);
-      wrap.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') openDash();
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        modal.querySelectorAll('iframe[data-src]').forEach(function(f) { f.src = ''; });
+      }
+
+      openBtn.addEventListener('click', openModal);
+      openBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') openModal();
+      });
+      closeBack.addEventListener('click', closeModal);
+      closeX.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
       });
     })();
 
