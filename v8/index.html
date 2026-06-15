@@ -16,10 +16,13 @@
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
+  <a class="skip-nav" href="#career">본문으로 건너뛰기</a>
 
   <!-- Custom Cursor -->
   <div id="cursor-dot"></div>
@@ -29,7 +32,7 @@
   <div id="progress"></div>
 
   <!-- Command Palette -->
-  <div id="cmd-overlay" class="hidden">
+  <div id="cmd-overlay" class="hidden" role="dialog" aria-modal="true" aria-label="커맨드 팔레트">
     <div id="cmd-box">
       <div id="cmd-header">
         <span id="cmd-icon">⌘</span>
@@ -152,7 +155,7 @@
               <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" tabindex="0" role="button" aria-label="병원 환자앱 아키텍처 다이어그램 — 클릭 또는 Enter로 확대">
                   <rect width="800" height="360" fill="#0d0d0d"/>
                   <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">HOSPITAL PATIENT APP — ARCHITECTURE</text>
                   <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">대형 병원 10개소  ,  폐쇄망 온프레미스</text>
@@ -259,7 +262,7 @@
               <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" tabindex="0" role="button" aria-label="태국 IPTV 플랫폼 아키텍처 다이어그램 — 클릭 또는 Enter로 확대">
                   <rect width="800" height="360" fill="#0d0d0d"/>
                   <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">IPTV 플랫폼 — ARCHITECTURE</text>
                   <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">가입자 100만  ,  온프레미스</text>
@@ -382,7 +385,7 @@
               <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
               <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
               <div class="arch-diagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" tabindex="0" role="button" aria-label="모니터링 시스템 아키텍처 다이어그램 — 클릭 또는 Enter로 확대">
                   <rect width="800" height="360" fill="#0d0d0d"/>
                   <text x="400" y="22" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
                   <line x1="30" y1="30" x2="770" y2="30" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
@@ -531,7 +534,7 @@
           <div class="grafana-wrap">
             <div class="grafana-label"><span class="grafana-dot"></span> LIVE <span class="grafana-label-note">— 임의 생성 로그 기반 실시간 통계</span></div>
             <div class="grafana-preview-wrap" id="grafana-open" role="button" tabindex="0">
-              <iframe class="gpanel gpanel-preview" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0" tabindex="-1"></iframe>
+              <iframe class="gpanel gpanel-preview" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0" tabindex="-1" title="Grafana 실시간 로그 통계 미리보기"></iframe>
               <div class="grafana-overlay">
                 <span class="grafana-overlay-text">전체 대시보드 보기 ↗</span>
               </div>
@@ -692,7 +695,8 @@
           <span class="clink-sub" id="email-text">———</span>
           <span class="clink-arr">→</span>
         </a>
-        <a class="clink" href="KAKAO_LINK_HERE" target="_blank">
+        <!-- TODO: KAKAO_LINK_HERE를 실제 오픈채팅 URL로 교체 -->
+        <a class="clink clink-disabled" href="#contact" aria-label="KakaoTalk 오픈채팅 (준비 중)">
           <span class="clink-label">KakaoTalk</span>
           <span class="clink-sub">오픈채팅</span>
           <span class="clink-arr">↗</span>
@@ -724,15 +728,15 @@
   </div>
 
   <!-- ARCH LIGHTBOX -->
-  <div id="arch-lightbox">
+  <div id="arch-lightbox" role="dialog" aria-modal="true" aria-label="아키텍처 다이어그램 확대보기">
     <div id="arch-lightbox-inner">
-      <button id="arch-lightbox-close">✕</button>
+      <button id="arch-lightbox-close" aria-label="닫기">✕</button>
       <span id="arch-lightbox-esc">ESC 또는 바깥 클릭으로 닫기</span>
     </div>
   </div>
 
   <!-- GRAFANA MODAL -->
-  <div id="grafana-modal" class="grafana-modal hidden">
+  <div id="grafana-modal" class="grafana-modal hidden" role="dialog" aria-modal="true" aria-labelledby="gm-modal-title">
     <div class="grafana-modal-backdrop" id="grafana-modal-close"></div>
     <div class="grafana-modal-box">
 
@@ -742,7 +746,7 @@
             <div class="gm-live-badge">
               <span class="grafana-dot"></span><span class="gm-live-text">LIVE</span>
             </div>
-            <h3 class="gm-title">metric-stream</h3>
+            <h3 class="gm-title" id="gm-modal-title">metric-stream</h3>
           </div>
           <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span class="gm-live-note">— 임의 생성 로그 기반 실시간 통계</span></p>
           <div class="gm-tags">
@@ -779,12 +783,12 @@
       </div>
 
       <div class="grafana-modal-grid">
-        <iframe class="gpanel gm-hero" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        <iframe class="gpanel gm-hero" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0" title="Grafana: 요청량 시계열 차트"></iframe>
         <div class="grafana-modal-stats">
-          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=1&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
-          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=2&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
-          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=3&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
-          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=1&from=now-30m&to=now&refresh=30s" frameborder="0" title="Grafana: 총 요청 수"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=2&from=now-30m&to=now&refresh=30s" frameborder="0" title="Grafana: 에러율"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=3&from=now-30m&to=now&refresh=30s" frameborder="0" title="Grafana: 평균 응답시간"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0" title="Grafana: 서버별 현황"></iframe>
         </div>
       </div>
 
