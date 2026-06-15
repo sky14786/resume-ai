@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <meta name="description" content="혼자서 시스템 전체를 책임지는 백엔드 엔지니어. 백엔드, 인프라, 파이프라인."/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #0a0a0a;
+      --muted:  #555;
+      --dim:    #999;
+      --line:   #e5e5e5;
+      --red:    #dc2626;
+      --bg:     #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-right { display: flex; gap: 12px; align-items: center; }
+    .nav-pdf {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .nav-pdf:hover { background: var(--red); }
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--line);
+      padding: 5px 9px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        top: 52px;
+        left: 0; right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0;
+        z-index: 99;
+      }
+      .nav-links.open li a {
+        display: block;
+        padding: 12px 32px;
+        font-size: 0.85rem;
+      }
+      .nav-menu-btn { display: flex; }
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--ink);
+    }
+    .hero-bg {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(180px, 22vw, 320px);
+      color: #f2f2f2;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 80px 0;
+    }
+    .hero-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(72px, 11vw, 140px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+    .hero-ai-note {
+      font-size: 0.78rem;
+      color: var(--dim);
+      font-style: italic;
+      margin-bottom: 56px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {}
+    .hero-stat-num {
+      display: block;
+      font-weight: 900;
+      font-size: 2.2rem;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-top: 4px;
+    }
+
+    /* ── Section ── */
+    .section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 64px;
+      position: relative;
+    }
+    .section-bg-label {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(80px, 10vw, 140px);
+      color: #f2f2f2;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+    .section-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .section-line {
+      flex: 1;
+      height: 2px;
+      background: var(--ink);
+    }
+
+    /* ── Career ── */
+    .career-list { display: flex; flex-direction: column; }
+    .career-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 40px;
+      padding: 48px 0;
+      border-top: 2px solid var(--ink);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .career-item:last-child { border-bottom: 2px solid var(--ink); }
+
+    .career-left {
+      padding-top: 4px;
+    }
+    .career-year {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: #f0f0f0;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .career-period {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+      display: block;
+    }
+
+    .career-right {}
+    .career-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      transition: color 0.15s;
+    }
+    .career-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .career-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .tag-txt {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 0.04em;
+    }
+    .tag-sep {
+      font-size: 0.72rem;
+      color: var(--line);
+    }
+    .career-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .career-stat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-left: 2px solid var(--red);
+      padding-left: 8px;
+    }
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card-list li {
+      font-size: 0.88rem;
+      color: var(--ink);
+      line-height: 1.65;
+      padding-left: 0;
+    }
+    .li-ctx {
+      color: var(--dim);
+      font-style: italic;
+      display: block;
+      font-size: 0.83em;
+      margin-bottom: 1px;
+    }
+    .proj-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--red);
+      transition: opacity 0.15s;
+    }
+    .proj-link:hover { opacity: 0.7; }
+
+    /* ── Architecture ── */
+    .arch-wrap { margin-top: 28px; }
+    .arch-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 8px;
+    }
+    .arch-label span { color: var(--dim); font-weight: 400; }
+    .arch-diagram {
+      border: 1px solid var(--line);
+      cursor: zoom-in;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+    .arch-diagram:hover { border-color: var(--red); }
+    .arch-diagram svg { width: 100%; height: auto; display: block; }
+
+    /* ── Projects ── */
+    .proj-note {
+      font-size: 0.8rem;
+      color: var(--dim);
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+    .proj-list { display: flex; flex-direction: column; }
+    .proj-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 40px;
+      padding: 48px 0;
+      border-top: 2px solid var(--ink);
+    }
+    .proj-item:last-child { border-bottom: 2px solid var(--ink); }
+    .proj-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .proj-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .proj-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+    .proj-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+    .proj-gh {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      padding: 6px 14px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .proj-gh:hover { background: var(--ink); color: #fff; }
+    .proj-live {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      border: 1px solid var(--red);
+      padding: 6px 14px;
+      transition: background 0.15s;
+    }
+    .proj-live:hover { background: #b91c1c; border-color: #b91c1c; }
+
+    /* Grafana */
+    .grafana-wrap { margin-top: 24px; }
+    .live-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #16a34a;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .live-txt {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #16a34a;
+    }
+    .live-note { font-size: 0.78rem; color: var(--dim); }
+    .grafana-frame {
+      border: 1px solid var(--line);
+      height: 260px;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .grafana-frame:hover { border-color: var(--red); }
+    .grafana-frame iframe {
+      width: 100%; height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .grafana-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 12px 14px;
+    }
+    .grafana-overlay-txt {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: #fff;
+      padding: 4px 10px;
+    }
+
+    /* Redstone */
+    .rs-preview {
+      display: block;
+      position: relative;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .rs-preview:hover { border-color: var(--red); }
+    .rs-preview img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .rs-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 12px 14px;
+    }
+    .rs-preview-txt {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: #fff;
+      color: var(--ink);
+      padding: 4px 10px;
+    }
+    .rs-creds {
+      font-size: 0.78rem;
+      color: var(--dim);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .rs-creds code {
+      font-family: monospace;
+      color: var(--red);
+      background: #fff5f5;
+      padding: 1px 6px;
+    }
+
+    /* ── Skills ── */
+    .skills-table {
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+    .skill-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-cat {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      min-width: 80px;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+    .skill-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .skill-tag.main { color: var(--red); font-weight: 700; }
+    .skill-tag.hi { font-weight: 700; }
+    .skill-tag.dim { color: var(--dim); }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 64px;
+    }
+    .about-quote {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 28px;
+      border-left: 4px solid var(--red);
+      padding-left: 20px;
+    }
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .about-list li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .about-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: 700;
+    }
+    .about-meta { display: flex; flex-direction: column; gap: 20px; }
+    .meta-item {}
+    .meta-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 4px;
+    }
+    .meta-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #16a34a;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .status-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #16a34a;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ── Contact ── */
+    .contact-links { display: flex; flex-direction: column; gap: 0; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      transition: background 0.15s;
+    }
+    .contact-link:last-child { border-bottom: 1px solid var(--line); }
+    .contact-link:hover .clink-label { color: var(--red); }
+    .clink-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      transition: color 0.15s;
+    }
+    .clink-sub { font-size: 0.82rem; color: var(--dim); }
+    .clink-arr {
+      font-size: 1.2rem;
+      color: var(--dim);
+      transition: transform 0.15s, color 0.15s;
+    }
+    .contact-link:hover .clink-arr { transform: translateX(4px); color: var(--red); }
+    .contact-link.disabled { opacity: 0.35; pointer-events: none; }
+
+    /* ── Footer ── */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.78rem;
+      color: var(--dim);
+    }
+
+    /* ── Lightbox ── */
+    #arch-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    #arch-lightbox.open { display: flex; }
+    #arch-lightbox-inner {
+      position: relative;
+      background: #fff;
+      max-width: 1100px;
+      width: 100%;
+      padding: 12px;
+    }
+    #arch-lightbox-inner svg { width: 100%; height: auto; display: block; }
+    #arch-lightbox-close {
+      position: absolute;
+      top: -14px; right: -14px;
+      width: 30px; height: 30px;
+      background: var(--ink);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .career-item, .proj-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .career-year { font-size: 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-name { font-size: clamp(56px, 14vw, 96px); }
+      .section-bg-label { display: none; }
+      .hero-bg { display: none; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 20px; }
+      .skill-row { flex-direction: column; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    @media print {
+      .nav, #arch-lightbox { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">JY<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#career">Career</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="nav-menu-btn" id="nav-menu-btn" aria-label="메뉴">☰</button>
+        <button class="nav-pdf" onclick="window.print()">PDF ↓</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-bg" aria-hidden="true">ENGINEER</div>
+      <div class="hero-inner">
+        <p class="hero-label">// Backend Engineer · System Operator</p>
+        <h1 class="hero-name">JuneYoung<br/>Kim</h1>
+        <p class="hero-desc">시스템 전체를 혼자 책임지는 엔지니어입니다.<br/>백엔드, 인프라, 파이프라인을 맡습니다.</p>
+        <p class="hero-ai-note">페이지 구현은 AI에 맡겼습니다.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">5+</span>
+            <span class="hero-stat-label">Years Experience</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">100만+</span>
+            <span class="hero-stat-label">Users (해외 IPTV)</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">350+</span>
+            <span class="hero-stat-label">Servers Monitored</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section class="section" id="career">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Career</h2>
+        <div class="section-line"></div>
+        <span class="section-bg-label" aria-hidden="true">CAREER</span>
+      </div>
+
+      <div class="career-list">
+
+        <!-- 병원 -->
+        <div class="career-item reveal">
+          <div class="career-left">
+            <span class="career-year">2025</span>
+            <span class="career-period">2025.08 — 2026.02</span>
+          </div>
+          <div class="career-right">
+            <h3 class="career-title">다기관 병원 환자중심 앱</h3>
+            <p class="career-sub">Backend Engineer · 대형 병원 10개소 유지보수</p>
+            <div class="career-tags">
+              <span class="tag-txt">Spring Boot</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">MariaDB</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Docker</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Shell Script</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Nginx</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Pacemaker</span>
+            </div>
+            <div class="career-stats">
+              <span class="career-stat">10개 병원</span>
+              <span class="career-stat">6개월</span>
+              <span class="career-stat">폐쇄망 온프레미스</span>
+            </div>
+            <ul class="card-list">
+              <li><span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span>→ SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화</li>
+              <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump와 cron으로 정기 백업 자동화</li>
+              <li><span class="li-ctx">Docker binlog 누적으로 disk full 발생</span>→ 파일 truncate로 즉시 해소</li>
+              <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span>→ PG사 모듈 교체 때 단계별 로그 추가</li>
+              <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span>→ 헬스체크와 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)</li>
+            </ul>
+            <div class="arch-wrap">
+              <div class="arch-label">Architecture <span>↓ click to zoom</span></div>
+              <div class="arch-diagram" data-arch="hospital">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340">
+                  <rect width="800" height="340" fill="#f9f9f9"/>
+                  <text x="400" y="26" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">HOSPITAL PATIENT APP ARCHITECTURE</text>
+                  <text x="400" y="40" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">대형 병원 10개소 · 폐쇄망 온프레미스</text>
+                  <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(220,38,38,0.15)" stroke-width="0.5"/>
+                  <rect x="155" y="64" width="622" height="208" fill="rgba(220,38,38,0.02)" stroke="rgba(220,38,38,0.2)" stroke-width="1" stroke-dasharray="6,4"/>
+                  <text x="165" y="77" fill="rgba(220,38,38,0.5)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES · INTERNAL NETWORK</text>
+                  <line x1="128" y1="170" x2="156" y2="170" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <polygon points="153,166 153,174 161,170" fill="#dc2626" opacity="0.7"/>
+                  <line x1="280" y1="170" x2="308" y2="170" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <polygon points="305,166 305,174 313,170" fill="#dc2626" opacity="0.7"/>
+                  <line x1="428" y1="170" x2="456" y2="170" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <polygon points="453,166 453,174 461,170" fill="#dc2626" opacity="0.7"/>
+                  <line x1="578" y1="170" x2="605" y2="170" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <line x1="605" y1="134" x2="605" y2="206" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <line x1="605" y1="134" x2="618" y2="134" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <polygon points="615,130 615,138 623,134" fill="#dc2626" opacity="0.7"/>
+                  <line x1="605" y1="206" x2="618" y2="206" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+                  <polygon points="615,202 615,210 623,206" fill="#dc2626" opacity="0.7"/>
+                  <line x1="694" y1="161" x2="694" y2="182" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+                  <polygon points="690,180 698,180 694,187" fill="#dc2626" opacity="0.3"/>
+                  <text x="700" y="174" fill="#999" font-family="'Inter',sans-serif" font-size="7">replication</text>
+                  <rect x="14" y="146" width="116" height="50" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+                  <text x="72" y="165" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">USER</text>
+                  <text x="72" y="178" text-anchor="middle" fill="#555" font-family="'Inter',sans-serif" font-size="7.5">Patient App</text>
+                  <text x="72" y="190" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="7">도메인 URI</text>
+                  <rect x="161" y="146" width="121" height="50" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+                  <text x="222" y="165" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">ROUTER</text>
+                  <text x="222" y="178" text-anchor="middle" fill="#555" font-family="'Inter',sans-serif" font-size="7.5">network edge</text>
+                  <text x="222" y="190" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="7">per hospital</text>
+                  <rect x="309" y="146" width="121" height="50" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+                  <text x="370" y="165" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">NGINX LB</text>
+                  <text x="370" y="178" text-anchor="middle" fill="#555" font-family="'Inter',sans-serif" font-size="7.5">Docker · on-prem</text>
+                  <text x="370" y="190" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="7">load balancing</text>
+                  <rect x="457" y="146" width="123" height="50" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+                  <text x="518" y="165" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
+                  <text x="518" y="178" text-anchor="middle" fill="#555" font-family="'Inter',sans-serif" font-size="7.5">Spring Boot · Docker</text>
+                  <text x="518" y="190" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                  <rect x="621" y="110" width="148" height="50" fill="rgba(220,38,38,0.05)" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+                  <text x="695" y="128" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">DB 1 (MASTER)</text>
+                  <text x="695" y="141" text-anchor="middle" fill="#555" font-family="'Inter',sans-serif" font-size="7.5">MariaDB · Docker</text>
+                  <text x="695" y="153" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                  <rect x="621" y="182" width="148" height="50" fill="rgba(220,38,38,0.04)" stroke="rgba(220,38,38,0.3)" stroke-width="1.2"/>
+                  <text x="695" y="200" text-anchor="middle" fill="#dc2626" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">DB 2 (SLAVE)</text>
+                  <text x="695" y="213" text-anchor="middle" fill="#555" font-family="'Inter',sans-serif" font-size="7.5">MariaDB · Docker</text>
+                  <text x="695" y="225" text-anchor="middle" fill="#999" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                  <text x="72"  y="312" text-anchor="middle" fill="#e0e0e0" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
+                  <text x="222" y="312" text-anchor="middle" fill="#e0e0e0" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">EDGE</text>
+                  <text x="370" y="312" text-anchor="middle" fill="#e0e0e0" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">PROXY</text>
+                  <text x="518" y="312" text-anchor="middle" fill="#e0e0e0" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">APP</text>
+                  <text x="695" y="312" text-anchor="middle" fill="#e0e0e0" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IPTV -->
+        <div class="career-item reveal">
+          <div class="career-left">
+            <span class="career-year">2021</span>
+            <span class="career-period">2021.01 — 2025.12</span>
+          </div>
+          <div class="career-right">
+            <h3 class="career-title">해외 IPTV 플랫폼</h3>
+            <p class="career-sub">Backend Engineer · System Operator · 5년 개발/운영</p>
+            <div class="career-tags">
+              <span class="tag-txt">Spring Boot</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Redis</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">RabbitMQ</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">MySQL</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Nginx</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Jenkins</span>
+            </div>
+            <div class="career-stats">
+              <span class="career-stat">100만 가입자</span>
+              <span class="career-stat">5년 운영</span>
+              <span class="career-stat">온프레미스</span>
+            </div>
+            <ul class="card-list">
+              <li>플랫폼 개발과 운영 전담 (설계, 배포, 장애 대응, 요구사항 대응)</li>
+              <li>해외 고객사 담당자와 커뮤니케이션 (현지 출장, AI 번역 활용)</li>
+              <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+              <li><span class="li-ctx">Slave DB에서 파티션 DDL 실행 → binlog 불일치로 복제 중단</span>→ 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL 실행하도록 재구성</li>
+              <li><span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화 반복</span>→ 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
+              <li><span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span>→ write-through 전략 적용으로 미스율 감소, 응답 속도 안정화</li>
+              <li>장애 예방 정기 점검 및 모니터링 기준치 수립</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 모니터링 -->
+        <div class="career-item reveal">
+          <div class="career-left">
+            <span class="career-year">2022</span>
+            <span class="career-period">2022.06 — 2023.10</span>
+          </div>
+          <div class="career-right">
+            <h3 class="career-title">모니터링 시스템 재구축</h3>
+            <p class="career-sub">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
+            <div class="career-tags">
+              <span class="tag-txt">Kafka</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Flink</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Docker</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">PostgreSQL</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">React</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">DRBD</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Pacemaker</span>
+            </div>
+            <div class="career-stats">
+              <span class="career-stat">350대 서버</span>
+              <span class="career-stat">30초 단위 수집</span>
+            </div>
+            <ul class="card-list">
+              <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 재구축</li>
+              <li>집계 데이터 저장, 시계열 쿼리 최적화</li>
+              <li><span class="li-ctx">pgpool HA 구성했으나 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환, DB 무중단 HA 운영</li>
+              <li>수집 지표 기준치 초과 시 이메일/SMS 자동 발송 구현</li>
+              <li>React 기반 실시간 모니터링 대시보드 개발</li>
+            </ul>
+            <a class="proj-link" href="#projects">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
+          </div>
+        </div>
+
+        <!-- 어드민 -->
+        <div class="career-item reveal">
+          <div class="career-left">
+            <span class="career-year">2020</span>
+            <span class="career-period">2020.07 — 2021.01</span>
+          </div>
+          <div class="career-right">
+            <h3 class="career-title">해외 IPTV 플랫폼 어드민</h3>
+            <p class="career-sub">관리자 시스템 개발</p>
+            <div class="career-tags">
+              <span class="tag-txt">Spring Boot</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">JSP</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">jQuery</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">MySQL</span>
+            </div>
+            <ul class="card-list">
+              <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
+              <li>콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발</li>
+              <li>광고 활성화, 결제 수단 관리 UI 구현</li>
+              <li>jQuery AJAX 비동기 처리, 페이지 전환 없이 실시간 데이터 갱신</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+        <span class="section-bg-label" aria-hidden="true">PROJECTS</span>
+      </div>
+      <p class="proj-note">설계·기획은 본인, 구현은 AI(Claude)에 위임한 프로젝트입니다.</p>
+
+      <div class="proj-list">
+
+        <!-- metric-stream -->
+        <div class="proj-item reveal">
+          <div class="career-left">
+            <span class="career-year">2026</span>
+            <span class="career-period">개인 토이 프로젝트</span>
+          </div>
+          <div class="career-right">
+            <p class="proj-eyebrow">Personal Project · AI 구현</p>
+            <h3 class="proj-title">metric-stream</h3>
+            <p class="proj-desc">실시간 서버 API 로그 수집 파이프라인</p>
+            <div class="career-tags">
+              <span class="tag-txt">Kafka</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Spring Boot</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">PostgreSQL</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Grafana</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Docker</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Java 17</span>
+            </div>
+            <ul class="card-list">
+              <li>API 로그를 실시간 수집해 저장, 조회까지 이어지는 파이프라인 구성 (AI 구현)</li>
+              <li>분당 900건 규모 로그를 자동 생성해 파이프라인 전 구간 동작 검증</li>
+              <li>Grafana 대시보드로 요청량, 에러율, 응답시간 실시간 모니터링</li>
+              <li>Docker Compose 한 명령으로 Kafka, DB, Grafana 전체 인프라 구동</li>
+            </ul>
+            <div class="grafana-wrap">
+              <div class="live-row">
+                <span class="live-dot"></span>
+                <span class="live-txt">LIVE</span>
+                <span class="live-note">— 임의 생성 로그 기반 실시간 통계</span>
+              </div>
+              <div class="grafana-frame" id="grafana-open">
+                <iframe data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0" title="Grafana 실시간 통계"></iframe>
+                <div class="grafana-overlay">
+                  <span class="grafana-overlay-txt">전체 대시보드 ↗</span>
+                </div>
+              </div>
+            </div>
+            <div class="proj-links">
+              <a class="proj-gh" href="https://github.com/sky14786/metric-stream" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- redstone -->
+        <div class="proj-item reveal">
+          <div class="career-left">
+            <span class="career-year">2025</span>
+            <span class="career-period">개인 토이 프로젝트</span>
+          </div>
+          <div class="career-right">
+            <p class="proj-eyebrow">Personal Project · AI 구현</p>
+            <h3 class="proj-title">redstone</h3>
+            <p class="proj-desc">게임 아이템 거래 커뮤니티 포털</p>
+            <div class="career-tags">
+              <span class="tag-txt">Node.js</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Express</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">MongoDB</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Docker</span><span class="tag-sep"> / </span>
+              <span class="tag-txt">Nginx</span>
+            </div>
+            <ul class="card-list">
+              <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능 단독 설계/구현</li>
+              <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
+              <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
+              <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
+            </ul>
+            <div class="live-row" style="margin-top:20px;">
+              <span class="live-dot"></span>
+              <span class="live-txt">LIVE DEMO</span>
+              <span class="live-note">— 게스트 계정으로 체험 가능</span>
+            </div>
+            <a class="rs-preview" href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener">
+              <img src="../v14/redstone-preview.png" alt="redstone 대시보드" loading="lazy"/>
+              <div class="rs-preview-overlay"><span class="rs-preview-txt">체험하기 ↗</span></div>
+            </a>
+            <div class="rs-creds">
+              <span>ID <code>guest</code></span>
+              <span>PW <code>guest1234</code></span>
+              <span>URL <code>skydev.ddns.net/redstone</code></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Skills</h2>
+        <div class="section-line"></div>
+        <span class="section-bg-label" aria-hidden="true">SKILLS</span>
+      </div>
+      <div class="skills-table reveal">
+        <div class="skill-row">
+          <span class="skill-cat">Core</span>
+          <div class="skill-tags">
+            <span class="skill-tag main">Spring Boot</span>
+            <span class="skill-tag main">Java</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">DB</span>
+          <div class="skill-tags">
+            <span class="skill-tag hi">MySQL</span>
+            <span class="skill-tag hi">MariaDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Redis</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Stream</span>
+          <div class="skill-tags">
+            <span class="skill-tag main">Kafka</span>
+            <span class="skill-tag main">Flink</span>
+            <span class="skill-tag">RabbitMQ</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Infra</span>
+          <div class="skill-tags">
+            <span class="skill-tag main">Docker</span>
+            <span class="skill-tag main">Nginx</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Shell Script</span>
+            <span class="skill-tag">Cron</span>
+            <span class="skill-tag">DRBD</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Front</span>
+          <div class="skill-tags">
+            <span class="skill-tag dim">React</span>
+            <span class="skill-tag dim">JSP</span>
+            <span class="skill-tag dim">jQuery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">About</h2>
+        <div class="section-line"></div>
+        <span class="section-bg-label" aria-hidden="true">ABOUT</span>
+      </div>
+      <div class="about-grid reveal">
+        <div>
+          <blockquote class="about-quote">
+            낯선 시스템도 스스로 파악하고,<br/>끝까지 책임지는 방식으로 일해왔습니다.
+          </blockquote>
+          <ul class="about-list">
+            <li>인계 직후 운영 리스크 확인 → 안정화</li>
+            <li>설계, 배포, 장애 대응, 전체 스택 단독 운영</li>
+            <li>신기술보다 운영 안정성, 문제 해결 속도 우선</li>
+            <li>SI/솔루션 출신, 빠른 파악, 빠른 실행</li>
+            <li>좋은 팀과 실질적인 문제를 함께 풀고 싶습니다</li>
+          </ul>
+        </div>
+        <div class="about-meta">
+          <div class="meta-item">
+            <p class="meta-label">상태</p>
+            <span class="status-badge">구직중</span>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">지역</p>
+            <p class="meta-val">서울 · 경기 · 대전 · 재택 가능</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">경력</p>
+            <p class="meta-val">5년+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Contact</h2>
+        <div class="section-line"></div>
+        <span class="section-bg-label" aria-hidden="true">CONTACT</span>
+      </div>
+      <div class="contact-links reveal">
+        <a class="contact-link" href="https://github.com/sky14786" target="_blank" rel="noopener">
+          <span class="clink-label">GitHub</span>
+          <span class="clink-sub">github.com/sky14786</span>
+          <span class="clink-arr">↗</span>
+        </a>
+        <a class="contact-link" href="#" id="email-link">
+          <span class="clink-label">Email</span>
+          <span class="clink-sub" id="email-txt">———</span>
+          <span class="clink-arr">→</span>
+        </a>
+        <div class="contact-link disabled">
+          <span class="clink-label">KakaoTalk</span>
+          <span class="clink-sub">오픈채팅 (준비중)</span>
+          <span class="clink-arr">↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>JuneYoung Kim — Backend Engineer &nbsp;·&nbsp; <a href="https://github.com/sky14786" target="_blank" style="color:var(--red)">GitHub ↗</a></p>
+    </div>
+  </footer>
+
+  <!-- Arch Lightbox -->
+  <div id="arch-lightbox" role="dialog" aria-modal="true">
+    <div id="arch-lightbox-inner">
+      <button id="arch-lightbox-close" aria-label="닫기">✕</button>
+    </div>
+  </div>
+
+  <script>
+    // Email obfuscate
+    const em = ['s','k','y','1','4','7','8','6','@','g','m','a','i','l','.','c','o','m'].join('');
+    const el = document.getElementById('email-link');
+    const et = document.getElementById('email-txt');
+    if(el && et){ el.href='mailto:'+em; et.textContent=em; }
+
+    // Mobile nav
+    const btn = document.getElementById('nav-menu-btn');
+    const nl = document.getElementById('nav-links');
+    if(btn && nl){
+      btn.addEventListener('click', () => {
+        nl.classList.toggle('open');
+        btn.setAttribute('aria-expanded', nl.classList.contains('open'));
+      });
+      nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
+    }
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Arch lightbox
+    const lb = document.getElementById('arch-lightbox');
+    const lbIn = document.getElementById('arch-lightbox-inner');
+    const lbClose = document.getElementById('arch-lightbox-close');
+    document.querySelectorAll('.arch-diagram').forEach(d => {
+      d.addEventListener('click', () => {
+        const svg = d.querySelector('svg');
+        if(!svg) return;
+        lbIn.querySelectorAll('svg').forEach(s => s.remove());
+        lbIn.appendChild(svg.cloneNode(true));
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+    lbClose && lbClose.addEventListener('click', closeLb);
+    lb && lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
+
+    // Grafana lazy load
+    document.querySelectorAll('iframe[data-src]').forEach(f => {
+      f.src = f.dataset.src;
+    });
+
+    // Nav active
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const ioNav = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if(active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => ioNav.observe(s));
+  </script>
+</body>
+</html>

@@ -144,6 +144,18 @@
 - [x] 테마 스위처 Olive / Violet 추가 (총 7개)
 - [x] PROGRESS.md / 메모리 업데이트 + GitHub 커밋·푸시
 
+### 이번 세션 완료 (2026-06-15)
+- [x] xavierchoi_skills 플러그인 설치 (`C:\Users\June\.claude\settings.json` + git clone)
+  - frontend-for-opus-4-5, vs-design-diverge, experts, resume-coach, git-pr-autofix (5개)
+- [x] v15 신규 생성 — Heavy Editorial 디자인
+  - Barlow Condensed 800 + Inter, 흰 배경 `#ffffff`, 빨강 액센트 `#dc2626`
+  - 카드 없음 · border-top 구분선 · 태그 슬래시 분리 · 섹션 ghost 텍스트
+- [x] v16 신규 생성 — Spatial Cards Dark 디자인
+  - Inter only, 다크 배경 `#0c0c0e`, 인디고 `#818cf8` 액센트
+  - card border-radius 12px + hover elevation, blur nav, green 라이브 dot
+- [x] v17 신규 생성 — Ruled Paper 디자인
+  - repeating-linear-gradient 32px 룰드 라인 배경, 인디고 좌측 border
+
 ### 이번 세션 완료 (2026-06-14)
 - [x] `D:\ai\CLAUDE.md` — 미커밋 목록 제거, 설치된 Claude Code 도구 섹션 추가
 - [x] Impeccable 스킬 설치 (`~/.claude/skills/impeccable/`, `~/.claude/agents/impeccable-manual-edit-applier.md`)
@@ -277,10 +289,15 @@ resume-ai/
 ├── v5/                # 기능 완성본 (다크)
 ├── v6/                # 다크 + 2컬러 + 피처드 카드
 ├── v7/                # 라이트 테마 + pill nav + 컬러 스위처
-├── v13/               # ⭐ 현재 방향 — White Glass (순백+인디고+글래스모피즘)
+├── v8/                # Neobrutalism (크림+바이올렛+틸, DESIGN.md + PRODUCT.md 포함)
+├── v13/               # White Glass (순백+인디고+글래스모피즘)
 │   ├── index.html
 │   ├── redstone-preview.png
 │   └── favicon.svg
+├── v14/               # Clean Minimal White (순백, 인디고, rounded 카드, redstone-preview.png)
+├── v15/               # Heavy Editorial (흰 배경, Barlow Condensed, 빨강 #dc2626, 카드 없음)
+├── v16/               # Spatial Cards Dark (다크 #0c0c0e, 인디고 #818cf8, blur nav)
+├── v17/               # Ruled Paper (룰드 배경, 인디고 좌측 border, 심플 라인)
 ├── PROGRESS.md
 └── LICENSE
 ```
