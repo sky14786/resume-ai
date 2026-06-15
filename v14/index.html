@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <meta name="description" content="혼자서 시스템 전체를 책임지는 백엔드 엔지니어. 백엔드, 인프라, 파이프라인." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content="JuneYoung Kim — Backend Engineer" />
+  <meta property="og:description" content="혼자서 시스템 전체를 책임지는 엔지니어. 백엔드, 인프라, 파이프라인." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ══════════════════════════════════════════════
+       V13 WHITE GLASS — Pure white + glassmorphism
+    ══════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:        #6366f1;
+      --accent-hover:  #4f46e5;
+      --accent-tint:   rgba(99, 102, 241, 0.08);
+      --accent-border: rgba(99, 102, 241, 0.3);
+      --text-primary:  #1e1e2e;
+      --text-secondary:#4a4a6a;
+      --text-muted:    #9090b0;
+      --heading:       #0f0f1a;
+      --white:         #ffffff;
+      --bg:            #ffffff;
+      --card-bg:       rgba(255, 255, 255, 0.75);
+      --card-border:   rgba(255, 255, 255, 0.9);
+      --shadow-card:   0 8px 32px rgba(100, 100, 150, 0.12), 0 2px 8px rgba(100, 100, 150, 0.08);
+      --radius-card:   16px;
+      --radius-sm:     8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, h4 { color: var(--heading); font-weight: 700; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* ── Card ── */
+    .glass-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .glass-card:hover {
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.09);
+      border-color: rgba(99, 102, 241, 0.18);
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent); }
+    .nav-pdf {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-pdf:hover { background: var(--accent-hover); }
+
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      padding: 6px 10px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .nav-menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 8px 0;
+        z-index: 99;
+      }
+      .nav-links.open li a {
+        display: block;
+        padding: 11px 24px;
+        font-size: 0.95rem;
+      }
+      .nav-menu-btn { display: flex; align-items: center; }
+    }
+
+    /* ── Section Label ── */
+    .section-label {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 96px 0 80px;
+      background: var(--bg);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-tint);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero-name {
+      font-size: clamp(2.8rem, 6vw, 4.4rem);
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .hero-ai-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 36px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .stat-card {
+      padding: 18px 24px;
+      text-align: center;
+      min-width: 120px;
+    }
+    .stat-number {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+    .stat-label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .hero-scroll {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── Career Cards ── */
+    .career-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .career-card {
+      position: relative;
+    }
+    .career-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .career-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+    .career-sub {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+    .career-period {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    /* Tags */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .tech-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.06);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      color: var(--accent);
+      padding: 3px 11px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+    .tech-tag-ai {
+      background: rgba(236, 72, 153, 0.07);
+      border-color: rgba(236, 72, 153, 0.25);
+      color: #db2777;
+    }
+
+    /* Stats badges */
+    .career-stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .career-stat {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(99, 102, 241, 0.06);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      color: var(--accent);
+      padding: 3px 11px;
+      border-radius: 999px;
+    }
+
+    /* Bullet list */
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .card-list li {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.75;
+    }
+    .card-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 1.5px;
+      background: var(--accent);
+      opacity: 0.5;
+    }
+    .li-ctx {
+      color: #9090b0;
+      font-size: 0.88em;
+      display: block;
+      font-style: italic;
+      margin-bottom: 1px;
+    }
+    .proj-link-note {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .proj-link-note:hover { color: var(--accent-hover); }
+
+    /* ── Architecture diagrams ── */
+    .arch-wrap { margin-top: 24px; }
+    .arch-hint {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+    .arch-hint span {
+      color: var(--text-muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.04em;
+    }
+    .arch-diagram {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      cursor: zoom-in;
+      background: rgba(248, 248, 255, 0.8);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.06);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .arch-diagram:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+      box-shadow: 0 8px 28px rgba(99, 102, 241, 0.13);
+    }
+    .arch-diagram svg { width: 100%; height: auto; display: block; }
+    .arch-diagram[data-arch="iptv"] { max-height: 200px; overflow: hidden; }
+    .arch-zoom-hint {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 0.67rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Lightbox ── */
+    #arch-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(15, 15, 30, 0.75);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    #arch-lightbox.open { display: flex; }
+    #arch-lightbox-inner {
+      position: relative;
+      background: #fff;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25), 0 0 40px rgba(99, 102, 241, 0.1);
+      max-width: 1100px;
+      width: 100%;
+      padding: 16px;
+    }
+    #arch-lightbox-inner svg { width: 100%; height: auto; display: block; border-radius: 8px; }
+    #arch-lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 1;
+    }
+    #arch-lightbox-close:hover { background: var(--accent-hover); }
+    #arch-lightbox-esc {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Projects section ── */
+    .proj-ai-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+    .projects-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .project-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-top: 5px;
+    }
+    .proj-links-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .proj-gh-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .proj-gh-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+    .proj-live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .proj-live-link:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      border-color: var(--accent-hover);
+    }
+
+    /* Pipeline flow */
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      background: rgba(99, 102, 241, 0.04);
+      border: 1px solid rgba(99, 102, 241, 0.12);
+      border-radius: 10px;
+    }
+    .af-node {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--accent-tint);
+      border: 1px solid rgba(99, 102, 241, 0.22);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .af-node.hi {
+      background: rgba(5, 150, 105, 0.08);
+      border-color: rgba(5, 150, 105, 0.25);
+      color: #059669;
+    }
+    .af-sep { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* ── Log Sample ── */
+    .log-sample-wrap { margin-top: 24px; }
+    .log-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+    .log-pre {
+      background: #f8f9ff;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 10px;
+      padding: 18px 22px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .lj-k    { color: #6366f1; }
+    .lj-s    { color: #059669; }
+    .lj-n    { color: #dc2626; }
+    .lj-null { color: #9090b0; }
+    .lj-b    { color: #4a4a6a; }
+    .lj-p    { color: #9090b0; }
+
+    /* ── Grafana embed ── */
+    .grafana-section { margin-top: 28px; }
+    .grafana-label-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .live-text {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #16a34a;
+    }
+    .live-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .grafana-card {
+      border: 1px solid rgba(99, 102, 241, 0.3) !important;
+    }
+    .grafana-frame-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      background: rgba(248, 248, 255, 0.5);
+      height: 280px;
+      cursor: pointer;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .grafana-frame-wrap:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+    }
+    .grafana-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .grafana-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 14px 16px;
+      background: linear-gradient(to top, rgba(99,102,241,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .grafana-overlay-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.85);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(99,102,241,0.25);
+    }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.2);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Code block ── */
+    .code-block-wrap { margin-top: 22px; }
+    .code-block-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+    .code-pre {
+      background: #f8f9ff;
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .cb-key { color: #6366f1; font-weight: 500; }
+    .cb-val { color: #059669; }
+    .cb-cmt { color: #9090b0; }
+
+    /* ── Redstone credentials ── */
+    .rs-creds {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 18px;
+      padding: 14px 18px;
+      background: rgba(99, 102, 241, 0.04);
+      border: 1px solid rgba(99, 102, 241, 0.12);
+      border-radius: 10px;
+    }
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .cred-key {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cred-val {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-tint);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+    .cred-sep { color: var(--text-muted); font-size: 0.85rem; }
+    .demo-link-row { margin-top: 16px; }
+
+    /* ── Redstone image preview ── */
+    .rs-preview-wrap {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      text-decoration: none;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .rs-preview-wrap:hover {
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+    .rs-preview-img {
+      width: 100%;
+      display: block;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .rs-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 14px 18px;
+      transition: background 0.25s;
+    }
+    .rs-preview-wrap:hover .rs-preview-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 65%);
+    }
+    .rs-preview-overlay-text {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #fff;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .rs-preview-wrap:hover .rs-preview-overlay-text { opacity: 1; }
+
+    /* ── Grafana Modal ── */
+    .grafana-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .grafana-modal.hidden { display: none; }
+    .grafana-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+    }
+    .grafana-modal-box {
+      position: relative;
+      z-index: 1;
+      width: 92vw;
+      max-width: 1360px;
+      background: #0d0d0d;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.95);
+      overflow: hidden;
+    }
+    .gm-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #222;
+      background: #111;
+    }
+    .gm-header-left { display: flex; flex-direction: column; gap: 8px; }
+    .gm-title-row { display: flex; align-items: center; gap: 14px; }
+    .gm-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border: 1px solid #1f3a1f;
+      background: #0d1f0d;
+      border-radius: 4px;
+    }
+    .gm-live-text { color: #22c55e; }
+    .gm-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .gm-desc { font-size: 11px; color: #555; letter-spacing: 0.03em; }
+    .gm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .gm-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      padding: 3px 9px;
+      border: 1px solid #2a2a2a;
+      color: #666;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+    }
+    .gm-header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .gm-github {
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      color: #555;
+      border: 1px solid #2a2a2a;
+      padding: 5px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .gm-github:hover { color: #fff; border-color: #555; }
+    .grafana-modal-x {
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: #555;
+      font-size: 13px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .grafana-modal-x:hover { border-color: #fff; color: #fff; }
+    .gm-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 24px;
+      background: #0a0a0a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .gm-arch-flow {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+    .gm-af-node { color: #444; }
+    .gm-af-node.hi { color: rgba(99, 102, 241, 0.85); }
+    .gm-af-sep { color: #252525; }
+    .gm-badges { display: flex; gap: 6px; }
+    .gm-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 9px;
+      padding: 2px 9px;
+      border: 1px solid #222;
+      color: #444;
+      letter-spacing: 0.07em;
+      background: #0d0d0d;
+      border-radius: 3px;
+    }
+    .grafana-modal-grid { display: flex; flex-direction: column; gap: 1px; background: #2a2a2a; }
+    .grafana-modal-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+    .gpanel { display: block; border: none; background: #111; }
+    .gm-hero { height: 420px; width: 100%; }
+    .gm-stat { height: 150px; }
+
+    /* ── Skills ── */
+    .skills-table {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .skill-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-cat {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      min-width: 72px;
+      padding-top: 5px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 480px) {
+      .skill-row { flex-direction: column; gap: 8px; padding: 12px 16px; }
+      .skill-cat { min-width: unset; padding-top: 0; }
+    }
+
+    /* ── About ── */
+    .about-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+    }
+    @media (max-width: 640px) {
+      .about-card { grid-template-columns: 1fr; }
+    }
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .about-meta { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
+    .meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .meta-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+    .meta-value {
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .meta-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .status-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #16a34a;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    /* ── Contact ── */
+    .contact-card { max-width: 560px; margin: 0 auto; }
+    .contact-intro {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-btn:hover { color: var(--accent); border-color: var(--accent-border); }
+    .contact-btn svg { color: var(--accent); flex-shrink: 0; }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid rgba(0,0,0,0.07);
+      padding: 28px 0;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .footer-text span { color: var(--accent); }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ── Reveal animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .reveal.visible { opacity: 1; transform: none; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      section { padding: 56px 0; }
+      .hero-name { font-size: 2.4rem; }
+      .glass-card { padding: 18px; }
+      .career-head { flex-direction: column; }
+      .project-header { flex-direction: column; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      .nav, .hero-scroll, #arch-lightbox { display: none; }
+      body { background: #fff; }
+      .glass-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">JY<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#career">Career</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="nav-menu-btn" id="nav-menu-btn" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+        <button class="nav-pdf" onclick="window.print()">PDF ↓</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Backend Engineer · System Operator</p>
+      <h1 class="hero-name">JuneYoung<br/>Kim</h1>
+      <p class="hero-desc">
+        시스템 전체를 혼자 책임지는 엔지니어입니다.<br/>
+        백엔드, 인프라, 파이프라인을 맡습니다.
+      </p>
+      <p class="hero-ai-note">페이지 구현은 AI에 맡겼습니다.</p>
+
+      <p class="hero-scroll">scroll ↓</p>
+    </div>
+  </section>
+
+  <!-- ── Career ── -->
+  <section id="career">
+    <div class="container">
+      <div class="section-label">
+        <h2 class="section-title">Career</h2>
+      </div>
+
+      <div class="career-stack">
+
+        <!-- 1. 병원 -->
+        <div class="glass-card career-card reveal" id="c-hospital">
+          <div class="career-head">
+            <div>
+              <h3 class="career-title">다기관 병원 환자중심 앱</h3>
+              <p class="career-sub">Backend Engineer · 대형 병원 10개소 유지보수</p>
+            </div>
+            <span class="career-period">2025.08 ~ 2026.02</span>
+          </div>
+          <div class="tag-row">
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">MariaDB</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Shell Script</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">Pacemaker</span>
+          </div>
+          <div class="career-stats">
+            <span class="career-stat">10개 병원</span>
+            <span class="career-stat">6개월</span>
+            <span class="career-stat">폐쇄망 온프레미스</span>
+          </div>
+          <ul class="card-list">
+            <li>
+              <span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span>
+              → SLAVE STATUS 에러를 분석하고 순차 스킵으로 복제 재동기화
+            </li>
+            <li>
+              <span class="li-ctx">백업 체계 없이 운영되던 DB</span>
+              → mysqldump와 cron으로 정기 백업 자동화
+            </li>
+            <li>
+              <span class="li-ctx">Docker binlog가 쌓여 disk full 발생</span>
+              → 파일 truncate로 즉시 해소
+            </li>
+            <li>
+              <span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span>
+              → PG사 모듈 교체 때 단계별 로그를 추가해 이후 원인 추적 가능
+            </li>
+            <li>
+              <span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span>
+              → 헬스체크와 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)
+            </li>
+          </ul>
+
+          <div class="arch-wrap">
+            <div class="arch-hint">Architecture <span>↓ click to zoom</span></div>
+            <div class="arch-diagram" data-arch="hospital">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340">
+                <defs>
+                  <filter id="v13-shadow">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(99,102,241,0.15)"/>
+                  </filter>
+                </defs>
+                <rect width="800" height="340" fill="rgba(248,248,255,0.8)"/>
+                <text x="400" y="26" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">HOSPITAL PATIENT APP ARCHITECTURE</text>
+                <text x="400" y="40" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">대형 병원 10개소 · 폐쇄망 온프레미스</text>
+                <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(99,102,241,0.15)" stroke-width="0.5"/>
+                <!-- on-premises boundary -->
+                <rect x="155" y="64" width="622" height="208" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="6,4" rx="6"/>
+                <text x="165" y="77" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES · INTERNAL NETWORK</text>
+                <!-- arrows -->
+                <line x1="128" y1="170" x2="156" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="153,166 153,174 161,170" fill="#6366f1" opacity="0.7"/>
+                <line x1="280" y1="170" x2="308" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="305,166 305,174 313,170" fill="#6366f1" opacity="0.7"/>
+                <line x1="428" y1="170" x2="456" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="453,166 453,174 461,170" fill="#6366f1" opacity="0.7"/>
+                <line x1="578" y1="170" x2="605" y2="170" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <line x1="605" y1="134" x2="605" y2="206" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <line x1="605" y1="134" x2="618" y2="134" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="615,130 615,138 623,134" fill="#6366f1" opacity="0.7"/>
+                <line x1="605" y1="206" x2="618" y2="206" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="615,202 615,210 623,206" fill="#6366f1" opacity="0.7"/>
+                <!-- replication -->
+                <line x1="694" y1="161" x2="694" y2="182" stroke="#6366f1" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+                <polygon points="690,180 698,180 694,187" fill="#6366f1" opacity="0.3"/>
+                <text x="700" y="174" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">replication</text>
+                <!-- NODE: USER -->
+                <rect x="14" y="146" width="116" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="72" y="165" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">USER</text>
+                <text x="72" y="178" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Patient App</text>
+                <text x="72" y="190" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">도메인 URI</text>
+                <!-- NODE: ROUTER -->
+                <rect x="161" y="146" width="121" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="222" y="165" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">ROUTER</text>
+                <text x="222" y="178" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">network edge</text>
+                <text x="222" y="190" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">per hospital</text>
+                <!-- NODE: NGINX LB -->
+                <rect x="309" y="146" width="121" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="370" y="165" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">NGINX LB</text>
+                <text x="370" y="178" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Docker · on-prem</text>
+                <text x="370" y="190" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">load balancing</text>
+                <!-- NODE: API SERVER -->
+                <rect x="457" y="146" width="123" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="518" y="165" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
+                <text x="518" y="178" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Spring Boot · Docker</text>
+                <text x="518" y="190" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- NODE: DB 1 -->
+                <rect x="621" y="110" width="148" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="695" y="128" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">DB 1 (MASTER)</text>
+                <text x="695" y="141" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">MariaDB · Docker</text>
+                <text x="695" y="153" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- NODE: DB 2 -->
+                <rect x="621" y="182" width="148" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.35)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="695" y="200" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">DB 2 (SLAVE)</text>
+                <text x="695" y="213" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">MariaDB · Docker</text>
+                <text x="695" y="225" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- layer labels -->
+                <text x="72"  y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
+                <text x="222" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">EDGE</text>
+                <text x="370" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">PROXY</text>
+                <text x="518" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">APP</text>
+                <text x="695" y="312" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
+              </svg>
+              <span class="arch-zoom-hint">click to zoom ↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. IPTV -->
+        <div class="glass-card career-card reveal" id="c-iptv">
+          <div class="career-head">
+            <div>
+              <h3 class="career-title">해외 IPTV 플랫폼</h3>
+              <p class="career-sub">Backend Engineer · System Operator · 5년 개발/운영</p>
+            </div>
+            <span class="career-period">2021.01 ~ 2025.12</span>
+          </div>
+          <div class="tag-row">
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">RabbitMQ</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">Jenkins</span>
+          </div>
+          <div class="career-stats">
+            <span class="career-stat">100만 가입자</span>
+            <span class="career-stat">5년 운영</span>
+            <span class="career-stat">온프레미스</span>
+          </div>
+          <ul class="card-list">
+            <li>플랫폼 개발과 운영 전담 (설계, 배포, 장애 대응, 요구사항 대응)</li>
+            <li>해외 고객사 담당자와 커뮤니케이션 (현지 출장, AI 번역 활용)</li>
+            <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+            <li>
+              <span class="li-ctx">Slave DB에서 파티션 DDL을 실행해 binlog 불일치로 복제 중단</span>
+              → 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL을 실행하도록 재구성
+            </li>
+            <li>
+              <span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화 반복</span>
+              → 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화
+            </li>
+            <li>
+              <span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span>
+              → write-through 전략을 적용해 미스율 감소, 응답 속도 안정화
+            </li>
+            <li>장애 예방 정기 점검 및 모니터링 기준치 수립</li>
+          </ul>
+
+          <div class="arch-wrap">
+            <div class="arch-hint">Architecture <span>↓ click to zoom</span></div>
+            <div class="arch-diagram" data-arch="iptv">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 378">
+                <rect width="800" height="378" fill="rgba(248,248,255,0.8)"/>
+                <text x="400" y="20" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">IPTV 플랫폼 ARCHITECTURE</text>
+                <text x="400" y="34" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">가입자 100만 · 온프레미스</text>
+                <line x1="30" y1="44" x2="770" y2="44" stroke="rgba(99,102,241,0.15)" stroke-width="0.5"/>
+                <!-- on-prem boundary -->
+                <rect x="382" y="50" width="414" height="164" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.22)" stroke-width="1" stroke-dasharray="6,4" rx="6"/>
+                <text x="393" y="63" fill="rgba(99,102,241,0.45)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES</text>
+                <!-- ── DB cluster boundaries drawn FIRST (background) ── -->
+                <rect x="12" y="256" width="248" height="100" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                <rect x="272" y="256" width="245" height="100" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                <rect x="529" y="256" width="261" height="100" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                <!-- ── All arrows drawn after backgrounds ── -->
+                <!-- main flow arrows -->
+                <line x1="112" y1="80" x2="140" y2="80" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="137,76 137,84 145,80" fill="#6366f1" opacity="0.7"/>
+                <line x1="240" y1="80" x2="268" y2="80" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="265,76 265,84 273,80" fill="#6366f1" opacity="0.7"/>
+                <line x1="368" y1="80" x2="396" y2="80" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="393,76 393,84 401,80" fill="#6366f1" opacity="0.7"/>
+                <line x1="496" y1="80" x2="524" y2="80" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="521,76 521,84 529,80" fill="#6366f1" opacity="0.7"/>
+                <!-- API → RabbitMQ/Redis bus -->
+                <line x1="624" y1="80" x2="644" y2="80" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <line x1="644" y1="73" x2="644" y2="142" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+                <line x1="644" y1="73" x2="655" y2="73" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="652,69 652,77 660,73" fill="#6366f1" opacity="0.7"/>
+                <line x1="644" y1="131" x2="655" y2="131" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="652,127 652,135 660,131" fill="#6366f1" opacity="0.7"/>
+                <!-- API → DB tier vertical -->
+                <line x1="576" y1="104" x2="576" y2="248" stroke="#6366f1" stroke-width="1.5" opacity="0.65"/>
+                <!-- DB distribution bus -->
+                <line x1="54" y1="248" x2="594" y2="248" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+                <!-- bus → cluster MASTER arrows (cross over boundary) -->
+                <line x1="54" y1="240" x2="54" y2="270" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="50,267 58,267 54,272" fill="#6366f1" opacity="0.7"/>
+                <line x1="336" y1="240" x2="336" y2="270" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="332,267 340,267 336,272" fill="#6366f1" opacity="0.7"/>
+                <line x1="594" y1="240" x2="594" y2="270" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="590,267 598,267 594,272" fill="#6366f1" opacity="0.7"/>
+                <!-- main flow NODES -->
+                <rect x="12" y="56" width="102" height="48" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="63" y="74" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">USER</text>
+                <text x="63" y="87" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">IPTV subscriber</text>
+                <text x="63" y="98" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">domain URI</text>
+                <rect x="142" y="56" width="100" height="48" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="192" y="74" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">LB SWITCH</text>
+                <text x="192" y="87" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">물리 · Physical</text>
+                <text x="192" y="98" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">load balancing</text>
+                <rect x="270" y="56" width="100" height="48" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="320" y="74" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">GATEWAY</text>
+                <text x="320" y="87" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">routing</text>
+                <rect x="398" y="56" width="100" height="48" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="448" y="74" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">NGINX LB</text>
+                <text x="448" y="87" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">software LB</text>
+                <text x="448" y="98" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <rect x="526" y="56" width="100" height="48" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="576" y="74" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
+                <text x="576" y="87" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Spring Boot</text>
+                <text x="576" y="98" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- DATA: RabbitMQ -->
+                <rect x="658" y="55" width="128" height="42" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="722" y="72" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">RABBITMQ</text>
+                <text x="722" y="85" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">channel events</text>
+                <text x="722" y="95" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- DATA: Redis -->
+                <rect x="658" y="109" width="128" height="42" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.35)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="722" y="126" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">REDIS</text>
+                <text x="722" y="139" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">session · cache</text>
+                <text x="722" y="149" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- layer labels -->
+                <text x="63"  y="118" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
+                <text x="192" y="118" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">NETWORK</text>
+                <text x="320" y="118" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">GATEWAY</text>
+                <text x="448" y="118" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">PROXY</text>
+                <text x="576" y="118" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">APP</text>
+                <text x="722" y="118" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
+                <!-- DB TIER separator + label (well above bus) -->
+                <line x1="10" y1="128" x2="790" y2="128" stroke="rgba(99,102,241,0.1)" stroke-width="0.5" stroke-dasharray="4,3"/>
+                <text x="20" y="140" fill="rgba(99,102,241,0.38)" font-family="'Inter',sans-serif" font-size="6.5" letter-spacing="2">DATABASE TIER · MySQL Replication</text>
+                <!-- cluster labels inside each boundary -->
+                <text x="24" y="270" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">메인 DB · M / S / S</text>
+                <text x="284" y="270" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">API HISTORY DB · M / S</text>
+                <text x="541" y="270" fill="rgba(99,102,241,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">채널이력 DB · M / S</text>
+                <!-- ── Cluster 1: 메인 DB — MASTER + SLAVE + SLAVE horizontal ── -->
+                <rect x="18" y="278" width="68" height="42" rx="6" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.55)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="52" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="700">MASTER</text>
+                <text x="52" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · W</text>
+                <line x1="86" y1="299" x2="98" y2="299" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                <polygon points="95,295 95,303 100,299" fill="#6366f1" opacity="0.5"/>
+                <rect x="100" y="278" width="68" height="42" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.3)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="134" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="134" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · R</text>
+                <line x1="168" y1="299" x2="180" y2="299" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                <polygon points="177,295 177,303 182,299" fill="#6366f1" opacity="0.5"/>
+                <rect x="182" y="278" width="68" height="42" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.3)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="216" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="216" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · R</text>
+                <!-- ── Cluster 2: API HISTORY DB ── -->
+                <rect x="282" y="278" width="100" height="42" rx="6" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.55)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="332" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="700">MASTER</text>
+                <text x="332" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · write</text>
+                <line x1="382" y1="299" x2="398" y2="299" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                <polygon points="395,295 395,303 400,299" fill="#6366f1" opacity="0.5"/>
+                <rect x="400" y="278" width="108" height="42" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.3)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="454" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="454" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+                <!-- ── Cluster 3: 채널이력 DB ── -->
+                <rect x="540" y="278" width="106" height="42" rx="6" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.55)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="593" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="700">MASTER</text>
+                <text x="593" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · write</text>
+                <line x1="646" y1="299" x2="662" y2="299" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                <polygon points="659,295 659,303 664,299" fill="#6366f1" opacity="0.5"/>
+                <rect x="664" y="278" width="118" height="42" rx="6" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.3)" stroke-width="1" filter="url(#v13-shadow)"/>
+                <text x="723" y="294" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
+                <text x="723" y="307" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+              </svg>
+              <span class="arch-zoom-hint">click to zoom ↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 모니터링 -->
+        <div class="glass-card career-card reveal" id="c-wacs">
+          <div class="career-head">
+            <div>
+              <h3 class="career-title">모니터링 시스템 재구축</h3>
+              <p class="career-sub">System Engineer · 350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
+            </div>
+            <span class="career-period">2022.06 ~ 2023.10</span>
+          </div>
+          <div class="tag-row">
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Flink</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">DRBD</span>
+            <span class="tech-tag">Pacemaker</span>
+          </div>
+          <div class="career-stats">
+            <span class="career-stat">350대 서버</span>
+            <span class="career-stat">30초 단위 수집</span>
+          </div>
+          <ul class="card-list">
+            <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 재구축</li>
+            <li>집계 데이터 저장과 시계열 쿼리 최적화</li>
+            <li>
+              <span class="li-ctx">pgpool HA를 구성했으나 장애 테스트 때 다운타임 과다</span>
+              → DRBD + Pacemaker로 전환해 DB 무중단 HA 운영
+            </li>
+            <li>수집 지표가 기준치를 넘으면 이메일/SMS를 자동 발송하도록 구현</li>
+            <li>React 기반 실시간 모니터링 대시보드 개발</li>
+          </ul>
+          <a href="#p-metric" class="proj-link-note">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
+
+          <div class="arch-wrap">
+            <div class="arch-hint">Architecture <span>↓ click to zoom</span></div>
+            <div class="arch-diagram" data-arch="monitoring">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+                <rect width="800" height="300" fill="rgba(248,248,255,0.8)"/>
+                <text x="400" y="24" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">모니터링 시스템 SYSTEM ARCHITECTURE</text>
+                <text x="400" y="38" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">350대 서버 실시간 지표 수집 · Pacemaker HA</text>
+                <line x1="30" y1="46" x2="770" y2="46" stroke="rgba(99,102,241,0.15)" stroke-width="0.5"/>
+                <!-- HA cluster boundary -->
+                <rect x="180" y="50" width="455" height="216" fill="rgba(99,102,241,0.02)" stroke="rgba(99,102,241,0.2)" stroke-width="1" stroke-dasharray="5,3" rx="6"/>
+                <text x="190" y="64" fill="rgba(99,102,241,0.45)" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1" font-weight="600">수집/처리 클러스터 — PACEMAKER HA</text>
+                <!-- pipeline arrows: 350 SERVERS → KAFKA → FLINK → POSTGRESQL -->
+                <line x1="162" y1="152" x2="192" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="189,148 189,156 197,152" fill="#6366f1" opacity="0.7"/>
+                <line x1="305" y1="152" x2="335" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="332,148 332,156 340,152" fill="#6366f1" opacity="0.7"/>
+                <line x1="466" y1="152" x2="496" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="493,148 493,156 501,152" fill="#6366f1" opacity="0.7"/>
+                <!-- POSTGRESQL → 3-way fork (MONITORING / API SERVER / SPRING BATCH) -->
+                <line x1="629" y1="152" x2="643" y2="152" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <line x1="643" y1="82" x2="643" y2="222" stroke="#6366f1" stroke-width="1.5" opacity="0.6"/>
+                <polygon points="644,78 644,86 652,82" fill="#6366f1" opacity="0.7"/>
+                <polygon points="644,148 644,156 652,152" fill="#6366f1" opacity="0.7"/>
+                <polygon points="644,218 644,226 652,222" fill="#6366f1" opacity="0.7"/>
+                <!-- MONITORING ↔ API SERVER (양방향: React→API 요청 / API→React 응답) -->
+                <line x1="708" y1="109" x2="708" y2="125" stroke="#6366f1" stroke-width="1.2" opacity="0.55"/>
+                <polygon points="704,121 712,121 708,127" fill="#6366f1" opacity="0.55"/>
+                <line x1="734" y1="125" x2="734" y2="109" stroke="#6366f1" stroke-width="1.2" opacity="0.55"/>
+                <polygon points="730,111 738,111 734,107" fill="#6366f1" opacity="0.55"/>
+                <!-- 350 SERVERS (Telegraf Agent) -->
+                <rect x="10" y="122" width="152" height="60" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="86" y="141" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">350 SERVERS</text>
+                <text x="86" y="155" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Telegraf Agent 설치</text>
+                <text x="86" y="168" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">syslog · metrics</text>
+                <!-- KAFKA -->
+                <rect x="195" y="122" width="110" height="60" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="250" y="141" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">KAFKA</text>
+                <text x="250" y="155" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">message broker</text>
+                <text x="250" y="168" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">KRaft mode</text>
+                <!-- APACHE FLINK -->
+                <rect x="338" y="122" width="128" height="60" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="402" y="141" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">APACHE FLINK</text>
+                <text x="402" y="155" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">stream processing</text>
+                <text x="402" y="168" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">aggregation</text>
+                <!-- POSTGRESQL -->
+                <rect x="499" y="122" width="130" height="60" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="564" y="141" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">POSTGRESQL</text>
+                <text x="564" y="155" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">metric store</text>
+                <text x="564" y="168" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">TimescaleDB</text>
+                <!-- MONITORING (React) — top -->
+                <rect x="650" y="57" width="142" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="721" y="75" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">MONITORING</text>
+                <text x="721" y="89" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">React dashboard</text>
+                <text x="721" y="101" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">실시간 시각화</text>
+                <!-- API SERVER — middle (pipeline 중심선 y=152와 정렬) -->
+                <rect x="650" y="127" width="142" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="721" y="145" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
+                <text x="721" y="159" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">REST · query</text>
+                <text x="721" y="171" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
+                <!-- SPRING BATCH — bottom -->
+                <rect x="650" y="197" width="142" height="50" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.35)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="721" y="215" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SPRING BATCH</text>
+                <text x="721" y="229" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">alert · email/SMS</text>
+                <text x="721" y="241" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">기준치 초과 알림</text>
+                <!-- layer labels -->
+                <text x="86"  y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">SOURCE</text>
+                <text x="250" y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">BROKER</text>
+                <text x="402" y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">PROCESSOR</text>
+                <text x="564" y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">STORE</text>
+                <text x="721" y="285" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">OUTPUT</text>
+              </svg>
+              <span class="arch-zoom-hint">click to zoom ↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Admin -->
+        <div class="glass-card career-card reveal" id="c-admin">
+          <div class="career-head">
+            <div>
+              <h3 class="career-title">해외 IPTV 플랫폼 어드민</h3>
+              <p class="career-sub">Backend Developer · 관리자 시스템 개발</p>
+            </div>
+            <span class="career-period">2020.07 ~ 2021.01</span>
+          </div>
+          <div class="tag-row">
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">JSP</span>
+            <span class="tech-tag">jQuery</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <ul class="card-list">
+            <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
+            <li>콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발</li>
+            <li>광고 활성화, 결제 수단 관리 UI 구현</li>
+            <li>jQuery AJAX 비동기 처리로 페이지 전환 없이 실시간 데이터 갱신</li>
+          </ul>
+
+          <div class="arch-wrap">
+            <div class="arch-hint">Architecture <span>↓ click to zoom</span></div>
+            <div class="arch-diagram" data-arch="admin">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260">
+                <rect width="800" height="260" fill="rgba(248,248,255,0.8)"/>
+                <text x="400" y="26" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">IPTV ADMIN ARCHITECTURE</text>
+                <text x="400" y="40" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">Spring Boot MVC · JSP · jQuery</text>
+                <line x1="30" y1="48" x2="770" y2="48" stroke="rgba(99,102,241,0.15)" stroke-width="0.5"/>
+                <!-- arrows -->
+                <line x1="114" y1="140" x2="142" y2="140" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="139,136 139,144 147,140" fill="#6366f1" opacity="0.7"/>
+                <line x1="271" y1="140" x2="299" y2="140" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="296,136 296,144 304,140" fill="#6366f1" opacity="0.7"/>
+                <line x1="429" y1="140" x2="457" y2="140" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="454,136 454,144 462,140" fill="#6366f1" opacity="0.7"/>
+                <line x1="585" y1="140" x2="613" y2="140" stroke="#6366f1" stroke-width="1.5" opacity="0.7"/>
+                <polygon points="610,136 610,144 618,140" fill="#6366f1" opacity="0.7"/>
+                <!-- ADMIN USER -->
+                <rect x="10" y="114" width="106" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="63" y="133" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">ADMIN</text>
+                <text x="63" y="147" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Browser</text>
+                <text x="63" y="159" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">jQuery AJAX</text>
+                <!-- NGINX -->
+                <rect x="145" y="114" width="128" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="209" y="133" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">NGINX</text>
+                <text x="209" y="147" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">reverse proxy</text>
+                <text x="209" y="159" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">static files</text>
+                <!-- SPRING BOOT -->
+                <rect x="302" y="114" width="130" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="367" y="133" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SPRING BOOT</text>
+                <text x="367" y="147" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">MVC · JSP</text>
+                <text x="367" y="159" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">REST API · Admin</text>
+                <!-- SERVICE -->
+                <rect x="460" y="114" width="128" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="524" y="133" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SERVICE</text>
+                <text x="524" y="147" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">Business Logic</text>
+                <text x="524" y="159" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">STB · CMS 연동</text>
+                <!-- MYSQL -->
+                <rect x="616" y="114" width="170" height="52" rx="8" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.4)" stroke-width="1.2" filter="url(#v13-shadow)"/>
+                <text x="701" y="133" text-anchor="middle" fill="#6366f1" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">MYSQL</text>
+                <text x="701" y="147" text-anchor="middle" fill="#4a4a6a" font-family="'Inter',sans-serif" font-size="7.5">IPTV platform DB</text>
+                <text x="701" y="159" text-anchor="middle" fill="#9090b0" font-family="'Inter',sans-serif" font-size="7">subscriber · content</text>
+                <!-- labels -->
+                <text x="63"  y="230" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
+                <text x="209" y="230" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">EDGE</text>
+                <text x="367" y="230" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">APP</text>
+                <text x="524" y="230" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">LOGIC</text>
+                <text x="701" y="230" text-anchor="middle" fill="#c8c8dc" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
+              </svg>
+              <span class="arch-zoom-hint">click to zoom ↗</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <p class="proj-ai-note">설계와 기획은 본인이, 구현은 AI(Claude)가 맡은 프로젝트입니다.</p>
+
+      <div class="projects-stack">
+
+        <!-- metric-stream -->
+        <div class="glass-card grafana-card reveal" id="p-metric">
+          <div class="project-header">
+            <div>
+              <p class="project-eyebrow">토이 프로젝트 · 2026</p>
+              <h3 class="project-title">metric-stream</h3>
+              <p class="project-desc">실시간 서버 API 로그 수집 파이프라인</p>
+            </div>
+            <div class="proj-links-row">
+              <a href="https://github.com/sky14786/metric-stream" target="_blank" rel="noopener" class="proj-gh-link">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="tag-row">
+            <span class="tech-tag tech-tag-ai">AI 구현</span>
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Grafana</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Java 17</span>
+          </div>
+
+          <div class="arch-flow">
+            <span class="af-node">generator</span>
+            <span class="af-sep">→</span>
+            <span class="af-node">Kafka</span>
+            <span class="af-sep">→</span>
+            <span class="af-node">consumer</span>
+            <span class="af-sep">→</span>
+            <span class="af-node">PostgreSQL</span>
+            <span class="af-sep">→</span>
+            <span class="af-node hi">Grafana</span>
+          </div>
+
+          <ul class="card-list">
+            <li>API 로그를 실시간 수집해 저장과 조회까지 잇는 파이프라인 구성 (AI 구현)</li>
+            <li>분당 900건 규모 로그를 자동 생성해 파이프라인 전 구간 동작 검증</li>
+            <li>Grafana 대시보드로 요청량, 에러율, 응답시간 실시간 모니터링</li>
+            <li>Docker Compose 한 명령으로 Kafka, DB, Grafana 전체 인프라 구동</li>
+          </ul>
+
+          <!-- Log Sample -->
+          <div class="log-sample-wrap">
+            <div class="log-label">수집 로그 예시</div>
+            <pre class="log-pre"><span class="lj-b">{</span>
+  <span class="lj-k">"serverId"</span><span class="lj-p">:</span>       <span class="lj-s">"server-007"</span><span class="lj-p">,</span>
+  <span class="lj-k">"region"</span><span class="lj-p">:</span>         <span class="lj-s">"seoul"</span><span class="lj-p">,</span>
+  <span class="lj-k">"method"</span><span class="lj-p">:</span>         <span class="lj-s">"GET"</span><span class="lj-p">,</span>
+  <span class="lj-k">"endpoint"</span><span class="lj-p">:</span>       <span class="lj-s">"/api/orders"</span><span class="lj-p">,</span>
+  <span class="lj-k">"statusCode"</span><span class="lj-p">:</span>     <span class="lj-n">200</span><span class="lj-p">,</span>
+  <span class="lj-k">"responseTimeMs"</span><span class="lj-p">:</span> <span class="lj-n">142</span><span class="lj-p">,</span>
+  <span class="lj-k">"deviceType"</span><span class="lj-p">:</span>     <span class="lj-s">"MOBILE"</span><span class="lj-p">,</span>
+  <span class="lj-k">"errorMessage"</span><span class="lj-p">:</span>   <span class="lj-null">null</span>
+<span class="lj-b">}</span></pre>
+          </div>
+
+          <!-- Grafana -->
+          <div class="grafana-section">
+            <div class="grafana-label-row">
+              <span class="live-dot"></span>
+              <span class="live-text">LIVE</span>
+              <span class="live-note">— 임의 생성 로그 기반 실시간 통계</span>
+            </div>
+            <div class="grafana-frame-wrap" id="grafana-open" role="button" tabindex="0" aria-label="전체 Grafana 대시보드 열기">
+              <iframe
+                data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s"
+                frameborder="0"
+                title="metric-stream live dashboard"
+              ></iframe>
+              <div class="grafana-overlay">
+                <span class="grafana-overlay-text">전체 대시보드 보기 ↗</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- redstone -->
+        <div class="glass-card reveal" id="p-redstone">
+          <div class="project-header">
+            <div>
+              <p class="project-eyebrow">토이 프로젝트 · 2025</p>
+              <h3 class="project-title">redstone</h3>
+              <p class="project-desc">게임 아이템 거래 커뮤니티 포털</p>
+            </div>
+            <div class="proj-links-row">
+              <a href="https://github.com/sky14786/redstone" target="_blank" rel="noopener" class="proj-gh-link">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener" class="proj-live-link">
+                Live ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="tag-row">
+            <span class="tech-tag tech-tag-ai">AI 구현</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Nginx</span>
+          </div>
+
+          <ul class="card-list">
+            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능을 단독 설계/구현</li>
+            <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
+            <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
+            <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
+          </ul>
+
+          <!-- live demo -->
+          <div class="grafana-label-row" style="margin-top: 22px;">
+            <span class="live-dot" style="background: #6366f1; box-shadow: 0 0 8px rgba(99,102,241,0.6);"></span>
+            <span class="live-text" style="color: #6366f1;">LIVE DEMO</span>
+            <span class="live-note">— 게스트 계정으로 체험 가능</span>
+          </div>
+          <a class="rs-preview-wrap" href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener">
+            <img class="rs-preview-img" src="redstone-preview.png" alt="붉은보석 거래 포탈 화면" loading="lazy" />
+            <div class="rs-preview-overlay">
+              <span class="rs-preview-overlay-text">체험하기 ↗</span>
+            </div>
+          </a>
+          <div class="rs-creds">
+            <div class="cred-item">
+              <span class="cred-key">ID</span>
+              <code class="cred-val">guest</code>
+            </div>
+            <span class="cred-sep">·</span>
+            <div class="cred-item">
+              <span class="cred-key">PW</span>
+              <code class="cred-val">guest1234</code>
+            </div>
+            <span class="cred-sep">·</span>
+            <div class="cred-item">
+              <span class="cred-key">URL</span>
+              <code class="cred-val">skydev.ddns.net/redstone</code>
+            </div>
+          </div>
+          <div class="demo-link-row">
+            <a href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener" class="proj-live-link">
+              체험하기 ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-table reveal">
+        <div class="skill-row">
+          <span class="skill-cat">Core</span>
+          <div class="tag-row">
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">Java</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Database</span>
+          <div class="tag-row">
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">MariaDB</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Redis</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Stream</span>
+          <div class="tag-row">
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Flink</span>
+            <span class="tech-tag">RabbitMQ</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Infra</span>
+          <div class="tag-row">
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">Jenkins</span>
+            <span class="tech-tag">Shell Script</span>
+            <span class="tech-tag">Cron</span>
+            <span class="tech-tag">DRBD</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Frontend</span>
+          <div class="tag-row">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">JSP</span>
+            <span class="tech-tag">jQuery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="glass-card about-card reveal">
+        <div class="about-text">
+          <p>
+            문서화되지 않은 시스템을 인계받아 처음부터 혼자 분석하고 끝까지 책임집니다.
+            대규모 IPTV 플랫폼의 DB 복제 이슈 해결, 350대 서버 모니터링 시스템 재구축,
+            병원 환자중심 앱 백엔드 유지보수까지 — 팀이 없어도 끝냅니다.
+          </p>
+          <p>
+            신기술보다 운영 안정성과 문제 해결 속도를 우선합니다.
+            SI/솔루션 출신으로 빠른 상황 파악과 실행이 강점입니다.
+            좋은 팀과 실질적인 문제를 함께 풀고 싶습니다.
+          </p>
+          <p>현재 구직 중이며 서울, 경기, 대전 및 원격 근무가 가능합니다.</p>
+        </div>
+        <div class="about-meta">
+          <div class="meta-item">
+            <span class="meta-label">상태</span>
+            <span class="status-badge">구직중</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">위치</span>
+            <span class="meta-value">서울 · 경기 · 대전 · 재택</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">GitHub</span>
+            <a href="https://github.com/sky14786" target="_blank" rel="noopener" class="meta-link">github.com/sky14786</a>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Email</span>
+            <a href="mailto:sky14786@gmail.com" class="meta-link">sky14786@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="glass-card contact-card reveal">
+        <p class="contact-intro">
+          새로운 기회와 협업을 환영합니다.<br/>
+          편하게 연락 주세요.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:sky14786@gmail.com" class="contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            sky14786@gmail.com
+          </a>
+          <a href="https://github.com/sky14786" target="_blank" rel="noopener" class="contact-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            github.com/sky14786
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text"><span>JuneYoung Kim</span> &nbsp;·&nbsp; Backend Engineer &amp; System Operator</p>
+      <p class="footer-copy">2026 · v14 · 페이지 구현은 AI(Claude)에 위임</p>
+    </div>
+  </footer>
+
+  <!-- ── Architecture Lightbox ── -->
+  <div id="arch-lightbox" role="dialog" aria-modal="true" aria-label="Architecture diagram fullscreen">
+    <div id="arch-lightbox-inner">
+      <button id="arch-lightbox-close" aria-label="닫기">&#x2715;</button>
+    </div>
+    <span id="arch-lightbox-esc">ESC 또는 바깥 클릭으로 닫기</span>
+  </div>
+
+  <!-- ── Grafana Modal ── -->
+  <div id="grafana-modal" class="grafana-modal hidden">
+    <div class="grafana-modal-backdrop" id="grafana-modal-close"></div>
+    <div class="grafana-modal-box">
+      <div class="gm-header">
+        <div class="gm-header-left">
+          <div class="gm-title-row">
+            <div class="gm-live-badge">
+              <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+              <span class="gm-live-text">LIVE</span>
+            </div>
+            <h3 class="gm-title">metric-stream</h3>
+          </div>
+          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span style="color:#444;">— 임의 생성 로그 기반 실시간 통계</span></p>
+          <div class="gm-tags">
+            <span class="gm-tag">Kafka 3.9</span>
+            <span class="gm-tag">Spring Boot</span>
+            <span class="gm-tag">PostgreSQL 16</span>
+            <span class="gm-tag">Grafana</span>
+            <span class="gm-tag">Docker</span>
+          </div>
+        </div>
+        <div class="gm-header-right">
+          <a class="gm-github" href="https://github.com/sky14786/metric-stream" target="_blank" rel="noopener">GitHub ↗</a>
+          <button class="grafana-modal-x" id="grafana-modal-x" aria-label="Grafana 모달 닫기">✕</button>
+        </div>
+      </div>
+      <div class="gm-meta">
+        <div class="gm-arch-flow">
+          <span class="gm-af-node">generator</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">Kafka</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">consumer</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">PostgreSQL</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node hi">Grafana</span>
+        </div>
+        <div class="gm-badges">
+          <span class="gm-badge">20 servers</span>
+          <span class="gm-badge">4 regions</span>
+          <span class="gm-badge">~900 logs/min</span>
+        </div>
+      </div>
+      <div class="grafana-modal-grid">
+        <iframe class="gpanel gm-hero" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        <div class="grafana-modal-stats">
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=1&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=2&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=3&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ══════════════════════════════════════════════
+       V13 — Inline JavaScript
+    ══════════════════════════════════════════════ */
+
+
+    /* ── Mobile nav toggle ── */
+    (function initMobileNav() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    /* ── IntersectionObserver: lazy-load iframes ── */
+    (function initGrafanaLazy() {
+      var iframes = document.querySelectorAll('iframe[data-src]');
+      if (!iframes.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var f = entry.target;
+            f.src = f.dataset.src;
+            observer.unobserve(f);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      iframes.forEach(function(f) { observer.observe(f); });
+    })();
+
+    /* ── Grafana preview click → modal ── */
+    (function initGrafanaOpen() {
+      var modal     = document.getElementById('grafana-modal');
+      var openBtn   = document.getElementById('grafana-open');
+      var closeBack = document.getElementById('grafana-modal-close');
+      var closeX    = document.getElementById('grafana-modal-x');
+      if (!modal || !openBtn) return;
+
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      var PROD    = 'https://skydev.ddns.net/metric';
+      var LOCAL   = 'http://localhost:3000';
+
+      function openModal() {
+        modal.querySelectorAll('iframe[data-src]').forEach(function(f) {
+          if (!f.src || f.src === window.location.href) {
+            var src = f.dataset.src;
+            if (isLocal) src = src.replace(PROD, LOCAL);
+            f.src = src;
+          }
+        });
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        modal.querySelectorAll('iframe[data-src]').forEach(function(f) { f.src = ''; });
+      }
+
+      openBtn.addEventListener('click', openModal);
+      openBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') openModal();
+      });
+      closeBack.addEventListener('click', closeModal);
+      closeX.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+
+    /* ── Architecture Lightbox ── */
+    (function initArchLightbox() {
+      var diagrams = document.querySelectorAll('.arch-diagram');
+      var lightbox = document.getElementById('arch-lightbox');
+      var inner    = document.getElementById('arch-lightbox-inner');
+      var closeBtn = document.getElementById('arch-lightbox-close');
+      if (!lightbox) return;
+
+      var cloned = null;
+
+      function open(svg) {
+        if (cloned) inner.removeChild(cloned);
+        cloned = svg.cloneNode(true);
+        cloned.style.width  = '100%';
+        cloned.style.height = 'auto';
+        inner.insertBefore(cloned, closeBtn);
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      diagrams.forEach(function(wrap) {
+        wrap.addEventListener('click', function() {
+          var svg = wrap.querySelector('svg');
+          if (svg) open(svg);
+        });
+      });
+
+      closeBtn.addEventListener('click', close);
+      lightbox.addEventListener('click', function(e) {
+        if (!inner.contains(e.target)) close();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') close();
+      });
+    })();
+
+    /* ── Scroll reveal ── */
+    (function initReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      els.forEach(function(el) { observer.observe(el); });
+    })();
+
+    /* ── Nav active state on scroll ── */
+    (function initNavActive() {
+      var links = document.querySelectorAll('.nav-links a');
+      var sections = Array.from(links).map(function(a) {
+        return document.querySelector(a.getAttribute('href'));
+      }).filter(Boolean);
+
+      function update() {
+        var scrollY = window.scrollY + 80;
+        var active = sections.reduce(function(best, sec) {
+          return sec.offsetTop <= scrollY ? sec : best;
+        }, sections[0]);
+        links.forEach(function(a) {
+          var isActive = active && a.getAttribute('href') === '#' + active.id;
+          a.classList.toggle('active', isActive);
+        });
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+</body>
+</html>
