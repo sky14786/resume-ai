@@ -156,6 +156,26 @@
 - [x] v17 신규 생성 — Ruled Paper 디자인
   - repeating-linear-gradient 32px 룰드 라인 배경, 인디고 좌측 border
 
+### 이번 세션 완료 (2026-06-15) — v8 Impeccable 전체 워크플로우
+- [x] v8 신규 생성 (v7 클론) + Impeccable 스킬 init 설정 (`.agents/skills/` 정크션)
+- [x] v8 DESIGN.md 작성 — Google Stitch 포맷, YAML frontmatter, 6섹션
+  - North Star "The Field Manual", Two-World Rule, One-Violet Rule, No-Blur Rule
+  - 컴포넌트 스펙: brutCard, btag, navPill, sectionLabel, cmdPalette, architectureDiagram
+- [x] v8 `.impeccable/design.json` sidecar 생성 — 토널 램프, 그림자 어휘, 모션 패턴, 컴포넌트 HTML/CSS 스니펫, z-index 스케일
+- [x] v8 `/audit` 실행 → 12/20 Acceptable (P0×2, P1×6, P2×7, P3×4)
+- [x] v8 `harden` — `:focus-visible` 전역 규칙, `prefers-reduced-motion` 완전 대응
+  - `.anim-ready` opt-in 패턴 (콘텐츠 opacity 게이팅 버그 해소)
+  - ARIA dialog (`role="dialog" aria-modal="true"`) — cmd palette, arch lightbox, Grafana modal
+  - `createFocusTrap()` 유틸리티 + 모든 모달에 포커스 트랩/복원 적용
+  - 대비 수정: `--text-body: #555` (7.9:1), `--text-meta: #666` (5.5:1) 신규 토큰
+  - skip-nav, gstatic preconnect, SVG 키보드 접근(tabindex+Enter), iframe title, KakaoTalk 플레이스홀더
+- [x] v8 `adapt` — 모바일 nav-center 숨김, touch targets 44px (pointer:coarse), hero-stats flex-wrap
+- [x] v8 `optimize` — arch-lightbox 소프트 그림자 → 네오브루탈리즘 오프셋 그림자
+- [x] v8 `distill` — border-left 사이드 스트라이프 금지 적용
+  - `.proj-ai-note`: border-left 제거 → 전체 테두리 + 배경 틴트
+  - `.about-quote-big`: border-left 제거 → 기존 `::before` 큰따옴표 시각 요소로 대체
+- [x] v8 `polish` — `.clink-disabled` 스타일 추가, 나머지 대비 정리
+
 ### 이번 세션 완료 (2026-06-14)
 - [x] `D:\ai\CLAUDE.md` — 미커밋 목록 제거, 설치된 Claude Code 도구 섹션 추가
 - [x] Impeccable 스킬 설치 (`~/.claude/skills/impeccable/`, `~/.claude/agents/impeccable-manual-edit-applier.md`)
@@ -261,9 +281,9 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **v13 추가 개선** (현재 활성 버전)
-   - KakaoTalk 링크 교체 (`href="KAKAO_LINK_HERE"` → 실제 링크)
-   - `/audit` 실행 후 Impeccable으로 UI 품질 점검 (`~/.claude/skills/impeccable/` 설치됨)
+1. **v8 KakaoTalk 링크 교체**
+   - `v8/index.html` 에 `<!-- TODO: KAKAO_LINK_HERE를 실제 오픈채팅 URL로 교체 -->` 주석 있음
+   - `.clink-disabled` → 실제 URL 넣고 `clink-disabled` 클래스 제거
 
 2. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
    - 플랫폼: GCP e2-micro (1GB RAM, 상시 무료)
