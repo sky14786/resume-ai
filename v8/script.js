@@ -1,582 +1,395 @@
-/* ============================================================
-   Terminal Portfolio — script.js
-   JuneYoung Kim (김준영) — Backend Engineer
-   ============================================================ */
-
-'use strict';
-
-/* ---- DOM refs ---- */
-const output      = document.getElementById('output');
-const inputLine   = document.getElementById('inputLine');
-const inputDisplay = document.getElementById('inputDisplay');
-const terminalBody = document.getElementById('terminalBody');
-const hiddenInput = document.getElementById('hiddenInput');
-
-/* ---- State ---- */
-let currentInput   = '';
-let historyList    = [];
-let historyIndex   = -1;
-let isTyping       = false;   // block user input during welcome sequence
-
-/* ============================================================
-   CONTENT DATA
-   ============================================================ */
-
-const PROMPT_STR = 'juneyoung@portfolio:~$ ';
-
-const ASCII_BANNER = [
-  '     ██╗██╗   ██╗███╗   ██╗███████╗██╗   ██╗ ██████╗ ██╗   ██╗███╗   ██╗ ██████╗ ',
-  '     ██║██║   ██║████╗  ██║██╔════╝╚██╗ ██╔╝██╔═══██╗██║   ██║████╗  ██║██╔════╝ ',
-  '     ██║██║   ██║██╔██╗ ██║█████╗   ╚████╔╝ ██║   ██║██║   ██║██╔██╗ ██║██║  ███╗',
-  '██   ██║██║   ██║██║╚██╗██║██╔══╝    ╚██╔╝  ██║   ██║██║   ██║██║╚██╗██║██║   ██║',
-  '╚█████╔╝╚██████╔╝██║ ╚████║███████╗   ██║   ╚██████╔╝╚██████╔╝██║ ╚████║╚██████╔╝',
-  ' ╚════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ',
-];
-
-const WHOAMI_LINES = [
-  { cls: 'line-sep',    text: '━'.repeat(70) },
-  { cls: 'line-head',   text: '  NAME     : JuneYoung Kim (김준영)' },
-  { cls: 'line-out',    text: '  ROLE     : Backend Engineer / System Operator' },
-  { cls: 'line-out',    text: '  FOCUS    : 안정적인 시스템 운영 & 장애 대응' },
-  { cls: 'line-sep',    text: '─'.repeat(70) },
-  { cls: 'line-accent', text: '  ► 5+ Years     of backend experience' },
-  { cls: 'line-accent', text: '  ► 1,000,000+   IPTV users served' },
-  { cls: 'line-accent', text: '  ► 350+         servers monitored & managed' },
-  { cls: 'line-sep',    text: '━'.repeat(70) },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-dim',    text: '  문서화되지 않은 시스템을 인계받아' },
-  { cls: 'line-dim',    text: '  처음부터 혼자 분석하고 끝까지 책임지는 방식으로 일해왔습니다.' },
-  { cls: 'line-sep',    text: '━'.repeat(70) },
-];
-
-const LS_LINES = [
-  { cls: 'line-out',    text: 'drwxr-xr-x  career/' },
-  { cls: 'line-out',    text: 'drwxr-xr-x  projects/' },
-  { cls: 'line-out',    text: 'drwxr-xr-x  skills/' },
-  { cls: 'line-out',    text: 'drwxr-xr-x  contact/' },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-dim',    text: '  tip: cat <name>  to read a file.' },
-  { cls: 'line-dim',    text: '       type help   for all commands.' },
-];
-
-const HELP_LINES = [
-  { cls: 'line-sep',    text: '─'.repeat(60) },
-  { cls: 'line-head',   text: '  AVAILABLE COMMANDS' },
-  { cls: 'line-sep',    text: '─'.repeat(60) },
-  { cls: 'line-accent', text: '  whoami              ' },
-  { cls: 'line-out',    text: '    → name, role, stats' },
-  { cls: 'line-accent', text: '  ls                  ' },
-  { cls: 'line-out',    text: '    → list available files' },
-  { cls: 'line-accent', text: '  cat career          ' },
-  { cls: 'line-out',    text: '    → full career history' },
-  { cls: 'line-accent', text: '  cat career [1-4]    ' },
-  { cls: 'line-out',    text: '    → specific career entry' },
-  { cls: 'line-accent', text: '  cat projects        ' },
-  { cls: 'line-out',    text: '    → side projects' },
-  { cls: 'line-accent', text: '  cat skills          ' },
-  { cls: 'line-out',    text: '    → tech stack' },
-  { cls: 'line-accent', text: '  cat contact         ' },
-  { cls: 'line-out',    text: '    → contact info' },
-  { cls: 'line-accent', text: '  history             ' },
-  { cls: 'line-out',    text: '    → command history' },
-  { cls: 'line-accent', text: '  clear               ' },
-  { cls: 'line-out',    text: '    → clear terminal' },
-  { cls: 'line-sep',    text: '─'.repeat(60) },
-  { cls: 'line-dim',    text: '  ↑ ↓  history navigation' },
-  { cls: 'line-dim',    text: '  Tab  autocomplete' },
-  { cls: 'line-sep',    text: '─'.repeat(60) },
-];
-
-const CAREER_ENTRIES = [
-  {
-    title:  '01. 다기관 병원 환자중심 앱',
-    period: '2025.08 – 2026.02',
-    stack:  'Spring Boot · MariaDB · Docker · Nginx · Pacemaker',
-    items: [
-      'MySQL 복제 단절 → SLAVE STATUS 분석 후 순차 스킵으로 재동기화',
-      '백업 체계 없던 DB → mysqldump + cron 정기 백업 자동화',
-      'binlog 누적 disk full → truncate로 즉시 해소',
-      'PG사 모듈 교체 시 단계별 로그 추가로 이슈 추적',
-      '헬스체크·리소스 조회 API (IP 화이트리스트 + 해시키 이중 인증)',
-    ],
-  },
-  {
-    title:  '02. 태국 IPTV 플랫폼',
-    period: '2021.01 – 2025.12',
-    stack:  'Spring Boot · Redis · RabbitMQ · MySQL',
-    items: [
-      '가입자 100만 규모, 5년간 단독 개발/운영',
-      'Slave DB 파티션 DDL → binlog 불일치 복제 중단 → 별도 DB로 물리 이전',
-      '파티션 자동 생성/삭제로 디스크 운영 정상화',
-      'write-through 캐시 전략 적용으로 캐시 미스율 감소',
-    ],
-  },
-  {
-    title:  '03. 모니터링 시스템 재구축',
-    period: '2022.06 – 2023.10',
-    stack:  'Kafka · Flink · Docker · PostgreSQL · React · DRBD · Pacemaker',
-    items: [
-      '350대 서버 30초 단위 실시간 로그 수집 파이프라인',
-      'Telegraf → Kafka → Flink 파이프라인 재구축',
-      'pgpool → DRBD + Pacemaker 전환, DB 무중단 HA 구성',
-      '이메일/SMS 자동 발송 알림 시스템',
-    ],
-  },
-  {
-    title:  '04. 해외 IPTV 어드민',
-    period: '2020.07 – 2021.01',
-    stack:  'Spring Boot · JSP · jQuery · MySQL',
-    items: [
-      '어드민 MVC 아키텍처 전체 설계 및 구현',
-      '콘텐츠 뷰어, 사용자 관리, STB 단말 현황 화면',
-    ],
-  },
-];
-
-const PROJECTS_LINES = [
-  { cls: 'line-sep',    text: '━'.repeat(70) },
-  { cls: 'line-head',   text: '  SIDE PROJECTS' },
-  { cls: 'line-sep',    text: '━'.repeat(70) },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'career-title', text: '  metric-stream' },
-  { cls: 'line-out',    text: '  Stack : Kafka · Spring Boot · PostgreSQL · Grafana · Docker · Java 17' },
-  { cls: 'line-accent', text: '  → API 로그 실시간 수집 파이프라인 (분당 900건 처리)' },
-  { cls: 'line-accent', text: '  → Kafka topic 기반 이벤트 스트리밍, Grafana 대시보드 시각화' },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-sep',    text: '─'.repeat(70) },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'career-title', text: '  redstone' },
-  { cls: 'line-out',    text: '  Stack : Node.js · Express · MongoDB · Docker · Nginx' },
-  { cls: 'line-accent', text: '  → 게임 아이템 거래 커뮤니티 포털' },
-  { cls: 'line-accent', text: '  → REST API + 실시간 거래 목록, 검색 필터' },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-sep',    text: '━'.repeat(70) },
-];
-
-const SKILLS_LINES = [
-  { cls: 'line-sep',    text: '━'.repeat(60) },
-  { cls: 'line-head',   text: '  TECH STACK' },
-  { cls: 'line-sep',    text: '━'.repeat(60) },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'skill-row',   text: '  Core    │ Spring Boot, Java' },
-  { cls: 'skill-row',   text: '  DB      │ MySQL, MariaDB, PostgreSQL, Redis' },
-  { cls: 'skill-row',   text: '  Stream  │ Kafka, Flink, RabbitMQ' },
-  { cls: 'skill-row',   text: '  Infra   │ Docker, Nginx, Jenkins, Shell Script, DRBD' },
-  { cls: 'skill-row',   text: '  Front   │ React, JSP, jQuery' },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-sep',    text: '─'.repeat(60) },
-  { cls: 'line-dim',    text: '  강점: 장애 대응 / DB 복제 복구 / 실시간 파이프라인 / HA 구성' },
-  { cls: 'line-sep',    text: '━'.repeat(60) },
-];
-
-const CONTACT_LINES = [
-  { cls: 'line-sep',    text: '━'.repeat(60) },
-  { cls: 'line-head',   text: '  CONTACT' },
-  { cls: 'line-sep',    text: '━'.repeat(60) },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-accent', text: '  Email   : sky14786@gmail.com' },
-  { cls: 'line-accent', text: '  GitHub  : https://github.com/sky14786' },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-out',    text: '  Location: 서울 · 경기 · 대전 · 재택 가능' },
-  { cls: 'line-out',    text: '  Status  : 구직 중 (2026.06 현재)' },
-  { cls: 'line-dim',    text: '' },
-  { cls: 'line-sep',    text: '━'.repeat(60) },
-];
-
-/* ============================================================
-   RENDER HELPERS
-   ============================================================ */
-
-/**
- * Append a single DOM line to #output.
- * cls can be one of the .line-* CSS classes, or 'ascii-header', 'career-title', 'skill-row'.
- */
-function appendLine(text = '', cls = 'line-out') {
-  const div = document.createElement('div');
-  div.className = `output-block ${cls}`;
-  div.textContent = text;
-  output.appendChild(div);
-}
-
-function appendBlank() {
-  appendLine('');
-}
-
-function appendPromptEcho(cmd) {
-  appendLine(PROMPT_STR + cmd, 'line-cmd');
-}
-
-function renderLines(lines) {
-  lines.forEach(l => appendLine(l.text, l.cls));
-}
-
-function renderCareerEntry(entry, idx) {
-  appendLine('');
-  appendLine(`  ${entry.title}`, 'career-title');
-  appendLine(`  ${entry.period}`, 'career-period');
-  appendLine(`  Stack: ${entry.stack}`, 'line-dim');
-  appendLine('  ' + '─'.repeat(60), 'line-sep');
-  entry.items.forEach(item => {
-    appendLine(`  • ${item}`, 'line-out');
+﻿/* =============================================
+   ENVIRONMENT — Grafana base URL (로컬/프로덕션 자동 전환)
+   ============================================= */
+(function () {
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!isLocal) return;
+  const PROD  = 'https://skydev.ddns.net/metric';
+  const LOCAL = 'http://localhost:3000';
+  document.querySelectorAll('iframe.gpanel[data-src]').forEach(f => {
+    f.dataset.src = f.dataset.src.replace(PROD, LOCAL);
   });
-}
+})();
 
-function scrollBottom() {
-  terminalBody.scrollTop = terminalBody.scrollHeight;
-}
+/* =============================================
+   CUSTOM CURSOR
+   ============================================= */
+const dot  = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
 
-/* ============================================================
-   COMMAND PROCESSOR
-   ============================================================ */
-
-const TAB_CANDIDATES = [
-  'help', 'whoami', 'ls', 'clear', 'history',
-  'cat career', 'cat career 1', 'cat career 2', 'cat career 3', 'cat career 4',
-  'cat projects', 'cat skills', 'cat contact',
-];
-
-function processCommand(raw) {
-  const cmd = raw.trim();
-
-  if (cmd === '') {
-    appendBlank();
-    return;
-  }
-
-  appendPromptEcho(cmd);
-
-  // Add to history (avoid duplicate consecutive)
-  if (historyList[historyList.length - 1] !== cmd) {
-    historyList.push(cmd);
-  }
-  historyIndex = historyList.length;
-
-  const parts = cmd.toLowerCase().split(/\s+/);
-  const verb  = parts[0];
-  const arg1  = parts[1];
-  const arg2  = parts[2];
-
-  switch (verb) {
-    case 'whoami':
-      renderLines(WHOAMI_LINES);
-      break;
-
-    case 'ls':
-      renderLines(LS_LINES);
-      break;
-
-    case 'help':
-      renderLines(HELP_LINES);
-      break;
-
-    case 'clear':
-      output.innerHTML = '';
-      return; // skip blank line at bottom
-
-    case 'history':
-      appendLine('');
-      if (historyList.length === 0) {
-        appendLine('  (no history)', 'line-dim');
-      } else {
-        historyList.forEach((h, i) => {
-          appendLine(`  ${String(i + 1).padStart(3)}  ${h}`, 'line-dim');
-        });
-      }
-      break;
-
-    case 'cat':
-      if (!arg1) {
-        appendLine("  cat: missing operand. try 'cat career'", 'line-err');
-      } else if (arg1 === 'career') {
-        if (!arg2) {
-          // Full career
-          appendLine('');
-          appendLine('  ┌─────────────────────────────────────────────────────────────────┐', 'line-sep');
-          appendLine('  │                        CAREER HISTORY                          │', 'line-head');
-          appendLine('  └─────────────────────────────────────────────────────────────────┘', 'line-sep');
-          CAREER_ENTRIES.forEach((e, i) => renderCareerEntry(e, i));
-          appendLine('');
-          appendLine('  ' + '━'.repeat(68), 'line-sep');
-        } else {
-          const num = parseInt(arg2, 10);
-          if (isNaN(num) || num < 1 || num > 4) {
-            appendLine(`  cat career: invalid index "${arg2}". Use 1–4.`, 'line-err');
-          } else {
-            appendLine('');
-            renderCareerEntry(CAREER_ENTRIES[num - 1], num - 1);
-            appendLine('');
-          }
-        }
-      } else if (arg1 === 'projects') {
-        renderLines(PROJECTS_LINES);
-      } else if (arg1 === 'skills') {
-        renderLines(SKILLS_LINES);
-      } else if (arg1 === 'contact') {
-        renderLines(CONTACT_LINES);
-      } else {
-        appendLine(`  cat: ${arg1}: No such file or directory`, 'line-err');
-      }
-      break;
-
-    default:
-      appendLine(`  command not found: ${cmd}`, 'line-err');
-      appendLine("  type 'help' for available commands.", 'line-dim');
-      break;
-  }
-
-  appendBlank();
-}
-
-/* ============================================================
-   TAB AUTOCOMPLETE
-   ============================================================ */
-function tabComplete() {
-  const val = currentInput.toLowerCase().trimStart();
-  if (val === '') return;
-
-  const matches = TAB_CANDIDATES.filter(c => c.startsWith(val));
-  if (matches.length === 0) return;
-
-  if (matches.length === 1) {
-    currentInput = matches[0];
-    updateDisplay();
-  } else {
-    // Show options
-    appendLine('');
-    appendLine('  ' + matches.join('   '), 'line-dim');
-    scrollBottom();
-  }
-}
-
-/* ============================================================
-   INPUT DISPLAY
-   ============================================================ */
-function updateDisplay() {
-  inputDisplay.textContent = currentInput;
-  scrollBottom();
-}
-
-/* ============================================================
-   KEYBOARD HANDLERS
-   ============================================================ */
-function handleKeyDown(e) {
-  if (isTyping) return;
-
-  switch (e.key) {
-    case 'Enter':
-      e.preventDefault();
-      const cmd = currentInput;
-      currentInput = '';
-      updateDisplay();
-      processCommand(cmd);
-      scrollBottom();
-      break;
-
-    case 'Backspace':
-      e.preventDefault();
-      if (currentInput.length > 0) {
-        currentInput = currentInput.slice(0, -1);
-        updateDisplay();
-      }
-      break;
-
-    case 'Tab':
-      e.preventDefault();
-      tabComplete();
-      break;
-
-    case 'ArrowUp':
-      e.preventDefault();
-      if (historyList.length === 0) break;
-      historyIndex = Math.max(0, historyIndex - 1);
-      currentInput = historyList[historyIndex] || '';
-      updateDisplay();
-      break;
-
-    case 'ArrowDown':
-      e.preventDefault();
-      if (historyList.length === 0) break;
-      historyIndex = Math.min(historyList.length, historyIndex + 1);
-      currentInput = historyIndex < historyList.length ? historyList[historyIndex] : '';
-      updateDisplay();
-      break;
-
-    case 'l':
-      if (e.ctrlKey) {
-        e.preventDefault();
-        output.innerHTML = '';
-      }
-      break;
-
-    default:
-      break;
-  }
-}
-
-function handleKeyPress(e) {
-  if (isTyping) return;
-  if (e.ctrlKey || e.metaKey || e.altKey) return;
-  if (e.key.length !== 1) return;
-
-  e.preventDefault();
-  currentInput += e.key;
-  updateDisplay();
-}
-
-/* Mobile: sync hidden input to display */
-function handleHiddenInput() {
-  if (isTyping) {
-    hiddenInput.value = '';
-    return;
-  }
-  currentInput = hiddenInput.value;
-  updateDisplay();
-}
-
-/* ============================================================
-   WELCOME SEQUENCE — typewriter auto-run
-   ============================================================ */
-
-/**
- * Type a string into the input display character by character,
- * then "execute" it after a short pause.
- */
-function typeAndExecute(cmd, speed = 55) {
-  return new Promise(resolve => {
-    let i = 0;
-    currentInput = '';
-    updateDisplay();
-
-    const interval = setInterval(() => {
-      if (i < cmd.length) {
-        currentInput += cmd[i];
-        updateDisplay();
-        i++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          const toRun = currentInput;
-          currentInput = '';
-          updateDisplay();
-          processCommand(toRun);
-          scrollBottom();
-          setTimeout(resolve, 600);
-        }, 400);
-      }
-    }, speed);
-  });
-}
-
-/**
- * Print a line with a small delay (used for the banner).
- */
-function printLinesAnimated(lines, delayBetween = 40) {
-  return new Promise(resolve => {
-    let i = 0;
-    function next() {
-      if (i >= lines.length) {
-        resolve();
-        return;
-      }
-      const l = lines[i++];
-      appendLine(l.text || l, l.cls || 'ascii-header');
-      scrollBottom();
-      setTimeout(next, delayBetween);
-    }
-    next();
-  });
-}
-
-async function runWelcome() {
-  isTyping = true;
-
-  // 1. ASCII banner (animate line by line)
-  await printLinesAnimated(
-    ASCII_BANNER.map(t => ({ text: t, cls: 'ascii-header' })),
-    35
-  );
-
-  // Subtitle
-  await new Promise(r => setTimeout(r, 100));
-  appendLine('');
-  appendLine('  Backend Engineer / System Operator', 'line-head');
-  appendLine('  v1.0.0  —  type  help  to get started', 'line-dim');
-  appendLine('');
-
-  await new Promise(r => setTimeout(r, 600));
-
-  // 2. Auto-run whoami
-  await typeAndExecute('whoami', 50);
-
-  // 3. Auto-run ls
-  await typeAndExecute('ls', 55);
-
-  isTyping = false;
-  scrollBottom();
-}
-
-/* ============================================================
-   FOCUS MANAGEMENT
-   ============================================================ */
-
-function focusTerminal() {
-  hiddenInput.focus({ preventScroll: true });
-}
-
-// Click anywhere on terminal → focus
-terminalBody.addEventListener('click', focusTerminal);
-document.addEventListener('click', focusTerminal);
-
-// Keyboard events on document (desktop)
-document.addEventListener('keydown', handleKeyDown);
-document.addEventListener('keypress', handleKeyPress);
-
-// Mobile input via hidden input
-hiddenInput.addEventListener('input', () => {
-  if (isTyping) { hiddenInput.value = ''; return; }
-  currentInput = hiddenInput.value;
-  updateDisplay();
+document.addEventListener('mousemove', e => {
+  dot.style.left  = e.clientX + 'px';
+  dot.style.top   = e.clientY + 'px';
+  ring.style.left = e.clientX + 'px';
+  ring.style.top  = e.clientY + 'px';
 });
 
-// Handle Enter / Backspace on mobile via keydown on hiddenInput
-hiddenInput.addEventListener('keydown', (e) => {
-  if (isTyping) return;
+// Hover state on interactive elements
+document.querySelectorAll('a, button, .brut-card, .stag, .btag, #cmd-list li').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
 
-  if (e.key === 'Enter') {
+/* =============================================
+   SCROLL PROGRESS
+   ============================================= */
+const prog = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (window.scrollY / total * 100) + '%';
+}, { passive: true });
+
+/* =============================================
+   NAV — FLOATING PILL
+   ============================================= */
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('floating', window.scrollY > 80);
+}, { passive: true });
+
+/* =============================================
+   KINETIC TYPOGRAPHY — Decode Effect
+   ============================================= */
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%';
+
+function decodeText(el, finalText, delay = 0) {
+  // Split into char spans
+  el.innerHTML = '';
+  const chars = [...finalText];
+  const spans = chars.map(ch => {
+    const s = document.createElement('span');
+    s.className = ch === ' ' ? 'char-space' : 'char';
+    s.textContent = ch === ' ' ? '' : CHARS[Math.floor(Math.random() * CHARS.length)];
+    el.appendChild(s);
+    return s;
+  });
+
+  spans.forEach((s, i) => {
+    if (s.classList.contains('char-space')) return;
+    const charDelay = delay + i * 50;
+    // Scramble phase
+    let scrambleCount = 0;
+    const scramble = setInterval(() => {
+      s.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+      scrambleCount++;
+      if (scrambleCount > 4) clearInterval(scramble);
+    }, 60);
+    // Reveal final char
+    setTimeout(() => {
+      clearInterval(scramble);
+      s.textContent = chars[i];
+      s.classList.add('visible');
+    }, charDelay);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    decodeText(document.getElementById('word1'), 'JuneYoung', 200);
+    decodeText(document.getElementById('word2'), 'Kim.', 700);
+  }, 100);
+});
+
+/* =============================================
+   STAT COUNTERS
+   ============================================= */
+function countUp(el, target, suffix, duration = 1400) {
+  const numEl = el.querySelector('.stat-n');
+  const labelEl = el.querySelector('.stat-l');
+  const start = performance.now();
+  const tick = now => {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 4);
+    numEl.textContent = Math.floor(ease * target) + (p === 1 ? suffix : '');
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    countUp(el, +el.dataset.val, el.dataset.sfx);
+    statObs.unobserve(el);
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll('.stat[data-val]').forEach(el => statObs.observe(el));
+
+/* =============================================
+   SCROLL STORYTELLING — Reveal Cards
+   ============================================= */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.brut-card').forEach((el, i) => {
+  el.style.transitionDelay = (i % 2 === 0 ? 0 : 0.1) + 's';
+  revealObs.observe(el);
+});
+
+// Stagger skill tags
+document.querySelectorAll('.stag').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(12px)';
+  el.style.transition = `opacity .4s ease ${i * 30}ms, transform .4s ease ${i * 30}ms`;
+});
+
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stag').forEach(tag => {
+        tag.style.opacity = '';
+        tag.style.transform = '';
+      });
+      skillObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelector('.skills-wrap') && skillObs.observe(document.querySelector('.skills-wrap'));
+
+/* =============================================
+   COMMAND PALETTE
+   ============================================= */
+const overlay  = document.getElementById('cmd-overlay');
+const input    = document.getElementById('cmd-input');
+const list     = document.getElementById('cmd-list');
+
+const ITEMS = [
+  { icon: '→', label: '다기관 병원 유지보수', hint: '2025', action: () => scrollToSection('#c-hospital') },
+  { icon: '→', label: '해외 IPTV 플랫폼 운영', hint: '2021', action: () => scrollToSection('#c-iptv') },
+  { icon: '→', label: 'MAI-WACS 파이프라인', hint: '2022', action: () => scrollToSection('#c-wacs') },
+  { icon: '→', label: 'IPTV 어드민 개발', hint: '2020', action: () => scrollToSection('#c-admin') },
+  { icon: '◈', label: 'metric-stream', hint: 'project', action: () => scrollToSection('#p-metric') },
+  { icon: '#', label: 'Skills', hint: 'section', action: () => scrollToSection('#skills') },
+  { icon: '↗', label: 'GitHub', hint: 'external', action: () => window.open('https://github.com/sky14786', '_blank') },
+];
+
+function scrollToSection(sel) {
+  const el = document.querySelector(sel);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  close();
+}
+
+function open() {
+  overlay.classList.remove('hidden');
+  input.value = '';
+  render(ITEMS);
+  setTimeout(() => input.focus(), 50);
+}
+function close() { overlay.classList.add('hidden'); }
+
+function render(items) {
+  list.innerHTML = items.map((it, i) => `
+    <li data-i="${i}">
+      <span class="cmd-icon">${it.icon}</span>
+      <span class="cmd-label">${it.label}</span>
+      <span class="cmd-hint">${it.hint}</span>
+    </li>
+  `).join('');
+  list.querySelectorAll('li').forEach(li => {
+    li.addEventListener('click', () => items[+li.dataset.i].action());
+    li.addEventListener('mouseenter', () => {
+      document.body.classList.add('cursor-hover');
+      list.querySelectorAll('li').forEach(x => x.classList.remove('active'));
+      li.classList.add('active');
+    });
+    li.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+  if (list.firstElementChild) list.firstElementChild.classList.add('active');
+}
+
+// Keyboard nav
+let filteredItems = [...ITEMS];
+input.addEventListener('input', () => {
+  const q = input.value.toLowerCase();
+  filteredItems = ITEMS.filter(it => it.label.toLowerCase().includes(q) || it.hint.toLowerCase().includes(q));
+  render(filteredItems);
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); open(); return; }
+  if (e.key === 'Escape') { close(); return; }
+  if (overlay.classList.contains('hidden')) return;
+
+  const items = list.querySelectorAll('li');
+  const active = list.querySelector('li.active');
+  let idx = [...items].indexOf(active);
+
+  if (e.key === 'ArrowDown') {
     e.preventDefault();
-    const cmd = hiddenInput.value.trim() || currentInput;
-    hiddenInput.value = '';
-    currentInput = '';
-    updateDisplay();
-    processCommand(cmd);
-    scrollBottom();
-  } else if (e.key === 'Backspace') {
-    // Let the browser handle it; the 'input' event will sync
+    idx = (idx + 1) % items.length;
+    items.forEach((li,i) => li.classList.toggle('active', i === idx));
   } else if (e.key === 'ArrowUp') {
     e.preventDefault();
-    if (historyList.length === 0) return;
-    historyIndex = Math.max(0, historyIndex - 1);
-    currentInput = historyList[historyIndex] || '';
-    hiddenInput.value = currentInput;
-    updateDisplay();
-  } else if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    if (historyList.length === 0) return;
-    historyIndex = Math.min(historyList.length, historyIndex + 1);
-    currentInput = historyIndex < historyList.length ? historyList[historyIndex] : '';
-    hiddenInput.value = currentInput;
-    updateDisplay();
-  } else if (e.key === 'Tab') {
-    e.preventDefault();
-    tabComplete();
-    hiddenInput.value = currentInput;
+    idx = (idx - 1 + items.length) % items.length;
+    items.forEach((li,i) => li.classList.toggle('active', i === idx));
+  } else if (e.key === 'Enter') {
+    if (active) filteredItems[idx]?.action();
   }
 });
 
-/* ============================================================
-   BOOT
-   ============================================================ */
-window.addEventListener('DOMContentLoaded', () => {
-  focusTerminal();
-  runWelcome();
+document.getElementById('cmd-trigger').addEventListener('click', open);
+overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+
+/* =============================================
+   ARCHITECTURE DIAGRAM TOGGLE (모바일 전용)
+   ============================================= */
+/* =============================================
+   CONTACT — EMAIL OBFUSCATION
+   ============================================= */
+(function() {
+  const u = 'sky14786', d = 'gmail.com';
+  const email = u + '@' + d;
+  const link = document.getElementById('email-link');
+  const text = document.getElementById('email-text');
+  if (link && text) {
+    link.href = 'mailto:' + email;
+    text.textContent = email;
+  }
+})();
+
+/* =============================================
+   ARCHITECTURE DIAGRAM TOGGLE (모바일 전용)
+   ============================================= */
+if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+  document.querySelectorAll('.arch-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const diagram = btn.nextElementSibling;
+      const isOpen = diagram.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+}
+
+/* =============================================
+   ARCHITECTURE LIGHTBOX
+   ============================================= */
+(function() {
+  const lightbox = document.getElementById('arch-lightbox');
+  const inner    = document.getElementById('arch-lightbox-inner');
+  const closeBtn = document.getElementById('arch-lightbox-close');
+  const escHint  = document.getElementById('arch-lightbox-esc');
+
+  function openLightbox(svg) {
+    const clone = svg.cloneNode(true);
+    // 기존 SVG 클론 제거 후 삽입
+    inner.querySelectorAll('svg').forEach(s => s.remove());
+    inner.insertBefore(clone, closeBtn);
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+  }
+
+  document.querySelectorAll('.arch-diagram svg').forEach(svg => {
+    svg.addEventListener('click', () => openLightbox(svg));
+    svg.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    svg.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  closeBtn.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  closeBtn.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+})();
+
+/* =============================================
+   THEME SWITCHER
+   ============================================= */
+const THEMES = {
+  lime:    { accent:'#a3e635', ar:'163,230,53'  },
+  indigo:  { accent:'#4338ca', ar:'67,56,202'   },
+  orange:  { accent:'#ea580c', ar:'234,88,12'   },
+  forest:  { accent:'#166534', ar:'22,101,52'   },
+  crimson: { accent:'#dc2626', ar:'220,38,38'   },
+  olive:   { accent:'#65a30d', ar:'101,163,13'  },
+  violet:  { accent:'#7c3aed', ar:'124,58,237'  },
+};
+
+const root = document.documentElement;
+document.querySelectorAll('.tsw-dot').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = THEMES[btn.dataset.t];
+    root.style.setProperty('--accent',  t.accent);
+    root.style.setProperty('--ar',      t.ar);
+    root.style.setProperty('--accent2', t.accent);
+    document.querySelectorAll('.tsw-dot').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+  btn.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  btn.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
+
+/* =============================================
+   GRAFANA PREVIEW — 뷰포트 진입 시 로드
+   ============================================= */
+const previewObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const f = e.target;
+      if (f.dataset.src) f.src = f.dataset.src;
+      previewObs.unobserve(f);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('iframe[data-src].gpanel-preview').forEach(f => previewObs.observe(f));
+
+/* =============================================
+   GRAFANA MODAL
+   ============================================= */
+(function() {
+  const modal   = document.getElementById('grafana-modal');
+  const openBtn = document.getElementById('grafana-open');
+  const closeBackdrop = document.getElementById('grafana-modal-close');
+  const closeX  = document.getElementById('grafana-modal-x');
+  if (!modal || !openBtn) return;
+
+  function openModal() {
+    modal.querySelectorAll('iframe[data-src]').forEach(f => {
+      if (!f.src || f.src === window.location.href) f.src = f.dataset.src;
+    });
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    modal.querySelectorAll('iframe[data-src]').forEach(f => { f.src = ''; });
+  }
+
+  openBtn.addEventListener('click', openModal);
+  openBtn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(); });
+  closeBackdrop.addEventListener('click', closeModal);
+  closeX.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
+
+/* =============================================
+   NAV SCROLL SPY
+   ============================================= */
+const navLinks   = document.querySelectorAll('.nav-center a[href^="#"]');
+const spySections = document.querySelectorAll('section[id]');
+
+const spyObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+    });
+  });
+}, {
+  threshold: 0.25,
+  rootMargin: '-10% 0px -60% 0px'
+});
+
+spySections.forEach(s => spyObs.observe(s));

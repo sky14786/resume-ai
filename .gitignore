@@ -1,3 +1,7 @@
+# impeccable dev tool (local junction, not committed)
+.agents/
+.impeccable/
+
 # wrangler files
 .wrangler
 .dev.vars*
