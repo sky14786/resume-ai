@@ -1105,7 +1105,9 @@
     .vsw-dot:hover { transform: scale(1.15); }
     .vsw-dot.active { background: var(--accent); color: #fff; }
     @media (max-width: 768px) {
-      #version-sw { bottom: 16px; right: 16px; }
+      #version-sw { bottom: 16px; right: 16px; left: 16px; }
+      #version-sw .vsw-panel { flex-wrap: wrap; justify-content: flex-end; max-width: 100%; }
+      #version-sw .vsw-dot { height: 30px; padding: 0 9px; }
     }
   </style>
 </head>
