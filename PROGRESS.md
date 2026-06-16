@@ -45,6 +45,18 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 
 ## 완료된 작업
 
+### 이번 세션 완료 (2026-06-16) — 버전 전환 위젯 + 컬러 기본값 정리
+- [x] v1, v2 기본 accent 컬러 Violet → Lime로 되돌림 (`--accent`/`--accent2`/`--ar`)
+- [x] v1, v2 컬러 테마 스위처(`#theme-sw`) 임시 숨김 — `display:none`만 적용, 코드/기능은 그대로 보존 (나중에 다시 노출 가능)
+- [x] v1~v7 전체에 **버전 전환 위젯**(`#version-sw`) 추가 — 화면 우하단 고정, 숫자 배지(1~7) 클릭 시 같은 탭에서 `../vN/` 경로로 즉시 이동
+  - v1/v2: 기존 `.tsw-dot` 컬러 스위처와 같은 자리/스타일 패턴 재사용
+  - v3/v4: White Glass/Minimal 글래스모피즘 톤에 맞춰 `--card-bg`/`--shadow-card` 사용
+  - v5: Heavy Editorial 플랫 스타일에 맞춰 `--line`/`--red`만 사용 (블러 없음)
+  - v6: Spatial Cards Dark 다크 배경에 맞춰 `--surface`/`--border-h` 사용
+  - v7: Ruled Paper 톤에 맞춰 `--rule`/`--accent` 사용
+  - 7개 버전 모두 인쇄(`@media print`) 시 숨김 처리
+- [x] 로컬 도커(`http://localhost:5000/v1/`~`/v7/`)에서 7개 전부 정상 응답 확인
+
 ### v1 / v2 / v3 기본 구조 (이전 세션)
 - [x] v1: 3테마, 타이핑 애니메이션, Career/Skills/Footer
 - [x] v2: Bento Grid, spotlight, 앰버 테마

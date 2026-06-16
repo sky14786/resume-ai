@@ -56,7 +56,7 @@
 
     /* ── PRINT ── */
     @media print {
-      .nav, .print-btn { display: none !important; }
+      .nav, .print-btn, #version-sw { display: none !important; }
       body { background-image: none; }
       section { page-break-inside: avoid; }
     }
@@ -632,6 +632,46 @@
       .contact-key { min-width: unset; }
 
       .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── VERSION SWITCHER ── */
+    #version-sw {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 8000;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+    }
+    .vsw-dot {
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      font-size: 11px; font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, border-color 0.15s;
+      position: relative;
+    }
+    .vsw-dot::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: calc(100% + 6px); left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      padding: 2px 8px;
+      white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .vsw-dot:hover::after { opacity: 1; }
+    .vsw-dot:hover { transform: scale(1.15); border-color: var(--accent); }
+    .vsw-dot.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    @media (max-width: 768px) {
+      #version-sw { bottom: 16px; right: 16px; }
     }
   </style>
 </head>
@@ -1304,5 +1344,16 @@
 
     /* ── 5. PDF Print button already inline ── */
   </script>
+
+  <!-- ── VERSION SWITCHER ── -->
+  <div id="version-sw">
+    <a class="vsw-dot"        href="../v1/" data-name="Light">1</a>
+    <a class="vsw-dot"        href="../v2/" data-name="Neobrutalism">2</a>
+    <a class="vsw-dot"        href="../v3/" data-name="White Glass">3</a>
+    <a class="vsw-dot"        href="../v4/" data-name="Minimal">4</a>
+    <a class="vsw-dot"        href="../v5/" data-name="Editorial">5</a>
+    <a class="vsw-dot"        href="../v6/" data-name="Spatial Dark">6</a>
+    <a class="vsw-dot active" href="../v7/" data-name="Ruled Paper">7</a>
+  </div>
 </body>
 </html>

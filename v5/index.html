@@ -748,7 +748,47 @@
       * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
     @media print {
-      .nav, #arch-lightbox { display: none; }
+      .nav, #arch-lightbox, #version-sw { display: none; }
+    }
+
+    /* ── VERSION SWITCHER ── */
+    #version-sw {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 8000;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+    }
+    .vsw-dot {
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg);
+      color: var(--ink);
+      border: 1.5px solid var(--line);
+      border-radius: 50%;
+      font-size: 11px; font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, border-color 0.15s;
+      position: relative;
+    }
+    .vsw-dot::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: calc(100% + 6px); left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 2px 8px;
+      white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .vsw-dot:hover::after { opacity: 1; }
+    .vsw-dot:hover { transform: scale(1.15); border-color: var(--red); }
+    .vsw-dot.active { background: var(--red); border-color: var(--red); color: #fff; }
+    @media (max-width: 768px) {
+      #version-sw { bottom: 16px; right: 16px; }
     }
   </style>
 </head>
@@ -1296,5 +1336,16 @@
     }, { rootMargin: '-40% 0px -55% 0px' });
     sections.forEach(s => ioNav.observe(s));
   </script>
+
+  <!-- ── VERSION SWITCHER ── -->
+  <div id="version-sw">
+    <a class="vsw-dot"        href="../v1/" data-name="Light">1</a>
+    <a class="vsw-dot"        href="../v2/" data-name="Neobrutalism">2</a>
+    <a class="vsw-dot"        href="../v3/" data-name="White Glass">3</a>
+    <a class="vsw-dot"        href="../v4/" data-name="Minimal">4</a>
+    <a class="vsw-dot active" href="../v5/" data-name="Editorial">5</a>
+    <a class="vsw-dot"        href="../v6/" data-name="Spatial Dark">6</a>
+    <a class="vsw-dot"        href="../v7/" data-name="Ruled Paper">7</a>
+  </div>
 </body>
 </html>
