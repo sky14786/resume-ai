@@ -1209,24 +1209,24 @@
           </div>
           <ul class="card-list">
             <li>
-              <span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span>
-              → SLAVE STATUS 에러를 분석하고 순차 스킵으로 복제 재동기화
+              <span class="li-ctx">MySQL 복제 단절 상태로 운영 중</span>
+              → SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화
             </li>
             <li>
               <span class="li-ctx">백업 체계 없이 운영되던 DB</span>
-              → mysqldump와 cron으로 정기 백업 자동화
+              → mysqldump + cron으로 정기 백업 자동화
             </li>
             <li>
-              <span class="li-ctx">Docker binlog가 쌓여 disk full 발생</span>
+              <span class="li-ctx">Docker binlog 누적으로 disk full 발생</span>
               → 파일 truncate로 즉시 해소
             </li>
             <li>
               <span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span>
-              → PG사 모듈 교체 때 단계별 로그를 추가해 이후 원인 추적 가능
+              → PG사 모듈 교체 시 단계별 로그 추가, 이후 원인 추적 가능
             </li>
             <li>
               <span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span>
-              → 헬스체크와 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)
+              → 헬스체크, 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)
             </li>
           </ul>
 
@@ -1325,22 +1325,22 @@
             <span class="career-stat">5년 운영</span>
           </div>
           <ul class="card-list">
-            <li>플랫폼 개발과 운영 담당 (설계, 배포, 장애 대응, 요구사항 대응)</li>
-            <li>해외 고객사 담당자와 커뮤니케이션 (현지 출장, AI 번역 활용)</li>
-            <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+            <li>팀장/레드마인/고객사 DM 등 다채널로 유입되는 요구사항 수신, 경중 판단 후 선조치 또는 보고 후 실행</li>
+            <li>고객사 담당자와 1:1 소통 (현지 출장 , AI 번역 활용), 판단 가능한 건 선조치 후 보고</li>
+            <li>외부 시스템(STB, CMS, DBS) API 유지보수 및 변경 대응</li>
             <li>
-              <span class="li-ctx">Slave DB에서 파티션 DDL을 실행해 binlog 불일치로 복제 중단</span>
-              → 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL을 실행하도록 재구성
+              <span class="li-ctx">Slave DB에서 파티션 DDL 실행 → binlog 불일치로 복제 중단</span>
+              → 해당 테이블 별도 DB로 물리 이전 , Master에서만 DDL 실행하도록 재구성
             </li>
             <li>
-              <span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화 반복</span>
+              <span class="li-ctx">DB 파티션 생성/삭제 수동 관리로 디스크 포화 반복</span>
               → 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화
             </li>
             <li>
-              <span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span>
-              → write-through 전략을 적용해 미스율 감소, 응답 속도 안정화
+              <span class="li-ctx">Redis 캐시 구성은 있었으나 write-through 미적용, 캐시 미스 빈발</span>
+              → write-through 전략 적용으로 미스율 감소 , 응답 속도 안정화
             </li>
-            <li>장애 예방 점검</li>
+            <li>분기별 전체 서버 리소스(CPU, 메모리, 디스크) 및 프로세스 구동 여부 점검, 보고서 제출</li>
           </ul>
 
           <div class="arch-wrap">
@@ -1491,14 +1491,20 @@
             <span class="career-stat">30초 단위 수집</span>
           </div>
           <ul class="card-list">
-            <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 재구축</li>
-            <li>집계 데이터 저장과 시계열 쿼리 최적화</li>
             <li>
-              <span class="li-ctx">pgpool HA를 구성했으나 장애 테스트 때 다운타임 과다</span>
-              → DRBD + Pacemaker로 전환해 DB 무중단 HA 운영
+              <span class="li-ctx">미사용 상태로 방치된 수집 시스템</span>
+              → AI 기반 장애 예측 목적으로 Telegraf → Kafka → Flink 파이프라인 재구축
             </li>
-            <li>수집 지표가 기준치를 넘으면 이메일/SMS를 자동 발송하도록 구현</li>
-            <li>React 기반 실시간 모니터링 대시보드 개발</li>
+            <li>
+              <span class="li-ctx">전체 수집 데이터 조회로 Chart.js 렌더링 지연</span>
+              → 집계 단위 조정으로 사용 가능한 수준으로 개선
+            </li>
+            <li>
+              <span class="li-ctx">pgpool HA 구성했으나 장애 테스트 시 다운타임 과다</span>
+              → DRBD + Pacemaker로 전환 , DB 무중단 HA 운영
+            </li>
+            <li>수집 지표 기준치 설정 UI 개발 (발송 API는 서버에서 제공)</li>
+            <li>React 기반 실시간 모니터링 대시보드 개발 (에러 발생 서버 수, 전체 서버 수, 에러율 시각화)</li>
           </ul>
           <a href="#p-metric" class="proj-link-note">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
 
@@ -1583,7 +1589,7 @@
           <div class="career-head">
             <div>
               <h3 class="career-title">해외 IPTV 플랫폼 어드민</h3>
-              <p class="career-sub">관리자 시스템 개발</p>
+              <p class="career-sub">입사 후 첫 프로젝트로 어드민 시스템 전체 구현 담당</p>
             </div>
             <span class="career-period">2020.07 — 2021.01</span>
           </div>
@@ -1594,10 +1600,10 @@
             <span class="tech-tag">MySQL</span>
           </div>
           <ul class="card-list">
-            <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
+            <li>설계된 어드민 MVC 아키텍처를 Spring Boot + JSP로 전체 구현</li>
             <li>콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발</li>
             <li>광고 활성화, 결제 수단 관리 UI 구현</li>
-            <li>jQuery AJAX 비동기 처리로 페이지 전환 없이 실시간 데이터 갱신</li>
+            <li>jQuery AJAX 비동기 처리, 페이지 전환 없이 실시간 데이터 갱신</li>
           </ul>
 
           <div class="arch-wrap">
@@ -1778,7 +1784,7 @@
           </div>
 
           <ul class="card-list">
-            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능을 단독 설계/구현</li>
+            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능을 설계/구현</li>
             <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
             <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
             <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
