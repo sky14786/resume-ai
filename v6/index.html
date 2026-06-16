@@ -850,7 +850,7 @@
   <section id="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="container">
-      <div class="hero-badge">Backend Engineer · System Operator</div>
+      <div class="hero-badge">Backend Engineer, System Operator</div>
       <h1 class="hero-name">JuneYoung<br/>Kim</h1>
       <p class="hero-desc">시스템 전체를 혼자 책임지는 엔지니어입니다.<br/>백엔드, 인프라, 파이프라인을 맡습니다.</p>
       <p class="hero-ai-note">페이지 구현은 AI에 맡겼습니다.</p>
@@ -889,9 +889,9 @@
             <div>
               <span class="career-year-badge">2025</span>
               <h3 class="career-title">다기관 병원 환자중심 앱</h3>
-              <p class="career-sub">Backend Engineer · 대형 병원 10개소 유지보수</p>
+              <p class="career-sub">대형 병원 10개소 유지보수</p>
             </div>
-            <span class="career-period">2025.08 ~ 2026.02</span>
+            <span class="career-period">2025.08 — 2026.02</span>
           </div>
           <div class="tag-row">
             <span class="tag">Spring Boot</span><span class="tag">MariaDB</span>
@@ -901,25 +901,24 @@
           <div class="stat-row">
             <span class="stat-badge">10개 병원</span>
             <span class="stat-badge">6개월</span>
-            <span class="stat-badge">폐쇄망 온프레미스</span>
           </div>
           <ul class="card-list">
-            <li><span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span>→ SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화</li>
+            <li><span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span>→ SLAVE STATUS 에러를 분석하고 순차 스킵으로 복제 재동기화</li>
             <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump와 cron으로 정기 백업 자동화</li>
-            <li><span class="li-ctx">Docker binlog 누적으로 disk full 발생</span>→ 파일 truncate로 즉시 해소</li>
-            <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span>→ PG사 모듈 교체 때 단계별 로그 추가</li>
+            <li><span class="li-ctx">Docker binlog가 쌓여 disk full 발생</span>→ 파일 truncate로 즉시 해소</li>
+            <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span>→ PG사 모듈 교체 때 단계별 로그를 추가해 이후 원인 추적 가능</li>
             <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span>→ 헬스체크와 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)</li>
           </ul>
           <div class="arch-wrap">
-            <div class="arch-label">Architecture · click to zoom</div>
+            <div class="arch-label">Architecture, click to zoom</div>
             <div class="arch-diagram" data-arch="hospital">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 310">
                 <rect width="800" height="310" fill="#16161a"/>
                 <text x="400" y="22" text-anchor="middle" fill="#818cf8" font-family="'Inter',sans-serif" font-size="10" font-weight="700" letter-spacing="2">HOSPITAL PATIENT APP ARCHITECTURE</text>
-                <text x="400" y="35" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5">대형 병원 10개소 · 폐쇄망 온프레미스</text>
+                <text x="400" y="35" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5">대형 병원 10개소, 폐쇄망 온프레미스</text>
                 <line x1="30" y1="44" x2="770" y2="44" stroke="rgba(129,140,248,0.1)" stroke-width="0.5"/>
                 <rect x="155" y="56" width="622" height="192" fill="rgba(129,140,248,0.02)" stroke="rgba(129,140,248,0.18)" stroke-width="1" stroke-dasharray="5,4" rx="4"/>
-                <text x="165" y="68" fill="rgba(129,140,248,0.4)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES · INTERNAL NETWORK</text>
+                <text x="165" y="68" fill="rgba(129,140,248,0.4)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES, INTERNAL NETWORK</text>
                 <line x1="128" y1="155" x2="156" y2="155" stroke="#818cf8" stroke-width="1.5" opacity="0.6"/>
                 <polygon points="153,151 153,159 161,155" fill="#818cf8" opacity="0.6"/>
                 <line x1="280" y1="155" x2="308" y2="155" stroke="#818cf8" stroke-width="1.5" opacity="0.6"/>
@@ -945,19 +944,19 @@
                 <text x="222" y="173" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="6.5">per hospital</text>
                 <rect x="309" y="132" width="121" height="48" rx="6" fill="rgba(129,140,248,0.06)" stroke="rgba(129,140,248,0.3)" stroke-width="1.2"/>
                 <text x="370" y="150" text-anchor="middle" fill="#818cf8" font-family="'Inter',sans-serif" font-size="9" font-weight="700">NGINX LB</text>
-                <text x="370" y="162" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">Docker · on-prem</text>
+                <text x="370" y="162" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">Docker, on-prem</text>
                 <text x="370" y="173" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="6.5">load balancing</text>
                 <rect x="457" y="132" width="123" height="48" rx="6" fill="rgba(129,140,248,0.06)" stroke="rgba(129,140,248,0.3)" stroke-width="1.2"/>
                 <text x="518" y="150" text-anchor="middle" fill="#818cf8" font-family="'Inter',sans-serif" font-size="9" font-weight="700">API SERVER</text>
-                <text x="518" y="162" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">Spring Boot · Docker</text>
+                <text x="518" y="162" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">Spring Boot, Docker</text>
                 <text x="518" y="173" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="6.5">on-premises</text>
                 <rect x="621" y="98" width="148" height="48" rx="6" fill="rgba(129,140,248,0.07)" stroke="rgba(129,140,248,0.35)" stroke-width="1.2"/>
                 <text x="695" y="116" text-anchor="middle" fill="#818cf8" font-family="'Inter',sans-serif" font-size="9" font-weight="700">DB 1 (MASTER)</text>
-                <text x="695" y="128" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">MariaDB · Docker</text>
+                <text x="695" y="128" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">MariaDB, Docker</text>
                 <text x="695" y="139" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="6.5">on-premises</text>
                 <rect x="621" y="167" width="148" height="48" rx="6" fill="rgba(129,140,248,0.04)" stroke="rgba(129,140,248,0.22)" stroke-width="1.2"/>
                 <text x="695" y="185" text-anchor="middle" fill="#818cf8" font-family="'Inter',sans-serif" font-size="9" font-weight="700">DB 2 (SLAVE)</text>
-                <text x="695" y="197" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">MariaDB · Docker</text>
+                <text x="695" y="197" text-anchor="middle" fill="#a0a0a8" font-family="'Inter',sans-serif" font-size="7">MariaDB, Docker</text>
                 <text x="695" y="208" text-anchor="middle" fill="#555560" font-family="'Inter',sans-serif" font-size="6.5">on-premises</text>
                 <text x="72"  y="295" text-anchor="middle" fill="#2a2a30" font-family="'Inter',sans-serif" font-size="7" letter-spacing="1.5" font-weight="600">CLIENT</text>
                 <text x="222" y="295" text-anchor="middle" fill="#2a2a30" font-family="'Inter',sans-serif" font-size="7" letter-spacing="1.5" font-weight="600">EDGE</text>
@@ -974,29 +973,27 @@
           <div class="career-top">
             <div>
               <span class="career-year-badge">2021</span>
-              <h3 class="career-title">해외 IPTV 플랫폼</h3>
-              <p class="career-sub">Backend Engineer · System Operator · 5년 개발/운영</p>
+              <h3 class="career-title">태국 IPTV 플랫폼</h3>
+              <p class="career-sub">가입자 100만 규모 플랫폼, 5년 개발/운영</p>
             </div>
-            <span class="career-period">2021.01 ~ 2025.12</span>
+            <span class="career-period">2021.01 — 2025.12</span>
           </div>
           <div class="tag-row">
             <span class="tag">Spring Boot</span><span class="tag">Redis</span>
             <span class="tag">RabbitMQ</span><span class="tag">MySQL</span>
-            <span class="tag">Nginx</span><span class="tag">Jenkins</span>
           </div>
           <div class="stat-row">
             <span class="stat-badge">100만 가입자</span>
             <span class="stat-badge">5년 운영</span>
-            <span class="stat-badge">온프레미스</span>
           </div>
           <ul class="card-list">
-            <li>팀장/레드마인/고객사 DM 등 다채널로 유입되는 요구사항 수신, 경중 판단 후 선조치 또는 보고 후 실행</li>
-            <li>고객사 담당자와 1:1 소통 (현지 출장, AI 번역 활용), 단독 판단 가능한 건 선조치 후 보고</li>
-            <li>외부 시스템(STB, CMS, DBS) API 유지보수 및 변경 대응</li>
-            <li><span class="li-ctx">Slave DB에서 파티션 DDL 실행 → binlog 불일치로 복제 중단</span>→ 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL 실행하도록 재구성</li>
+            <li>플랫폼 개발과 운영 담당 (설계, 배포, 장애 대응, 요구사항 대응)</li>
+            <li>해외 고객사 담당자와 커뮤니케이션 (현지 출장, AI 번역 활용)</li>
+            <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+            <li><span class="li-ctx">Slave DB에서 파티션 DDL을 실행해 binlog 불일치로 복제 중단</span>→ 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL을 실행하도록 재구성</li>
             <li><span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화 반복</span>→ 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
-            <li><span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span>→ write-through 전략 적용으로 미스율 감소, 응답 속도 안정화</li>
-            <li>분기별 전체 서버 리소스(CPU, 메모리, 디스크) 및 프로세스 구동 여부 점검, 보고서 제출</li>
+            <li><span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span>→ write-through 전략을 적용해 미스율 감소, 응답 속도 안정화</li>
+            <li>장애 예방 점검</li>
           </ul>
         </div>
 
@@ -1008,7 +1005,7 @@
               <h3 class="career-title">모니터링 시스템 재구축</h3>
               <p class="career-sub">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
             </div>
-            <span class="career-period">2022.06 ~ 2023.10</span>
+            <span class="career-period">2022.06 — 2023.10</span>
           </div>
           <div class="tag-row">
             <span class="tag">Kafka</span><span class="tag">Flink</span>
@@ -1020,11 +1017,11 @@
             <span class="stat-badge">30초 단위 수집</span>
           </div>
           <ul class="card-list">
-            <li><span class="li-ctx">미사용 상태로 방치된 수집 시스템</span>→ AI 기반 장애 예측 목적으로 Telegraf → Kafka → Flink 파이프라인 재구축</li>
-            <li><span class="li-ctx">전체 수집 데이터 조회로 Chart.js 렌더링 지연</span>→ 집계 단위 조정으로 사용 가능한 수준으로 개선</li>
-            <li><span class="li-ctx">pgpool HA 구성했으나 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환, DB 무중단 HA 운영</li>
-            <li>수집 지표 기준치 초과 시 이메일/SMS 알림 UI 및 발송 API 연동 구현</li>
-            <li>React 기반 실시간 모니터링 대시보드 개발 (에러 발생 서버 수, 전체 서버 수, 에러율 시각화)</li>
+            <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 재구축</li>
+            <li>집계 데이터 저장과 시계열 쿼리 최적화</li>
+            <li><span class="li-ctx">pgpool HA를 구성했으나 장애 테스트 때 다운타임 과다</span>→ DRBD + Pacemaker로 전환해 DB 무중단 HA 운영</li>
+            <li>수집 지표가 기준치를 넘으면 이메일/SMS를 자동 발송하도록 구현</li>
+            <li>React 기반 실시간 모니터링 대시보드 개발</li>
           </ul>
           <a class="proj-ref" href="#projects">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
         </div>
@@ -1037,7 +1034,7 @@
               <h3 class="career-title">해외 IPTV 플랫폼 어드민</h3>
               <p class="career-sub">관리자 시스템 개발</p>
             </div>
-            <span class="career-period">2020.07 ~ 2021.01</span>
+            <span class="career-period">2020.07 — 2021.01</span>
           </div>
           <div class="tag-row">
             <span class="tag">Spring Boot</span><span class="tag">JSP</span>
@@ -1047,7 +1044,7 @@
             <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
             <li>콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발</li>
             <li>광고 활성화, 결제 수단 관리 UI 구현</li>
-            <li>jQuery AJAX 비동기 처리, 페이지 전환 없이 실시간 데이터 갱신</li>
+            <li>jQuery AJAX 비동기 처리로 페이지 전환 없이 실시간 데이터 갱신</li>
           </ul>
         </div>
 
@@ -1065,12 +1062,12 @@
         </div>
         <h2 class="section-title">Projects</h2>
       </div>
-      <p class="proj-note">설계·기획은 본인, 구현은 AI(Claude)에 위임한 프로젝트입니다.</p>
+      <p class="proj-note">설계, 기획은 본인, 구현은 AI(Claude)에 위임한 프로젝트입니다.</p>
       <div class="proj-stack">
 
         <!-- metric-stream -->
         <div class="card elevated proj-card reveal">
-          <p class="proj-eyebrow">Personal Project · 2026</p>
+          <p class="proj-eyebrow">Personal Project, 2026</p>
           <h3 class="proj-title">metric-stream</h3>
           <p class="proj-desc">실시간 서버 API 로그 수집 파이프라인</p>
           <div class="tag-row">
@@ -1080,7 +1077,7 @@
             <span class="tag">Docker</span><span class="tag">Java 17</span>
           </div>
           <ul class="card-list">
-            <li>API 로그를 실시간 수집해 저장, 조회까지 이어지는 파이프라인 구성 (AI 구현)</li>
+            <li>API 로그를 실시간 수집해 저장과 조회까지 잇는 파이프라인 구성 (AI 구현)</li>
             <li>분당 900건 규모 로그를 자동 생성해 파이프라인 전 구간 동작 검증</li>
             <li>Grafana 대시보드로 요청량, 에러율, 응답시간 실시간 모니터링</li>
             <li>Docker Compose 한 명령으로 Kafka, DB, Grafana 전체 인프라 구동</li>
@@ -1105,7 +1102,7 @@
 
         <!-- redstone -->
         <div class="card proj-card reveal">
-          <p class="proj-eyebrow">Personal Project · 2025</p>
+          <p class="proj-eyebrow">Personal Project, 2025</p>
           <h3 class="proj-title">redstone</h3>
           <p class="proj-desc">게임 아이템 거래 커뮤니티 포털</p>
           <div class="tag-row">
@@ -1114,7 +1111,7 @@
             <span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Nginx</span>
           </div>
           <ul class="card-list">
-            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능 단독 설계/구현</li>
+            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능을 단독 설계/구현</li>
             <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
             <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
             <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
@@ -1221,7 +1218,7 @@
             </div>
             <div>
               <p class="meta-label">지역</p>
-              <p class="meta-val">서울 · 경기 · 대전 · 재택 가능</p>
+              <p class="meta-val">서울, 경기, 대전, 재택 가능</p>
             </div>
             <div>
               <p class="meta-label">경력</p>
@@ -1265,7 +1262,7 @@
 
   <footer>
     <div class="container">
-      <p>JuneYoung Kim — Backend Engineer &nbsp;·&nbsp; <a href="https://github.com/sky14786" target="_blank">GitHub ↗</a></p>
+      <p>JuneYoung Kim — Backend Engineer, <a href="https://github.com/sky14786" target="_blank">GitHub ↗</a></p>
     </div>
   </footer>
 

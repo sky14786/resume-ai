@@ -66,6 +66,8 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] 파비콘 404 수정 — v3~v7에 `<link rel="icon">` 자체가 없어서 브라우저가 사이트 루트 `/favicon.ico`를 자동 요청하다 404 나던 것. resume-ai 루트에 `favicon.svg`(v1과 동일, JY 모노그램) 추가 + v3~v7 `<head>`에 `<link rel="icon" href="../favicon.svg">` 명시
 - [x] Grafana NoData 원인 확인 — resume-ai 문제가 아니라 metric-stream의 generator/consumer 컨테이너가 `profiles:[production]`에 묶여 있어 시작이 안 된 상태였음(9일치 데이터 누락). `docker compose -f docker-compose.yml -f docker-compose.local.yml --profile production up -d generator consumer`로 재기동, 실시간 적재 재개 확인
 - [x] Grafana 로컬/운영 분기 불일치 발견 및 통일 — v1/v2만 완전 분기(프리뷰+모달), v3/v4는 모달만 분기(프리뷰는 항상 운영 URL), v5/v6는 분기 전혀 없었음(운영 URL 하드코딩). v3/v4/v5/v6 전부 `<script>` 최상단에 v1/v2와 동일한 `isLocal` 전역 치환 IIFE 추가해 통일 (`iframe[data-src]` 전체 대상, gpanel 클래스 없어도 적용되도록 일반화). v7은 iframe 없는 단순 링크 구조라 분기 불필요
+- [x] v3~v7 구분자 규칙(`·` → `,`) 일괄 적용 — 가운뎃점 51/46/17/18/87개 → 전부 0개. 카드 안내문구 "설계·기획"은 "설계, 기획"으로
+- [x] v3~v7 경력/프로젝트 문구를 v1 기준으로 통일 — 같은 사실(예: Slave binlog 복제 중단)이 버전마다 다르게 적혀 있던 것 확인 후 전부 v1 문장으로 교체. 제목(해외→태국 IPTV), 부제 role 접두사(`Backend Engineer, ` 등) 제거, 기간 구분자(`~`→`—`), 통계/태그 개수(v1엔 없는 항목 제거), em dash(about 섹션 "—") → 콤마로 정리. v2는 사용자 요청 범위 밖이라 그대로 둠
 
 ### v1 / v2 / v3 기본 구조 (이전 세션)
 - [x] v1: 3테마, 타이핑 애니메이션, Career/Skills/Footer

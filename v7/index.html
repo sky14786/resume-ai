@@ -713,7 +713,7 @@
   <!-- ══════ HERO ══════ -->
   <section id="hero">
     <div class="container">
-      <p class="hero-label">// Backend Engineer · System Operator</p>
+      <p class="hero-label">// Backend Engineer, System Operator</p>
       <h1 class="hero-name">
         <span class="hero-name-line">JuneYoung</span>
         <span class="hero-name-line underlined">Kim</span>
@@ -739,17 +739,17 @@
       <div class="career-item reveal">
         <div class="career-head">
           <span class="career-company">다기관 병원 환자중심 앱</span>
-          <span class="career-period">2025.08 ~ 2026.02</span>
+          <span class="career-period">2025.08 — 2026.02</span>
         </div>
-        <p class="career-role">Backend Engineer · 대형 병원 10개소 유지보수</p>
-        <p class="career-stats-row">10개 병원 · 6개월 · 폐쇄망 온프레미스</p>
-        <p class="career-tags">Spring Boot · MariaDB · Docker · Shell Script · Nginx · Pacemaker</p>
+        <p class="career-role">대형 병원 10개소 유지보수</p>
+        <p class="career-stats-row">10개 병원, 6개월</p>
+        <p class="career-tags">Spring Boot, MariaDB, Docker, Shell Script, Nginx, Pacemaker</p>
         <ul class="career-list">
-          <li><span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span> → SLAVE STATUS 에러 분석 후 순차 스킵으로 복제 재동기화</li>
+          <li><span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span> → SLAVE STATUS 에러를 분석하고 순차 스킵으로 복제 재동기화</li>
           <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span> → mysqldump와 cron으로 정기 백업 자동화</li>
-          <li><span class="li-ctx">Docker binlog 누적으로 disk full 발생</span> → 파일 truncate로 즉시 해소</li>
-          <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악</span> → PG사 모듈 교체 때 단계별 로그 추가</li>
-          <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span> → 헬스체크와 리소스 조회 API 개발</li>
+          <li><span class="li-ctx">Docker binlog가 쌓여 disk full 발생</span> → 파일 truncate로 즉시 해소</li>
+          <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span> → PG사 모듈 교체 때 단계별 로그를 추가해 이후 원인 추적 가능</li>
+          <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span> → 헬스체크와 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)</li>
         </ul>
 
         <div class="arch-wrap">
@@ -758,11 +758,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340">
               <rect width="800" height="340" fill="#f5f5f5"/>
               <text x="400" y="26" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">HOSPITAL PATIENT APP ARCHITECTURE</text>
-              <text x="400" y="40" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">대형 병원 10개소 · 폐쇄망 온프레미스</text>
+              <text x="400" y="40" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">대형 병원 10개소, 폐쇄망 온프레미스</text>
               <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(79,70,229,0.15)" stroke-width="0.5"/>
               <!-- on-premises boundary -->
               <rect x="155" y="64" width="622" height="208" fill="rgba(79,70,229,0.02)" stroke="rgba(79,70,229,0.2)" stroke-width="1" stroke-dasharray="6,4" rx="0"/>
-              <text x="165" y="77" fill="rgba(79,70,229,0.45)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES · INTERNAL NETWORK</text>
+              <text x="165" y="77" fill="rgba(79,70,229,0.45)" font-family="'Inter',sans-serif" font-size="7" letter-spacing="2">ON-PREMISES, INTERNAL NETWORK</text>
               <!-- arrows -->
               <line x1="128" y1="170" x2="156" y2="170" stroke="#4f46e5" stroke-width="1.5" opacity="0.7"/>
               <polygon points="153,166 153,174 161,170" fill="#4f46e5" opacity="0.7"/>
@@ -793,22 +793,22 @@
               <!-- NODE: NGINX LB -->
               <rect x="309" y="146" width="121" height="50" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="370" y="165" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">NGINX LB</text>
-              <text x="370" y="178" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">Docker · on-prem</text>
+              <text x="370" y="178" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">Docker, on-prem</text>
               <text x="370" y="190" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">load balancing</text>
               <!-- NODE: API SERVER -->
               <rect x="457" y="146" width="123" height="50" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="518" y="165" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
-              <text x="518" y="178" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">Spring Boot · Docker</text>
+              <text x="518" y="178" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">Spring Boot, Docker</text>
               <text x="518" y="190" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
               <!-- NODE: DB 1 -->
               <rect x="621" y="110" width="148" height="50" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="695" y="128" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">DB 1 (MASTER)</text>
-              <text x="695" y="141" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">MariaDB · Docker</text>
+              <text x="695" y="141" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">MariaDB, Docker</text>
               <text x="695" y="153" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
               <!-- NODE: DB 2 -->
               <rect x="621" y="182" width="148" height="50" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="695" y="200" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">DB 2 (SLAVE)</text>
-              <text x="695" y="213" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">MariaDB · Docker</text>
+              <text x="695" y="213" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">MariaDB, Docker</text>
               <text x="695" y="225" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
               <!-- layer labels -->
               <text x="72"  y="312" text-anchor="middle" fill="#c8c8c8" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
@@ -824,20 +824,20 @@
       <!-- 2. IPTV -->
       <div class="career-item reveal">
         <div class="career-head">
-          <span class="career-company">해외 IPTV 플랫폼</span>
-          <span class="career-period">2021.01 ~ 2025.12</span>
+          <span class="career-company">태국 IPTV 플랫폼</span>
+          <span class="career-period">2021.01 — 2025.12</span>
         </div>
-        <p class="career-role">Backend Engineer · System Operator · 5년 개발/운영</p>
-        <p class="career-stats-row">100만 가입자 · 5년 운영 · 온프레미스</p>
-        <p class="career-tags">Spring Boot · Redis · RabbitMQ · MySQL · Nginx · Jenkins</p>
+        <p class="career-role">가입자 100만 규모 플랫폼, 5년 개발/운영</p>
+        <p class="career-stats-row">100만 가입자, 5년 운영</p>
+        <p class="career-tags">Spring Boot, Redis, RabbitMQ, MySQL</p>
         <ul class="career-list">
-          <li>팀장/레드마인/고객사 DM 등 다채널로 유입되는 요구사항 수신, 경중 판단 후 선조치 또는 보고 후 실행</li>
-          <li>고객사 담당자와 1:1 소통 (현지 출장, AI 번역 활용), 단독 판단 가능한 건 선조치 후 보고</li>
-          <li>외부 시스템(STB, CMS, DBS) API 유지보수 및 변경 대응</li>
-          <li><span class="li-ctx">Slave DB 파티션 DDL → binlog 불일치로 복제 중단</span> → 별도 DB 물리 이전, Master 전용 DDL로 재구성</li>
-          <li><span class="li-ctx">DB 파티션 수동 관리로 디스크 포화 반복</span> → 자동 생성/삭제 설정으로 정상화</li>
-          <li><span class="li-ctx">Redis write-through 미적용으로 캐시 미스 빈발</span> → 전략 적용으로 미스율 감소, 응답 안정화</li>
-          <li>분기별 전체 서버 리소스(CPU, 메모리, 디스크) 및 프로세스 구동 여부 점검, 보고서 제출</li>
+          <li>플랫폼 개발과 운영 담당 (설계, 배포, 장애 대응, 요구사항 대응)</li>
+          <li>해외 고객사 담당자와 커뮤니케이션 (현지 출장, AI 번역 활용)</li>
+          <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+          <li><span class="li-ctx">Slave DB에서 파티션 DDL을 실행해 binlog 불일치로 복제 중단</span> → 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL을 실행하도록 재구성</li>
+          <li><span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화 반복</span> → 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
+          <li><span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span> → write-through 전략을 적용해 미스율 감소, 응답 속도 안정화</li>
+          <li>장애 예방 점검</li>
         </ul>
 
         <div class="arch-wrap">
@@ -846,7 +846,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 378">
               <rect width="800" height="378" fill="#f5f5f5"/>
               <text x="400" y="20" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">IPTV 플랫폼 ARCHITECTURE</text>
-              <text x="400" y="34" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">가입자 100만 · 온프레미스</text>
+              <text x="400" y="34" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">가입자 100만, 온프레미스</text>
               <line x1="30" y1="44" x2="770" y2="44" stroke="rgba(79,70,229,0.15)" stroke-width="0.5"/>
               <!-- on-prem boundary -->
               <rect x="382" y="50" width="414" height="164" fill="rgba(79,70,229,0.02)" stroke="rgba(79,70,229,0.2)" stroke-width="1" stroke-dasharray="6,4" rx="0"/>
@@ -888,7 +888,7 @@
               <text x="63" y="98" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">domain URI</text>
               <rect x="142" y="56" width="100" height="48" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="192" y="74" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">LB SWITCH</text>
-              <text x="192" y="87" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">물리 · Physical</text>
+              <text x="192" y="87" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">물리, Physical</text>
               <text x="192" y="98" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">load balancing</text>
               <rect x="270" y="56" width="100" height="48" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="320" y="74" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">GATEWAY</text>
@@ -908,7 +908,7 @@
               <!-- DATA: Redis -->
               <rect x="658" y="109" width="128" height="42" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="722" y="126" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">REDIS</text>
-              <text x="722" y="139" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">session · cache</text>
+              <text x="722" y="139" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">session, cache</text>
               <text x="722" y="149" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
               <!-- layer labels -->
               <text x="63"  y="118" text-anchor="middle" fill="#c8c8c8" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
@@ -919,43 +919,43 @@
               <text x="722" y="118" text-anchor="middle" fill="#c8c8c8" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">DATA</text>
               <!-- DB TIER separator -->
               <line x1="10" y1="128" x2="790" y2="128" stroke="rgba(79,70,229,0.1)" stroke-width="0.5" stroke-dasharray="4,3"/>
-              <text x="20" y="140" fill="rgba(79,70,229,0.38)" font-family="'Inter',sans-serif" font-size="6.5" letter-spacing="2">DATABASE TIER · MySQL Replication</text>
+              <text x="20" y="140" fill="rgba(79,70,229,0.38)" font-family="'Inter',sans-serif" font-size="6.5" letter-spacing="2">DATABASE TIER, MySQL Replication</text>
               <!-- cluster labels -->
-              <text x="24" y="270" fill="rgba(79,70,229,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">메인 DB · M / S / S</text>
-              <text x="284" y="270" fill="rgba(79,70,229,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">API HISTORY DB · M / S</text>
-              <text x="541" y="270" fill="rgba(79,70,229,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">채널이력 DB · M / S</text>
+              <text x="24" y="270" fill="rgba(79,70,229,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">메인 DB, M / S / S</text>
+              <text x="284" y="270" fill="rgba(79,70,229,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">API HISTORY DB, M / S</text>
+              <text x="541" y="270" fill="rgba(79,70,229,0.5)" font-family="'Inter',sans-serif" font-size="7.5" font-weight="600" letter-spacing="1.5">채널이력 DB, M / S</text>
               <!-- Cluster 1 -->
               <rect x="18" y="278" width="68" height="42" rx="0" fill="rgba(79,70,229,0.06)" stroke="rgba(79,70,229,0.45)" stroke-width="1.2"/>
               <text x="52" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="700">MASTER</text>
-              <text x="52" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · W</text>
+              <text x="52" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, W</text>
               <line x1="86" y1="299" x2="98" y2="299" stroke="#4f46e5" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
               <polygon points="95,295 95,303 100,299" fill="#4f46e5" opacity="0.5"/>
               <rect x="100" y="278" width="68" height="42" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.3)" stroke-width="1"/>
               <text x="134" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
-              <text x="134" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · R</text>
+              <text x="134" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, R</text>
               <line x1="168" y1="299" x2="180" y2="299" stroke="#4f46e5" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
               <polygon points="177,295 177,303 182,299" fill="#4f46e5" opacity="0.5"/>
               <rect x="182" y="278" width="68" height="42" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.3)" stroke-width="1"/>
               <text x="216" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
-              <text x="216" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · R</text>
+              <text x="216" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, R</text>
               <!-- Cluster 2 -->
               <rect x="282" y="278" width="100" height="42" rx="0" fill="rgba(79,70,229,0.06)" stroke="rgba(79,70,229,0.45)" stroke-width="1.2"/>
               <text x="332" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="700">MASTER</text>
-              <text x="332" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · write</text>
+              <text x="332" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, write</text>
               <line x1="382" y1="299" x2="398" y2="299" stroke="#4f46e5" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
               <polygon points="395,295 395,303 400,299" fill="#4f46e5" opacity="0.5"/>
               <rect x="400" y="278" width="108" height="42" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.3)" stroke-width="1"/>
               <text x="454" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
-              <text x="454" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+              <text x="454" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, read</text>
               <!-- Cluster 3 -->
               <rect x="540" y="278" width="106" height="42" rx="0" fill="rgba(79,70,229,0.06)" stroke="rgba(79,70,229,0.45)" stroke-width="1.2"/>
               <text x="593" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="700">MASTER</text>
-              <text x="593" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · write</text>
+              <text x="593" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, write</text>
               <line x1="646" y1="299" x2="662" y2="299" stroke="#4f46e5" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
               <polygon points="659,295 659,303 664,299" fill="#4f46e5" opacity="0.5"/>
               <rect x="664" y="278" width="118" height="42" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.3)" stroke-width="1"/>
               <text x="723" y="294" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="8.5" font-weight="600">SLAVE</text>
-              <text x="723" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL · read</text>
+              <text x="723" y="307" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7">MySQL, read</text>
             </svg>
           </div>
         </div>
@@ -965,17 +965,17 @@
       <div class="career-item reveal">
         <div class="career-head">
           <span class="career-company">모니터링 시스템 재구축</span>
-          <span class="career-period">2022.06 ~ 2023.10</span>
+          <span class="career-period">2022.06 — 2023.10</span>
         </div>
         <p class="career-role">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
-        <p class="career-stats-row">350대 서버 · 30초 단위 수집</p>
-        <p class="career-tags">Kafka · Flink · Docker · PostgreSQL · React · DRBD · Pacemaker</p>
+        <p class="career-stats-row">350대 서버, 30초 단위 수집</p>
+        <p class="career-tags">Kafka, Flink, Docker, PostgreSQL, React, DRBD, Pacemaker</p>
         <ul class="career-list">
-          <li><span class="li-ctx">미사용 상태로 방치된 수집 시스템</span>→ AI 기반 장애 예측 목적으로 Telegraf → Kafka → Flink 파이프라인 재구축</li>
-          <li><span class="li-ctx">전체 수집 데이터 조회로 Chart.js 렌더링 지연</span>→ 집계 단위 조정으로 사용 가능한 수준으로 개선</li>
-          <li><span class="li-ctx">pgpool HA → DRBD + Pacemaker 전환</span>, DB 무중단 HA 운영</li>
-          <li>수집 지표 기준치 초과 시 이메일/SMS 알림 UI 및 발송 API 연동 구현</li>
-          <li>React 기반 실시간 모니터링 대시보드 개발 (에러 발생 서버 수, 전체 서버 수, 에러율 시각화)</li>
+          <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 재구축</li>
+          <li>집계 데이터 저장과 시계열 쿼리 최적화</li>
+          <li><span class="li-ctx">pgpool HA를 구성했으나 장애 테스트 때 다운타임 과다</span> → DRBD + Pacemaker로 전환해 DB 무중단 HA 운영</li>
+          <li>수집 지표가 기준치를 넘으면 이메일/SMS를 자동 발송하도록 구현</li>
+          <li>React 기반 실시간 모니터링 대시보드 개발</li>
         </ul>
 
         <div class="arch-wrap">
@@ -984,7 +984,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
               <rect width="800" height="300" fill="#f5f5f5"/>
               <text x="400" y="24" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">모니터링 시스템 ARCHITECTURE</text>
-              <text x="400" y="38" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">350대 서버 실시간 지표 수집 · Pacemaker HA</text>
+              <text x="400" y="38" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">350대 서버 실시간 지표 수집, Pacemaker HA</text>
               <line x1="30" y1="46" x2="770" y2="46" stroke="rgba(79,70,229,0.15)" stroke-width="0.5"/>
               <!-- HA cluster boundary -->
               <rect x="180" y="50" width="455" height="216" fill="rgba(79,70,229,0.02)" stroke="rgba(79,70,229,0.2)" stroke-width="1" stroke-dasharray="5,3" rx="0"/>
@@ -1011,7 +1011,7 @@
               <rect x="10" y="122" width="152" height="60" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="86" y="141" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">350 SERVERS</text>
               <text x="86" y="155" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">Telegraf Agent 설치</text>
-              <text x="86" y="168" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">syslog · metrics</text>
+              <text x="86" y="168" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">syslog, metrics</text>
               <!-- KAFKA -->
               <rect x="195" y="122" width="110" height="60" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="250" y="141" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">KAFKA</text>
@@ -1035,12 +1035,12 @@
               <!-- API SERVER -->
               <rect x="650" y="127" width="142" height="50" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="721" y="145" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">API SERVER</text>
-              <text x="721" y="159" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">REST · query</text>
+              <text x="721" y="159" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">REST, query</text>
               <text x="721" y="171" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">on-premises</text>
               <!-- SPRING BATCH -->
               <rect x="650" y="197" width="142" height="50" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="721" y="215" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SPRING BATCH</text>
-              <text x="721" y="229" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">alert · email/SMS</text>
+              <text x="721" y="229" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">alert, email/SMS</text>
               <text x="721" y="241" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">기준치 초과 알림</text>
               <!-- layer labels -->
               <text x="86"  y="285" text-anchor="middle" fill="#c8c8c8" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">SOURCE</text>
@@ -1057,15 +1057,15 @@
       <div class="career-item reveal">
         <div class="career-head">
           <span class="career-company">해외 IPTV 플랫폼 어드민</span>
-          <span class="career-period">2020.07 ~ 2021.01</span>
+          <span class="career-period">2020.07 — 2021.01</span>
         </div>
         <p class="career-role">관리자 시스템 개발</p>
-        <p class="career-tags">Spring Boot · JSP · jQuery · MySQL</p>
+        <p class="career-tags">Spring Boot, JSP, jQuery, MySQL</p>
         <ul class="career-list">
           <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
           <li>콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발</li>
           <li>광고 활성화, 결제 수단 관리 UI 구현</li>
-          <li>jQuery AJAX 비동기 처리, 실시간 데이터 갱신</li>
+          <li>jQuery AJAX 비동기 처리로 페이지 전환 없이 실시간 데이터 갱신</li>
         </ul>
 
         <div class="arch-wrap">
@@ -1074,7 +1074,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260">
               <rect width="800" height="260" fill="#f5f5f5"/>
               <text x="400" y="26" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="11" font-weight="700" letter-spacing="2">IPTV ADMIN ARCHITECTURE</text>
-              <text x="400" y="40" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">Spring Boot MVC · JSP · jQuery</text>
+              <text x="400" y="40" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="8" letter-spacing="1.5">Spring Boot MVC, JSP, jQuery</text>
               <line x1="30" y1="48" x2="770" y2="48" stroke="rgba(79,70,229,0.15)" stroke-width="0.5"/>
               <!-- arrows -->
               <line x1="114" y1="140" x2="142" y2="140" stroke="#4f46e5" stroke-width="1.5" opacity="0.7"/>
@@ -1098,18 +1098,18 @@
               <!-- SPRING BOOT -->
               <rect x="302" y="114" width="130" height="52" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="367" y="133" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SPRING BOOT</text>
-              <text x="367" y="147" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">MVC · JSP</text>
-              <text x="367" y="159" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">REST API · Admin</text>
+              <text x="367" y="147" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">MVC, JSP</text>
+              <text x="367" y="159" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">REST API, Admin</text>
               <!-- SERVICE -->
               <rect x="460" y="114" width="128" height="52" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="524" y="133" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">SERVICE</text>
               <text x="524" y="147" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">Business Logic</text>
-              <text x="524" y="159" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">STB · CMS 연동</text>
+              <text x="524" y="159" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">STB, CMS 연동</text>
               <!-- MYSQL -->
               <rect x="616" y="114" width="170" height="52" rx="0" fill="rgba(79,70,229,0.04)" stroke="rgba(79,70,229,0.35)" stroke-width="1.2"/>
               <text x="701" y="133" text-anchor="middle" fill="#4f46e5" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700">MYSQL</text>
               <text x="701" y="147" text-anchor="middle" fill="#4a4a4a" font-family="'Inter',sans-serif" font-size="7.5">IPTV platform DB</text>
-              <text x="701" y="159" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">subscriber · content</text>
+              <text x="701" y="159" text-anchor="middle" fill="#9a9a9a" font-family="'Inter',sans-serif" font-size="7">subscriber, content</text>
               <!-- labels -->
               <text x="63"  y="230" text-anchor="middle" fill="#c8c8c8" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">CLIENT</text>
               <text x="209" y="230" text-anchor="middle" fill="#c8c8c8" font-family="'Inter',sans-serif" font-size="7.5" letter-spacing="1.5" font-weight="600">EDGE</text>
@@ -1139,17 +1139,17 @@
           <span class="project-year">2026</span>
         </div>
         <p class="project-desc-line">실시간 서버 API 로그 수집 파이프라인</p>
-        <p class="project-tags">AI구현 · Kafka · Spring Boot · PostgreSQL · Grafana · Docker · Java 17</p>
+        <p class="project-tags">AI구현, Kafka, Spring Boot, PostgreSQL, Grafana, Docker, Java 17</p>
         <p class="project-links">
           GitHub → <a href="https://github.com/sky14786/metric-stream" target="_blank" rel="noopener">github.com/sky14786/metric-stream</a>
           &nbsp;&nbsp;|&nbsp;&nbsp;
           Grafana → <a href="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" target="_blank" rel="noopener">Live Dashboard ↗</a>
         </p>
         <ul class="career-list">
-          <li>API 로그를 실시간 수집해 저장, 조회까지 이어지는 파이프라인 구성 (AI 구현)</li>
+          <li>API 로그를 실시간 수집해 저장과 조회까지 잇는 파이프라인 구성 (AI 구현)</li>
           <li>분당 900건 규모 로그를 자동 생성해 파이프라인 전 구간 동작 검증</li>
           <li>Grafana 대시보드로 요청량, 에러율, 응답시간 실시간 모니터링</li>
-          <li>Docker Compose 한 명령으로 전체 인프라 구동</li>
+          <li>Docker Compose 한 명령으로 Kafka, DB, Grafana 전체 인프라 구동</li>
         </ul>
       </div>
 
@@ -1160,20 +1160,20 @@
           <span class="project-year">2025</span>
         </div>
         <p class="project-desc-line">게임 아이템 거래 커뮤니티 포털</p>
-        <p class="project-tags">AI구현 · Node.js · Express · MongoDB · Docker · Nginx</p>
+        <p class="project-tags">AI구현, Node.js, Express, MongoDB, Docker, Nginx</p>
         <p class="project-links">
           URL → <a href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener">skydev.ddns.net/redstone</a>
           &nbsp;&nbsp;|&nbsp;&nbsp;게스트 ID <code style="font-family:monospace;color:var(--sub)">guest</code> / PW <code style="font-family:monospace;color:var(--sub)">guest1234</code>
         </p>
         <ul class="career-list">
-          <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능 단독 설계/구현</li>
-          <li>Express 세션 기반 인증, MongoDB, Discord 계정 연동</li>
+          <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능을 단독 설계/구현</li>
+          <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
           <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
           <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
         </ul>
         <div class="project-screenshot">
           <p class="screenshot-label">PREVIEW</p>
-          <img src="../v4/redstone-preview.png" alt="redstone 서비스 화면" loading="lazy" />
+          <img src="../v4/redstone-preview.png" alt="붉은보석 거래 포탈 대시보드" loading="lazy" />
         </div>
       </div>
 
@@ -1191,23 +1191,23 @@
       <div class="skills-table reveal">
         <div class="skills-row">
           <span class="skill-cat">Core</span>
-          <span class="skill-list">Spring Boot ★ · Java ★</span>
+          <span class="skill-list">Spring Boot ★, Java ★</span>
         </div>
         <div class="skills-row">
           <span class="skill-cat">DB</span>
-          <span class="skill-list">MySQL · MariaDB · PostgreSQL · Redis</span>
+          <span class="skill-list">MySQL, MariaDB, PostgreSQL, Redis</span>
         </div>
         <div class="skills-row">
           <span class="skill-cat">Stream</span>
-          <span class="skill-list">Kafka ★ · Flink ★ · RabbitMQ</span>
+          <span class="skill-list">Kafka ★, Flink ★, RabbitMQ</span>
         </div>
         <div class="skills-row">
           <span class="skill-cat">Infra</span>
-          <span class="skill-list">Docker ★ · Nginx ★ · Jenkins · Shell Script · Cron · DRBD</span>
+          <span class="skill-list">Docker ★, Nginx ★, Jenkins, Shell Script, Cron, DRBD</span>
         </div>
         <div class="skills-row">
           <span class="skill-cat">Front</span>
-          <span class="skill-list">React · JSP · jQuery (보조)</span>
+          <span class="skill-list">React, JSP, jQuery (보조)</span>
         </div>
       </div>
     </div>
@@ -1232,7 +1232,7 @@
         </div>
         <div class="about-row">
           <span class="about-key">Location</span>
-          <span>서울 · 경기 · 대전 · 재택 가능</span>
+          <span>서울, 경기, 대전, 재택 가능</span>
         </div>
       </div>
     </div>
@@ -1270,7 +1270,7 @@
   <footer>
     <div class="footer-inner">
       <span class="footer-logo">JY<span>.</span></span>
-      <span class="footer-note">JuneYoung Kim · Backend Engineer · 2026</span>
+      <span class="footer-note">JuneYoung Kim, Backend Engineer, 2026</span>
     </div>
   </footer>
 
