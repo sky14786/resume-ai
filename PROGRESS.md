@@ -142,6 +142,16 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] `D:\ai\.claude\skills\impeccable-guide.md` — Impeccable 전체 커맨드·워크플로우 가이드 파일 생성
 - [x] humanize-korean 플러그인 (`im-not-ai` 마켓플레이스) 설치 완료
 
+### 이번 세션 완료 (2026-06-17)
+- [x] v2 IPTV 아키텍처에 ROUTER 노드 추가 (USER→STB→ROUTER→FIREWALL→LB SWITCH), viewBox 1060→1190
+- [x] v2 병원 아키텍처에 FIREWALL 노드 추가 (USER→ROUTER→FIREWALL→NGINX LB→API SERVER→DB), viewBox 800→960
+- [x] v2 모니터링(WACS) 아키텍처 재구성 — 수집서버/350서버 이원화로 화살표가 꼬이고 HA 박스에 빈 공간 많던 문제. 350 SERVERS(Telegraf Agent)→[KAFKA→FLINK를 Pacemaker HA로 감싼 박스]→PostgreSQL 1:1 직선 흐름으로 단순화
+- [x] v2 PACEMAKER HA 라벨 가시성 개선 — 경계 박스 상단 패딩 부족으로 라벨이 끼어 보이던 것 수정 (opacity 0.55→0.85, font-size 8→9, 박스 높이 76→86)
+- [x] `_headers` 파일 신설 (Cloudflare Pages) — Cache-Control no-cache, X-Robots-Tag noindex 추가. robots.txt/meta robots는 기존에 있었음
+- [x] v2 모바일(≤768px)에서 Grafana 미리보기 클릭 시 모달 대신 새 창으로 전체 대시보드(`/d/metric-stream-v1/metric-stream`, 패널 5개 전부) 연결 — 모달 그리드가 좁은 화면에서 비좁아 보이는 문제 회피
+- [x] (별도 레포) metric-stream `/metric/` nginx 프록시에 WebSocket 업그레이드 헤더 추가 — Grafana 실시간 라이브 연결(`wss://.../api/live/ws`) 실패 수정. VM 재배포 필요(미완료)
+- [ ] IPTV/병원/모니터링 다이어그램 변경사항 v1,v3~v7에 전파 필요 (아직 v2만 반영)
+
 ### 이번 세션 완료 (2026-06-13)
 - [x] v13 신규 생성 — White Glass 테마 (순백 배경, 인디고 액센트, 글래스모피즘)
 - [x] v13 arch-zoom-hint 위치 하단→상단 우측 이동 (레이어 라벨 겹침 해소)
