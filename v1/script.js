@@ -354,7 +354,16 @@ document.querySelectorAll('iframe[data-src].gpanel-preview').forEach(f => previe
   const closeX  = document.getElementById('grafana-modal-x');
   if (!modal || !openBtn) return;
 
+  const isMobileViewport = () => window.matchMedia('(max-width: 768px)').matches;
+  const isLocalEnv = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  const GRAFANA_DASHBOARD_URL = (isLocalEnv ? 'http://localhost:3000' : 'https://skydev.ddns.net/metric')
+    + '/d/metric-stream-v1/metric-stream?orgId=1&from=now-30m&to=now&refresh=30s';
+
   function openModal() {
+    if (isMobileViewport()) {
+      window.open(GRAFANA_DASHBOARD_URL, '_blank', 'noopener');
+      return;
+    }
     modal.querySelectorAll('iframe[data-src]').forEach(f => {
       if (!f.src || f.src === window.location.href) f.src = f.dataset.src;
     });
