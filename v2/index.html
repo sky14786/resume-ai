@@ -425,17 +425,15 @@
                   <rect width="800" height="360" fill="#0d0d0d"/>
                   <text x="400" y="22" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
                   <line x1="30" y1="30" x2="770" y2="30" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
-                  <!-- HA server group container -->
-                  <rect x="8" y="38" width="394" height="208" fill="#a3e635" opacity="0.04" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
-                  <text x="16" y="50" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.55" letter-spacing="1">수집/처리 서버  —  PACEMAKER HA</text>
+                  <!-- HA group container: KAFKA + FLINK only -->
+                  <rect x="175" y="118" width="320" height="76" fill="#a3e635" opacity="0.04" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
+                  <text x="185" y="130" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.55" letter-spacing="1">PACEMAKER HA</text>
                   <!-- connections -->
-                  <line x1="192" y1="257" x2="193" y2="106" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="189,109 197,109 193,102" fill="#a3e635"/>
-                  <line x1="175" y1="102" x2="90" y2="130" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="96,124 98,132 88,130" fill="#a3e635"/>
-                  <line x1="162" y1="156" x2="236" y2="156" stroke="#a3e635" stroke-width="1.5"/>
-                  <polygon points="233,152 233,160 240,156" fill="#a3e635"/>
-                  <line x1="388" y1="156" x2="502" y2="178" stroke="#a3e635" stroke-width="1.5"/>
+                  <line x1="160" y1="156" x2="185" y2="156" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="182,152 182,160 189,156" fill="#a3e635"/>
+                  <line x1="325" y1="156" x2="340" y2="156" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="337,152 337,160 344,156" fill="#a3e635"/>
+                  <line x1="485" y1="156" x2="502" y2="178" stroke="#a3e635" stroke-width="1.5"/>
                   <polygon points="494,173 496,181 502,178" fill="#a3e635"/>
                   <line x1="574" y1="70" x2="602" y2="70" stroke="#a3e635" stroke-width="1.5"/>
                   <polygon points="599,66 599,74 606,70" fill="#a3e635"/>
@@ -443,26 +441,21 @@
                   <polygon points="652,146 659,150 652,154" fill="#a3e635" opacity="0.7"/>
                   <line x1="583" y1="210" x2="583" y2="256" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
                   <polygon points="579,253 587,253 583,260" fill="#a3e635" opacity="0.7"/>
-                  <!-- node: 수집서버 (top of group) -->
-                  <rect x="120" y="54" width="155" height="52" fill="#a3e635" opacity="0.08"/>
-                  <rect x="116" y="50" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
-                  <text x="193" y="72" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">수집서버</text>
-                  <text x="193" y="85" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">Telegraf</text>
-                  <!-- node: KAFKA (bottom-left of group) -->
-                  <rect x="22" y="134" width="144" height="52" fill="#a3e635" opacity="0.08"/>
-                  <rect x="18" y="130" width="144" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
-                  <text x="90" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
-                  <text x="90" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">message broker</text>
-                  <!-- node: FLINK (bottom-right of group) -->
-                  <rect x="244" y="134" width="148" height="52" fill="#a3e635" opacity="0.08"/>
-                  <rect x="240" y="130" width="148" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
-                  <text x="314" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
-                  <text x="314" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">stream processing</text>
-                  <!-- node: 350 SERVERS (external, below group) -->
-                  <rect x="118" y="262" width="155" height="52" fill="#a3e635" opacity="0.08"/>
-                  <rect x="114" y="258" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
-                  <text x="191" y="280" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
-                  <text x="191" y="293" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">syslog / metrics</text>
+                  <!-- node: 350 SERVERS / Client(Agent) -->
+                  <rect x="14" y="134" width="150" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="10" y="130" width="150" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="85" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
+                  <text x="85" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">Telegraf Agent</text>
+                  <!-- node: KAFKA -->
+                  <rect x="189" y="134" width="140" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="185" y="130" width="140" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="255" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
+                  <text x="255" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">message broker</text>
+                  <!-- node: FLINK -->
+                  <rect x="344" y="134" width="145" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="340" y="130" width="145" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="412" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
+                  <text x="412" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">stream processing</text>
                   <!-- node: MONITORING -->
                   <rect x="434" y="48" width="144" height="52" fill="#a3e635" opacity="0.08"/>
                   <rect x="430" y="44" width="144" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
