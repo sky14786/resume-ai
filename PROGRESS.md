@@ -63,6 +63,8 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] 재명명 사이드이펙트 전체 점검 — v3 푸터 "v13", v4 푸터 "v14" 텍스트 잔존 수정 (`v13-shadow` SVG 필터 ID는 파일 내부 자체 참조라 문제없어 그대로 둠)
 - [x] v5/v6 "전체 대시보드 ↗" 오버레이 클릭 무동작 버그 수정 — CSS는 클릭 가능하게(`cursor:pointer`, hover) 돼있었지만 JS 핸들러가 없었음. 처음엔 새 탭으로 열도록 했다가, v1~v4와의 일관성을 위해 **모달 형태로 재변경**
 - [x] v5/v6에 v1~v4와 동일한 Grafana 모달(hero+stat 4패널 그리드, backdrop, ESC/X/배경클릭 닫기) 추가 — `role="dialog" aria-modal="true"`, 포커스 이동(열때 닫기버튼/닫을때 트리거로 복원) 포함. v7은 프리뷰 카드 없이 단순 외부 링크라 모달 대상에서 제외(새 탭 유지)
+- [x] 파비콘 404 수정 — v3~v7에 `<link rel="icon">` 자체가 없어서 브라우저가 사이트 루트 `/favicon.ico`를 자동 요청하다 404 나던 것. resume-ai 루트에 `favicon.svg`(v1과 동일, JY 모노그램) 추가 + v3~v7 `<head>`에 `<link rel="icon" href="../favicon.svg">` 명시
+- [x] Grafana NoData 원인 확인 — resume-ai 문제가 아니라 metric-stream의 generator/consumer 컨테이너가 `profiles:[production]`에 묶여 있어 시작이 안 된 상태였음(9일치 데이터 누락). `docker compose -f docker-compose.yml -f docker-compose.local.yml --profile production up -d generator consumer`로 재기동, 실시간 적재 재개 확인
 - [x] Grafana 로컬/운영 분기 불일치 발견 및 통일 — v1/v2만 완전 분기(프리뷰+모달), v3/v4는 모달만 분기(프리뷰는 항상 운영 URL), v5/v6는 분기 전혀 없었음(운영 URL 하드코딩). v3/v4/v5/v6 전부 `<script>` 최상단에 v1/v2와 동일한 `isLocal` 전역 치환 IIFE 추가해 통일 (`iframe[data-src]` 전체 대상, gpanel 클래스 없어도 적용되도록 일반화). v7은 iframe 없는 단순 링크 구조라 분기 불필요
 
 ### v1 / v2 / v3 기본 구조 (이전 세션)
