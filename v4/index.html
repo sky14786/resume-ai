@@ -1095,17 +1095,17 @@
       position: fixed;
       bottom: 28px; right: 28px;
       z-index: 8000;
-      display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+      display: flex; flex-direction: row; align-items: center; gap: 6px;
     }
     .vsw-dot {
-      width: 24px; height: 24px;
+      height: 24px; padding: 0 9px;
       display: flex; align-items: center; justify-content: center;
       background: var(--card-bg);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       color: var(--text-primary);
       border: 1px solid var(--card-border);
-      border-radius: 50%;
+      border-radius: 8px;
       font-size: 11px; font-weight: 600;
       text-decoration: none;
       box-shadow: var(--shadow-card);
@@ -2178,13 +2178,13 @@
 
   <!-- ── VERSION SWITCHER ── -->
   <div id="version-sw">
-    <a class="vsw-dot"        href="../v1/" data-name="Light">1</a>
-    <a class="vsw-dot"        href="../v2/" data-name="Neobrutalism">2</a>
-    <a class="vsw-dot"        href="../v3/" data-name="White Glass">3</a>
-    <a class="vsw-dot active" href="../v4/" data-name="Minimal">4</a>
-    <a class="vsw-dot"        href="../v5/" data-name="Editorial">5</a>
-    <a class="vsw-dot"        href="../v6/" data-name="Spatial Dark">6</a>
-    <a class="vsw-dot"        href="../v7/" data-name="Ruled Paper">7</a>
+    <a class="vsw-dot"        href="../v1/" data-name="Light">v1</a>
+    <a class="vsw-dot"        href="../v2/" data-name="Neobrutalism">v2</a>
+    <a class="vsw-dot"        href="../v3/" data-name="White Glass">v3</a>
+    <a class="vsw-dot active" href="../v4/" data-name="Minimal">v4</a>
+    <a class="vsw-dot"        href="../v5/" data-name="Editorial">v5</a>
+    <a class="vsw-dot"        href="../v6/" data-name="Spatial Dark">v6</a>
+    <a class="vsw-dot"        href="../v7/" data-name="Ruled Paper">v7</a>
   </div>
 </body>
 </html>

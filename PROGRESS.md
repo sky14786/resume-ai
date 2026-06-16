@@ -56,6 +56,7 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
   - v7: Ruled Paper 톤에 맞춰 `--rule`/`--accent` 사용
   - 7개 버전 모두 인쇄(`@media print`) 시 숨김 처리
 - [x] 로컬 도커(`http://localhost:5000/v1/`~`/v7/`)에서 7개 전부 정상 응답 확인
+- [x] 버전 전환 위젯 레이아웃/라벨 수정: v3~v7만 세로 배치였던 불일치 발견 → 7개 전부 가로(`flex-direction:row`) 배치로 통일, 숫자 단독("1") → "v1" 텍스트 필 배지로 변경 (원형 → border-radius 4~8px 사각/필 모양)
 
 ### v1 / v2 / v3 기본 구조 (이전 세션)
 - [x] v1: 3테마, 타이핑 애니메이션, Career/Skills/Footer
