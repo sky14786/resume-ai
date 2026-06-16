@@ -61,7 +61,8 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] v3~v7에 v1/v2(`.tsw-panel`)와 같은 **감싸는 패널** 추가 (`.vsw-panel`) — 배지들이 개별로 흩어져 있던 것을 배경+테두리+그림자가 있는 패널 안에 담아 "떠 있는" 느낌으로 통일. 버전별 그림자 표현: v3/v4 `var(--shadow-card)`, v5/v7 오프셋 하드 섀도, v6 다크 드롭 섀도
 - [x] v5/v6/v7 redstone 프리뷰 이미지 404 수정 — 재명명 전 `../v14/redstone-preview.png` 참조가 그대로 남아있던 것을 `../v4/`로 수정 (v14→v4 재명명 시 누락된 경로)
 - [x] 재명명 사이드이펙트 전체 점검 — v3 푸터 "v13", v4 푸터 "v14" 텍스트 잔존 수정 (`v13-shadow` SVG 필터 ID는 파일 내부 자체 참조라 문제없어 그대로 둠)
-- [x] v5/v6 "전체 대시보드 ↗" 오버레이 클릭 무동작 버그 수정 — CSS는 클릭 가능하게(`cursor:pointer`, hover) 돼있었지만 JS 핸들러가 없었음. `#grafana-open` 클릭/Enter·Space 시 해당 패널 URL(로컬/운영 자동 분기 적용된 값)을 새 탭으로 열도록 추가, `role="button" tabindex="0" aria-label` + `:focus-visible` 아웃라인도 추가
+- [x] v5/v6 "전체 대시보드 ↗" 오버레이 클릭 무동작 버그 수정 — CSS는 클릭 가능하게(`cursor:pointer`, hover) 돼있었지만 JS 핸들러가 없었음. 처음엔 새 탭으로 열도록 했다가, v1~v4와의 일관성을 위해 **모달 형태로 재변경**
+- [x] v5/v6에 v1~v4와 동일한 Grafana 모달(hero+stat 4패널 그리드, backdrop, ESC/X/배경클릭 닫기) 추가 — `role="dialog" aria-modal="true"`, 포커스 이동(열때 닫기버튼/닫을때 트리거로 복원) 포함. v7은 프리뷰 카드 없이 단순 외부 링크라 모달 대상에서 제외(새 탭 유지)
 - [x] Grafana 로컬/운영 분기 불일치 발견 및 통일 — v1/v2만 완전 분기(프리뷰+모달), v3/v4는 모달만 분기(프리뷰는 항상 운영 URL), v5/v6는 분기 전혀 없었음(운영 URL 하드코딩). v3/v4/v5/v6 전부 `<script>` 최상단에 v1/v2와 동일한 `isLocal` 전역 치환 IIFE 추가해 통일 (`iframe[data-src]` 전체 대상, gpanel 클래스 없어도 적용되도록 일반화). v7은 iframe 없는 단순 링크 구조라 분기 불필요
 
 ### v1 / v2 / v3 기본 구조 (이전 세션)

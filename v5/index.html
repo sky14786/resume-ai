@@ -797,6 +797,27 @@
     @media (max-width: 768px) {
       #version-sw { bottom: 16px; right: 16px; }
     }
+
+    /* ── GRAFANA MODAL ── */
+    .grafana-modal { position: fixed; inset: 0; z-index: 9000; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .grafana-modal.hidden { display: none; }
+    .grafana-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.82); backdrop-filter: blur(4px); cursor: pointer; }
+    .grafana-modal-box { position: relative; z-index: 1; width: 92vw; max-width: 1200px; background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 8px; box-shadow: 0 32px 80px rgba(0,0,0,0.9); overflow: hidden; }
+    .gm-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #222; background: #111; }
+    .gm-header-left { display: flex; align-items: center; gap: 14px; }
+    .gm-live-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 9px; border: 1px solid #1f3a1f; background: #0d1f0d; border-radius: 4px; }
+    .gm-live-text { color: #22c55e; }
+    .gm-title { font-size: 18px; font-weight: 700; color: #fff; }
+    .grafana-modal-x { background: none; border: 1px solid #2a2a2a; color: #999; font-size: 13px; padding: 5px 10px; cursor: pointer; border-radius: 4px; transition: border-color 0.15s, color 0.15s; }
+    .grafana-modal-x:hover, .grafana-modal-x:focus-visible { border-color: #fff; color: #fff; }
+    .grafana-modal-grid { display: flex; flex-direction: column; gap: 1px; background: #2a2a2a; }
+    .grafana-modal-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+    .gpanel { display: block; border: none; background: #111; }
+    .gm-hero { height: 380px; width: 100%; }
+    .gm-stat { height: 140px; }
+    @media (max-width: 768px) {
+      .grafana-modal-stats { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -1293,16 +1314,37 @@
       });
     })();
 
-    // Grafana frame click -> open panel in new tab (전체 대시보드 ↗)
+    // Grafana frame click -> open modal (전체 대시보드 ↗)
     (function () {
-      const el = document.getElementById('grafana-open');
-      if (!el) return;
-      el.addEventListener('click', () => {
-        const f = el.querySelector('iframe[data-src]');
-        if (f) window.open(f.dataset.src, '_blank', 'noopener');
+      const openBtn = document.getElementById('grafana-open');
+      const modal = document.getElementById('grafana-modal');
+      const closeBack = document.getElementById('grafana-modal-close');
+      const closeX = document.getElementById('grafana-modal-x');
+      if (!openBtn || !modal) return;
+
+      function openModal() {
+        modal.querySelectorAll('iframe[data-src]').forEach(f => {
+          if (!f.src) f.src = f.dataset.src;
+        });
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        closeX.focus();
+      }
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        modal.querySelectorAll('iframe[data-src]').forEach(f => { f.src = ''; });
+        openBtn.focus();
+      }
+
+      openBtn.addEventListener('click', openModal);
+      openBtn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
       });
-      el.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      closeBack.addEventListener('click', closeModal);
+      closeX.addEventListener('click', closeModal);
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
       });
     })();
 
@@ -1378,6 +1420,29 @@
       <a class="vsw-dot active" href="../v5/" data-name="Editorial">v5</a>
       <a class="vsw-dot"        href="../v6/" data-name="Spatial Dark">v6</a>
       <a class="vsw-dot"        href="../v7/" data-name="Ruled Paper">v7</a>
+    </div>
+  </div>
+
+  <!-- ── GRAFANA MODAL ── -->
+  <div id="grafana-modal" class="grafana-modal hidden" role="dialog" aria-modal="true" aria-label="metric-stream Grafana 대시보드">
+    <div class="grafana-modal-backdrop" id="grafana-modal-close"></div>
+    <div class="grafana-modal-box">
+      <div class="gm-header">
+        <div class="gm-header-left">
+          <div class="gm-live-badge"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;"></span><span class="gm-live-text">LIVE</span></div>
+          <h3 class="gm-title">metric-stream</h3>
+        </div>
+        <button class="grafana-modal-x" id="grafana-modal-x">✕</button>
+      </div>
+      <div class="grafana-modal-grid">
+        <iframe class="gpanel gm-hero" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        <div class="grafana-modal-stats">
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=1&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=2&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=3&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </body>
