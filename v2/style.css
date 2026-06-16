@@ -844,18 +844,6 @@ kbd{
   display:flex;justify-content:space-between;align-items:center;
 }
 .footer-name{font-family:var(--mono);font-size:13px;color:var(--muted);}
-.footer-gh{
-  font-family:var(--mono);font-size:13px;
-  color:var(--text);
-  border:1px solid var(--border);
-  padding:6px 14px;
-  transition:all .2s;
-}
-.footer-gh:hover{
-  background:var(--accent);
-  box-shadow:3px 3px 0 var(--shadow);
-  transform:translate(-1px,-1px);
-}
 
 /* ── ABOUT ── */
 .about-quote-big {
@@ -1135,7 +1123,6 @@ kbd{
   }
   .clink{padding:20px 24px;}
   .nav-center a{padding:10px 4px;}
-  .footer-gh{min-height:44px;display:inline-flex;align-items:center;}
 }
 
 /* ── NAV RIGHT WRAPPER ── */
