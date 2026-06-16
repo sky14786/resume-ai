@@ -35,9 +35,10 @@
 | v7 | v17 | Ruled Paper | 룰드 라인 배경, 인디고 좌측 border |
 
 **로컬 미리보기 (Docker, F 드라이브 기준)**
+> 2026-06-16: 포트별 컨테이너 7개 방식 → 컨테이너 1개 + 경로 분기 방식으로 전환.
 ```bash
-docker run -d --name resume-vN -p 500N:80 -v "F:/ai/resume-ai/vN:/usr/share/nginx/html:ro" nginx:alpine
-# 예: v1 → http://localhost:5001, v2 → :5002 ... v7 → :5007
+docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/html:ro" nginx:alpine
+# http://localhost:5000/v1/ ~ http://localhost:5000/v7/ (포트 동일, 경로로만 구분)
 ```
 
 ---

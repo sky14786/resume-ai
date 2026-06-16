@@ -89,8 +89,8 @@ Docker로 실행합니다 (F 드라이브 기준).
 git clone https://github.com/sky14786/resume-ai.git
 cd resume-ai
 
-docker run -d --name resume-v1 -p 5001:80 -v "F:/ai/resume-ai/v1:/usr/share/nginx/html:ro" nginx:alpine
-# → http://localhost:5001
+docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/html:ro" nginx:alpine
+# → http://localhost:5000/v1/ (v2~v7도 같은 포트, 경로만 변경)
 ```
 
 ---
