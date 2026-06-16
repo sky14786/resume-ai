@@ -1254,6 +1254,17 @@
   </div>
 
   <script>
+    // ENVIRONMENT: Grafana base URL 로컬/운영 자동 전환
+    (function () {
+      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      if (!isLocal) return;
+      const PROD = 'https://skydev.ddns.net/metric';
+      const LOCAL = 'http://localhost:3000';
+      document.querySelectorAll('iframe[data-src]').forEach(f => {
+        f.dataset.src = f.dataset.src.replace(PROD, LOCAL);
+      });
+    })();
+
     // Email
     const em = ['s','k','y','1','4','7','8','6','@','g','m','a','i','l','.','c','o','m'].join('');
     const el = document.getElementById('email-link');

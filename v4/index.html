@@ -1951,7 +1951,7 @@
   <footer class="footer">
     <div class="container">
       <p class="footer-text"><span>JuneYoung Kim</span> &nbsp;·&nbsp; Backend Engineer &amp; System Operator</p>
-      <p class="footer-copy">2026 · v14 · 페이지 구현은 AI(Claude)에 위임</p>
+      <p class="footer-copy">2026 · v4 · 페이지 구현은 AI(Claude)에 위임</p>
     </div>
   </footer>
 
@@ -2025,6 +2025,16 @@
        V13 — Inline JavaScript
     ══════════════════════════════════════════════ */
 
+    /* ── ENVIRONMENT: Grafana base URL 로컬/운영 자동 전환 ── */
+    (function () {
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      if (!isLocal) return;
+      var PROD = 'https://skydev.ddns.net/metric';
+      var LOCAL = 'http://localhost:3000';
+      document.querySelectorAll('iframe[data-src]').forEach(function (f) {
+        f.dataset.src = f.dataset.src.replace(PROD, LOCAL);
+      });
+    })();
 
     /* ── Mobile nav toggle ── */
     (function initMobileNav() {

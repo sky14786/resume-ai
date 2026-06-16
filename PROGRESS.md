@@ -60,6 +60,8 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] v3~v7 위젯 테두리 대비 개선: 카드용 반투명/연한 색(`--card-border`/`--line`/`--border-h`/`--rule`) → 본문 텍스트색(`--text-primary`/`--ink`/`--text`) 풀오파시티로 교체, v1/v2와 동일하게 또렷하게 보이도록
 - [x] v3~v7에 v1/v2(`.tsw-panel`)와 같은 **감싸는 패널** 추가 (`.vsw-panel`) — 배지들이 개별로 흩어져 있던 것을 배경+테두리+그림자가 있는 패널 안에 담아 "떠 있는" 느낌으로 통일. 버전별 그림자 표현: v3/v4 `var(--shadow-card)`, v5/v7 오프셋 하드 섀도, v6 다크 드롭 섀도
 - [x] v5/v6/v7 redstone 프리뷰 이미지 404 수정 — 재명명 전 `../v14/redstone-preview.png` 참조가 그대로 남아있던 것을 `../v4/`로 수정 (v14→v4 재명명 시 누락된 경로)
+- [x] 재명명 사이드이펙트 전체 점검 — v3 푸터 "v13", v4 푸터 "v14" 텍스트 잔존 수정 (`v13-shadow` SVG 필터 ID는 파일 내부 자체 참조라 문제없어 그대로 둠)
+- [x] Grafana 로컬/운영 분기 불일치 발견 및 통일 — v1/v2만 완전 분기(프리뷰+모달), v3/v4는 모달만 분기(프리뷰는 항상 운영 URL), v5/v6는 분기 전혀 없었음(운영 URL 하드코딩). v3/v4/v5/v6 전부 `<script>` 최상단에 v1/v2와 동일한 `isLocal` 전역 치환 IIFE 추가해 통일 (`iframe[data-src]` 전체 대상, gpanel 클래스 없어도 적용되도록 일반화). v7은 iframe 없는 단순 링크 구조라 분기 불필요
 
 ### v1 / v2 / v3 기본 구조 (이전 세션)
 - [x] v1: 3테마, 타이핑 애니메이션, Career/Skills/Footer
