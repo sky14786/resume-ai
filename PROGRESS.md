@@ -20,99 +20,25 @@
 
 ## 버전 현황
 
-### v1 (루트 `/`)
-- **테마**: TERM / DARK / CYBER 3가지 스위칭
-- **레이아웃**: 세로 타임라인
-- **로컬 서버**: `npx serve resume-ai`
+> **⚠️ 2026-06-16 번호 재정렬**: 기존 v7,v8,v13,v14,v15,v16,v17 → v1~v7로 순서대로 재명명함(git mv, 내용은 그대로). 아래는 새 번호 기준. 이 표 이전에 존재했던 옛 v1~v6(루트 타임라인, Bento Grid, 네오브루탈리즘 Kinetic Typography 등)는 훨씬 이전에 이미 폐기된 디자인이며 번호만 재사용된 것 — 서로 다른 내용이니 혼동 주의.
+>
+> **현재 어느 버전이 메인 방향인지 미확정** — v2(Impeccable 완성), v3(White Glass), v5/v6/v7(신규 테마) 등이 동시에 존재. 다음 세션에서 정리 필요.
 
-### v2 (`/v2/`)
-- **테마**: 단일 앰버(황금) 테마
-- **레이아웃**: Bento Grid (비대칭 카드)
-- **로컬 서버**: `npx serve resume-ai/v2`
+| 새 번호 | 이전 번호 | 테마 | 비고 |
+|---|---|---|---|
+| v1 | v7 | 라이트 테마, pill nav, 7색 테마 스위처 | Architecture Lightbox, 병원 항목 보강 |
+| v2 | v8 | Neobrutalism (크림+바이올렛+틸) | v1(구v7) 클론 + Impeccable 풀 워크플로우(harden/adapt/optimize/distill/polish), DESIGN.md/PRODUCT.md 포함. KakaoTalk 링크 미교체 |
+| v3 | v13 | White Glass — 순백+인디고+글래스모피즘 | redstone-preview.png 프리뷰 포함 |
+| v4 | v14 | Clean Minimal White | 순백+인디고, rounded 카드 |
+| v5 | v15 | Heavy Editorial | Barlow Condensed 800, 빨강 액센트 `#dc2626`, 카드 없음 |
+| v6 | v16 | Spatial Cards Dark | 다크 `#0c0c0e`, 인디고 `#818cf8`, blur nav |
+| v7 | v17 | Ruled Paper | 룰드 라인 배경, 인디고 좌측 border |
 
-### v3 (`/v3/`)
-- **테마**: 단일 Lime (#a3e635) 네오브루탈리즘
-- **레이아웃**: 2열 그리드 Career, 섹션 번호 레이블
-- **주요 기능**: Kinetic Typography, Custom Cursor, Command Palette, Scroll Storytelling, Neobrutalism 카드
-- **추가된 기능** (이번 세션):
-  - MAI-WACS 카드 아키텍처 다이어그램 (SVG 인라인)
-    - PC: 카드 hover 시 슬라이드 다운
-    - 모바일: 버튼 클릭 토글 (`@media (hover:none) and (pointer:coarse)`)
-    - 모바일 가로 스크롤 (`overflow-x:auto`, `min-width:600px`)
-  - About 섹션 (03) 추가
-  - Contact 섹션 (04) 추가 — GitHub / Email(obfuscated) / KakaoTalk
-  - Nav에 Contact 링크 추가
-- **로컬 서버**: `npx serve resume-ai/v3` (port 3200)
-- **⚠️ 주의**: 프리뷰 iframe 스크린샷 불가 (무한 애니메이션 + cursor:none) — 브라우저 직접 열어야 함
-
-### v13 (`/v13/`) ⭐ 현재 진행 방향 — White Glass 테마
-- **테마**: 순백 `#ffffff` 배경, 인디고 `#6366f1` 액센트, 글래스모피즘 카드 (`backdrop-filter: blur(16px)`)
-- **로컬 서버**: `docker run -d --name resume-v13 -p 5013:80 -v "D:/ai/resume-ai/v13:/usr/share/nginx/html:ro" nginx:alpine`
-- **추가된 기능** (2026-06-13/14):
-  - arch-zoom-hint 위치 하단→상단 우측으로 이동 (레이어 라벨 겹침 해소)
-  - `.career-year` 중복 연도 pill 제거 (`.career-period`만 유지)
-  - metric-stream·redstone 카드의 docker-compose 예시 코드 블록 제거
-  - Grafana 모달 lightbox 복원 (window.open 방식 → 인라인 모달로 되돌림)
-  - redstone-preview.png 이미지 프리뷰 복원
-  - IPTV SVG: DB 클러스터 3개 추가 (메인 M/S/S, API HISTORY M/S, 채널이력 M/S)
-  - IPTV SVG: 겹침 해소 (클러스터 가로 배치), viewBox 490→378, 프리뷰 max-height 200px
-
-### v7 (`/v7/`) — 이전 방향 (라이트 테마)
-- **기반**: v6 복사 후 라이트 테마 전환
-- **추가된 기능** (2026-05-28):
-  - 라이트 테마 (`#faf9f6` 크림 배경, 흰 카드, 다크 테두리/그림자)
-  - 보조 컬러 틸 (`--cyan: #0891b2`) — 날짜·섹션번호·레이블
-  - 카드 기본 그림자 `#0c0c0c` → hover 시 라임으로 전환 (네오브루탈리즘)
-  - 플로팅 pill 네브바 — 스크롤 80px 시 중앙 pill 형태로 전환 (`max-width` 트랜지션 + backdrop-filter)
-  - 컬러 테마 스위처 (우측 하단 고정) — Lime / Indigo / Orange / Forest / Crimson 실시간 전환
-  - Print CSS 대폭 단순화 — 라이트 테마라 색상 오버라이드 불필요, 그림자만 제거
-  - SVG 다이어그램: 다크 패널 유지 (라이트 카드 안 dark screen 대비 효과)
-- **추가된 기능** (2026-05-29):
-  - `og:url` 메타 태그 추가 (`https://juneyoung.pages.dev`)
-  - Hero stat 카드 서브텍스트 추가 (`Experience` / `3BB IPTV` / `MAI-WACS`)
-  - 병원 앱 경력 항목 보강 — Shell Script 자동화, Nginx 리버스 프록시 재설계, Pacemaker HA 클러스터
-  - SVG 아키텍처 다이어그램 개선 — 서브타이틀, ON-PREMISES 내부망 경계 표시, 화살표 개선
-  - Architecture Lightbox — SVG 클릭 시 모달 확대 보기 (ESC/배경클릭 닫기)
-  - About 메타 배지 추가 — `.about-badge.available` + `.about-location`
-  - 테마 스위처 확장 — Olive / Violet 2개 추가 (총 7개)
-  - 기본 accent 컬러 Lime → Violet (`#7c3aed`) 으로 임시 변경 (확정 전)
-- **로컬 서버**: `npx serve v7 --listen 3600` (port 3600)
-- **서버 재시작 방법**: 포트 점유 프로세스 종료 후 재기동
-
-### v6 (`/v6/`) — 다크 테마 + 2컬러 버전
-- **기반**: v5 복사 후 컬러 계층화
-- **추가된 기능** (2026-05-28):
-  - 보조 컬러 시안 (`--cyan: #22d3ee`) 추가 — 날짜·섹션번호 분리
-  - 대표 프로젝트 카드 풀 와이드 (`grid-column: 1/-1`) + 내부 2열 레이아웃
-  - `★ 대표 프로젝트` 배지
-- **로컬 서버**: `npx serve resume-ai/v6 --listen 3500` (port 3500)
-
-### v5 (`/v5/`)
-- **기반**: v4 복사 후 기능 강화
-- **추가된 기능** (2026-05-28):
-  - favicon.svg (JY 로고, lime #a3e635)
-  - OG 태그 (title/description/type/twitter:card)
-  - PDF 버튼 (nav 우측, `window.print()`)
-  - Print CSS (`@media print`) — 흰 배경, 아치 다이어그램 자동 펼침
-  - 카드별 임팩트 칩 (`.bstat`): 10개병원/100만가입자/350대서버 등
-  - Nav 스크롤 스파이 (IntersectionObserver, active underline)
-- **로컬 서버**: `npx serve resume-ai/v5 --listen 3400` (port 3400)
-
-### v4 (`/v4/`) — 백업
-- **기반**: v3 복사 후 비주얼 강화
-- **추가된 기능** (이번 세션):
-  - 모든 섹션 배경에 거대 섹션 번호 장식 (`01` ~ `04`, rgba 투명)
-  - About 섹션 완전 리디자인:
-    - 거대 quote (clamp 28~52px) + lime 왼쪽 보더
-    - 배경 반투명 `"` 장식 문자 (100~200px)
-    - 터미널 블록 (● ● ● + `$` 프롬프트 + 깜빡이는 커서)
-  - Contact 섹션 완전 리디자인:
-    - `ALWAYS` (lime outline) / `OPEN.` (white solid) 대형 타이포
-    - clamp 56~120px 압도적 텍스트
-- **로컬 서버**: `npx serve resume-ai/v4` (port 3300)
-- **⚠️ 주의**: v3와 동일하게 브라우저 직접 열어야 함
-
-> **현재 방향**: v4 기반으로 계속 진행. v3는 백업으로 유지.
+**로컬 미리보기 (Docker, F 드라이브 기준)**
+```bash
+docker run -d --name resume-vN -p 500N:80 -v "F:/ai/resume-ai/vN:/usr/share/nginx/html:ro" nginx:alpine
+# 예: v1 → http://localhost:5001, v2 → :5002 ... v7 → :5007
+```
 
 ---
 
@@ -281,8 +207,8 @@
 
 ### 🔜 다음 세션 우선순위
 
-1. **v8 KakaoTalk 링크 교체**
-   - `v8/index.html` 에 `<!-- TODO: KAKAO_LINK_HERE를 실제 오픈채팅 URL로 교체 -->` 주석 있음
+1. **v2(구 v8) KakaoTalk 링크 교체**
+   - `v2/index.html` 에 `<!-- TODO: KAKAO_LINK_HERE를 실제 오픈채팅 URL로 교체 -->` 주석 있음
    - `.clink-disabled` → 실제 URL 넣고 `clink-disabled` 클래스 제거
 
 2. **metric-stream GCP 배포 후 Grafana 모달 URL 교체**
@@ -300,65 +226,25 @@
 
 ```
 resume-ai/
-├── index.html         # v1 메인
+├── index.html         # 구버전 잔존 (루트, 사용 안 함)
 ├── style.css
 ├── script.js
-├── v2/                # Bento Grid + Amber
-├── v3/                # 백업
-├── v4/                # 백업
-├── v5/                # 기능 완성본 (다크)
-├── v6/                # 다크 + 2컬러 + 피처드 카드
-├── v7/                # 라이트 테마 + pill nav + 컬러 스위처
-├── v8/                # Neobrutalism (크림+바이올렛+틸, DESIGN.md + PRODUCT.md 포함)
-├── v13/               # White Glass (순백+인디고+글래스모피즘)
-│   ├── index.html
-│   ├── redstone-preview.png
-│   └── favicon.svg
-├── v14/               # Clean Minimal White (순백, 인디고, rounded 카드, redstone-preview.png)
-├── v15/               # Heavy Editorial (흰 배경, Barlow Condensed, 빨강 #dc2626, 카드 없음)
-├── v16/               # Spatial Cards Dark (다크 #0c0c0e, 인디고 #818cf8, blur nav)
-├── v17/               # Ruled Paper (룰드 배경, 인디고 좌측 border, 심플 라인)
+├── v1/                # 라이트 테마 + pill nav + 컬러 스위처 (구 v7)
+├── v2/                # Neobrutalism + Impeccable 완성본, DESIGN.md/PRODUCT.md (구 v8)
+├── v3/                # White Glass — 순백+인디고+글래스모피즘 (구 v13)
+├── v4/                # Clean Minimal White (구 v14)
+├── v5/                # Heavy Editorial — Barlow Condensed, 빨강 액센트 (구 v15)
+├── v6/                # Spatial Cards Dark (구 v16)
+├── v7/                # Ruled Paper (구 v17)
 ├── PROGRESS.md
 └── LICENSE
 ```
 
 ---
 
-## 로컬 개발 서버
+## 로컬 개발 서버 (Docker, F 드라이브 기준)
 
 ```bash
-# v7 (현재 작업 버전) ⭐ — 포트 점유 시 먼저 kill 후 기동
-npx serve resume-ai/v7 --listen 3600   # http://localhost:3600
-
-# 포트 강제 해제 (PowerShell)
-# Get-NetTCPConnection -LocalPort 3600 | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
-
-# 이전 버전 참고용
-# npx serve resume-ai/v6 --listen 3500
-# npx serve resume-ai/v5 --listen 3400
+docker run -d --name resume-v1 -p 5001:80 -v "F:/ai/resume-ai/v1:/usr/share/nginx/html:ro" nginx:alpine
+# v2~v7도 동일 패턴으로 포트 5002~5007
 ```
-
----
-
-## 주요 구현 메모
-
-### 아키텍처 다이어그램 (v3/v4 공통)
-- SVG 인라인 삽입 (Mermaid.js 대신 → 런타임 JS 제로, 경량)
-- ViewBox: `800×360`, 노드 `150×70`, 폰트 11px/9px
-- PC: `@media (hover:hover) and (pointer:fine)` → 카드 hover 시 max-height 전개
-- 모바일: `@media (hover:none) and (pointer:coarse)` → 버튼 클릭 + `overflow-x:auto`
-
-### Email Obfuscation (v3/v4 공통)
-```js
-const u = 'sky14786', d = 'gmail.com';
-// HTML에 이메일 없음, JS 실행 후에만 DOM에 삽입 → 크롤러 차단
-```
-
-### v3 Custom Cursor
-- `mousemove` 이벤트로 dot/ring 위치 업데이트
-- ⚠️ RAF 루프 사용 시 프리뷰 스크린샷 불가 → mousemove 방식 사용
-
-### v3 Kinetic Typography (decode)
-- 글자별 `<span class="char">` 분리
-- 무작위 문자로 scramble 후 실제 글자로 resolve
-- 단어별 delay 차이 (word1: 200ms, word2: 700ms)

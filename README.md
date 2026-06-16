@@ -67,28 +67,30 @@ Neobrutalism 기반의 라이트 테마. 두꺼운 선, 오프셋 그림자, 날
 
 ## ✦ 버전 히스토리
 
+> 2026-06-16 번호 재정렬: 기존 v7,v8,v13~v17 → v1~v7로 순서대로 재명명 (이전 v1~v6은 더 오래전에 폐기된 디자인이며 이 표와 무관)
+
 ```
-v1  TERM / DARK / CYBER 3테마, 세로 타임라인
-v2  Bento Grid + 앰버 테마
-v3  Neobrutalism, Kinetic Typography, Command Palette
-v4  대형 타이포그래피, 터미널 블록, 비주얼 강화
-v5  favicon, OG 태그, PDF 출력, 임팩트 칩, Nav 스크롤 스파이
-v6  2컬러 계층 (Lime + Cyan), 대표 프로젝트 피처드 카드
-v7  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처, Projects 섹션(Grafana 임베딩) ← 현재 배포
+v1  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처, Projects 섹션(Grafana 임베딩) ← 현재 배포
+v2  Neobrutalism + Impeccable 풀 워크플로우 완성본
+v3  White Glass — 순백 + 인디고 + 글래스모피즘
+v4  Clean Minimal White
+v5  Heavy Editorial — Barlow Condensed, 빨강 액센트
+v6  Spatial Cards Dark
+v7  Ruled Paper
 ```
 
 ---
 
 ## ✦ 로컬 실행
 
-별도 설치 없이 `npx serve`만으로 즉시 실행됩니다.
+Docker로 실행합니다 (F 드라이브 기준).
 
 ```bash
 git clone https://github.com/sky14786/resume-ai.git
 cd resume-ai
 
-npx serve v7 --listen 3600
-# → http://localhost:3600
+docker run -d --name resume-v1 -p 5001:80 -v "F:/ai/resume-ai/v1:/usr/share/nginx/html:ro" nginx:alpine
+# → http://localhost:5001
 ```
 
 ---
@@ -102,7 +104,7 @@ GitHub (main push)
 ```
 
 - 빌드 명령: 없음 (정적 파일 직접 서빙)
-- 배포 디렉토리: `/v7`
+- 배포 디렉토리: `/v1` ⚠️ Cloudflare 대시보드의 Build output directory 설정이 과거 `/v7`로 되어 있었다면, 번호 재정렬에 맞춰 `/v1`로 직접 갱신 필요 (이 저장소 파일로는 그 설정을 확인/변경할 수 없음)
 - `main` 브랜치 push → 1~2분 내 자동 반영
 
 ---
