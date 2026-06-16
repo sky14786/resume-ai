@@ -1250,7 +1250,12 @@ kbd{
 }
 @media(max-width:768px){
   #theme-sw{bottom:16px;right:16px;}
-  #version-sw{bottom:16px;right:16px;}
+  #version-sw{bottom:16px;right:16px;left:16px;}
+  #version-sw .tsw-panel{
+    flex-wrap:wrap;justify-content:flex-end;
+    max-width:100%;
+  }
+  #version-sw .vsw-dot{height:26px;padding:0 7px;}
 }
 
 /* ── VERSION SWITCHER ── */
