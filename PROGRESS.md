@@ -59,6 +59,7 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] 버전 전환 위젯 레이아웃/라벨 수정: v3~v7만 세로 배치였던 불일치 발견 → 7개 전부 가로(`flex-direction:row`) 배치로 통일, 숫자 단독("1") → "v1" 텍스트 필 배지로 변경 (원형 → border-radius 4~8px 사각/필 모양)
 - [x] v3~v7 위젯 테두리 대비 개선: 카드용 반투명/연한 색(`--card-border`/`--line`/`--border-h`/`--rule`) → 본문 텍스트색(`--text-primary`/`--ink`/`--text`) 풀오파시티로 교체, v1/v2와 동일하게 또렷하게 보이도록
 - [x] v3~v7에 v1/v2(`.tsw-panel`)와 같은 **감싸는 패널** 추가 (`.vsw-panel`) — 배지들이 개별로 흩어져 있던 것을 배경+테두리+그림자가 있는 패널 안에 담아 "떠 있는" 느낌으로 통일. 버전별 그림자 표현: v3/v4 `var(--shadow-card)`, v5/v7 오프셋 하드 섀도, v6 다크 드롭 섀도
+- [x] v5/v6/v7 redstone 프리뷰 이미지 404 수정 — 재명명 전 `../v14/redstone-preview.png` 참조가 그대로 남아있던 것을 `../v4/`로 수정 (v14→v4 재명명 시 누락된 경로)
 
 ### v1 / v2 / v3 기본 구조 (이전 세션)
 - [x] v1: 3테마, 타이핑 애니메이션, Career/Skills/Footer
