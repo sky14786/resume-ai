@@ -856,10 +856,6 @@ kbd{
   box-shadow:3px 3px 0 var(--shadow);
   transform:translate(-1px,-1px);
 }
-.footer-meta{
-  font-family:var(--mono);font-size:11px;color:var(--dim);
-  margin-top:14px;line-height:1.6;
-}
 
 /* ── ABOUT ── */
 .about-quote-big {

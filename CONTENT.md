@@ -128,10 +128,4 @@
 
 GitHub(github.com/sky14786) / Email(obfuscated) / KakaoTalk(준비중 — `KAKAO_LINK_HERE` 플레이스홀더)
 
----
-
-## 10. Footer 메타 노트 (2026-06-16 v2에 신규 추가)
-
-> resume-ai 사이트 자체의 구성을 방문자(헤드헌터·기술 리드)에게 짧게 보여주기 위한 노트. 화려한 아키텍처 다이어그램 대신 작게.
-
-"정적 페이지로 GitHub → Cloudflare Pages에 배포됩니다. 경력 콘텐츠는 사실 검증을 거쳤고, 페이지 구현은 AI(Claude)에 위임했습니다."
+> 2026-06-16: footer에 사이트 구성 메타 노트를 추가했다가 — 이미 Hero("페이지 구현은 AI에 맡겼습니다")와 Projects("설계와 기획은 본인이, 구현은 AI(Claude)가 맡은 프로젝트입니다")에 같은 내용이 있어 중복+빈약해 보인다는 판단으로 제거함. footer는 이름 + GitHub 링크만 유지.
