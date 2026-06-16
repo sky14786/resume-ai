@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JuneYoung Kim — Backend Engineer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <meta name="description" content="시스템 전체를 혼자 책임지는 백엔드 엔지니어. 백엔드, 인프라, 파이프라인을 맡습니다."/>
+  <meta property="og:title" content="JuneYoung Kim — Backend Engineer"/>
+  <meta property="og:description" content="시스템 전체를 혼자 책임지는 엔지니어. 백엔드, 인프라, 파이프라인을 맡습니다."/>
+  <meta property="og:type" content="website"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta property="og:url" content="https://juneyoung.pages.dev"/>
+  <meta property="og:image" content="https://juneyoung.pages.dev/og-image.svg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Scroll Progress -->
+  <div id="progress"></div>
+
+  <!-- Command Palette -->
+  <div id="cmd-overlay" class="hidden">
+    <div id="cmd-box">
+      <div id="cmd-header">
+        <span id="cmd-icon">⌘</span>
+        <input id="cmd-input" type="text" placeholder="검색하거나 이동..." autocomplete="off"/>
+        <span id="cmd-esc">ESC</span>
+      </div>
+      <ul id="cmd-list"></ul>
+      <div id="cmd-footer">
+        <span><kbd>↑↓</kbd> 이동</span>
+        <span><kbd>↵</kbd> 선택</span>
+        <span><kbd>ESC</kbd> 닫기</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">JY<span>.</span></a>
+    <div class="nav-center">
+      <a href="#career">Career</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="pdf-trigger" onclick="window.print()">PDF <span>↓</span></button>
+      <button class="cmd-trigger" id="cmd-trigger">
+        <span>검색</span>
+        <kbd>⌘K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-label">// Backend Engineer , System Operator</p>
+
+      <h1 class="hero-name" id="hero-name">
+        <span class="name-word" id="word1"></span>
+        <br/>
+        <span class="name-word" id="word2"></span>
+      </h1>
+
+      <p class="hero-desc">
+        시스템 전체를 혼자 책임지는 엔지니어입니다.<br/>
+        백엔드, 인프라, 파이프라인을 맡습니다.
+      </p>
+      <p class="hero-ai-note">페이지 구현은 AI에 맡겼습니다.</p>
+
+      <div class="hero-stats">
+        <div class="stat" data-val="5" data-sfx="+ Years">
+          <span class="stat-n">0</span>
+          <span class="stat-l">Years</span>
+          <span class="stat-sub">Experience</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-val="100" data-sfx="만+ Users">
+          <span class="stat-n">0</span>
+          <span class="stat-l">만+ Users</span>
+          <span class="stat-sub">해외 IPTV</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-val="350" data-sfx="+ Servers">
+          <span class="stat-n">0</span>
+          <span class="stat-l">Servers</span>
+          <span class="stat-sub">모니터링 시스템</span>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">scroll ↓</div>
+    </div>
+
+    <!-- kinetic bg text -->
+    <div class="hero-bg-text" aria-hidden="true">ENGINEER</div>
+  </section>
+
+  <!-- ── CAREER ── -->
+  <section class="section section-rel" id="career">
+    <div class="section-bg-num" aria-hidden="true">01</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <span class="label-text">Career</span>
+      </div>
+
+      <div class="career-grid">
+
+        <div class="brut-card featured reveal-left" id="c-hospital">
+          <div class="brut-year">2025</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">다기관 병원 환자중심 앱</h3>
+                <p class="brut-sub">대형 병원 10개소 유지보수</p>
+              </div>
+              <span class="brut-period">2025.08 — 2026.02</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">MariaDB</span>
+              <span class="btag">Docker</span>
+              <span class="btag">Shell Script</span>
+              <span class="btag">Nginx</span>
+              <span class="btag">Pacemaker</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">10개 병원</span>
+              <span class="bstat">6개월</span>
+            </div>
+            <ul class="brut-list">
+              <li><span class="li-ctx">MySQL 복제가 끊긴 채 운영 중</span>→ SLAVE STATUS 에러를 분석하고 순차 스킵으로 복제 재동기화</li>
+              <li><span class="li-ctx">백업 체계 없이 운영되던 DB</span>→ mysqldump와 cron으로 정기 백업 자동화</li>
+              <li><span class="li-ctx">Docker binlog가 쌓여 disk full 발생</span>→ 파일 truncate로 즉시 해소</li>
+              <li><span class="li-ctx">결제 실패 원인을 로그 없이 추론으로만 파악하던 상황</span>→ PG사 모듈 교체 때 단계별 로그를 추가해 이후 원인 추적 가능</li>
+              <li><span class="li-ctx">라이브 서비스 장애 시 상태 파악 수단 없음</span>→ 헬스체크와 리소스 조회 API 개발 (IP 화이트리스트 + 서버별 해시 키 이중 인증)</li>
+            </ul>
+
+            <div class="arch-wrap">
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
+              <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
+              <div class="arch-diagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                  <rect width="800" height="360" fill="#0d0d0d"/>
+                  <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">HOSPITAL PATIENT APP — ARCHITECTURE</text>
+                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">대형 병원 10개소  ,  폐쇄망 온프레미스</text>
+                  <line x1="30" y1="52" x2="770" y2="52" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
+                  <!-- internal network boundary -->
+                  <rect x="158" y="88" width="630" height="200" fill="none" stroke="#a3e635" stroke-width="1" stroke-dasharray="6,4" opacity="0.18" rx="3"/>
+                  <text x="168" y="101" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7" opacity="0.38" letter-spacing="2">ON-PREMISES , INTERNAL NETWORK</text>
+                  <!-- arrows -->
+                  <line x1="130" y1="178" x2="161" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="158,174 158,182 165,178" fill="#a3e635"/>
+                  <line x1="281" y1="178" x2="309" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="306,174 306,182 313,178" fill="#a3e635"/>
+                  <line x1="429" y1="178" x2="457" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="454,174 454,182 461,178" fill="#a3e635"/>
+                  <line x1="577" y1="178" x2="610" y2="178" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="610" y1="140" x2="610" y2="216" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="610" y1="140" x2="621" y2="140" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="618,136 618,144 625,140" fill="#a3e635"/>
+                  <line x1="610" y1="216" x2="621" y2="216" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="618,212 618,220 625,216" fill="#a3e635"/>
+                  <!-- db replication -->
+                  <line x1="692" y1="168" x2="692" y2="190" stroke="#a3e635" stroke-width="1" stroke-dasharray="3,2" opacity="0.35"/>
+                  <polygon points="688,188 696,188 692,195" fill="#a3e635" opacity="0.35"/>
+                  <text x="697" y="181" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">replication</text>
+                  <!-- NODE: USER -->
+                  <rect x="19" y="154" width="114" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="16" y="151" width="114" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="73" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">USER</text>
+                  <text x="73" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Patient App</text>
+                  <text x="73" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">도메인 URI</text>
+                  <!-- NODE: Router -->
+                  <rect x="164" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="161" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="221" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">ROUTER</text>
+                  <text x="221" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">network edge</text>
+                  <text x="221" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">per hospital</text>
+                  <!-- NODE: Nginx LB -->
+                  <rect x="312" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="309" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="369" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">NGINX LB</text>
+                  <text x="369" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Docker , on-prem</text>
+                  <text x="369" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">load balancing</text>
+                  <!-- NODE: API Server -->
+                  <rect x="460" y="154" width="120" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="457" y="151" width="120" height="52" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="517" y="170" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">API SERVER</text>
+                  <text x="517" y="183" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Spring Boot , Docker</text>
+                  <text x="517" y="195" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- NODE: DB 1 -->
+                  <rect x="624" y="114" width="148" height="50" fill="#a3e635" opacity="0.08"/>
+                  <rect x="621" y="111" width="148" height="50" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="695" y="129" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">DB 1</text>
+                  <text x="695" y="142" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB , Docker</text>
+                  <text x="695" y="154" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- NODE: DB 2 -->
+                  <rect x="624" y="192" width="148" height="50" fill="#a3e635" opacity="0.08"/>
+                  <rect x="621" y="189" width="148" height="50" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="695" y="207" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">DB 2</text>
+                  <text x="695" y="220" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">MariaDB , Docker</text>
+                  <text x="695" y="232" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- layer labels -->
+                  <text x="73"  y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">CLIENT</text>
+                  <text x="221" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">EDGE</text>
+                  <text x="369" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">PROXY</text>
+                  <text x="517" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">APP</text>
+                  <text x="695" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">DATA</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-right" id="c-iptv">
+          <div class="brut-year">2021</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">태국 IPTV 플랫폼</h3>
+                <p class="brut-sub">가입자 100만 규모 플랫폼 , 5년 개발/운영</p>
+              </div>
+              <span class="brut-period">2021.01 — 2025.12</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">Redis</span>
+              <span class="btag">RabbitMQ</span>
+              <span class="btag">MySQL</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">100만 가입자</span>
+              <span class="bstat">5년 운영</span>
+            </div>
+            <ul class="brut-list">
+              <li>플랫폼 개발과 운영 담당 (설계, 배포, 장애 대응, 요구사항 대응)</li>
+              <li>해외 고객사 담당자와 커뮤니케이션 (현지 출장, AI 번역 활용)</li>
+              <li>외부 시스템(STB, CMS, DBS) API 연동 설계 및 관리</li>
+              <li><span class="li-ctx">Slave DB에서 파티션 DDL을 실행해 binlog 불일치로 복제 중단</span>→ 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL을 실행하도록 재구성</li>
+              <li><span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화 반복</span>→ 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
+              <li><span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스 빈발</span>→ write-through 전략을 적용해 미스율 감소, 응답 속도 안정화</li>
+              <li>장애 예방 점검</li>
+            </ul>
+
+            <div class="arch-wrap">
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
+              <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
+              <div class="arch-diagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                  <rect width="800" height="360" fill="#0d0d0d"/>
+                  <text x="400" y="27" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">IPTV 플랫폼 — ARCHITECTURE</text>
+                  <text x="400" y="43" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="1.5">가입자 100만  ,  온프레미스</text>
+                  <line x1="30" y1="52" x2="770" y2="52" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
+                  <!-- on-prem boundary -->
+                  <rect x="395" y="88" width="390" height="200" fill="none" stroke="#a3e635" stroke-width="1" stroke-dasharray="6,4" opacity="0.18" rx="3"/>
+                  <text x="405" y="101" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7" opacity="0.38" letter-spacing="2">ON-PREMISES</text>
+                  <!-- main flow arrows -->
+                  <line x1="112" y1="175" x2="140" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="137,171 137,179 144,175" fill="#a3e635"/>
+                  <line x1="240" y1="175" x2="268" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="265,171 265,179 272,175" fill="#a3e635"/>
+                  <line x1="368" y1="175" x2="396" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="393,171 393,179 400,175" fill="#a3e635"/>
+                  <line x1="496" y1="175" x2="524" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="521,171 521,179 528,175" fill="#a3e635"/>
+                  <!-- API → data bus -->
+                  <line x1="624" y1="175" x2="643" y2="175" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="643" y1="122" x2="643" y2="248" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <line x1="643" y1="122" x2="652" y2="122" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="649,118 649,126 656,122" fill="#a3e635"/>
+                  <line x1="643" y1="185" x2="652" y2="185" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="649,181 649,189 656,185" fill="#a3e635"/>
+                  <line x1="643" y1="248" x2="652" y2="248" stroke="#a3e635" stroke-width="1.5" opacity="0.8"/>
+                  <polygon points="649,244 649,252 656,248" fill="#a3e635"/>
+                  <!-- NODE: User -->
+                  <rect x="15" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="12" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="62" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">USER</text>
+                  <text x="62" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">IPTV subscriber</text>
+                  <text x="62" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">domain URI</text>
+                  <!-- NODE: LB Switch (물리) -->
+                  <rect x="143" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="140" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="190" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">LB SWITCH</text>
+                  <text x="190" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">물리 , Physical</text>
+                  <text x="190" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">load balancing</text>
+                  <!-- NODE: Gateway -->
+                  <rect x="271" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="268" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="318" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">GATEWAY</text>
+                  <text x="318" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">routing</text>
+                  <text x="318" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7"> </text>
+                  <!-- NODE: Nginx LB -->
+                  <rect x="399" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="396" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="446" y="168" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">NGINX LB</text>
+                  <text x="446" y="181" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">software LB</text>
+                  <text x="446" y="193" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- NODE: API Servers -->
+                  <rect x="527" y="152" width="100" height="48" fill="#a3e635" opacity="0.08"/>
+                  <rect x="524" y="149" width="100" height="48" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="574" y="167" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">API SERVER</text>
+                  <text x="574" y="180" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">Spring Boot</text>
+                  <text x="574" y="192" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- DATA: RabbitMQ -->
+                  <rect x="655" y="101" width="130" height="44" fill="#a3e635" opacity="0.08"/>
+                  <rect x="652" y="98" width="130" height="44" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="717" y="116" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">RABBITMQ</text>
+                  <text x="717" y="129" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">channel events</text>
+                  <text x="717" y="140" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- DATA: Redis -->
+                  <rect x="655" y="163" width="130" height="44" fill="#a3e635" opacity="0.08"/>
+                  <rect x="652" y="160" width="130" height="44" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="717" y="178" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">REDIS</text>
+                  <text x="717" y="191" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">session / cache</text>
+                  <text x="717" y="202" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- DATA: MySQL -->
+                  <rect x="655" y="226" width="130" height="44" fill="#a3e635" opacity="0.08"/>
+                  <rect x="652" y="223" width="130" height="44" fill="#111" stroke="#a3e635" stroke-width="1.5"/>
+                  <text x="717" y="241" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="bold" letter-spacing="0.5">MYSQL</text>
+                  <text x="717" y="254" text-anchor="middle" fill="#666" font-family="'JetBrains Mono', monospace" font-size="7.5">IPTV platform DB</text>
+                  <text x="717" y="265" text-anchor="middle" fill="#3a3a3a" font-family="'JetBrains Mono', monospace" font-size="7">on-premises</text>
+                  <!-- layer labels -->
+                  <text x="62"  y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">CLIENT</text>
+                  <text x="190" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">NETWORK</text>
+                  <text x="318" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">GATEWAY</text>
+                  <text x="446" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">PROXY</text>
+                  <text x="574" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">APP</text>
+                  <text x="717" y="315" text-anchor="middle" fill="#2a2a2a" font-family="'JetBrains Mono', monospace" font-size="7.5" letter-spacing="1.5">DATA</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-left" id="c-wacs">
+          <div class="brut-year">2022</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">모니터링 시스템 재구축</h3>
+                <p class="brut-sub">350대 서버 30초 단위 실시간 로그 수집 파이프라인</p>
+              </div>
+              <span class="brut-period">2022.06 — 2023.10</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Kafka</span>
+              <span class="btag">Flink</span>
+              <span class="btag">Docker</span>
+              <span class="btag">PostgreSQL</span>
+              <span class="btag">React</span>
+              <span class="btag">DRBD</span>
+              <span class="btag">Pacemaker</span>
+            </div>
+            <div class="brut-stats">
+              <span class="bstat">350대 서버</span>
+              <span class="bstat">30초 단위 수집</span>
+            </div>
+            <ul class="brut-list">
+              <li>레거시 수집 시스템을 Telegraf → Kafka → Flink 파이프라인으로 재구축</li>
+              <li>집계 데이터 저장과 시계열 쿼리 최적화</li>
+              <li><span class="li-ctx">pgpool HA를 구성했으나 장애 테스트 때 다운타임 과다</span>→ DRBD + Pacemaker로 전환해 DB 무중단 HA 운영</li>
+              <li>수집 지표가 기준치를 넘으면 이메일/SMS를 자동 발송하도록 구현</li>
+              <li>React 기반 실시간 모니터링 대시보드 개발</li>
+            </ul>
+            <a href="#p-metric" class="wacs-proj-link">이 경험 기반 토이 프로젝트 → metric-stream ↓</a>
+
+            <div class="arch-wrap">
+              <div class="arch-hint">ARCHITECTURE <span>↓ hover , click to zoom</span></div>
+              <button class="arch-btn" aria-expanded="false">ARCHITECTURE <span class="arch-arrow">↓</span></button>
+              <div class="arch-diagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+                  <rect width="800" height="360" fill="#0d0d0d"/>
+                  <text x="400" y="22" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" letter-spacing="2">모니터링 시스템 — SYSTEM ARCHITECTURE</text>
+                  <line x1="30" y1="30" x2="770" y2="30" stroke="#a3e635" stroke-width="0.5" opacity="0.15"/>
+                  <!-- HA server group container -->
+                  <rect x="8" y="38" width="394" height="208" fill="#a3e635" opacity="0.04" stroke="#a3e635" stroke-width="1" stroke-dasharray="5,3" rx="3"/>
+                  <text x="16" y="50" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="8" opacity="0.55" letter-spacing="1">수집/처리 서버  —  PACEMAKER HA</text>
+                  <!-- connections -->
+                  <line x1="192" y1="257" x2="193" y2="106" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="189,109 197,109 193,102" fill="#a3e635"/>
+                  <line x1="175" y1="102" x2="90" y2="130" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="96,124 98,132 88,130" fill="#a3e635"/>
+                  <line x1="162" y1="156" x2="236" y2="156" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="233,152 233,160 240,156" fill="#a3e635"/>
+                  <line x1="388" y1="156" x2="502" y2="178" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="494,173 496,181 502,178" fill="#a3e635"/>
+                  <line x1="574" y1="70" x2="602" y2="70" stroke="#a3e635" stroke-width="1.5"/>
+                  <polygon points="599,66 599,74 606,70" fill="#a3e635"/>
+                  <line x1="684" y1="96" x2="652" y2="154" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+                  <polygon points="652,146 659,150 652,154" fill="#a3e635" opacity="0.7"/>
+                  <line x1="583" y1="210" x2="583" y2="256" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+                  <polygon points="579,253 587,253 583,260" fill="#a3e635" opacity="0.7"/>
+                  <!-- node: 수집서버 (top of group) -->
+                  <rect x="120" y="54" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="116" y="50" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="193" y="72" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">수집서버</text>
+                  <text x="193" y="85" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">Telegraf</text>
+                  <!-- node: KAFKA (bottom-left of group) -->
+                  <rect x="22" y="134" width="144" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="18" y="130" width="144" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="90" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">KAFKA</text>
+                  <text x="90" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">message broker</text>
+                  <!-- node: FLINK (bottom-right of group) -->
+                  <rect x="244" y="134" width="148" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="240" y="130" width="148" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="314" y="152" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">APACHE FLINK</text>
+                  <text x="314" y="165" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">stream processing</text>
+                  <!-- node: 350 SERVERS (external, below group) -->
+                  <rect x="118" y="262" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="114" y="258" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="191" y="280" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">350 SERVERS</text>
+                  <text x="191" y="293" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">syslog / metrics</text>
+                  <!-- node: MONITORING -->
+                  <rect x="434" y="48" width="144" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="430" y="44" width="144" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="502" y="66" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">MONITORING</text>
+                  <text x="502" y="79" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">React dashboard</text>
+                  <!-- node: API SERVER -->
+                  <rect x="610" y="48" width="156" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="606" y="44" width="156" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="684" y="66" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">API SERVER</text>
+                  <text x="684" y="79" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">REST / query</text>
+                  <!-- node: POSTGRESQL -->
+                  <rect x="510" y="158" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="506" y="154" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="583" y="176" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">POSTGRESQL</text>
+                  <text x="583" y="189" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">metric store</text>
+                  <!-- node: SPRING BATCH -->
+                  <rect x="510" y="264" width="155" height="52" fill="#a3e635" opacity="0.08"/>
+                  <rect x="506" y="260" width="155" height="52" fill="#111" stroke="#a3e635" stroke-width="2"/>
+                  <text x="583" y="282" text-anchor="middle" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" letter-spacing="1">SPRING BATCH</text>
+                  <text x="583" y="295" text-anchor="middle" fill="#555" font-family="'JetBrains Mono', monospace" font-size="9">alert / email/SMS</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brut-card reveal-right" id="c-admin">
+          <div class="brut-year">2020</div>
+          <div class="brut-body">
+            <div class="brut-head">
+              <div>
+                <h3 class="brut-title">해외 IPTV 플랫폼 어드민</h3>
+                <p class="brut-sub">관리자 시스템 개발</p>
+              </div>
+              <span class="brut-period">2020.07 — 2021.01</span>
+            </div>
+            <div class="brut-tags">
+              <span class="btag">Spring Boot</span>
+              <span class="btag">JSP</span>
+              <span class="btag">jQuery</span>
+              <span class="btag">MySQL</span>
+            </div>
+            <ul class="brut-list">
+              <li>Spring Boot + JSP 기반 어드민 MVC 아키텍처 설계 및 전체 구현</li>
+              <li>콘텐츠 뷰어 , 사용자 관리 , 환경설정 , STB 단말 현황 기능 개발</li>
+              <li>광고 활성화 , 결제 수단 관리 UI 구현</li>
+              <li>jQuery AJAX 비동기 처리로 페이지 전환 없이 실시간 데이터 갱신</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section class="section section-rel" id="projects">
+    <div class="section-bg-num" aria-hidden="true">02</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <span class="label-text">Projects</span>
+      </div>
+
+      <p class="proj-ai-note">설계와 기획은 본인이, 구현은 AI(Claude)가 맡은 프로젝트입니다.</p>
+
+      <div class="proj-card brut-card reveal-left" id="p-metric">
+        <div class="brut-year">2026</div>
+        <div class="brut-body">
+          <div class="brut-head">
+            <div>
+              <h3 class="brut-title">metric-stream</h3>
+              <p class="brut-sub">실시간 서버 API 로그 수집 파이프라인</p>
+            </div>
+            <span class="brut-period">2026 — 개인 토이 프로젝트</span>
+          </div>
+          <div class="brut-tags">
+            <span class="btag btag-ai">AI 구현</span>
+            <span class="btag">Kafka</span>
+            <span class="btag">Spring Boot</span>
+            <span class="btag">PostgreSQL</span>
+            <span class="btag">Grafana</span>
+            <span class="btag">Docker</span>
+            <span class="btag">Java 17</span>
+          </div>
+          <ul class="brut-list">
+            <li>API 로그를 실시간 수집해 저장과 조회까지 잇는 파이프라인 구성 (AI 구현)</li>
+            <li>분당 900건 규모 로그를 자동 생성해 파이프라인 전 구간 동작 검증</li>
+            <li>Grafana 대시보드로 요청량,에러율,응답시간 실시간 모니터링</li>
+            <li>Docker Compose 한 명령으로 Kafka,DB,Grafana 전체 인프라 구동</li>
+          </ul>
+          <div class="log-sample">
+            <span class="ls-label">수집 로그 예시 ↓</span>
+            <pre class="ls-code"><span class="lj-b">{</span>
+  <span class="lj-k">"serverId"</span><span class="lj-p">:</span>       <span class="lj-s">"server-007"</span><span class="lj-p">,</span>
+  <span class="lj-k">"region"</span><span class="lj-p">:</span>         <span class="lj-s">"seoul"</span><span class="lj-p">,</span>
+  <span class="lj-k">"method"</span><span class="lj-p">:</span>         <span class="lj-s">"GET"</span><span class="lj-p">,</span>
+  <span class="lj-k">"endpoint"</span><span class="lj-p">:</span>       <span class="lj-s">"/api/orders"</span><span class="lj-p">,</span>
+  <span class="lj-k">"statusCode"</span><span class="lj-p">:</span>     <span class="lj-n">200</span><span class="lj-p">,</span>
+  <span class="lj-k">"responseTimeMs"</span><span class="lj-p">:</span> <span class="lj-n">142</span><span class="lj-p">,</span>
+  <span class="lj-k">"deviceType"</span><span class="lj-p">:</span>     <span class="lj-s">"MOBILE"</span><span class="lj-p">,</span>
+  <span class="lj-k">"errorMessage"</span><span class="lj-p">:</span>   <span class="lj-null">null</span>
+<span class="lj-b">}</span></pre>
+          </div>
+          <div class="grafana-wrap">
+            <div class="grafana-label"><span class="grafana-dot"></span> LIVE <span class="grafana-label-note">— 임의 생성 로그 기반 실시간 통계</span></div>
+            <div class="grafana-preview-wrap" id="grafana-open" role="button" tabindex="0">
+              <iframe class="gpanel gpanel-preview" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0" tabindex="-1"></iframe>
+              <div class="grafana-overlay">
+                <span class="grafana-overlay-text">전체 대시보드 보기 ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card brut-card reveal-right" id="p-redstone">
+        <div class="brut-year">2025</div>
+        <div class="brut-body">
+          <div class="brut-head">
+            <div>
+              <h3 class="brut-title">redstone</h3>
+              <p class="brut-sub">게임 아이템 거래 커뮤니티 포털</p>
+            </div>
+            <span class="brut-period">2025 — 개인 토이 프로젝트</span>
+          </div>
+          <div class="brut-tags">
+            <span class="btag btag-ai">AI 구현</span>
+            <span class="btag">Node.js</span>
+            <span class="btag">Express</span>
+            <span class="btag">MongoDB</span>
+            <span class="btag">Docker</span>
+            <span class="btag">Nginx</span>
+          </div>
+          <ul class="brut-list">
+            <li>게임 아이템 매매 게시판, 쪽지함, 관리자 패널 전체 기능을 단독 설계/구현</li>
+            <li>Express 세션 기반 인증, MongoDB 데이터 저장, Discord 계정 연동</li>
+            <li>Docker Compose + Nginx 서브패스 라우팅으로 단일 도메인 멀티 서비스 배포</li>
+            <li>홈서버(VirtualBox VM) 운영 (SSL 자동 갱신, 재부팅 자동 복구)</li>
+          </ul>
+          <div class="rs-demo-wrap">
+            <div class="grafana-label">
+              <span class="grafana-dot"></span> LIVE DEMO
+              <span class="grafana-label-note">— 게스트 계정으로 체험 가능</span>
+            </div>
+            <a class="rs-preview-wrap" href="https://skydev.ddns.net/redstone" target="_blank" rel="noopener">
+              <img class="rs-preview-img" src="redstone-preview.png" alt="붉은보석 거래 포탈 대시보드" loading="lazy"/>
+              <div class="grafana-overlay">
+                <span class="grafana-overlay-text">체험하기 ↗</span>
+              </div>
+            </a>
+            <div class="rs-creds">
+              <span class="rs-creds-item">
+                <span class="rs-creds-key">ID</span>
+                <code class="rs-creds-val">guest</code>
+              </span>
+              <span class="rs-creds-sep">,</span>
+              <span class="rs-creds-item">
+                <span class="rs-creds-key">PW</span>
+                <code class="rs-creds-val">guest1234</code>
+              </span>
+              <span class="rs-creds-sep">,</span>
+              <span class="rs-creds-item">
+                <span class="rs-creds-key">URL</span>
+                <code class="rs-creds-val">skydev.ddns.net/redstone</code>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="section section-rel" id="skills">
+    <div class="section-bg-num" aria-hidden="true">03</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <span class="label-text">Skills</span>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-group">
+          <span class="sg-label">Core</span>
+          <span class="stag main">Spring Boot</span>
+          <span class="stag main">Java</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">DB</span>
+          <span class="stag">MySQL</span>
+          <span class="stag">MariaDB</span>
+          <span class="stag">PostgreSQL</span>
+          <span class="stag">Redis</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Stream</span>
+          <span class="stag hi">Kafka</span>
+          <span class="stag hi">Flink</span>
+          <span class="stag">RabbitMQ</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Infra</span>
+          <span class="stag hi">Docker</span>
+          <span class="stag hi">Nginx</span>
+          <span class="stag">Jenkins</span>
+          <span class="stag">Shell Script</span>
+          <span class="stag">Cron</span>
+          <span class="stag">DRBD</span>
+        </div>
+        <div class="skill-group">
+          <span class="sg-label">Front</span>
+          <span class="stag dim">React</span>
+          <span class="stag dim">JSP</span>
+          <span class="stag dim">jQuery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="section section-rel" id="about">
+    <div class="section-bg-num" aria-hidden="true">04</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">04</span>
+        <span class="label-text">About</span>
+      </div>
+      <div class="about-meta">
+        <span class="about-badge available">구직중</span>
+        <span class="about-location">서울 , 경기 , 대전 , 재택 가능</span>
+      </div>
+      <blockquote class="about-quote-big">
+        문서화되지 않은 시스템을<br/>
+        인계받아 처음부터 혼자 분석하고,<br/>
+        끝까지 책임지는 방식으로<br/>
+        일해왔습니다.
+      </blockquote>
+      <div class="about-terminal">
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">인계 직후 운영 리스크 확인 → 안정화</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">설계 , 배포 , 장애 대응 , 전체 스택 단독 운영</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">신기술보다 운영 안정성 , 문제 해결 속도 우선</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">SI/솔루션 출신, 빠른 파악, 빠른 실행</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-text">좋은 팀과 실질적인 문제를 함께 풀고 싶습니다.</span></div>
+        <div class="terminal-line"><span class="t-prompt">$</span><span class="t-cursor">_</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="section section-rel" id="contact">
+    <div class="section-bg-num" aria-hidden="true">05</div>
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">05</span>
+        <span class="label-text">Contact</span>
+      </div>
+      <div class="contact-links">
+        <a class="clink" href="https://github.com/sky14786" target="_blank">
+          <span class="clink-label">GitHub</span>
+          <span class="clink-sub">github.com/sky14786</span>
+          <span class="clink-arr">↗</span>
+        </a>
+        <a class="clink" id="email-link" href="#">
+          <span class="clink-label">Email</span>
+          <span class="clink-sub" id="email-text">———</span>
+          <span class="clink-arr">→</span>
+        </a>
+        <a class="clink" href="KAKAO_LINK_HERE" target="_blank">
+          <span class="clink-label">KakaoTalk</span>
+          <span class="clink-sub">오픈채팅</span>
+          <span class="clink-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">JuneYoung Kim</span>
+      <a class="footer-gh" href="https://github.com/sky14786" target="_blank">GitHub ↗</a>
+    </div>
+  </footer>
+
+  <!-- ── THEME SWITCHER (임시) ── -->
+  <div id="theme-sw">
+    <span class="tsw-label">COLOR THEME</span>
+    <div class="tsw-panel">
+      <button class="tsw-dot"        data-t="lime"    data-name="Lime"    style="--c:#a3e635"></button>
+      <button class="tsw-dot"        data-t="indigo"  data-name="Indigo"  style="--c:#4338ca"></button>
+      <button class="tsw-dot"        data-t="orange"  data-name="Orange"  style="--c:#ea580c"></button>
+      <button class="tsw-dot"        data-t="forest"  data-name="Forest"  style="--c:#166534"></button>
+      <button class="tsw-dot"        data-t="crimson" data-name="Crimson" style="--c:#dc2626"></button>
+      <button class="tsw-dot"        data-t="olive"   data-name="Olive"   style="--c:#65a30d"></button>
+      <button class="tsw-dot active" data-t="violet"  data-name="Violet"  style="--c:#7c3aed"></button>
+    </div>
+  </div>
+
+  <!-- ARCH LIGHTBOX -->
+  <div id="arch-lightbox">
+    <div id="arch-lightbox-inner">
+      <button id="arch-lightbox-close">✕</button>
+      <span id="arch-lightbox-esc">ESC 또는 바깥 클릭으로 닫기</span>
+    </div>
+  </div>
+
+  <!-- GRAFANA MODAL -->
+  <div id="grafana-modal" class="grafana-modal hidden">
+    <div class="grafana-modal-backdrop" id="grafana-modal-close"></div>
+    <div class="grafana-modal-box">
+
+      <div class="gm-header">
+        <div class="gm-header-left">
+          <div class="gm-title-row">
+            <div class="gm-live-badge">
+              <span class="grafana-dot"></span><span class="gm-live-text">LIVE</span>
+            </div>
+            <h3 class="gm-title">metric-stream</h3>
+          </div>
+          <p class="gm-desc">실시간 서버 API 로그 수집 파이프라인 <span class="gm-live-note">— 임의 생성 로그 기반 실시간 통계</span></p>
+          <div class="gm-tags">
+            <span class="gm-tag">Kafka 3.9</span>
+            <span class="gm-tag">Spring Boot</span>
+            <span class="gm-tag">PostgreSQL 16</span>
+            <span class="gm-tag">Grafana</span>
+            <span class="gm-tag">Docker</span>
+          </div>
+        </div>
+        <div class="gm-header-right">
+          <a class="gm-github" href="https://github.com/sky14786/metric-stream" target="_blank">GitHub ↗</a>
+          <button class="grafana-modal-x" id="grafana-modal-x">✕</button>
+        </div>
+      </div>
+
+      <div class="gm-meta">
+        <div class="gm-arch-flow">
+          <span class="gm-af-node">generator</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">Kafka</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">consumer</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node">PostgreSQL</span>
+          <span class="gm-af-sep">→</span>
+          <span class="gm-af-node hi">Grafana</span>
+        </div>
+        <div class="gm-badges">
+          <span class="gm-badge">20 servers</span>
+          <span class="gm-badge">4 regions</span>
+          <span class="gm-badge">~900 logs/min</span>
+        </div>
+      </div>
+
+      <div class="grafana-modal-grid">
+        <iframe class="gpanel gm-hero" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=5&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        <div class="grafana-modal-stats">
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=1&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=2&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=3&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+          <iframe class="gpanel gm-stat" data-src="https://skydev.ddns.net/metric/d-solo/metric-stream-v1/metric-stream?orgId=1&panelId=4&from=now-30m&to=now&refresh=30s" frameborder="0"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
