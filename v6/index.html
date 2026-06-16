@@ -760,12 +760,19 @@
       position: fixed;
       bottom: 28px; right: 28px;
       z-index: 8000;
-      display: flex; flex-direction: row; align-items: center; gap: 6px;
+    }
+    .vsw-panel {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border-h);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      padding: 8px 10px;
+      border-radius: 10px;
     }
     .vsw-dot {
       height: 24px; padding: 0 9px;
       display: flex; align-items: center; justify-content: center;
-      background: var(--surface);
+      background: var(--surface2);
       color: var(--text);
       border: 1.5px solid var(--text);
       border-radius: 6px;
@@ -1309,13 +1316,15 @@
 
   <!-- ── VERSION SWITCHER ── -->
   <div id="version-sw">
-    <a class="vsw-dot"        href="../v1/" data-name="Light">v1</a>
-    <a class="vsw-dot"        href="../v2/" data-name="Neobrutalism">v2</a>
-    <a class="vsw-dot"        href="../v3/" data-name="White Glass">v3</a>
-    <a class="vsw-dot"        href="../v4/" data-name="Minimal">v4</a>
-    <a class="vsw-dot"        href="../v5/" data-name="Editorial">v5</a>
-    <a class="vsw-dot active" href="../v6/" data-name="Spatial Dark">v6</a>
-    <a class="vsw-dot"        href="../v7/" data-name="Ruled Paper">v7</a>
+    <div class="vsw-panel">
+      <a class="vsw-dot"        href="../v1/" data-name="Light">v1</a>
+      <a class="vsw-dot"        href="../v2/" data-name="Neobrutalism">v2</a>
+      <a class="vsw-dot"        href="../v3/" data-name="White Glass">v3</a>
+      <a class="vsw-dot"        href="../v4/" data-name="Minimal">v4</a>
+      <a class="vsw-dot"        href="../v5/" data-name="Editorial">v5</a>
+      <a class="vsw-dot active" href="../v6/" data-name="Spatial Dark">v6</a>
+      <a class="vsw-dot"        href="../v7/" data-name="Ruled Paper">v7</a>
+    </div>
   </div>
 </body>
 </html>
