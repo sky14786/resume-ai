@@ -68,7 +68,7 @@
 - **스택**: Spring Boot, JSP, jQuery, MySQL
 
 **불릿**
-1. 팀장이 설계한 어드민 MVC 아키텍처를 Spring Boot + JSP로 전체 구현
+1. 설계된 어드민 MVC 아키텍처를 Spring Boot + JSP로 전체 구현
 2. 콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발
 3. 광고 활성화, 결제 수단 관리 UI 구현
 4. jQuery AJAX 비동기 처리, 페이지 전환 없이 실시간 데이터 갱신
