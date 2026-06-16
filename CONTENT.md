@@ -127,3 +127,11 @@
 ## 9. Contact
 
 GitHub(github.com/sky14786) / Email(obfuscated) / KakaoTalk(준비중 — `KAKAO_LINK_HERE` 플레이스홀더)
+
+---
+
+## 10. Footer 메타 노트 (2026-06-16 v2에 신규 추가)
+
+> resume-ai 사이트 자체의 구성을 방문자(헤드헌터·기술 리드)에게 짧게 보여주기 위한 노트. 화려한 아키텍처 다이어그램 대신 작게.
+
+"정적 페이지로 GitHub → Cloudflare Pages에 배포됩니다. 경력 콘텐츠는 사실 검증을 거쳤고, 페이지 구현은 AI(Claude)에 위임했습니다."
