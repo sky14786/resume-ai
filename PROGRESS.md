@@ -150,7 +150,12 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 - [x] `_headers` 파일 신설 (Cloudflare Pages) — Cache-Control no-cache, X-Robots-Tag noindex 추가. robots.txt/meta robots는 기존에 있었음
 - [x] v2 모바일(≤768px)에서 Grafana 미리보기 클릭 시 모달 대신 새 창으로 전체 대시보드(`/d/metric-stream-v1/metric-stream`, 패널 5개 전부) 연결 — 모달 그리드가 좁은 화면에서 비좁아 보이는 문제 회피
 - [x] (별도 레포) metric-stream `/metric/` nginx 프록시에 WebSocket 업그레이드 헤더 추가 — Grafana 실시간 라이브 연결(`wss://.../api/live/ws`) 실패 수정. VM 재배포 필요(미완료)
-- [ ] IPTV/병원/모니터링 다이어그램 변경사항 v1,v3~v7에 전파 필요 (아직 v2만 반영)
+- [x] IPTV/병원/모니터링 다이어그램 변경사항 v1,v3~v7 전파 완료
+  - v1: 병원FIREWALL+IPTV STB/ROUTER/FIREWALL+WACS 재구성+모바일 Grafana 새탭 (script.js)
+  - v3/v4: 병원FIREWALL+IPTV(3 DB클러스터 포함 +384이동)+WACS Pacemaker 박스 수정+모바일 Grafana
+  - v5: 병원FIREWALL만 (IPTV/WACS 다이어그램 없음)+모바일 Grafana
+  - v6: 병원FIREWALL만 (IPTV/WACS 다이어그램 없음, height=310 스타일 맞춤)+모바일 Grafana
+  - v7: 병원FIREWALL+IPTV(3 DB클러스터 +384이동)+WACS Pacemaker 박스 수정 (Grafana는 직접링크라 모달 없음)
 
 ### 이번 세션 완료 (2026-06-13)
 - [x] v13 신규 생성 — White Glass 테마 (순백 배경, 인디고 액센트, 글래스모피즘)
