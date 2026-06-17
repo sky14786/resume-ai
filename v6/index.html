@@ -997,9 +997,9 @@
             <li>팀장/레드마인/고객사 DM 등 다채널 요구사항을 직접 접수해 우선순위에 따라 처리</li>
             <li>현지 출장 포함 고객사 담당자와 직접 소통 (AI 번역 활용)</li>
             <li>외부 시스템(STB, CMS, DBS) API 유지보수 및 변경 대응</li>
-            <li><span class="li-ctx">Slave DB에서 파티션 DDL 실행 → binlog 불일치로 복제 중단</span>→ 해당 테이블 별도 DB로 물리 이전 , Master에서만 DDL 실행하도록 재구성</li>
-            <li><span class="li-ctx">DB 파티션 생성/삭제 수동 관리로 디스크 포화 반복</span>→ 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
-            <li><span class="li-ctx">Redis 캐시 구성은 있었으나 write-through 미적용, 캐시 미스 빈발</span>→ write-through 전략 적용으로 미스율 감소 , 응답 속도 안정화</li>
+            <li><span class="li-ctx">Slave DB에서 파티션 DDL 실행 → binlog 불일치로 복제 중단</span>→ 해당 테이블을 별도 DB로 물리 이전하고 Master에서만 DDL을 실행하도록 재구성</li>
+            <li><span class="li-ctx">DB 파티션 생성/삭제를 수동 관리해 디스크 포화가 반복</span>→ 파티션 자동 생성/삭제 설정으로 디스크 운영 정상화</li>
+            <li><span class="li-ctx">Redis 캐시는 있었으나 write-through 미적용으로 캐시 미스가 잦음</span>→ write-through 전략 적용으로 미스율 감소, 응답 속도 안정화</li>
             <li>분기별 전체 서버 리소스(CPU, 메모리, 디스크) 및 프로세스 구동 여부 점검, 보고서 제출</li>
           </ul>
         </div>
@@ -1024,9 +1024,9 @@
             <span class="stat-badge">30초 단위 수집</span>
           </div>
           <ul class="card-list">
-            <li><span class="li-ctx">미사용 상태로 방치된 수집 시스템</span>→ AI 기반 장애 예측 목적으로 Telegraf → Kafka → Flink 파이프라인 재구축</li>
-            <li><span class="li-ctx">전체 수집 데이터 조회로 Chart.js 렌더링 지연</span>→ 집계 단위 조정으로 사용 가능한 수준으로 개선</li>
-            <li><span class="li-ctx">pgpool HA 구성했으나 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환 , DB 무중단 HA 운영</li>
+            <li><span class="li-ctx">미사용 상태로 방치된 수집 시스템</span>→ AI 기반 장애 예측을 위해 Telegraf → Kafka → Flink 파이프라인 재구축</li>
+            <li><span class="li-ctx">전체 수집 데이터 조회로 Chart.js 렌더링이 지연</span>→ 집계 단위를 조정해 사용 가능한 수준으로 개선</li>
+            <li><span class="li-ctx">pgpool HA를 구성했으나 장애 테스트 시 다운타임 과다</span>→ DRBD + Pacemaker로 전환, DB 무중단 HA 운영</li>
             <li>수집 지표 기준치 설정 UI 개발 (발송 API는 서버에서 제공)</li>
             <li>React 기반 실시간 모니터링 대시보드 개발 (에러 발생 서버 수, 전체 서버 수, 에러율 시각화)</li>
           </ul>
@@ -1051,7 +1051,7 @@
             <li>설계된 어드민 MVC 아키텍처를 Spring Boot + JSP로 전체 구현</li>
             <li>콘텐츠 뷰어, 사용자 관리, 환경설정, STB 단말 현황 기능 개발</li>
             <li>광고 활성화, 결제 수단 관리 UI 구현</li>
-            <li>jQuery AJAX 비동기 처리, 페이지 전환 없이 실시간 데이터 갱신</li>
+            <li>jQuery AJAX 비동기 처리로 페이지 전환 없이 실시간 데이터 갱신</li>
           </ul>
         </div>
 
