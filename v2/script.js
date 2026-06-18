@@ -464,6 +464,25 @@ const spyObs = new IntersectionObserver(entries => {
 spySections.forEach(s => spyObs.observe(s));
 
 /* =============================================
+   VISITOR NOTIFY — Discord Webhook
+   ============================================= */
+(function() {
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+  const ver = (location.pathname.match(/\/(v\d+)\//) || [])[1] || 'v2';
+  const ref = document.referrer || 'direct';
+  const mobile = /Mobi|Android/i.test(navigator.userAgent);
+  fetch('https://discord.com/api/webhooks/1517092143833944155/VMv4Lrugk2MFg4H2AMofZYlDEzV871fIlR5yMZRxJCHB89OQkCfHEmCvj51K08tjYY9V', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ embeds: [{ title: '👀 이력서 방문', color: 0xa3e635, fields: [
+      { name: '버전', value: ver, inline: true },
+      { name: '디바이스', value: mobile ? '📱 모바일' : '🖥️ 데스크탑', inline: true },
+      { name: '유입', value: ref.length > 80 ? ref.slice(0, 80) + '…' : ref, inline: false }
+    ], timestamp: new Date().toISOString() }] })
+  }).catch(() => {});
+})();
+
+/* =============================================
    THEME SWITCHER
    ============================================= */
 const THEMES = {
