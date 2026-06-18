@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- White background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Top indigo accent bar -->
+  <rect x="0" y="0" width="1200" height="5" fill="#6366f1"/>
+
+  <!-- Left indigo vertical accent -->
+  <rect x="80" y="100" width="3" height="200" fill="#6366f1"/>
+
+  <!-- Name -->
+  <text x="104" y="204"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="84" font-weight="800" fill="#1e1e2e">JuneYoung</text>
+  <text x="104" y="294"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="84" font-weight="800" fill="#6366f1">Kim</text>
+
+  <!-- Role + separator -->
+  <text x="104" y="342"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="16" fill="#9ca3af" letter-spacing="1">Backend Engineer · System Operator</text>
+
+  <!-- Description -->
+  <text x="104" y="378"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="14" fill="#c4c4d0">혼자서 시스템 전체를 책임지는 엔지니어.</text>
+
+  <!-- Stat cards row -->
+  <!-- Card 1 -->
+  <rect x="80" y="430" width="310" height="148" rx="8"
+    fill="#f5f5ff" stroke="#e0e7ff" stroke-width="1.5"/>
+  <text x="116" y="500"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="52" font-weight="800" fill="#6366f1">5+</text>
+  <text x="116" y="526"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="10" fill="#9ca3af" letter-spacing="3">YEARS EXPERIENCE</text>
+
+  <!-- Card 2 -->
+  <rect x="414" y="430" width="310" height="148" rx="8"
+    fill="#f5f5ff" stroke="#e0e7ff" stroke-width="1.5"/>
+  <text x="450" y="494"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="42" font-weight="800" fill="#6366f1">100만+</text>
+  <text x="450" y="526"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="10" fill="#9ca3af" letter-spacing="3">IPTV USERS</text>
+
+  <!-- Card 3 -->
+  <rect x="748" y="430" width="310" height="148" rx="8"
+    fill="#f5f5ff" stroke="#e0e7ff" stroke-width="1.5"/>
+  <text x="784" y="500"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="52" font-weight="800" fill="#6366f1">350+</text>
+  <text x="784" y="526"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="10" fill="#9ca3af" letter-spacing="3">SERVERS</text>
+
+  <!-- URL bottom right -->
+  <text x="1100" y="598" text-anchor="end"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="11" fill="#d1d5db" letter-spacing="2">juneyoung.pages.dev</text>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#080818"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="880" cy="180" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="160" cy="520" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Glow orbs -->
+  <rect width="1200" height="630" fill="url(#orb1)"/>
+  <rect width="1200" height="630" fill="url(#orb2)"/>
+
+  <!-- Glass card (main) -->
+  <rect x="64" y="70" width="720" height="490" rx="14"
+    fill="rgba(255,255,255,0.05)"
+    stroke="rgba(255,255,255,0.1)"
+    stroke-width="1"/>
+  <!-- Highlight edge at top -->
+  <rect x="64" y="70" width="720" height="1.5" rx="14"
+    fill="rgba(255,255,255,0.22)"/>
+
+  <!-- Content inside glass card -->
+  <!-- Eyebrow label -->
+  <text x="104" y="148"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="11" fill="rgba(99,102,241,0.85)" letter-spacing="4">BACKEND ENGINEER</text>
+
+  <!-- Name -->
+  <text x="104" y="270"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="90" font-weight="700" fill="rgba(255,255,255,0.94)">JuneYoung</text>
+  <text x="104" y="368"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="90" font-weight="700" fill="rgba(99,102,241,0.92)">Kim.</text>
+
+  <!-- Description -->
+  <text x="104" y="430"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="15" fill="rgba(255,255,255,0.38)">혼자서 시스템 전체를 책임지는 엔지니어.</text>
+
+  <!-- URL in card -->
+  <text x="104" y="520"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="12" fill="rgba(255,255,255,0.2)" letter-spacing="2">juneyoung.pages.dev</text>
+
+  <!-- Right side: stat badges -->
+  <!-- Badge 1 -->
+  <rect x="840" y="155" width="292" height="88" rx="10"
+    fill="rgba(99,102,241,0.1)"
+    stroke="rgba(99,102,241,0.28)"
+    stroke-width="1"/>
+  <text x="870" y="204"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="40" font-weight="700" fill="rgba(99,102,241,1)">5+</text>
+  <text x="870" y="228"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="10" fill="rgba(255,255,255,0.3)" letter-spacing="3">YEARS EXP</text>
+
+  <!-- Badge 2 -->
+  <rect x="840" y="263" width="292" height="88" rx="10"
+    fill="rgba(99,102,241,0.1)"
+    stroke="rgba(99,102,241,0.28)"
+    stroke-width="1"/>
+  <text x="870" y="308"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="32" font-weight="700" fill="rgba(99,102,241,1)">100만+</text>
+  <text x="870" y="336"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="10" fill="rgba(255,255,255,0.3)" letter-spacing="3">IPTV USERS</text>
+
+  <!-- Badge 3 -->
+  <rect x="840" y="371" width="292" height="88" rx="10"
+    fill="rgba(99,102,241,0.1)"
+    stroke="rgba(99,102,241,0.28)"
+    stroke-width="1"/>
+  <text x="870" y="420"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="40" font-weight="700" fill="rgba(99,102,241,1)">350+</text>
+  <text x="870" y="446"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="10" fill="rgba(255,255,255,0.3)" letter-spacing="3">SERVERS</text>
+</svg>

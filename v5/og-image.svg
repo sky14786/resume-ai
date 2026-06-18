@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- White background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Red masthead bar -->
+  <rect x="0" y="0" width="1200" height="88" fill="#dc2626"/>
+
+  <!-- Masthead: role text -->
+  <text x="80" y="58"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="40" font-weight="700" fill="#ffffff" letter-spacing="-0.5">BACKEND ENGINEER</text>
+
+  <!-- Masthead: URL -->
+  <text x="1120" y="58" text-anchor="end"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="12" fill="rgba(255,255,255,0.55)" letter-spacing="2">juneyoung.pages.dev</text>
+
+  <!-- Large editorial name -->
+  <text x="80" y="252"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="118" font-weight="700" fill="#0a0a0a" letter-spacing="-2">JuneYoung</text>
+  <text x="80" y="372"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="118" font-weight="700" fill="#0a0a0a" letter-spacing="-2">Kim.</text>
+
+  <!-- Red rule -->
+  <rect x="80" y="396" width="440" height="3" fill="#dc2626"/>
+  <rect x="80" y="404" width="440" height="1" fill="rgba(0,0,0,0.1)"/>
+
+  <!-- Bio italic -->
+  <text x="80" y="444"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="17" fill="#555" font-style="italic">혼자서 시스템 전체를 책임지는 엔지니어.</text>
+
+  <!-- Editorial stats: columns separated by rules -->
+  <text x="80" y="516"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="46" font-weight="700" fill="#dc2626">5+</text>
+  <text x="80" y="543"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="9" fill="#bbb" letter-spacing="4">YEARS</text>
+
+  <rect x="204" y="486" width="1" height="72" fill="#e5e5e5"/>
+
+  <text x="224" y="516"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="46" font-weight="700" fill="#dc2626">100만+</text>
+  <text x="224" y="543"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="9" fill="#bbb" letter-spacing="4">USERS</text>
+
+  <rect x="448" y="486" width="1" height="72" fill="#e5e5e5"/>
+
+  <text x="468" y="516"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="46" font-weight="700" fill="#dc2626">350+</text>
+  <text x="468" y="543"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="9" fill="#bbb" letter-spacing="4">SERVERS</text>
+
+  <!-- Right side red accent stripe -->
+  <rect x="1180" y="88" width="20" height="542" fill="#dc2626" opacity="0.9"/>
+  <rect x="1120" y="88" width="60" height="542" fill="#dc2626" opacity="0.04"/>
+</svg>

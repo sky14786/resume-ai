@@ -1,66 +1,70 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#0891b2"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background -->
+  <!-- Beige background -->
   <rect width="1200" height="630" fill="#faf9f6"/>
 
-  <!-- BG decorative text -->
-  <text x="1180" y="570" text-anchor="end"
-    font-family="Arial Black, Impact, sans-serif"
-    font-size="330" font-weight="900"
-    fill="rgba(0,0,0,0.025)" letter-spacing="-10">JY.</text>
+  <!-- Outer thick frame -->
+  <rect x="18" y="18" width="1164" height="594" fill="none" stroke="#0c0c0c" stroke-width="5"/>
 
-  <!-- Label -->
-  <text x="88" y="158"
-    font-family="'Courier New', monospace"
-    font-size="13" fill="#0891b2" letter-spacing="4">// BACKEND ENGINEER , SYSTEM OPERATOR</text>
+  <!-- Lime left panel -->
+  <rect x="18" y="18" width="462" height="594" fill="#a3e635"/>
 
-  <!-- Name: JuneYoung -->
-  <text x="86" y="278"
-    font-family="Arial Black, 'Arial Bold', sans-serif"
-    font-size="90" font-weight="900" fill="#0c0c0c">JuneYoung</text>
+  <!-- Big initials on lime -->
+  <text x="249" y="230" text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="190" font-weight="900" fill="#0c0c0c" letter-spacing="-10">JY</text>
 
-  <!-- Name: Kim. (violet) -->
-  <text x="86" y="368"
-    font-family="Arial Black, 'Arial Bold', sans-serif"
-    font-size="90" font-weight="900" fill="#7c3aed">Kim.</text>
+  <!-- Role label below initials -->
+  <text x="249" y="278" text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="13" fill="#0c0c0c" letter-spacing="4">BACKEND ENGINEER</text>
+
+  <!-- Horizontal rule on lime -->
+  <rect x="85" y="296" width="330" height="3" fill="#0c0c0c"/>
+
+  <!-- Stat boxes on lime — brutalist style -->
+  <!-- 5+ yrs -->
+  <rect x="92" y="316" width="115" height="78" fill="#0c0c0c"/>
+  <rect x="88" y="312" width="115" height="78" fill="#faf9f6" stroke="#0c0c0c" stroke-width="3"/>
+  <text x="100" y="356" font-family="'Courier New', Courier, monospace" font-size="32" font-weight="900" fill="#0c0c0c">5+</text>
+  <text x="100" y="377" font-family="'Courier New', Courier, monospace" font-size="9" fill="#555" letter-spacing="2">YEARS</text>
+
+  <!-- 100만+ -->
+  <rect x="228" y="316" width="115" height="78" fill="#0c0c0c"/>
+  <rect x="224" y="312" width="115" height="78" fill="#faf9f6" stroke="#0c0c0c" stroke-width="3"/>
+  <text x="236" y="349" font-family="'Courier New', Courier, monospace" font-size="22" font-weight="900" fill="#0c0c0c">100만+</text>
+  <text x="236" y="377" font-family="'Courier New', Courier, monospace" font-size="9" fill="#555" letter-spacing="2">USERS</text>
+
+  <!-- 350+ -->
+  <rect x="366" y="316" width="97" height="78" fill="#0c0c0c"/>
+  <rect x="362" y="312" width="97" height="78" fill="#faf9f6" stroke="#0c0c0c" stroke-width="3"/>
+  <text x="374" y="356" font-family="'Courier New', Courier, monospace" font-size="28" font-weight="900" fill="#0c0c0c">350+</text>
+  <text x="374" y="377" font-family="'Courier New', Courier, monospace" font-size="9" fill="#555" letter-spacing="2">SERVERS</text>
+
+  <!-- URL on lime -->
+  <text x="249" y="572" text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="12" fill="#0c0c0c" opacity="0.7" letter-spacing="1">juneyoung.pages.dev</text>
+
+  <!-- Right side: name block -->
+  <!-- "JuneYoung" -->
+  <text x="515" y="270"
+    font-family="'Arial Black', 'Arial Bold', Impact, sans-serif"
+    font-size="86" font-weight="900" fill="#0c0c0c">JuneYoung</text>
+
+  <!-- "Kim." in lime -->
+  <text x="515" y="362"
+    font-family="'Arial Black', 'Arial Bold', Impact, sans-serif"
+    font-size="86" font-weight="900" fill="#a3e635">Kim.</text>
+
+  <!-- Decorative underline -->
+  <rect x="515" y="380" width="5" height="30" fill="#0c0c0c"/>
+  <rect x="526" y="393" width="520" height="4" fill="#0c0c0c"/>
 
   <!-- Description -->
-  <text x="88" y="428" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#999">혼자서 시스템 전체를 책임지는 엔지니어.</text>
-  <text x="88" y="454" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#999">안정화, 운영, 파이프라인 — 끝까지 다 합니다.</text>
-
-  <!-- URL accent bar + text -->
-  <rect x="88" y="492" width="4" height="26" fill="#7c3aed"/>
-  <text x="104" y="510"
-    font-family="'Courier New', monospace"
-    font-size="13" fill="#bbb" letter-spacing="2">juneyoung.pages.dev</text>
-
-  <!-- Stat Card 1: 5+ Years -->
-  <rect x="728" y="151" width="212" height="92" fill="#0c0c0c"/>
-  <rect x="724" y="147" width="212" height="92" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
-  <text x="748" y="186" font-family="'Courier New', monospace" font-size="36" font-weight="700" fill="#7c3aed">5+</text>
-  <text x="748" y="204" font-family="Arial, sans-serif" font-size="10" fill="#bbb" letter-spacing="4">YEARS</text>
-  <text x="748" y="220" font-family="'Courier New', monospace" font-size="9" fill="#0891b2" letter-spacing="3">EXPERIENCE</text>
-
-  <!-- Stat Card 2: 100만+ Users -->
-  <rect x="728" y="263" width="212" height="92" fill="#0c0c0c"/>
-  <rect x="724" y="259" width="212" height="92" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
-  <text x="748" y="298" font-family="'Courier New', monospace" font-size="32" font-weight="700" fill="#7c3aed">100만+</text>
-  <text x="748" y="316" font-family="Arial, sans-serif" font-size="10" fill="#bbb" letter-spacing="4">USERS</text>
-  <text x="748" y="332" font-family="'Courier New', monospace" font-size="9" fill="#0891b2" letter-spacing="3">해외 IPTV</text>
-
-  <!-- Stat Card 3: 350+ Servers -->
-  <rect x="728" y="375" width="212" height="92" fill="#0c0c0c"/>
-  <rect x="724" y="371" width="212" height="92" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
-  <text x="748" y="410" font-family="'Courier New', monospace" font-size="36" font-weight="700" fill="#7c3aed">350+</text>
-  <text x="748" y="428" font-family="Arial, sans-serif" font-size="10" fill="#bbb" letter-spacing="4">SERVERS</text>
-  <text x="748" y="444" font-family="'Courier New', monospace" font-size="9" fill="#0891b2" letter-spacing="3">모니터링 시스템</text>
-
-  <!-- Bottom gradient bar -->
-  <rect x="0" y="624" width="1200" height="6" fill="url(#grad)"/>
+  <text x="515" y="440"
+    font-family="'Courier New', Courier, monospace"
+    font-size="15" fill="#444">혼자서 시스템 전체를 책임지는 엔지니어.</text>
+  <text x="515" y="462"
+    font-family="'Courier New', Courier, monospace"
+    font-size="14" fill="#888">Kafka · PostgreSQL · Docker · Spring Boot</text>
 </svg>

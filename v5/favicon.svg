@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#ffffff"/>
+  <rect x="0" y="0" width="32" height="9" fill="#dc2626"/>
+  <text x="16" y="28" text-anchor="middle" fill="#dc2626"
+        font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700">JY</text>
+</svg>
