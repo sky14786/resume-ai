@@ -2248,22 +2248,5 @@
       <a class="vsw-dot"        href="../v5/" data-name="Editorial">v5</a>
     </div>
   </div>
-  <script>
-  (function() {
-    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
-    const ver = (location.pathname.match(/\/(v\d+)\//) || [])[1] || 'v4';
-    const ref = document.referrer || 'direct';
-    const mobile = /Mobi|Android/i.test(navigator.userAgent);
-    fetch('https://discord.com/api/webhooks/1517092143833944155/VMv4Lrugk2MFg4H2AMofZYlDEzV871fIlR5yMZRxJCHB89OQkCfHEmCvj51K08tjYY9V', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ embeds: [{ title: '👀 이력서 방문', color: 0x6366f1, fields: [
-        { name: '버전', value: ver, inline: true },
-        { name: '디바이스', value: mobile ? '📱 모바일' : '🖥️ 데스크탑', inline: true },
-        { name: '유입', value: ref.length > 80 ? ref.slice(0, 80) + '…' : ref, inline: false }
-      ], timestamp: new Date().toISOString() }] })
-    }).catch(() => {});
-  })();
-  </script>
 </body>
 </html>
