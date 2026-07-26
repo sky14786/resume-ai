@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 작업 트리만 검사한다(--no-git). 히스토리가 깨끗한지 아직 확인하지 않았기
+      # 때문이다 — 확인 후에는 --no-git 을 떼면 전체 히스토리를 본다.
+      # 로컬 확인: docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.18.4 \
+      #             detect --source /repo --redact
+      - name: 시크릿 스캔 (작업 트리)
+        run: |
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.18.4 \
+            detect --no-git --source /repo --redact --verbose
+
+  redirect-target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 배포는 Cloudflare Pages이고 _redirects 가 / 를 특정 버전으로 보낸다.
+      # 그 대상이 없으면 사이트 첫 화면이 404가 된다(v8 처럼 index.html 없는
+      # 버전 디렉토리가 실제로 있으므로 기계로 막는다).
+      - name: _redirects 대상 존재 확인
+        run: |
+          set -eu
+          while read -r _ target _; do
+            [ -n "${target:-}" ] || continue
+            path=".${target%/}/index.html"
+            if [ ! -f "$path" ]; then
+              echo "::error::_redirects가 가리키는 $target 에 index.html이 없습니다"
+              exit 1
+            fi
+            echo "OK: $target → $path"
+          done < _redirects
