@@ -11,7 +11,22 @@
 
 ---
 
-## 1. 다기관 병원 환자중심 앱 (2025.08 — 2026.02)
+## 1. LDAR 환경규제 준수 시스템 유지보수 (2026.07 — 현재)
+
+- **부제**: 대형 석유화학 기업 환경규제 시스템 전담 유지보수
+- **스택**: Java, Spring MVC, MyBatis, SQL Server
+- **통계**: 화면/배치/리포트 238개 전수 분석 / 응답속도 최대 160배 개선
+
+**불릿 (before → after)**
+1. 로그인 직후 메인화면 응답 9~11초 → 반복 상관 서브쿼리를 집계 후 조인으로 재작성, 100~160배 단축(0.1초대)
+2. 통계 화면 다수가 최대 91초까지 타임아웃 → 동일 기법으로 재작성, 초 단위로 단축
+3. 문서화되지 않은 화면, 배치, 리포트 238개를 코드 전수 확인으로 산정해 고객사 업무량 조사 회신
+4. 컨트롤러 84%가 예외를 삼키고 항상 200을 반환해 장애가 은폐되는 구조 발견 → 이벤트 로깅, 에러 감지 체계 신설
+5. 수정 전후 브랜치를 별도 컨테이너로 동시 기동해 화면 58개 데이터, 응답시간을 전수 비교 검증
+
+---
+
+## 2. 다기관 병원 환자중심 앱 (2025.08 — 2026.02)
 
 - **부제**: 대형 병원 10개소 유지보수
 - **스택**: Spring Boot, MariaDB, Docker, Shell Script, Nginx, Pacemaker
@@ -26,7 +41,7 @@
 
 ---
 
-## 2. 태국 IPTV 플랫폼 (2021.01 — 2025.12)
+## 3. 태국 IPTV 플랫폼 (2021.01 — 2025.12)
 
 > 카드 제목에는 "태국" 표기 허용(익명화 예외), 어드민 카드 제목은 "해외 IPTV 플랫폼 어드민" 유지.
 
@@ -45,7 +60,7 @@
 
 ---
 
-## 3. 모니터링 시스템 재구축 (2022.06 — 2023.10)
+## 4. 모니터링 시스템 재구축 (2022.06 — 2023.10)
 
 - **부제**: 350대 서버 30초 단위 실시간 로그 수집 파이프라인
 - **스택**: Kafka, Flink, Docker, PostgreSQL, React, DRBD, Pacemaker
@@ -60,7 +75,7 @@
 
 ---
 
-## 4. 해외 IPTV 플랫폼 어드민 (2020.07 — 2021.01)
+## 5. 해외 IPTV 플랫폼 어드민 (2020.07 — 2021.01)
 
 > 입사 후 첫 프로젝트. 아키텍처 설계는 팀장 지시, 본인은 구현 담당.
 
@@ -76,7 +91,7 @@
 
 ---
 
-## 5. Projects — metric-stream (2026, 개인 토이 프로젝트)
+## 6. Projects — metric-stream (2026, 개인 토이 프로젝트)
 
 - **부제**: 실시간 서버 API 로그 수집 파이프라인
 - **스택**: AI 구현, Kafka, Spring Boot, PostgreSQL, Grafana, Docker, Java 17
@@ -87,7 +102,7 @@
 3. Grafana 대시보드로 요청량, 에러율, 응답시간 실시간 모니터링
 4. Docker Compose 한 명령으로 Kafka, DB, Grafana 전체 인프라 구동
 
-## 6. Projects — redstone (2025, 개인 토이 프로젝트)
+## 7. Projects — redstone (2025, 개인 토이 프로젝트)
 
 - **부제**: 게임 아이템 거래 커뮤니티 포털
 - **스택**: AI 구현, Node.js, Express, MongoDB, Docker, Nginx
@@ -100,17 +115,17 @@
 
 ---
 
-## 7. Skills
+## 8. Skills
 
-- **Core**: Spring Boot, Java
-- **DB**: MySQL, MariaDB, PostgreSQL, Redis
+- **Core**: Spring Boot, Spring MVC, Java, MyBatis
+- **DB**: MySQL, MariaDB, PostgreSQL, SQL Server, Redis
 - **Stream**: Kafka, Flink, RabbitMQ
 - **Infra**: Docker, Nginx, Jenkins, Shell Script, Cron, DRBD
 - **Front**: React, JSP, jQuery
 
 ---
 
-## 8. About
+## 9. About
 
 > 인용구: "낯선 시스템도 스스로 파악하고, 끝까지 책임지는 방식으로 일해왔습니다."
 > (v1은 "문서화되지 않은 시스템을 인계받아 처음부터 혼자 분석하고,..." 로 표현이 다름 — v2 기준으로 통일)
@@ -125,7 +140,7 @@
 
 ---
 
-## 9. Contact
+## 10. Contact
 
 GitHub(github.com/sky14786) / Email(obfuscated) / KakaoTalk(준비중 — `KAKAO_LINK_HERE` 플레이스홀더)
 

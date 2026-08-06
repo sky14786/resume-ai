@@ -70,9 +70,9 @@ Neobrutalism 기반의 라이트 테마. 두꺼운 선, 오프셋 그림자, 날
 > 2026-06-16 번호 재정렬: 기존 v7,v8,v13~v17 → v1~v7로 순서대로 재명명 (이전 v1~v6은 더 오래전에 폐기된 디자인이며 이 표와 무관)
 
 ```
-v1  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처, Projects 섹션(Grafana 임베딩) ← 현재 배포
+v1  라이트 테마, 플로팅 Pill 네브바, 컬러 스위처, Projects 섹션(Grafana 임베딩)
 v2  Neobrutalism + Impeccable 풀 워크플로우 완성본
-v3  White Glass — 순백 + 인디고 + 글래스모피즘
+v3  White Glass — 순백 + 인디고 + 글래스모피즘 ← 현재 배포(메인 확정, 2026-08-06)
 v4  Clean Minimal White
 v5  Heavy Editorial — Barlow Condensed, 빨강 액센트
 v6  Spatial Cards Dark
@@ -90,7 +90,7 @@ git clone https://github.com/sky14786/resume-ai.git
 cd resume-ai
 
 docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/html:ro" nginx:alpine
-# → http://localhost:5000/v1/ (v2~v7도 같은 포트, 경로만 변경)
+# → http://localhost:5000/v3/ (현재 배포 버전, v1/v2/v4~v7도 같은 포트, 경로만 변경)
 ```
 
 ---
@@ -104,7 +104,7 @@ GitHub (main push)
 ```
 
 - 빌드 명령: 없음 (정적 파일 직접 서빙)
-- 배포 디렉토리: `/v1` ⚠️ Cloudflare 대시보드의 Build output directory 설정이 과거 `/v7`로 되어 있었다면, 번호 재정렬에 맞춰 `/v1`로 직접 갱신 필요 (이 저장소 파일로는 그 설정을 확인/변경할 수 없음)
+- 배포 디렉토리: 저장소 루트 전체 (`wrangler.jsonc`의 `assets.directory: "."`). Cloudflare 대시보드의 Build output directory는 **빈 값(루트)** 으로 설정돼 있어야 함 — 과거 이 값이 특정 버전 폴더로 고정돼 모든 경로가 같은 버전만 반환하는 사고가 있었음(이 값은 대시보드 전용 설정이라 저장소 파일로는 확인·변경 불가)
 - `main` 브랜치 push → 1~2분 내 자동 반영
 
 ---

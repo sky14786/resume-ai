@@ -22,7 +22,10 @@
 
 > **⚠️ 2026-06-16 번호 재정렬**: 기존 v7,v8,v13,v14,v15,v16,v17 → v1~v7로 순서대로 재명명함(git mv, 내용은 그대로). 아래는 새 번호 기준. 이 표 이전에 존재했던 옛 v1~v6(루트 타임라인, Bento Grid, 네오브루탈리즘 Kinetic Typography 등)는 훨씬 이전에 이미 폐기된 디자인이며 번호만 재사용된 것 — 서로 다른 내용이니 혼동 주의.
 >
-> **현재 어느 버전이 메인 방향인지 미확정** — v2(Impeccable 완성), v3(White Glass), v5/v6/v7(신규 테마) 등이 동시에 존재. 다음 세션에서 정리 필요.
+> **2026-08-06 메인 버전 확정: v3(White Glass)**. `_redirects`가 이미 v3으로 라우팅하고
+> 있던 것과 일치시켜 확정하고 302→301(영구)로 변경, README도 v3 기준으로 수정함.
+> v1/v2/v4~v7은 계속 병행 유지(갤러리 성격) — 유지비 축소를 위한 보관용 다운그레이드는
+> 아직 미착수(다음 세션 후보).
 
 | 새 번호 | 이전 번호 | 테마 | 비고 |
 |---|---|---|---|
@@ -44,6 +47,17 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 ---
 
 ## 완료된 작업
+
+### 이번 세션 완료 (2026-08-06) — 메인 버전 확정 + LDAR_LTC 경력 항목 추가
+- [x] 메인 버전 v3(White Glass) 확정 — `_redirects` 302→301, README "현재 배포" 표기를
+      v1→v3로 정정, 로컬 실행 예시도 v3 기준으로 변경
+- [x] README의 낡은 "배포 디렉토리: `/v1`" 경고 문구 정리 — 이미 대시보드에서 빈 값(루트)으로
+      수정된 사실을 반영해 현재 상태 기준으로 재작성
+- [x] 루트 잔존 구버전(`index.html`/`style.css`/`script.js`) → `_old/`로 이동(git mv, 삭제 아님)
+- [x] `CONTENT.md`에 LDAR 환경규제 준수 시스템 유지보수(2026.07—현재) 항목을 1번(최신
+      경력)으로 추가, 기존 항목 번호 한 칸씩 밀림 — 고객사명은 NDA 대응 관례에 맞춰
+      "대형 석유화학 기업"으로 익명화
+- [x] v1~v7 전체에 위 경력 카드 반영
 
 ### 이번 세션 완료 (2026-06-16) — 버전 전환 위젯 + 컬러 기본값 정리
 - [x] v1, v2 기본 accent 컬러 Violet → Lime로 되돌림 (`--accent`/`--accent2`/`--ar`)
@@ -283,12 +297,13 @@ docker run -d --name resume-ai -p 5000:80 -v "F:/ai/resume-ai:/usr/share/nginx/h
 
 ```
 resume-ai/
-├── index.html         # 구버전 잔존 (루트, 사용 안 함)
-├── style.css
-├── script.js
+├── _old/              # 구버전 잔존 (2026-08-06 루트에서 이동, 사용 안 함)
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 ├── v1/                # 라이트 테마 + pill nav + 컬러 스위처 (구 v7)
 ├── v2/                # Neobrutalism + Impeccable 완성본, DESIGN.md/PRODUCT.md (구 v8)
-├── v3/                # White Glass — 순백+인디고+글래스모피즘 (구 v13)
+├── v3/                # White Glass — 순백+인디고+글래스모피즘 (구 v13) ← 메인(2026-08-06 확정)
 ├── v4/                # Clean Minimal White (구 v14)
 ├── v5/                # Heavy Editorial — Barlow Condensed, 빨강 액센트 (구 v15)
 ├── v6/                # Spatial Cards Dark (구 v16)
